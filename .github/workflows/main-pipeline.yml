@@ -35,9 +35,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
@@ -56,7 +53,8 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          DEPLOY_JSON=$(vercel deploy --prod --yes --token "$VERCEL_TOKEN" --json)
+          vercel build --prod --yes --token "$VERCEL_TOKEN"
+          DEPLOY_JSON=$(vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" --json)
           echo "$DEPLOY_JSON"
           DEPLOY_URL=$(python3 -c 'import json,sys; print(json.loads(sys.stdin.read())["url"])' <<< "$DEPLOY_JSON")
           echo "deployment_url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
