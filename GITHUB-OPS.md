@@ -39,6 +39,17 @@ Add these repository secrets:
 - **Main repo**: corporate site, trust pages, company-wide content.
 - **Service repo**: service landing pages, lead capture, intake forms, product/service experiments.
 
+### Service-site portfolio
+- `peptide-service` → core service funnel
+- `biostatx` → analytics / advisory
+- `genox-site` → R&D / biotech
+- `fitflow-website` → lifestyle / wellness
+- `brown-ai-peach` → AI/campaign experiment
+- `ticket-theta-six` → temporary campaign / test site
+- `brownbiotech` → legacy brand variant
+
+Use `SERVICE-PORTFOLIO.md` as the source of truth for lanes and lifecycle status.
+
 ---
 
 ## 3) Branch protection / PR rules
