@@ -15,6 +15,20 @@ This repository now has two GitHub Actions pipelines:
 - Target: the service-focused site
 - Canonical URL: `https://services.brownbio.tech`
 
+## 3) Service / site portfolio
+Brown Biotech uses multiple service and campaign sites. Keep them organized by lane, not by whoever built them first.
+
+- Main brand: `brownbio.tech`
+- Service hub: `services.brownbio.tech`
+- Core service: `peptide-service`
+- Analytics / advisory: `biostatx`
+- R&D / biotech: `genox-site`
+- Lifestyle / wellness: `fitflow-website`
+- Experimental / campaign: `brown-ai-peach`, `ticket-theta-six`
+- Legacy: `brownbiotech`
+
+See `SERVICE-PORTFOLIO.md` for the full grouping and lifecycle rules.
+
 ## Required GitHub secrets
 Create these in the repository settings:
 
