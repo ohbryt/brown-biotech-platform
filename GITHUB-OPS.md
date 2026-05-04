@@ -4,14 +4,14 @@ This document defines the repo / CI / deployment setup for Brown Biotech.
 
 ## 1) GitHub Secrets checklist
 
-### Main repo (`brown-biotech-website`)
+### Main repo (`brown-biotech-platform`)
 Add these repository secrets:
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID_MAIN`
 - `VERCEL_PROJECT_ID_SERVICE` *(only needed if the same repo also deploys a service branch)*
 
-### Service repo (`brown-biotech-services`)
+### Service repo (`brown-biotech-service`)
 Add these repository secrets:
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
@@ -32,11 +32,11 @@ Add these repository secrets:
 
 | Repo | Vercel Project | Canonical Domain | Aliases / Notes |
 |---|---|---|---|
-| `brown-biotech-website` | Main project | `https://brownbio.tech` | `https://www.brownbio.tech`, `https://brownbio.co.kr` |
-| `brown-biotech-services` | Service project | `https://services.brownbio.tech` | Service-specific intake / product landing pages |
+| `brown-biotech-platform` | Main project | `https://brownbio.tech` | `https://www.brownbio.tech` |
+| `brown-biotech-service` | Service project | `https://services.brownbio.tech` | Service-specific intake / product landing pages |
 
 ### Current recommended split
-- **Main repo**: corporate site, trust pages, Korea-facing official site, company-wide content.
+- **Main repo**: corporate site, trust pages, company-wide content.
 - **Service repo**: service landing pages, lead capture, intake forms, product/service experiments.
 
 ---
@@ -65,7 +65,7 @@ For PRs into protected branches, require:
 - Keep PRs small and scoped to one deploy target.
 - Include a short test note in the PR body.
 - If the PR changes deployment or domain mapping, include a verification note.
-- No direct pushes to `master` or `service` except emergency fixes.
+- No direct pushes to `main` or `service` except emergency fixes.
 
 ### Suggested PR template fields
 - Summary
@@ -80,19 +80,18 @@ For PRs into protected branches, require:
 
 ### Recommended repo set
 
-#### A. `brown-biotech-website`
+#### A. `brown-biotech-platform`
 Purpose:
 - Main corporate site
 - Trust / branding / company overview
-- Korea-facing official page
 - Main SEO and company narrative
 
 Deploys to:
 - `brownbio.tech`
 - `www.brownbio.tech`
-- `brownbio.co.kr`
 
-#### B. `brown-biotech-services`
+
+#### B. `brown-biotech-service`
 Purpose:
 - Service catalog
 - Lead capture

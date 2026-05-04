@@ -15,7 +15,6 @@ env:
   NEXT_PUBLIC_SITE_URL: https://brownbio.tech
   MAIN_DOMAIN: brownbio.tech
   WWW_DOMAIN: www.brownbio.tech
-  KR_DOMAIN: brownbio.co.kr
 
 jobs:
   build-and-deploy:
@@ -66,6 +65,3 @@ jobs:
         run: |
           vercel alias set "$DEPLOY_URL" "$MAIN_DOMAIN" --token "$VERCEL_TOKEN"
           vercel alias set "$DEPLOY_URL" "$WWW_DOMAIN" --token "$VERCEL_TOKEN"
-          if ! vercel alias set "$DEPLOY_URL" "$KR_DOMAIN" --token "$VERCEL_TOKEN"; then
-            echo "KR domain alias skipped for now; DNS/certificate setup is not ready"
-          fi
