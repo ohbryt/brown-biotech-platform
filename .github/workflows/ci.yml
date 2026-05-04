@@ -1,0 +1,36 @@
+name: Brown Biotech CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - service
+
+concurrency:
+  group: brown-biotech-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: "20"
+  NEXT_PUBLIC_SITE_URL: https://brownbio.tech
+
+jobs:
+  build:
+    name: Brown Biotech CI / build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
