@@ -66,4 +66,6 @@ jobs:
         run: |
           vercel alias set "$DEPLOY_URL" "$MAIN_DOMAIN" --token "$VERCEL_TOKEN"
           vercel alias set "$DEPLOY_URL" "$WWW_DOMAIN" --token "$VERCEL_TOKEN"
-          vercel alias set "$DEPLOY_URL" "$KR_DOMAIN" --token "$VERCEL_TOKEN"
+          if ! vercel alias set "$DEPLOY_URL" "$KR_DOMAIN" --token "$VERCEL_TOKEN"; then
+            echo "KR domain alias skipped for now; DNS/certificate setup is not ready"
+          fi
