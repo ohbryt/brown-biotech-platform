@@ -12,12 +12,28 @@ export default function Contact() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
+    const payload = {
+      source: "main-contact",
+      serviceName: String(data.get("project_type") || "general inquiry"),
+      projectType: String(data.get("project_type") || "general inquiry"),
+      name: String(data.get("name") || ""),
+      email: String(data.get("email") || ""),
+      company: String(data.get("company") || ""),
+      timeline: "",
+      message: String(data.get("message") || ""),
+    };
+
     try {
-      await fetch("https://formspree.io/f/xpwdqkjl", {
+      const response = await fetch("/api/inquiry", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      if (!response.ok) {
+        throw new Error("Submission failed.");
+      }
+
       setSubmitted(true);
       form.reset();
     } catch {
@@ -42,7 +58,7 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Need a pilot, a target review, or a faster decision path? Send a note and we&apos;ll map the next step.
+            Need a peptide inquiry, biostatistics support, or discovery scoping help? Send a note and we&apos;ll map the next step.
           </p>
         </motion.div>
 
@@ -116,10 +132,11 @@ export default function Contact() {
                     name="project_type"
                     className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-text"
                   >
-                    <option>Target review</option>
-                    <option>Pilot / consultation</option>
-                    <option>Lead optimization</option>
-                    <option>Other</option>
+                    <option value="peptide-service">peptide-service</option>
+                    <option value="biostatx">biostatx</option>
+                    <option value="genox-site">genox-site</option>
+                    <option value="General inquiry">General inquiry</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div>
@@ -139,7 +156,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light text-white font-semibold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 cursor-pointer"
                 >
-                  Send Message
+                  Send Inquiry
                   <Send className="h-4 w-4" />
                 </button>
               </form>
@@ -166,7 +183,7 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold">Brown Biotech Inc.</p>
                       <p className="text-sm text-gray-400 mt-1">
-                        AI-Powered Drug Discovery
+                        AI-assisted biotech service support
                       </p>
                     </div>
                   </div>

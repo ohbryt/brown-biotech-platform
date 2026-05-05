@@ -1,117 +1,189 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, Sparkles, ShieldCheck, Gauge } from "lucide-react";
+
+const highlights = [
+  "Research-ready scope",
+  "Human-reviewed outputs",
+  "Decision-grade handoff",
+];
+
+const laneCards = [
+  {
+    title: "peptide-service",
+    desc: "A focused path for peptide-related projects, quotes, and consults.",
+  },
+  {
+    title: "biostatx",
+    desc: "Biostatistics, analysis, and reporting for decision-ready outputs.",
+  },
+  {
+    title: "genox-site",
+    desc: "Discovery / genomics-facing support for scope and partnership conversations.",
+  },
+];
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center bg-dark molecular-bg overflow-hidden"
+      className="relative overflow-hidden bg-dark text-white"
     >
-      {/* Animated grid dots */}
-      <div className="absolute inset-0 dot-pattern opacity-40" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(217,119,6,0.20),transparent_26%),radial-gradient(circle_at_80%_30%,rgba(180,83,9,0.18),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(146,64,14,0.14),transparent_30%)]" />
+      <div className="absolute inset-0 dot-pattern opacity-30" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-      {/* Decorative SVG molecules */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.08]"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="15%" cy="30%" r="80" stroke="#D97706" strokeWidth="1" fill="none" />
-        <circle cx="15%" cy="30%" r="8" fill="#D97706" />
-        <line x1="15%" y1="30%" x2="30%" y2="18%" stroke="#D97706" strokeWidth="1" />
-        <circle cx="30%" cy="18%" r="6" fill="#D97706" />
-        <line x1="30%" y1="18%" x2="40%" y2="25%" stroke="#D97706" strokeWidth="0.5" />
-        <circle cx="40%" cy="25%" r="4" fill="#D97706" />
-        <circle cx="78%" cy="65%" r="60" stroke="#B45309" strokeWidth="1" fill="none" />
-        <circle cx="78%" cy="65%" r="6" fill="#B45309" />
-        <line x1="78%" y1="65%" x2="88%" y2="48%" stroke="#B45309" strokeWidth="1" />
-        <circle cx="88%" cy="48%" r="5" fill="#B45309" />
-        <circle cx="55%" cy="82%" r="45" stroke="#D97706" strokeWidth="0.8" fill="none" />
-        <circle cx="55%" cy="82%" r="5" fill="#D97706" />
-      </svg>
-
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <span className="inline-flex items-center gap-2 bg-primary/15 text-primary-light text-sm font-semibold px-5 py-2 rounded-full mb-8 border border-primary/25">
-            <span className="w-2 h-2 rounded-full bg-cta animate-pulse" />
-            Faster biotech decisions, without the overhead
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight"
-        >
-          AI-Powered{" "}
-          <span className="gradient-text">Decision Support</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.24, ease: "easeOut" }}
-          className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
-        >
-          We help biotech teams turn complex targets into clear decisions with
-          AI-assisted screening, prioritization, and reporting. If you need a
-          sharper pilot, cleaner evidence, or a faster next step, we can help.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.36, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="#contact"
-            className="bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 flex items-center gap-2 text-base shadow-lg shadow-primary/25 cursor-pointer"
+      <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-16 px-4 py-28 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-24">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            Book a Pilot Call
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="#platform"
-            className="border border-gray-600 hover:border-primary-light text-gray-300 hover:text-primary-light font-semibold px-8 py-4 rounded-xl transition-all duration-200 text-base cursor-pointer"
-          >
-            See the Workflow
-          </a>
-        </motion.div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 shadow-lg shadow-black/10 backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
+              Brown Biotech · research-ready biotech services
+            </span>
+          </motion.div>
 
-        {/* Trust signals */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            className="mt-7 text-5xl font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl"
+          >
+            Research-ready biotech intelligence,
+            <span className="mt-3 block text-transparent bg-gradient-to-r from-white via-amber-100 to-cta bg-clip-text">
+              delivered with human review.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="mt-7 max-w-2xl text-lg leading-8 text-gray-300"
+          >
+            We help biotech teams track important papers, competitors, and signals
+            without drowning in manual monitoring. AI accelerates the research,
+            and humans approve what matters before anything client-facing ships.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+          >
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-7 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
+            >
+              Request a Brief
+              <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
+            >
+              View Services
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            className="mt-10 flex flex-wrap gap-3"
+          >
+            {highlights.map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur"
+              >
+                <CheckCircle2 className="h-4 w-4 text-cta" />
+                {item}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-          className="mt-20 flex flex-wrap items-center justify-center gap-4 text-gray-500"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+          className="relative"
         >
-          <div className="rounded-full border border-gray-700/60 bg-white/5 px-4 py-2 text-sm">
-            Research-use only
-          </div>
-          <div className="rounded-full border border-gray-700/60 bg-white/5 px-4 py-2 text-sm">
-            Transparent methods
-          </div>
-          <div className="rounded-full border border-gray-700/60 bg-white/5 px-4 py-2 text-sm">
-            Decision-ready reporting
+          <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cta/20 via-transparent to-primary/15 blur-2xl" />
+          <div className="relative premium-panel rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-amber-100/80">
+                  Service snapshot
+                </p>
+                <h2 className="mt-2 text-2xl font-semibold text-white">Three lanes. One clear route.</h2>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-cta shadow-lg shadow-black/10">
+                <Sparkles className="h-5 w-5" />
+              </div>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              {laneCards.map((lane, index) => (
+                <div
+                  key={lane.title}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/8"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-100/70">
+                        <span className="h-2 w-2 rounded-full bg-cta" />
+                        0{index + 1}
+                      </div>
+                      <h3 className="mt-2 text-lg font-semibold text-white">{lane.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-gray-300">{lane.desc}</p>
+                    </div>
+                    <div className="rounded-xl border border-white/10 bg-white/5 p-2 text-gray-200">
+                      <Gauge className="h-5 w-5" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 grid grid-cols-3 gap-3">
+              {[
+                ["Response", "24h"],
+                ["Focus", "Scope"],
+                ["Output", "Handoff"],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
+                  <div className="text-xs uppercase tracking-[0.25em] text-gray-400">{label}</div>
+                  <div className="mt-2 text-lg font-semibold text-white">{value}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-white/8 to-white/5 p-5">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-cta" />
+                <p className="text-sm leading-6 text-gray-300">
+                  Research support only. High-stakes decisions still get human review.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#about" aria-label="Scroll down" className="cursor-pointer">
-          <ChevronDown className="h-6 w-6 text-gray-600" />
+        <a href="#about" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10">
+          <ChevronDown className="h-5 w-5" />
         </a>
       </motion.div>
     </section>

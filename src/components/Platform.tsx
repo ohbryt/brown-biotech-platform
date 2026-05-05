@@ -14,15 +14,9 @@ import {
 } from "lucide-react";
 
 const modules = [
-  { id: "M1", name: "Target Prep", icon: Crosshair, desc: "Target identification, validation, and structural analysis" },
-  { id: "M2", name: "Library Screening", icon: Search, desc: "Virtual screening across 7 global compound databases" },
-  { id: "M3", name: "De Novo Design", icon: Sparkles, desc: "AI-generated novel molecules and peptide sequences" },
-  { id: "M4", name: "Structure Prediction", icon: Box, desc: "3D structure prediction with ColabFold and docking" },
-  { id: "M5", name: "Scoring", icon: BarChart3, desc: "Composite scoring: binding, selectivity, drug-likeness" },
-  { id: "M6", name: "Modifications", icon: Wrench, desc: "Lead optimization with chemical and peptide modifications" },
-  { id: "M7", name: "ADMET", icon: ShieldCheck, desc: "Absorption, distribution, metabolism, excretion, toxicity" },
-  { id: "M8", name: "Delivery", icon: Truck, desc: "Formulation design and delivery system recommendations" },
-  { id: "M9", name: "Reporting", icon: FileText, desc: "Automated reports with rankings and visualizations" },
+  { id: "01", name: "peptide-service", icon: Crosshair, desc: "Focused inquiry path for peptide-related projects, quotes, and consults." },
+  { id: "02", name: "biostatx", icon: Search, desc: "Biostatistics, analysis, and reporting for decision-ready outputs." },
+  { id: "03", name: "genox-site", icon: Sparkles, desc: "Discovery / genomics-facing support for scope and partnership conversations." },
 ];
 
 export default function Platform() {
@@ -37,14 +31,14 @@ export default function Platform() {
           className="text-center mb-6"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Technology
+            Service Lanes
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            Our 9-Module Pipeline
+            Our 3 Core Offers
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            A fully integrated AI pipeline that takes you from target
-            identification to optimized lead candidates.
+            A simple structure for moving from first inquiry to a clear next
+            step.
           </p>
         </motion.div>
 
@@ -57,10 +51,10 @@ export default function Platform() {
           className="flex justify-center gap-3 mb-14"
         >
           <span className="bg-primary/10 text-primary font-semibold text-sm px-5 py-2 rounded-full border border-primary/20 font-[family-name:var(--font-mono)]">
-            Small Molecules
+            peptide-service
           </span>
           <span className="bg-cta/10 text-cta font-semibold text-sm px-5 py-2 rounded-full border border-cta/20 font-[family-name:var(--font-mono)]">
-            Peptides
+            biostatx
           </span>
         </motion.div>
 

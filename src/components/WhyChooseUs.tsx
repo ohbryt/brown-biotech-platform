@@ -13,33 +13,33 @@ import {
 const differentiators = [
   {
     icon: Layers,
-    title: "Dual Modality",
-    desc: "A single workflow for both small molecules and peptides, so teams can compare programs without switching tools.",
+    title: "Clear Lanes",
+    desc: "A small set of service lanes so teams can quickly find the right path without confusion.",
   },
   {
     icon: BrainCircuit,
     title: "AI-First Approach",
-    desc: "AI is used to structure analysis, prioritize options, and speed up repetitive research work.",
+    desc: "AI is used to structure analysis, tighten scope, and speed up repetitive research work.",
   },
   {
     icon: Database,
-    title: "Integrated Sources",
-    desc: "Connects multiple public and curated sources for a broader view of the target and candidate space.",
+    title: "Portfolio View",
+    desc: "A connected view of the company, service sites, and operating hub so nothing gets lost.",
   },
   {
     icon: FileText,
     title: "Automated Reporting",
-    desc: "Produces clear summaries and handoff-ready reports for internal teams and external stakeholders.",
+    desc: "Produces clear summaries and handoff-ready reports for internal teams and external partners.",
   },
   {
     icon: ShieldCheck,
     title: "Transparent Methods",
-    desc: "Outputs are structured so users can see what was queried, scored, and filtered at each step.",
+    desc: "Outputs are structured so users can see what was asked, reviewed, and decided at each step.",
   },
   {
     icon: Settings,
     title: "Fully Configurable",
-    desc: "Parameters and assumptions can be adjusted to match the project, modality, and decision context.",
+    desc: "Parameters and assumptions can be adjusted to match the project and decision context.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Built by scientists, for scientists. Here&apos;s what sets our platform apart.
+            Built to help Brown Biotech look clear, credible, and easy to work with.
           </p>
         </motion.div>
 

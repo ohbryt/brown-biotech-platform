@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
-import { Exo, Roboto_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteName = "Brown Biotech Inc.";
 const siteDescription =
-  "Brown Biotech Inc. delivers AI-assisted research support, pilot workflows, and decision-ready reports for small molecules and peptides.";
+  "Brown Biotech Inc. helps labs, founders, and collaborators turn complex biotech questions into clear next steps through focused service lanes, pilot workflows, and decision-ready reporting.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-const exo = Exo({
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
 });
 
-const robotoMono = Roboto_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | AI-Assisted Biotech Support`,
+    default: `${siteName} | Biotech Services & Research Support`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   publisher: "Brown Biotech Inc.",
   category: "biotechnology",
   openGraph: {
-    title: `${siteName} | AI-Assisted Biotech Support`,
+    title: `${siteName} | Biotech Services & Research Support`,
     description: siteDescription,
     url: "/",
     siteName,
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | AI-Assisted Biotech Support`,
+    title: `${siteName} | Biotech Services & Research Support`,
     description: siteDescription,
     images: ["/twitter-image"],
   },
@@ -123,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${exo.variable} ${robotoMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
       <body className="antialiased font-[family-name:var(--font-heading)]">
         <script
           type="application/ld+json"

@@ -6,21 +6,14 @@ on:
       - main
   workflow_dispatch:
 
-concurrency:
-  group: brown-biotech-main-${{ github.ref }}
-  cancel-in-progress: true
-
-env:
-  NODE_VERSION: "20"
-  NEXT_PUBLIC_SITE_URL: https://brownbio.tech
-  MAIN_DOMAIN: brownbio.tech
-  WWW_DOMAIN: www.brownbio.tech
-
 jobs:
-  build-and-deploy:
-    name: Build and deploy main site
+  deploy:
     runs-on: ubuntu-latest
-
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_MAIN }}
+      NEXT_PUBLIC_SITE_URL: https://brownbio.tech
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,40 +21,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel@latest
-
-      - name: Prepare Vercel project link
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_MAIN }}
-        run: |
-          mkdir -p .vercel
-          cat > .vercel/project.json <<EOF
-          {"orgId":"$VERCEL_ORG_ID","projectId":"$VERCEL_PROJECT_ID"}
-          EOF
+      - name: Build Vercel output
+        run: npx vercel@latest build --prod --token "$VERCEL_TOKEN"
 
       - name: Deploy to Vercel
-        id: deploy
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          vercel build --prod --yes --token "$VERCEL_TOKEN"
-          DEPLOY_JSON=$(vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" --json)
-          echo "$DEPLOY_JSON"
-          DEPLOY_URL=$(python3 -c 'import json,sys; print(json.loads(sys.stdin.read())["url"])' <<< "$DEPLOY_JSON")
-          echo "deployment_url=$DEPLOY_URL" >> "$GITHUB_OUTPUT"
-
-      - name: Alias production domains
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          DEPLOY_URL: ${{ steps.deploy.outputs.deployment_url }}
-        run: |
-          vercel alias set "$DEPLOY_URL" "$MAIN_DOMAIN" --token "$VERCEL_TOKEN"
-          vercel alias set "$DEPLOY_URL" "$WWW_DOMAIN" --token "$VERCEL_TOKEN"
+        run: npx vercel@latest deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN"

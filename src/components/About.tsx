@@ -1,63 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Cpu, Database, FlaskConical } from "lucide-react";
 
-function AnimatedCounter({
-  target,
-  label,
-  icon: Icon,
-  color,
-}: {
-  target: number;
-  label: string;
-  icon: React.ElementType;
-  color: string;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const duration = 1500;
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setCount(Math.floor(progress * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [isInView, target]);
-
-  return (
-    <motion.div
-      ref={ref}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className="text-center bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-glow cursor-default"
-    >
-      <div
-        className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${color}`}
-      >
-        <Icon className="h-7 w-7" />
-      </div>
-      <div className="text-5xl font-bold text-text mb-2 font-[family-name:var(--font-mono)]">
-        {count}
-      </div>
-      <div className="text-text-muted text-sm font-medium uppercase tracking-wider">
-        {label}
-      </div>
-    </motion.div>
-  );
-}
-
 const stats = [
-  { target: 9, label: "Core Modules", icon: Cpu, color: "bg-primary/10 text-primary" },
-  { target: 7, label: "Source Databases", icon: Database, color: "bg-cta/10 text-cta" },
-  { target: 2, label: "Supported Modalities", icon: FlaskConical, color: "bg-accent/10 text-primary-light" },
+  { value: "03", label: "Service Lanes", icon: Cpu, color: "bg-primary/10 text-primary" },
+  { value: "05", label: "Portfolio Sites", icon: Database, color: "bg-cta/10 text-cta" },
+  { value: "04", label: "Decision Steps", icon: FlaskConical, color: "bg-accent/10 text-primary-light" },
 ];
 
 export default function About() {
@@ -75,14 +24,13 @@ export default function About() {
             About Us
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-6 tracking-tight">
-            Accelerating Discovery with AI
+            Turning Questions into Service Lanes
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">
-            Brown Biotech Inc. combines AI-assisted analysis with practical
-            pharmaceutical expertise to support research programs from target
-            triage through reporting. The platform is organized into 9 modules,
-            7 source databases, and 2 supported modalities so teams can move
-            from questions to clear next steps faster.
+            Brown Biotech Inc. helps move projects from first inquiry to a clear
+            engagement path. We use AI-assisted analysis, practical research
+            judgment, and a focused portfolio of service lanes to help teams get
+            to a useful next decision faster.
           </p>
         </motion.div>
 
@@ -91,11 +39,20 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-3 max-w-4xl mx-auto"
         >
-          {stats.map((stat) => (
-            <AnimatedCounter key={stat.label} {...stat} />
-          ))}
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div key={stat.label} className="text-center bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-glow cursor-default">
+                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${stat.color}`}>
+                  <Icon className="h-7 w-7" />
+                </div>
+                <div className="text-5xl font-bold text-text mb-2 font-[family-name:var(--font-mono)]">{stat.value}</div>
+                <div className="text-text-muted text-sm font-medium uppercase tracking-wider">{stat.label}</div>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

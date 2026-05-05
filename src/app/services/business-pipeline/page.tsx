@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, GitBranch } from "lucide-react";
+import { ArrowRight, GitBranch } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -11,12 +11,6 @@ export const metadata: Metadata = {
   description: "Brown Biotech business pipeline for agentic drug discovery and biotech operations.",
   alternates: { canonical: "/services/business-pipeline" },
 };
-
-const deliverables = [
-  "Company-owned pipeline blueprint",
-  "Source-to-synthesis workflow",
-  "Human review and handoff model",
-];
 
 export default function BusinessPipelinePage() {
   return (
@@ -33,13 +27,23 @@ export default function BusinessPipelinePage() {
               A company-owned pipeline for drug discovery and biotech operations.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              This is the Brown Biotech pipeline layer: a structured system for sourcing
-              evidence, organizing agents, generating briefs, and handing off decisions
-              with human review.
+              Built for teams that want a repeatable source-to-brief workflow, clean review
+              gates, and outputs that are useful enough to act on.
             </p>
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-300">
+              {[
+                "Faster scoping",
+                "Cleaner source mapping",
+                "Human-reviewed delivery",
+              ].map((item) => (
+                <span key={item} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
+                  {item}
+                </span>
+              ))}
+            </div>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Request pipeline scope <ArrowRight className="h-4 w-4" />
+                Start a pipeline brief <ArrowRight className="h-4 w-4" />
               </Link>
               <a href="https://github.com/ohbryt/brown-biotech-business-pipeline" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
                 View GitHub repo
@@ -51,15 +55,21 @@ export default function BusinessPipelinePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          {deliverables.map((item) => (
-            <article key={item} className="premium-panel rounded-[1.75rem] p-8">
-              <CheckCircle2 className="h-6 w-6 text-cta" />
-              <p className="mt-4 text-lg font-semibold text-text">{item}</p>
-              <p className="mt-3 text-sm leading-7 text-text-muted">
-                Designed to be reusable across research, diligence, and service delivery.
-              </p>
-            </article>
-          ))}
+          <article className="premium-panel rounded-[1.75rem] p-8">
+            <span className="kicker">Who it is for</span>
+            <p className="mt-4 text-lg font-semibold text-text">Research teams, founders, and operators who need a cleaner decision path.</p>
+            <p className="mt-3 text-sm leading-7 text-text-muted">Ideal when the problem is too complex for a one-off prompt but not yet large enough for a full product build.</p>
+          </article>
+          <article className="premium-panel rounded-[1.75rem] p-8">
+            <span className="kicker">What you get</span>
+            <p className="mt-4 text-lg font-semibold text-text">A scoped brief, source map, and a human-reviewed next step.</p>
+            <p className="mt-3 text-sm leading-7 text-text-muted">Outputs are structured to be reused in Notion, internal planning, partner conversations, or proposal work.</p>
+          </article>
+          <article className="premium-panel rounded-[1.75rem] p-8">
+            <span className="kicker">Why it matters</span>
+            <p className="mt-4 text-lg font-semibold text-text">Less noise, faster scoping, and better handoff quality.</p>
+            <p className="mt-3 text-sm leading-7 text-text-muted">The pipeline is designed to reduce rework and make Brown Biotech&apos;s reasoning more visible and reusable.</p>
+          </article>
         </div>
       </section>
 

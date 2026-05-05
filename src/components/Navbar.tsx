@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FlaskConical } from "lucide-react";
 
@@ -20,17 +21,15 @@ export default function Navbar() {
     <nav className="fixed top-4 left-4 right-4 z-50 glass-dark rounded-2xl border border-white/10 shadow-lg shadow-dark/20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-14">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group cursor-pointer">
+          <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cta flex items-center justify-center">
               <FlaskConical className="h-4.5 w-4.5 text-white" />
             </div>
             <span className="text-base font-bold text-white tracking-tight">
               Brown Biotech
             </span>
-          </a>
+          </Link>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
@@ -41,15 +40,20 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/services"
+              className="ml-2 border border-white/10 text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer text-gray-200 hover:bg-white/5 hover:text-white"
+            >
+              Service Hub
+            </Link>
             <a
               href="#contact"
-              className="ml-3 bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light text-white text-sm font-semibold px-5 py-2 rounded-xl transition-all duration-200 cursor-pointer"
+              className="ml-2 bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light text-white text-sm font-semibold px-5 py-2 rounded-xl transition-all duration-200 cursor-pointer"
             >
-              Book a Pilot Call
+              Talk to Us
             </a>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden text-gray-300 hover:text-white cursor-pointer p-1"
@@ -60,7 +64,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -81,12 +84,19 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <Link
+                href="/services"
+                onClick={() => setMobileOpen(false)}
+                className="block border border-white/10 text-gray-200 hover:text-white hover:bg-white/5 transition-all duration-200 py-2.5 px-3 rounded-lg cursor-pointer mt-2"
+              >
+                Service Hub
+              </Link>
               <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
                 className="block bg-gradient-to-r from-primary to-cta text-white text-center font-semibold px-5 py-2.5 rounded-xl mt-3 cursor-pointer"
               >
-                Book a Pilot Call
+                Talk to Us
               </a>
             </div>
           </motion.div>

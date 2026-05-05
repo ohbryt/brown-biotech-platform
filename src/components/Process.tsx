@@ -6,18 +6,18 @@ import { SearchCheck, Rocket, ClipboardList } from "lucide-react";
 const steps = [
   {
     icon: SearchCheck,
-    title: "Discover",
-    desc: "We clarify the target, therapeutic hypothesis, constraints, and success criteria before any work begins.",
+    title: "Scope",
+    desc: "We clarify the need, audience, constraints, and what success looks like before any work begins.",
   },
   {
     icon: Rocket,
-    title: "Pilot",
-    desc: "We run a focused pilot, surface decision-ready outputs, and show exactly what the platform can and cannot do.",
+    title: "Route",
+    desc: "We route the request to the right lane, define the deliverable, and confirm the first milestone.",
   },
   {
     icon: ClipboardList,
     title: "Deliver",
-    desc: "We hand over a structured report, prioritized recommendations, and a practical next-step plan.",
+    desc: "We hand over a structured output, practical recommendation, and a clear next-step plan.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Process() {
             How We Work
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            A simple process designed for fast pilots, transparent expectations, and usable outputs.
+            A simple process designed for fast handoff, transparent expectations, and usable outputs.
           </p>
         </motion.div>
 
