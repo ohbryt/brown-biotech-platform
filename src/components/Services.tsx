@@ -1,32 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare } from "lucide-react";
+import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch } from "lucide-react";
 
 const services = [
   {
     icon: Workflow,
-    title: "Pilot-to-Report Delivery",
-    desc: "A focused engagement that turns a target question into a structured report with the next decision path.",
+    title: "peptide-service",
+    desc: "A focused path for peptide-related projects, quotes, and consults.",
     gradient: "from-primary to-primary-dark",
   },
   {
     icon: Crosshair,
-    title: "Target Triage",
-    desc: "Prioritize the strongest targets, identify risks early, and avoid spending time on weak hypotheses.",
+    title: "biostatx",
+    desc: "Biostatistics, analysis, and reporting for teams that need decision-ready outputs.",
     gradient: "from-cta to-primary",
   },
   {
     icon: ShieldCheck,
-    title: "Risk & Developability Screening",
-    desc: "Flag pharmacokinetic and toxicity concerns before they become expensive surprises downstream.",
+    title: "genox-site",
+    desc: "Discovery / genomics-facing support for scope, collaboration, and partner conversations.",
     gradient: "from-primary-light to-primary",
   },
   {
     icon: Users,
-    title: "Custom Advisory",
-    desc: "A flexible engagement for founders, researchers, and BD teams who need faster answers and cleaner decisions.",
+    title: "Service Hub",
+    desc: "A simple entry point for matching the right lane to the right project.",
     gradient: "from-cta to-cta-light",
+  },
+  {
+    icon: GitBranch,
+    title: "business-pipeline",
+    desc: "A company-owned pipeline for agentic drug discovery and biotech operations.",
+    gradient: "from-primary-dark to-cta",
   },
 ];
 
@@ -42,14 +48,14 @@ export default function Services() {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            What We Offer
+            What We Build
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            Our Services
+            Brown Biotech Service Lanes
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Flexible engagement models for teams that want faster decisions,
-            fewer dead ends, and cleaner pilot outputs.
+            Clear service lanes for teams that want a cleaner scope, a clearer
+            next step, and a faster path to a useful conversation.
           </p>
         </motion.div>
 
@@ -92,11 +98,11 @@ export default function Services() {
             </div>
             <div className="text-center sm:text-left">
                 <h3 className="text-xl font-bold text-text mb-2">
-                  Start with a short pilot
+                  Start with a clear inquiry
                 </h3>
                 <p className="text-text-muted">
-                  The first 3 sessions are <span className="font-semibold text-cta">free of charge</span>.
-                  We&apos;ll define the scope together and confirm whether a deeper engagement makes sense.
+                  Tell us what you&apos;re trying to solve. We&apos;ll map the right lane,
+                  define the scope, and decide whether a deeper engagement makes sense.
                 </p>
             </div>
             <a
@@ -104,7 +110,7 @@ export default function Services() {
               className="shrink-0 inline-flex items-center gap-2 bg-cta hover:bg-cta-light text-white font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer"
             >
               <MessageSquare className="h-4 w-4" />
-              Book a Consultation
+              Open Inquiry
             </a>
           </div>
         </motion.div>
