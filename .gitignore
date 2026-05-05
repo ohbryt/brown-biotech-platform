@@ -19,7 +19,10 @@ npm-debug.log*
 .env*.local
 
 # vercel
-.vercel
+.vercel/
+!.vercel/
+.vercel/*
+!.vercel/project.json
 
 # typescript
 *.tsbuildinfo

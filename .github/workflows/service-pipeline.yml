@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_SERVICE }}
+      VERCEL_ORG_ID: team_5A38L2LDJCytpQxQnneuHlfr
+      VERCEL_PROJECT_ID: prj_sIpx8A0F5eHhKiDIv5TJUyAk8gVI
       NEXT_PUBLIC_SITE_URL: https://services.brownbio.tech
     steps:
       - name: Checkout

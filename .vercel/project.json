@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_sIpx8A0F5eHhKiDIv5TJUyAk8gVI",
+  "orgId": "team_5A38L2LDJCytpQxQnneuHlfr",
+  "projectName": "bb-fresh",
+  "settings": {
+    "createdAt": 1777893400521,
+    "framework": "nextjs",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}
