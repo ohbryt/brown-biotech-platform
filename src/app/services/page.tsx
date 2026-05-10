@@ -10,9 +10,9 @@ const lanes = [
     name: "peptide-service",
     href: "/services/peptide-service",
     icon: FlaskConical,
-    summary: "Paid brief first for peptide-related projects, quotes, and consults.",
-    forWhom: "Labs, founders, and operators who need a structured peptide entry point.",
-    deliverables: ["Scope call", "Quote / proposal", "Action plan"],
+    summary: "Paid brief first for peptide projects.",
+    forWhom: "Teams that need a clean peptide entry point.",
+    deliverables: ["Scope call", "Quote", "Next step"],
     cta: "Request a Paid Brief",
     accent: "from-primary to-primary-dark",
   },
@@ -20,9 +20,9 @@ const lanes = [
     name: "biostatx",
     href: "/services/biostatx",
     icon: BarChart3,
-    summary: "Biostatistics, analysis, and reporting for decision-ready outputs.",
-    forWhom: "Researchers and biotech teams that need cleaner evidence and faster decisions.",
-    deliverables: ["Dataset review", "Analysis plan", "Reporting package"],
+    summary: "Biostatistics for decision-ready outputs.",
+    forWhom: "Teams that need clearer evidence, faster.",
+    deliverables: ["Dataset review", "Analysis plan", "Report"],
     cta: "Send a dataset",
     accent: "from-cta to-primary",
   },
@@ -30,27 +30,27 @@ const lanes = [
     name: "genox-site",
     href: "/services/genox-site",
     icon: Sparkles,
-    summary: "Discovery / genomics-facing support for scope and partnership conversations.",
-    forWhom: "Partners and collaborators exploring new research directions.",
-    deliverables: ["Scope memo", "Research direction", "Partnering path"],
+    summary: "Discovery support for scope and partnership talks.",
+    forWhom: "Partners exploring a new research direction.",
+    deliverables: ["Scope memo", "Direction", "Partner path"],
     cta: "Discuss a project",
     accent: "from-primary-light to-cta",
   },
 ];
 
 const steps = [
-  { title: "Scope", desc: "Define the problem, audience, constraints, and success criteria." },
-  { title: "Route", desc: "Assign the request to the right lane and agree on the first milestone." },
-  { title: "Deliver", desc: "Send a structured output with a clear next step." },
+  { title: "Scope", desc: "Define the problem and the outcome." },
+  { title: "Route", desc: "Assign the lane and first milestone." },
+  { title: "Deliver", desc: "Send one clear next step." },
 ];
 
 const pipeline = {
   name: "business-pipeline",
   href: "/services/business-pipeline",
   icon: GitBranch,
-  summary: "A company-owned pipeline for agentic drug discovery and biotech operations.",
-  forWhom: "Teams that want a reusable source-to-synthesis workflow with human review.",
-  deliverables: ["Pipeline blueprint", "Source mapping", "Delivery workflow"],
+  summary: "A company-owned pipeline for biotech ops and discovery.",
+  forWhom: "Teams that want a reusable workflow with review.",
+  deliverables: ["Blueprint", "Source map", "Delivery flow"],
   cta: "Request a Paid Brief",
   accent: "from-primary to-cta",
 };
@@ -58,15 +58,15 @@ const pipeline = {
 const faqs = [
   {
     q: "What should I send first?",
-    a: "A short description of the problem, the audience, and what a successful outcome would look like.",
+    a: "A short problem statement and the outcome you want.",
   },
   {
     q: "How fast do you respond?",
-    a: "We aim to respond within 24 hours and clarify the next step quickly.",
+    a: "We aim to respond within 24 hours.",
   },
   {
     q: "Can you tailor the scope?",
-    a: "Yes. We can adapt the engagement to the project size, budget, and decision context.",
+    a: "Yes. We adapt to scope and budget.",
   },
 ];
 
@@ -90,19 +90,18 @@ export default function ServicesPage() {
               Service hub
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              One place for Brown Biotech&apos;s paid brief and service requests.
+              One place for paid briefs and service requests.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Route requests into the right lane, define the scope, and move toward
-              a useful next step with less noise and more confidence.
+              Route requests into the right lane and move to the next step.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
               {[
-                "Private inquiry",
-                "24h response target",
-                "Three core lanes",
-                "Live route preview",
+                "Private",
+                "24h",
+                "3 lanes",
+                "Route preview",
               ].map((pill) => (
                 <span key={pill} className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
                   {pill}
@@ -129,7 +128,7 @@ export default function ServicesPage() {
             Choose the lane that matches the project.
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Each lane is designed to be easy to explain, easy to route, and easy to hand off. Brief submissions also return a route preview so you know what happens next.
+            Each lane is easy to explain, route, and hand off. Submissions return a route preview.
           </p>
         </div>
 
@@ -179,8 +178,7 @@ export default function ServicesPage() {
             The company pipeline, packaged as a service.
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Brown Biotech can also deliver the business pipeline itself as a structured
-            service layer for research and discovery programs.
+            Brown Biotech can also package the business pipeline itself as a service layer.
           </p>
         </div>
 
@@ -216,7 +214,7 @@ export default function ServicesPage() {
           <div className="mb-10 max-w-3xl">
             <span className="kicker">How we work</span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
-              A simple process that feels premium, not noisy.
+              A simple process.
             </h2>
           </div>
 
@@ -242,7 +240,7 @@ export default function ServicesPage() {
           <div>
             <span className="kicker">FAQ</span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text">
-              What people usually ask first.
+              What people ask first.
             </h2>
             <div className="mt-8 space-y-4">
               {faqs.map((faq) => (
@@ -258,7 +256,7 @@ export default function ServicesPage() {
             <div className="relative">
               <span className="kicker text-amber-100/80">Concierge</span>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">Ready to route a project?</h2>
-              <p className="mt-4 text-gray-300 leading-7">Send a short note and we&apos;ll map the right lane, scope, and next step.</p>
+              <p className="mt-4 text-gray-300 leading-7">Send a short note and we&apos;ll route it.</p>
               <div className="mt-8 space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
                 <div className="flex items-center gap-3 text-sm text-gray-200">
                   <Phone className="h-4 w-4 text-cta" />
