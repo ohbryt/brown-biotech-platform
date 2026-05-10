@@ -10,10 +10,10 @@ const lanes = [
     name: "peptide-service",
     href: "/services/peptide-service",
     icon: FlaskConical,
-    summary: "A focused path for peptide-related projects, quotes, and consults.",
+    summary: "Paid brief first for peptide-related projects, quotes, and consults.",
     forWhom: "Labs, founders, and operators who need a structured peptide entry point.",
     deliverables: ["Scope call", "Quote / proposal", "Action plan"],
-    cta: "Request a peptide consult",
+    cta: "Request a Paid Brief",
     accent: "from-primary to-primary-dark",
   },
   {
@@ -51,7 +51,7 @@ const pipeline = {
   summary: "A company-owned pipeline for agentic drug discovery and biotech operations.",
   forWhom: "Teams that want a reusable source-to-synthesis workflow with human review.",
   deliverables: ["Pipeline blueprint", "Source mapping", "Delivery workflow"],
-  cta: "Scope the business pipeline",
+  cta: "Request a Paid Brief",
   accent: "from-primary to-cta",
 };
 
@@ -90,7 +90,7 @@ export default function ServicesPage() {
               Service hub
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              One place for Brown Biotech service requests.
+              One place for Brown Biotech&apos;s paid brief and service requests.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
               Route requests into the right lane, define the scope, and move toward

@@ -98,7 +98,7 @@ export default function Services() {
             </div>
             <div className="text-center sm:text-left">
                 <h3 className="text-xl font-bold text-text mb-2">
-                  Start with a clear inquiry
+                  Start with a Paid Brief
                 </h3>
                 <p className="text-text-muted">
                   Tell us what you&apos;re trying to solve. We&apos;ll map the right lane,
@@ -110,7 +110,7 @@ export default function Services() {
               className="shrink-0 inline-flex items-center gap-2 bg-cta hover:bg-cta-light text-white font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer"
             >
               <MessageSquare className="h-4 w-4" />
-              Open Inquiry
+              Open Paid Brief
             </a>
           </div>
         </motion.div>

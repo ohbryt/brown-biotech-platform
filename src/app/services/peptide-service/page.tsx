@@ -30,7 +30,7 @@ export default function PeptideServicePage() {
               peptide-service
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              A focused entry point for peptide projects.
+              A focused entry point for peptide projects and paid briefs.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
               Bring us the question, the target outcome, and the constraints.
@@ -38,7 +38,7 @@ export default function PeptideServicePage() {
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Start an inquiry <ArrowRight className="h-4 w-4" />
+                Start a Paid Brief <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
                 Back to service hub

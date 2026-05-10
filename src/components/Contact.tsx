@@ -58,7 +58,7 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Need a peptide inquiry, biostatistics support, or discovery scoping help? Send a note and we&apos;ll map the next step.
+            Need a paid brief, biostatistics support, or discovery scoping help? Send a note and we&apos;ll map the next step.
           </p>
         </motion.div>
 
@@ -156,7 +156,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light text-white font-semibold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 cursor-pointer"
                 >
-                  Send Inquiry
+                  Send Paid Brief
                   <Send className="h-4 w-4" />
                 </button>
               </form>

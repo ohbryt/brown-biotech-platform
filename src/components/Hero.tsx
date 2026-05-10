@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronDown, Sparkles, ShieldCheck, Gauge } from "lucide-react";
 
 const highlights = [
-  "Research-ready scope",
+  "Paid brief first",
   "Human-reviewed outputs",
   "Decision-grade handoff",
 ];
@@ -43,7 +43,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 shadow-lg shadow-black/10 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
-              Brown Biotech · research-ready biotech services
+              Brown Biotech · decision-ready biotech services
             </span>
           </motion.div>
 
@@ -53,7 +53,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             className="mt-7 text-5xl font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Research-ready biotech intelligence,
+            Decision-ready biotech services,
             <span className="mt-3 block text-transparent bg-gradient-to-r from-white via-amber-100 to-cta bg-clip-text">
               delivered with human review.
             </span>
@@ -65,9 +65,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-7 max-w-2xl text-lg leading-8 text-gray-300"
           >
-            We help biotech teams track important papers, competitors, and signals
-            without drowning in manual monitoring. AI accelerates the research,
-            and humans approve what matters before anything client-facing ships.
+            We start with a paid brief, then route the work into the right lane. AI accelerates the research, and humans approve what matters before anything client-facing ships.
           </motion.p>
 
           <motion.div
@@ -80,7 +78,7 @@ export default function Hero() {
               href="#contact"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-7 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
             >
-              Request a Brief
+              Request a Paid Brief
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
