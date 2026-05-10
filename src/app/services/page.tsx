@@ -102,6 +102,7 @@ export default function ServicesPage() {
                 "Private inquiry",
                 "24h response target",
                 "Three core lanes",
+                "Live route preview",
               ].map((pill) => (
                 <span key={pill} className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
                   {pill}
@@ -128,7 +129,7 @@ export default function ServicesPage() {
             Choose the lane that matches the project.
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Each lane is designed to be easy to explain, easy to route, and easy to hand off.
+            Each lane is designed to be easy to explain, easy to route, and easy to hand off. Brief submissions also return a route preview so you know what happens next.
           </p>
         </div>
 

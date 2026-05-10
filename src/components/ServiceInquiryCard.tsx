@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { ArrowRight, Mail, MessageSquareText, UserRound, Building2, Clock3, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, Mail, MessageSquareText, UserRound, Building2, Clock3, CheckCircle2, Loader2, Route, UserCog, ShieldCheck } from "lucide-react";
+import { type IntakeApiResponse, type IntakeFormPayload } from "@/lib/intake";
 
 type ServiceInquiryCardProps = {
   serviceName: string;
@@ -20,6 +21,7 @@ export default function ServiceInquiryCard({
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [triage, setTriage] = useState<IntakeApiResponse["triage"] | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,9 +31,13 @@ export default function ServiceInquiryCard({
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    const payload = {
+    const payload: IntakeFormPayload = {
       source: "service-page",
       serviceName,
+      serviceLane: serviceName as IntakeFormPayload["serviceLane"],
+      priority: "Medium",
+      problem: title,
+      outcome: description,
       name: String(data.get("name") || ""),
       email: String(data.get("email") || ""),
       company: String(data.get("company") || ""),
@@ -46,12 +52,13 @@ export default function ServiceInquiryCard({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      const responseBody = await response.json().catch(() => null);
 
       if (!response.ok) {
-        const errorBody = await response.json().catch(() => null);
-        throw new Error(errorBody?.error || "Unable to submit inquiry.");
+        throw new Error(responseBody?.error || "Unable to submit inquiry.");
       }
 
+      setTriage(responseBody?.triage ?? null);
       setSubmitted(true);
       form.reset();
     } catch (err) {
@@ -65,7 +72,7 @@ export default function ServiceInquiryCard({
     <section id="brief" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
-          <span className="kicker">Specific CTA</span>
+          <span className="kicker">Route preview</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">Request a Paid Brief</h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-text-muted">{description}</p>
 
@@ -92,21 +99,60 @@ export default function ServiceInquiryCard({
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10 bg-dark text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,119,6,0.16),transparent_40%)]" />
           <div className="relative">
-            <span className="kicker text-amber-100/80">Inquiry form</span>
+            <span className="kicker text-amber-100/80">Triage preview</span>
             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">Send a concise project brief</h3>
             <p className="mt-3 text-sm leading-7 text-gray-300">
-              Share just enough context to route the request well. We&apos;ll reply with a clean next step.
+              Share just enough context to route the request well. You&apos;ll see the route and next action after submit.
             </p>
 
             {submitted ? (
-              <div className="mt-8 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-6">
+              <div className="mt-8 space-y-4 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-6">
                 <div className="flex items-center gap-3 text-emerald-200">
                   <CheckCircle2 className="h-5 w-5" />
                   <p className="font-semibold">Brief received</p>
                 </div>
-                <p className="mt-2 text-sm leading-7 text-gray-200">
-                  Thanks — we&apos;ll review this and reply with the next step.
+                <p className="text-sm leading-7 text-gray-200">
+                  Thanks — we&apos;ve routed this and will reply with the next step.
                 </p>
+                {triage && (
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-4 text-sm text-gray-200">
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Route</p>
+                        <p className="mt-1 font-semibold text-white">{triage.route}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Owner</p>
+                        <p className="mt-1 font-semibold text-white">{triage.owner}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Fit score</p>
+                        <p className="mt-1 font-semibold text-white">{triage.fitScore}/100</p>
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Human approval</p>
+                        <p className="mt-1 font-semibold text-white">
+                          {triage.approvalRequired ? `Yes${triage.approvalReason ? ` · ${triage.approvalReason}` : ""}` : "No"}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+                      <p className="text-xs uppercase tracking-[0.2em] text-gray-400">Next action</p>
+                      <p className="mt-2 leading-7 text-gray-100">{triage.nextAction}</p>
+                    </div>
+                    <div className="mt-4 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-gray-400">
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                        <Route className="h-3 w-3" /> Triage
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                        <UserCog className="h-3 w-3" /> Owner assigned
+                      </span>
+                      <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                        <ShieldCheck className="h-3 w-3" /> Human gate respected
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-8 space-y-4">
