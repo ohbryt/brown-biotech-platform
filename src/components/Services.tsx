@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch } from "lucide-react";
+import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch, Sparkles } from "lucide-react";
 
 const services = [
   {
@@ -111,6 +111,13 @@ export default function Services() {
             >
               <MessageSquare className="h-4 w-4" />
               Open Paid Brief
+            </a>
+            <a
+              href="/browser-test"
+              className="shrink-0 inline-flex items-center gap-2 border border-primary/20 bg-white hover:border-primary/30 text-text font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer"
+            >
+              <Sparkles className="h-4 w-4" />
+              Try browser demo
             </a>
           </div>
         </motion.div>

@@ -82,6 +82,12 @@ export default function Hero() {
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
+              href="/browser-test"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
+            >
+              Try browser demo
+            </a>
+            <a
               href="/services"
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
             >
