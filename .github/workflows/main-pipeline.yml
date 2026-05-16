@@ -31,7 +31,7 @@ jobs:
         run: npx vercel@latest pull --yes --environment=production --token "$VERCEL_TOKEN"
 
       - name: Build Vercel output
-        run: npx vercel@latest build --prod --force --token "$VERCEL_TOKEN"
+        run: npx vercel@latest build --prod --token "$VERCEL_TOKEN"
 
       - name: Deploy to Vercel
-        run: npx vercel@latest deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN"
+        run: npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
