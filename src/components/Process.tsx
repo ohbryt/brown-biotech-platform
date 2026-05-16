@@ -33,13 +33,13 @@ export default function Process() {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Engagement Model
+            Delegate the work
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            How We Work
+            Own the decisions, not the busy work.
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            A simple process designed for fast handoff, transparent expectations, and usable outputs.
+            A simple process designed for fast handoff, transparent expectations, and usable outputs. We keep the loop narrow so the team can focus on the next useful action.
           </p>
         </motion.div>
 

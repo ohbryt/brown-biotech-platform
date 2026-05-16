@@ -42,6 +42,53 @@ export const STATUS_FLOW = [
 
 export type IntakeSource = "website" | "telegram" | "email" | "referral" | "manual" | "service-page" | "main-contact";
 
+export const ROUTING_LAYERS = [
+  {
+    title: "Intake",
+    summary: "Capture the request, source, and outcome in one record.",
+    details: "Keep the initial brief small but specific enough to score fit, urgency, and risk.",
+  },
+  {
+    title: "Triage",
+    summary: "Score fit, urgency, and approval risk with shared rules.",
+    details: "Use the same logic across the website, browser demo, Telegram, and Notion.",
+  },
+  {
+    title: "Route",
+    summary: "Assign one owner, one route, and one next action.",
+    details: "Every request ends with a short receipt that can be reused in Notion or chat.",
+  },
+  {
+    title: "Human gate",
+    summary: "Hold money, legal, contract, deployment, public-claim, and medical-claim items.",
+    details: "High-stakes requests do not move without Dr.OCM review.",
+  },
+] as const;
+
+export const ROUTE_CARDS = ROUTING_LAYERS;
+
+export const MARKET_SIGNALS = [
+  {
+    source: "Roche × PathAI (2026-05-07)",
+    signal: "Diagnostics value now sits in the workflow, not only the model.",
+    implication: "Brown Biotech should sell decision-ready routing and review loops, not generic AI.",
+  },
+  {
+    source: "Nemotron persona team",
+    signal: "Small, specialized roles can improve throughput when the handoff is crisp.",
+    implication: "The router should output route, owner, approval gate, and next action every time.",
+  },
+] as const;
+
+
+export type EvidenceAttachment = {
+  name: string;
+  type: string;
+  size: number;
+  url: string;
+  path: string;
+};
+
 export type IntakeFormPayload = {
   name: string;
   email: string;
@@ -57,6 +104,10 @@ export type IntakeFormPayload = {
   humanApprovalRequired?: boolean;
   approvalReason?: ApprovalReason | "";
   constraints?: string;
+  evidenceTypes?: string[];
+  evidenceSummary?: string;
+  evidenceLinks?: string;
+  evidenceAttachments?: EvidenceAttachment[];
   message: string;
   source: IntakeSource;
   subject?: string;
@@ -73,14 +124,38 @@ export type TriageResult = {
   statusFlow: readonly string[];
 };
 
+export type DeliveryTarget = "Notion" | "Telegram" | "Slack" | "Formspree" | "Inbox fallback";
+
 export type IntakeApiResponse = {
   success: boolean;
   requestId: string;
   triage: TriageResult;
   notionUrl?: string;
   briefUrl?: string;
+  briefDraft?: string;
+  deliveryTargets: DeliveryTarget[];
+  deliveryNote: string;
   message: string;
 };
+
+export function getDeliveryTargets(hasNotionUrl: boolean): DeliveryTarget[] {
+  const targets: DeliveryTarget[] = [];
+  if (hasNotionUrl) {
+    targets.push("Notion");
+  } else {
+    targets.push("Inbox fallback");
+  }
+  if (process.env.TELEGRAM_BOT_TOKEN || process.env.BROWN_BIOTECH_TELEGRAM_BOT_TOKEN) targets.push("Telegram");
+  if (process.env.SLACK_INTAKE_WEBHOOK_URL) targets.push("Slack");
+  if (process.env.FORMSPREE_INQUIRY_URL) targets.push("Formspree");
+  return targets;
+}
+
+export function getDeliveryNote(targets: DeliveryTarget[]): string {
+  return targets.includes("Notion")
+    ? "Authoritative record saved to Notion, with mirrored alerts to Telegram / Slack when configured."
+    : "Authoritative record saved to the inbox fallback, with mirrored alerts to Telegram / Slack when configured.";
+}
 
 const SERVICE_KEYWORDS: Record<ServiceLane, string[]> = {
   "peptide-service": ["peptide", "peptides", "sequence", "assay", "synthesis", "quote", "consult"],
@@ -119,6 +194,33 @@ function normalizeText(value?: string | null): string {
   return String(value || "").trim();
 }
 
+function formatAttachmentStack(payload: Partial<IntakeFormPayload>): string {
+  const attachments = payload.evidenceAttachments || [];
+  if (!attachments.length) return "None provided";
+  return attachments
+    .map((attachment) => {
+      const sizeKb = Math.max(1, Math.round(attachment.size / 1024));
+      return `${attachment.name} (${attachment.type || "file"}, ${sizeKb} KB, ${attachment.url})`;
+    })
+    .join(" | ");
+}
+
+function formatEvidenceStack(payload: Partial<IntakeFormPayload>): string {
+  const parts: string[] = [];
+  if (payload.evidenceTypes?.length) {
+    parts.push(`Types: ${payload.evidenceTypes.join(", ")}`);
+  }
+  if (payload.evidenceSummary) {
+    parts.push(`Summary: ${normalizeText(payload.evidenceSummary)}`);
+  }
+  if (payload.evidenceLinks) {
+    parts.push(`Links: ${normalizeText(payload.evidenceLinks)}`);
+  }
+  if (payload.evidenceAttachments?.length) {
+    parts.push(`Files: ${formatAttachmentStack(payload)}`);
+  }
+  return parts.length ? parts.join(" | ") : "None provided";
+}
 export function normalizeServiceLane(value?: string | null): ServiceLane | "general" {
   const text = normalizeText(value).toLowerCase();
   if (!text) return "general";
@@ -264,6 +366,7 @@ export function formatInquiryMessage(payload: Partial<IntakeFormPayload>, triage
     `Route: ${route}`,
     `Owner: ${owner}`,
     `Human approval required: ${approval}`,
+    `Evidence stack: ${formatEvidenceStack(payload)}`,
     `Name: ${payload.name || ""}`,
     `Email: ${payload.email || ""}`,
     `Company / Lab: ${payload.company || ""}`,
@@ -273,5 +376,89 @@ export function formatInquiryMessage(payload: Partial<IntakeFormPayload>, triage
     `Constraints: ${payload.constraints || ""}`,
     "",
     payload.message || "",
+  ].join("\n");
+}
+
+export function formatInquiryRecord(payload: Partial<IntakeFormPayload>, triage?: Partial<TriageResult>, requestId?: string, notionUrl?: string | null): string {
+  const lane = laneLabel(payload.serviceLane || payload.serviceName || payload.projectType);
+  const approval = triage?.approvalRequired ? `Yes${triage.approvalReason ? ` · ${triage.approvalReason}` : ""}` : "No";
+
+  return [
+    "# Brown Biotech intake record",
+    "",
+    `- **Request ID:** ${requestId || "Pending"}`,
+    `- **Source:** ${payload.source || "website"}`,
+    `- **Service lane:** ${lane}`,
+    `- **Priority:** ${payload.priority || "Medium"}`,
+    `- **Route:** ${triage?.route || "Triage pending"}`,
+    `- **Owner:** ${triage?.owner || "Unassigned"}`,
+    `- **Fit score:** ${typeof triage?.fitScore === "number" ? `${triage.fitScore}/100` : "Pending"}`,
+    `- **Human approval:** ${approval}`,
+    `- **Evidence stack:** ${formatEvidenceStack(payload)}`,
+    payload.evidenceAttachments?.length ? `- **Files:** ${formatAttachmentStack(payload)}` : null,
+    `- **Next action:** ${triage?.nextAction || "Pending"}`,
+    notionUrl ? `- **Notion record:** ${notionUrl}` : `- **Notion record:** inbox fallback`,
+    "",
+    "## Client context",
+    `- Name: ${payload.name || ""}`,
+    `- Email: ${payload.email || ""}`,
+    `- Company / Lab: ${payload.company || ""}`,
+    `- Timeline: ${payload.timeline || ""}`,
+    `- Budget range: ${payload.budgetRange || ""}`,
+    "",
+    "## Objective",
+    payload.outcome || payload.problem || "",
+    "",
+    "## Constraints",
+    payload.constraints || "",
+    "",
+    "## Message",
+    payload.message || "",
+  ].join("\n");
+}
+
+export function buildBriefDraft(payload: Partial<IntakeFormPayload>, triage?: Partial<TriageResult>): string {
+  const lane = laneLabel(payload.serviceLane || payload.serviceName || payload.projectType);
+  const approval = triage?.approvalRequired ? `Yes${triage.approvalReason ? ` · ${triage.approvalReason}` : ""}` : "No";
+  const title = `${lane} brief draft`;
+
+  return [
+    `# ${title}`,
+    "",
+    "## Decision question",
+    payload.outcome || payload.problem || "What decision does this brief need to support?",
+    "",
+    "## Client context",
+    `- Name: ${payload.name || ""}`,
+    `- Company / Lab: ${payload.company || ""}`,
+    `- Timeline: ${payload.timeline || ""}`,
+    `- Budget range: ${payload.budgetRange || ""}`,
+    "",
+    "## Working hypothesis",
+    lane === "peptide-service"
+      ? "Scope the target, assay, and quote path before any deeper engagement."
+      : lane === "biostatx"
+        ? "Define the smallest analysis that changes a decision."
+        : lane === "genox-site"
+          ? "Clarify the collaboration or discovery path before expanding scope."
+          : "Map the workflow, owner, and next implementation step.",
+    "",
+    "## Evidence stack",
+    formatEvidenceStack(payload),
+    payload.evidenceAttachments?.length ? "" : "",
+    payload.evidenceAttachments?.length ? "## Files" : "",
+    payload.evidenceAttachments?.length ? formatAttachmentStack(payload) : "",
+    "",
+    "## Evidence / signals",
+    payload.message || "- Intake message not provided.",
+    "",
+    "## Risks / constraints",
+    payload.constraints || "- No explicit constraints provided.",
+    "",
+    "## Recommendation",
+    triage?.nextAction || "Triage the request and define the next action.",
+    "",
+    "## Human approval",
+    approval,
   ].join("\n");
 }

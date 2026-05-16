@@ -1,0 +1,23 @@
+{
+  "title": "Mapping the effects of plasma-mediated rejuvenation across brain regions",
+  "source": "GEO",
+  "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE175693",
+  "license": "NCBI public repository",
+  "modality": "transcriptomics",
+  "score": 4,
+  "raw_file_availability": "yes",
+  "key_metadata": {
+    "accession": "GSE175693",
+    "taxon": "Mus musculus",
+    "gds_type": "Expression profiling by high throughput sequencing",
+    "sample_count": 96,
+    "suppfile": "TXT",
+    "pdat": "2026/05/01"
+  },
+  "risk_signals": [],
+  "provenance": {
+    "source_id": "GSE175693",
+    "api": "ncbi.nlm.nih.gov/entrez/eutils"
+  },
+  "created_at": "2026-05-14T00:15:45.959892+00:00"
+}

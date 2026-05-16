@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, ShieldCheck } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -12,10 +12,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/genox-site" },
 };
 
-const deliverables = [
-  "Scope memo for discovery projects",
-  "Research direction and framing",
-  "Partnering path for next conversations",
+const cards = [
+  {
+    title: "Who it is for",
+    body: "Teams that are exploring a new research direction, partner conversation, or genomics-facing problem that needs sharper framing.",
+  },
+  {
+    title: "What we do",
+    body: "We turn a broad idea into a scoped memo, a clear direction, and a conversation path that is easier to progress.",
+  },
+  {
+    title: "What you get",
+    body: "A discovery brief, a framing note, and a next-step path that can be reused in partner or internal discussion.",
+  },
+];
+
+const boundaries = [
+  "We do not turn exploratory work into overpromising.",
+  "We keep the scope readable before asking for a deeper commitment.",
+  "Human review remains required for public or high-stakes claims.",
 ];
 
 export default function GenoxSitePage() {
@@ -27,18 +42,17 @@ export default function GenoxSitePage() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <Sparkles className="h-4 w-4 text-cta" />
-              genox-site
+              genox-site · supporting lane
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Discovery and genomics-facing support.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              For early conversations and partnership scoping, we help frame the
-              problem, define the direction, and prepare a clear next step.
+              For early conversations and partnership scoping, we help frame the problem, define the direction, and prepare a clear next step.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Discuss a project <ArrowRight className="h-4 w-4" />
+                Request a Paid Brief <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
                 Back to service hub
@@ -50,15 +64,27 @@ export default function GenoxSitePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          {deliverables.map((item) => (
-            <article key={item} className="premium-panel rounded-[1.75rem] p-8">
+          {cards.map((item) => (
+            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
               <CheckCircle2 className="h-6 w-6 text-cta" />
-              <p className="mt-4 text-lg font-semibold text-text">{item}</p>
-              <p className="mt-3 text-sm leading-7 text-text-muted">
-                Useful for turning a broad idea into a concrete conversation.
-              </p>
+              <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
+              <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Boundaries</span>
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
+            {boundaries.map((item) => (
+              <div key={item} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <ShieldCheck className="h-5 w-5 text-cta" />
+                <p className="mt-3 text-sm leading-7 text-text-muted">{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

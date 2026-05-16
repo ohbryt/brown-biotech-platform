@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Cpu, Database, FlaskConical } from "lucide-react";
 
 const stats = [
-  { value: "03", label: "Service Lanes", icon: Cpu, color: "bg-primary/10 text-primary" },
-  { value: "05", label: "Portfolio Sites", icon: Database, color: "bg-cta/10 text-cta" },
-  { value: "04", label: "Decision Steps", icon: FlaskConical, color: "bg-accent/10 text-primary-light" },
+  { value: "01", label: "Primary Lane", icon: Cpu, color: "bg-primary/10 text-primary" },
+  { value: "24h", label: "Response Target", icon: Database, color: "bg-cta/10 text-cta" },
+  { value: "04", label: "Approval Gates", icon: FlaskConical, color: "bg-accent/10 text-primary-light" },
 ];
 
 export default function About() {
@@ -21,16 +21,13 @@ export default function About() {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            About Us
+            Ready from day one
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-6 tracking-tight">
-            Turning Questions into Service Lanes
+            Brief first. Proof next. Clear handoff every time.
           </h2>
           <p className="text-lg text-text-muted leading-relaxed">
-            Brown Biotech Inc. helps move projects from first inquiry to a clear
-            engagement path. We use AI-assisted analysis, practical research
-            judgment, and a focused portfolio of service lanes to help teams get
-            to a useful next decision faster.
+            Brown Biotech Inc. turns inquiries into a small number of decision-ready lanes. The site, the intake, and the Notion hub all use the same words so the company feels like one system instead of separate pages.
           </p>
         </motion.div>
 

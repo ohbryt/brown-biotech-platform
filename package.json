@@ -2,11 +2,19 @@
   "name": "brown-biotech-website",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src tests",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "verify": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "research:scan": "bash research-watcher/run.sh scan",
+    "research:benchmark": "bash research-watcher/run.sh benchmark",
+    "research:report": "bash research-watcher/run.sh report",
+    "research:publish": "python3 research-watcher/publish_weekly_report.py --scan-file research-watcher/output/latest/scan.json"
   },
   "dependencies": {
     "next": "^15.1.0",

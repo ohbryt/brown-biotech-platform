@@ -1,0 +1,9 @@
+[brown-biotech] watcher start
+root=/Users/ocm/apps/brown-biotech-platform
+mode=scan
+outdir=/Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-14/scan
+Brown Biotech watcher complete: 2 hits across 1 queries.
+- [4/10] GEO: Mapping the effects of plasma-mediated rejuvenation across brain regions → Run QC notebook, then decide whether to ingest.
+- [4/10] HF: longevity-db/human-muscle-aging-atlas-snRNAseq → Run QC notebook, then decide whether to ingest.
+Outputs written to: /Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-14/scan
+[brown-biotech] watcher done

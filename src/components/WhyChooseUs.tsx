@@ -13,33 +13,33 @@ import {
 const differentiators = [
   {
     icon: Layers,
-    title: "Clear Lanes",
-    desc: "A small set of service lanes so teams can quickly find the right path without confusion.",
+    title: "One lane at a time",
+    desc: "The primary offer stays visible, so users know exactly where the business starts and what happens next.",
   },
   {
     icon: BrainCircuit,
-    title: "AI-First Approach",
-    desc: "AI is used to structure analysis, tighten scope, and speed up repetitive research work.",
+    title: "AI-first, human-controlled",
+    desc: "AI accelerates scope and analysis, but high-stakes decisions still go through human review.",
   },
   {
     icon: Database,
-    title: "Portfolio View",
-    desc: "A connected view of the company, service sites, and operating hub so nothing gets lost.",
+    title: "One source of truth",
+    desc: "Website, intake, and Notion all share the same nouns, states, and routing rules.",
   },
   {
     icon: FileText,
-    title: "Automated Reporting",
-    desc: "Produces clear summaries and handoff-ready reports for internal teams and external partners.",
+    title: "Decision-ready outputs",
+    desc: "Every request ends in a brief, a route, or a clear handoff — never an open-ended chat.",
   },
   {
     icon: ShieldCheck,
-    title: "Transparent Methods",
-    desc: "Outputs are structured so users can see what was asked, reviewed, and decided at each step.",
+    title: "Visible proof",
+    desc: "Research notes, publications, and partner signals are surfaced instead of hidden behind generic marketing copy.",
   },
   {
     icon: Settings,
-    title: "Fully Configurable",
-    desc: "Parameters and assumptions can be adjusted to match the project and decision context.",
+    title: "Reusable operating system",
+    desc: "The same structure can support service work, partner funnel work, and operator review without changing the vocabulary.",
   },
 ];
 
@@ -55,13 +55,13 @@ export default function WhyChooseUs() {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Our Advantage
+            Built for trust
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            Why Choose Us
+            Security is the foundation, not a feature.
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Built to help Brown Biotech look clear, credible, and easy to work with.
+            Brown Biotech keeps the operating model narrow, visible, and reusable so the market sees one company, one workflow, and one next step. The harness improves from review to review, while human review stays visible on high-stakes actions.
           </p>
         </motion.div>
 

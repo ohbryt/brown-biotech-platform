@@ -4,23 +4,23 @@ import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronDown, Sparkles, ShieldCheck, Gauge } from "lucide-react";
 
 const highlights = [
-  "Paid brief first",
-  "Human-reviewed outputs",
+  "Inspectable workflow",
+  "Human review required",
   "Decision-grade handoff",
 ];
 
 const laneCards = [
   {
     title: "peptide-service",
-    desc: "A focused path for peptide-related projects, quotes, and consults.",
+    desc: "Peptide projects, scoped and routed through a visible brief.",
   },
   {
     title: "biostatx",
-    desc: "Biostatistics, analysis, and reporting for decision-ready outputs.",
+    desc: "Biostatistics, analysis, and reporting with a clear review path.",
   },
   {
     title: "genox-site",
-    desc: "Discovery / genomics-facing support for scope and partnership conversations.",
+    desc: "Discovery / genomics-facing support for scope, partnership, and review.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 shadow-lg shadow-black/10 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
-              Brown Biotech · decision-ready biotech services
+              Brown Biotech · inspectable paid-brief harness
             </span>
           </motion.div>
 
@@ -53,9 +53,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             className="mt-7 text-5xl font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            Decision-ready biotech services,
+            One brief, one owner, one next action.
             <span className="mt-3 block text-transparent bg-gradient-to-r from-white via-amber-100 to-cta bg-clip-text">
-              delivered with human review.
+              inspect, route, review, deliver.
             </span>
           </motion.h1>
 
@@ -65,8 +65,25 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-7 max-w-2xl text-lg leading-8 text-gray-300"
           >
-            We start with a paid brief, then route the work into the right lane. AI accelerates the research, and humans approve what matters before anything client-facing ships.
+            Start with a paid brief, bring text, files, and signals together, keep the route visible, and use human review on anything high-stakes.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.26, ease: "easeOut" }}
+            className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-3"
+          >
+            {[
+              "One request ID",
+              "One owner",
+              "One next action",
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold text-white backdrop-blur">
+                {item}
+              </div>
+            ))}
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +92,7 @@ export default function Hero() {
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <a
-              href="#contact"
+              href="/services/business-pipeline#brief"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-7 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
             >
               Request a Paid Brief
@@ -92,6 +109,12 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
             >
               View Services
+            </a>
+            <a
+              href="/operator"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
+            >
+              Open Visual HQ
             </a>
           </motion.div>
 
@@ -120,15 +143,15 @@ export default function Hero() {
           className="relative"
         >
           <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-cta/20 via-transparent to-primary/15 blur-2xl" />
-          <div className="relative premium-panel rounded-[2rem] border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl">
+          <div className="relative premium-panel rounded-[2rem] border border-white/15 bg-black/30 p-6 shadow-2xl shadow-black/25 backdrop-blur-xl">
             <div className="flex items-center justify-between border-b border-white/10 pb-5">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-amber-100/80">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-amber-100/90">
                   Service snapshot
                 </p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">Three lanes. One clear route.</h2>
+                <h2 className="mt-2 text-2xl font-semibold text-white">Inspectable workflow. One clear route.</h2>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-cta shadow-lg shadow-black/10">
+              <div className="rounded-2xl border border-white/15 bg-white/10 p-3 text-cta shadow-lg shadow-black/10">
                 <Sparkles className="h-5 w-5" />
               </div>
             </div>
@@ -137,18 +160,18 @@ export default function Hero() {
               {laneCards.map((lane, index) => (
                 <div
                   key={lane.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/8"
+                  className="rounded-2xl border border-white/15 bg-black/20 p-4 transition hover:bg-black/25"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-100/70">
+                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-100/90">
                         <span className="h-2 w-2 rounded-full bg-cta" />
                         0{index + 1}
                       </div>
                       <h3 className="mt-2 text-lg font-semibold text-white">{lane.title}</h3>
-                      <p className="mt-1 text-sm leading-6 text-gray-300">{lane.desc}</p>
+                      <p className="mt-1 text-sm font-medium leading-6 text-gray-100">{lane.desc}</p>
                     </div>
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-2 text-gray-200">
+                    <div className="rounded-xl border border-white/15 bg-white/10 p-2 text-white">
                       <Gauge className="h-5 w-5" />
                     </div>
                   </div>
@@ -169,10 +192,10 @@ export default function Hero() {
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-white/8 to-white/5 p-5">
+            <div className="mt-6 rounded-2xl border border-white/15 bg-black/25 p-5">
               <div className="flex items-start gap-3">
                 <ShieldCheck className="mt-0.5 h-5 w-5 text-cta" />
-                <p className="text-sm leading-6 text-gray-300">
+                <p className="text-sm leading-6 text-gray-100">
                   Research support only. High-stakes decisions still get human review.
                 </p>
               </div>

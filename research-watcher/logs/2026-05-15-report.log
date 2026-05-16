@@ -1,0 +1,12 @@
+[brown-biotech] watcher start
+root=/Users/ocm/apps/brown-biotech-platform
+mode=report
+outdir=/Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-15/report
+Brown Biotech watcher complete: 8 hits across 27 queries.
+- [4/10] HF: longevity-db/human-muscle-aging-atlas-snRNAseq → Run QC notebook, then decide whether to ingest.
+- [2/10] HF: tyang816/ProteinGym_v1 → Archive the hit and keep provenance for future search.
+- [2/10] HF: OATML-Markslab/ProteinGym_v1 → Archive the hit and keep provenance for future search.
+Outputs written to: /Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-15/report
+[brown-biotech] publishing Notion weekly report
+https://www.notion.so/Brown-Biotech-dataset-report-report-2026-05-15-360f273533a48103ad9ec3f678aea4ab
+[brown-biotech] watcher done

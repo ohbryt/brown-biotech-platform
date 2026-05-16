@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Platform from "@/components/Platform";
 import Services from "@/components/Services";
+import ProofAndPartner from "@/components/ProofAndPartner";
 import Process from "@/components/Process";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
@@ -16,6 +17,7 @@ export default function Home() {
       <About />
       <Platform />
       <Services />
+      <ProofAndPartner />
       <Process />
       <WhyChooseUs />
       <Contact />

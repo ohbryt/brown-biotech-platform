@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#172033"/>
+      <stop offset="100%" stop-color="#101826"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <style>
+      .title { font: 700 34px Inter, Arial, sans-serif; fill: #f8fafc; }
+      .subtitle { font: 500 16px Inter, Arial, sans-serif; fill: #cbd5e1; }
+      .label { font: 700 18px Inter, Arial, sans-serif; fill: #f8fafc; }
+      .small { font: 500 14px Inter, Arial, sans-serif; fill: #cbd5e1; }
+      .tiny { font: 500 12px IBM Plex Mono, Consolas, monospace; fill: #94a3b8; }
+      .chip { font: 600 12px IBM Plex Mono, Consolas, monospace; fill: #0b1220; }
+      .card { fill: url(#card); stroke: rgba(255,255,255,0.10); stroke-width: 1.5; rx: 20; filter: url(#shadow); }
+      .lane { fill: rgba(255,255,255,0.03); stroke: rgba(255,255,255,0.08); stroke-width: 1.5; rx: 26; }
+      .accentline { stroke: url(#accent); stroke-width: 4; stroke-linecap: round; }
+      .arrow { stroke: #94a3b8; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .thin { stroke: rgba(255,255,255,0.10); stroke-width: 1.5; }
+      .pill { fill: #d4af37; rx: 999; }
+      .pill2 { fill: #7dd3fc; rx: 999; }
+      .pill3 { fill: #a7f3d0; rx: 999; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+
+  <text x="80" y="82" class="title">Brown Biotech Integrated Operating System</text>
+  <text x="80" y="114" class="subtitle">Inspectable paid-brief runtime · human-reviewed routing · evidence-first search · multimodal retrieval</text>
+
+  <rect x="60" y="160" width="1480" height="860" class="lane"/>
+  <line x1="800" y1="190" x2="800" y2="990" class="thin"/>
+
+  <!-- Top row: user to review -->
+  <rect x="100" y="240" width="250" height="120" class="card"/>
+  <text x="130" y="278" class="label">Inbound request</text>
+  <text x="130" y="305" class="small">Website · Telegram · Partner</text>
+  <rect x="130" y="326" width="110" height="24" class="pill"/>
+  <text x="144" y="343" class="chip">intake</text>
+
+  <rect x="420" y="240" width="250" height="120" class="card"/>
+  <text x="450" y="278" class="label">Triage</text>
+  <text x="450" y="305" class="small">fit · urgency · approval risk</text>
+  <rect x="450" y="326" width="135" height="24" class="pill2"/>
+  <text x="462" y="343" class="chip">route + score</text>
+
+  <rect x="740" y="220" width="300" height="160" class="card"/>
+  <text x="770" y="258" class="label">Human review gate</text>
+  <text x="770" y="287" class="small">owner · decision · next action</text>
+  <text x="770" y="316" class="small">Required for spend, legal, deployment, claims, public posting</text>
+  <rect x="770" y="338" width="148" height="24" class="pill3"/>
+  <text x="782" y="355" class="chip">approval required</text>
+
+  <rect x="1120" y="240" width="320" height="120" class="card"/>
+  <text x="1150" y="278" class="label">Execution lane</text>
+  <text x="1150" y="305" class="small">project · analysis · support · paid brief</text>
+  <rect x="1150" y="326" width="160" height="24" class="pill"/>
+  <text x="1164" y="343" class="chip">one owner, one next action</text>
+
+  <path d="M350 300 L420 300" class="arrow"/>
+  <path d="M670 300 L740 300" class="arrow"/>
+  <path d="M1040 300 L1120 300" class="arrow"/>
+
+  <!-- Middle row: proof and Notion -->
+  <rect x="100" y="460" width="300" height="150" class="card"/>
+  <text x="130" y="498" class="label">Proof artifact</text>
+  <text x="130" y="526" class="small">report · receipt · case note</text>
+  <text x="130" y="554" class="small">Visible evidence for the next conversation</text>
+  <rect x="130" y="576" width="125" height="24" class="pill2"/>
+  <text x="144" y="593" class="chip">decision-ready</text>
+
+  <rect x="450" y="460" width="320" height="150" class="card"/>
+  <text x="480" y="498" class="label">Notion HQ</text>
+  <text x="480" y="526" class="small">source of truth for routing and review</text>
+  <text x="480" y="554" class="small">boards · intake · weekly review · proof index</text>
+  <rect x="480" y="576" width="150" height="24" class="pill3"/>
+  <text x="492" y="593" class="chip">operating hub</text>
+
+  <rect x="840" y="460" width="300" height="150" class="card"/>
+  <text x="870" y="498" class="label">Weekly review / daily signal</text>
+  <text x="870" y="526" class="small">wins · blockers · risks · decisions</text>
+  <text x="870" y="554" class="small">feeds the next cycle of intake and prioritization</text>
+  <rect x="870" y="576" width="138" height="24" class="pill"/>
+  <text x="884" y="593" class="chip">closed loop</text>
+
+  <rect x="1180" y="460" width="260" height="150" class="card"/>
+  <text x="1210" y="498" class="label">Browser-visible demo</text>
+  <text x="1210" y="526" class="small">progressive loading · visible state · crisp handoff</text>
+  <text x="1210" y="554" class="small">reference pattern from LearningCell</text>
+  <rect x="1210" y="576" width="122" height="24" class="pill2"/>
+  <text x="1222" y="593" class="chip">show, don’t hide</text>
+
+  <path d="M250 390 L250 460" class="arrow"/>
+  <path d="M610 390 L610 460" class="arrow"/>
+  <path d="M950 390 L950 460" class="arrow"/>
+  <path d="M1310 360 L1310 460" class="arrow"/>
+  <path d="M400 535 L450 535" class="arrow"/>
+  <path d="M770 535 L840 535" class="arrow"/>
+  <path d="M1140 535 L1180 535" class="arrow"/>
+
+  <!-- Bottom row: search layer -->
+  <rect x="100" y="700" width="420" height="200" class="card"/>
+  <text x="130" y="740" class="label">Evidence search layer</text>
+  <text x="130" y="770" class="small">BM25 + semantic + AST chunking + line numbers</text>
+  <text x="130" y="798" class="small">deps · impact · compact output · Korean/Unicode</text>
+  <rect x="130" y="826" width="200" height="24" class="pill"/>
+  <text x="144" y="843" class="chip">semble_rs pattern</text>
+
+  <rect x="570" y="700" width="420" height="200" class="card"/>
+  <text x="600" y="740" class="label">Multimodal retrieval</text>
+  <text x="600" y="770" class="small">text · figures · captures · datasets · notes</text>
+  <text x="600" y="798" class="small">shared retrieval space for research and business assets</text>
+  <rect x="600" y="826" width="170" height="24" class="pill2"/>
+  <text x="612" y="843" class="chip">Jina Omni pattern</text>
+
+  <rect x="1040" y="700" width="420" height="200" class="card"/>
+  <text x="1070" y="740" class="label">Protected services</text>
+  <text x="1070" y="770" class="small">explicit review · approved paths · human-controlled actions</text>
+  <text x="1070" y="798" class="small">OpenMed-style runtime discipline</text>
+  <rect x="1070" y="826" width="200" height="24" class="pill3"/>
+  <text x="1082" y="843" class="chip">no blind automation</text>
+
+  <path d="M260 610 L260 700" class="arrow"/>
+  <path d="M610 610 L610 700" class="arrow"/>
+  <path d="M950 610 L950 700" class="arrow"/>
+  <path d="M1310 610 L1310 700" class="arrow"/>
+  <path d="M520 800 L570 800" class="arrow"/>
+  <path d="M990 800 L1040 800" class="arrow"/>
+
+  <text x="80" y="1030" class="tiny">Brown Biotech Inc. · inspectable paid-brief runtime · Notion source of truth · human review required for high-stakes actions</text>
+</svg>

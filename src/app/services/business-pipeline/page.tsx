@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, GitBranch } from "lucide-react";
+import { ArrowRight, GitBranch, CheckCircle2, ShieldCheck } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -12,6 +12,35 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/business-pipeline" },
 };
 
+const cards = [
+  {
+    title: "Who it is for",
+    body: "Teams that want a reusable company asset for routing, review, and brief production—not just a one-off project deliverable.",
+  },
+  {
+    title: "What we do",
+    body: "We package the workflow itself: intake, source mapping, triage, human review, and a brief that can move into the next step.",
+  },
+  {
+    title: "What you get",
+    body: "A reusable operating pipeline, a clear handoff artifact, and a structure that can support consulting or product work.",
+  },
+];
+
+const steps = [
+  { title: "Intake", desc: "Capture the request and define the lane." },
+  { title: "Triage", desc: "Score fit, urgency, and approval risk." },
+  { title: "Route", desc: "Assign one owner and one next action." },
+  { title: "Review", desc: "Keep high-stakes items human-reviewed." },
+  { title: "Deliver", desc: "Produce the brief, receipt, and archive." },
+];
+
+const boundaries = [
+  "This lane supports the company; it does not replace judgment.",
+  "No blind automation for public, legal, or high-stakes actions.",
+  "Every output should be reusable in Notion and in conversation.",
+];
+
 export default function BusinessPipelinePage() {
   return (
     <main className="min-h-screen bg-surface">
@@ -21,14 +50,13 @@ export default function BusinessPipelinePage() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <GitBranch className="h-4 w-4 text-cta" />
-              business-pipeline
+              business-pipeline · strategic upgrade
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              A company-owned pipeline for drug discovery and biotech operations.
+              A company-owned pipeline for routing, review, and reusable briefs.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Built for teams that want a repeatable source-to-brief workflow, clean review
-              gates, and outputs that are useful enough to act on.
+              Built for teams that want a repeatable source-to-brief workflow, clean review gates, a shareable receipt, and outputs that are useful enough to act on.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-300">
               {[
@@ -41,13 +69,13 @@ export default function BusinessPipelinePage() {
                 </span>
               ))}
             </div>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Start a pipeline brief <ArrowRight className="h-4 w-4" />
+                Request a Paid Brief <ArrowRight className="h-4 w-4" />
               </Link>
-              <a href="https://github.com/ohbryt/brown-biotech-business-pipeline" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
-                View GitHub repo
-              </a>
+              <Link href="/browser-test" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
+                Open browser demo
+              </Link>
             </div>
           </div>
         </div>
@@ -55,48 +83,41 @@ export default function BusinessPipelinePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          <article className="premium-panel rounded-[1.75rem] p-8">
-            <span className="kicker">Who it is for</span>
-            <p className="mt-4 text-lg font-semibold text-text">Research teams, founders, and operators who need a cleaner decision path.</p>
-            <p className="mt-3 text-sm leading-7 text-text-muted">Ideal when the problem is too complex for a one-off prompt but not yet large enough for a full product build.</p>
-          </article>
-          <article className="premium-panel rounded-[1.75rem] p-8">
-            <span className="kicker">What you get</span>
-            <p className="mt-4 text-lg font-semibold text-text">A scoped brief, source map, and a human-reviewed next step.</p>
-            <p className="mt-3 text-sm leading-7 text-text-muted">Outputs are structured to be reused in Notion, internal planning, partner conversations, or proposal work.</p>
-          </article>
-          <article className="premium-panel rounded-[1.75rem] p-8">
-            <span className="kicker">Why it matters</span>
-            <p className="mt-4 text-lg font-semibold text-text">Less noise, faster scoping, and better handoff quality.</p>
-            <p className="mt-3 text-sm leading-7 text-text-muted">The pipeline is designed to reduce rework and make Brown Biotech&apos;s reasoning more visible and reusable.</p>
-          </article>
+          {cards.map((item) => (
+            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
+              <CheckCircle2 className="h-6 w-6 text-cta" />
+              <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
+              <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="premium-panel rounded-[2rem] p-8">
-            <span className="kicker">Pipeline structure</span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text">
-              From question to output, with clear review gates.
-            </h2>
-            <ul className="mt-6 space-y-3 text-sm leading-7 text-text-muted">
-              <li>• intake and scope capture</li>
-              <li>• source mapping and retrieval</li>
-              <li>• synthesis and ranking</li>
-              <li>• human review</li>
-              <li>• delivery and archive in Notion</li>
-            </ul>
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Operating steps</span>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {steps.map((step, index) => (
+              <div key={step.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">0{index + 1}</p>
+                <p className="mt-3 text-base font-semibold text-text">{step.title}</p>
+                <p className="mt-2 text-sm leading-7 text-text-muted">{step.desc}</p>
+              </div>
+            ))}
           </div>
-          <div className="premium-panel rounded-[2rem] p-8">
-            <span className="kicker">Business value</span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text">
-              A service backbone that can support both product and consulting.
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-text-muted">
-              Use the pipeline as a company asset, a repeatable service offering, and a
-              basis for future software or agentic product development.
-            </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Boundaries</span>
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
+            {boundaries.map((item) => (
+              <div key={item} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <ShieldCheck className="h-5 w-5 text-cta" />
+                <p className="mt-3 text-sm leading-7 text-text-muted">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

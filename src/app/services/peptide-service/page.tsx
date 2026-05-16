@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, FlaskConical } from "lucide-react";
+import { ArrowRight, CheckCircle2, FlaskConical, ShieldCheck } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -12,10 +12,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/peptide-service" },
 };
 
-const deliverables = [
-  "Project scope and fit review",
-  "Quote / proposal structure",
-  "Action plan for the next step",
+const cards = [
+  {
+    title: "Who it is for",
+    body: "Teams with a peptide question, candidate set, formulation constraint, or partner discussion that needs a clean entry point.",
+  },
+  {
+    title: "What we do",
+    body: "We clarify scope, define the right lane, and produce a brief that can move from discussion to decision without extra noise.",
+  },
+  {
+    title: "What you get",
+    body: "A scoped brief, a route preview, a reusable receipt, and a clear next action you can share internally.",
+  },
+];
+
+const boundaries = [
+  "We do not start execution before scope is clear.",
+  "High-stakes steps remain human-reviewed.",
+  "The first output is a decision-ready brief, not a vague promise.",
 ];
 
 export default function PeptideServicePage() {
@@ -27,18 +42,18 @@ export default function PeptideServicePage() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <FlaskConical className="h-4 w-4 text-cta" />
-              peptide-service
+              peptide-service · primary lane
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              A focused entry point for peptide projects and paid briefs.
+              Peptide projects start with a brief.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Bring us the question, the target outcome, and the constraints.
-              We&apos;ll help clarify scope, route the request, and map the next step.
+              Bring the question, the target outcome, and the constraints.
+              We&apos;ll route the request, define the scope, and shape the next step.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Start a Paid Brief <ArrowRight className="h-4 w-4" />
+                Request a Paid Brief <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/services" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
                 Back to service hub
@@ -50,25 +65,37 @@ export default function PeptideServicePage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
-          {deliverables.map((item) => (
-            <article key={item} className="premium-panel rounded-[1.75rem] p-8">
+          {cards.map((item) => (
+            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
               <CheckCircle2 className="h-6 w-6 text-cta" />
-              <p className="mt-4 text-lg font-semibold text-text">{item}</p>
-              <p className="mt-3 text-sm leading-7 text-text-muted">
-                Built for clear handoff and easy decision-making.
-              </p>
+              <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
+              <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Boundaries</span>
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
+            {boundaries.map((item) => (
+              <div key={item} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <ShieldCheck className="h-5 w-5 text-cta" />
+                <p className="mt-3 text-sm leading-7 text-text-muted">{item}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <ServiceInquiryCard
         serviceName="peptide-service"
         title="Send a peptide project brief"
-        description="If you want a quick fit check, a quote path, or a clearer next step, send the essentials here."
+        description="If you want a fit check, a quote path, or a clearer next step, send the essentials here and we&apos;ll route it well."
         prompts={[
           "What peptide question or project are you working on?",
-          "What does success look like?",
+          "What outcome would make this useful?",
           "Do you need a quote, consultation, or scoped action plan?",
         ]}
       />

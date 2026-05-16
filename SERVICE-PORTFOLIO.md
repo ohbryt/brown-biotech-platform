@@ -57,3 +57,36 @@ Create one source of truth in Notion with these columns:
 - Status
 - Owner
 - Next action
+
+## Notion operating hub alignment
+Use the Brown Biotech operating hub to keep the website, service lanes, and internal workflow aligned.
+
+### Canonical language
+- **Primary motion:** Paid Brief → peptide-service
+- **Supporting lanes:** biostatx, genox-site, business-pipeline
+- **Primary CTA:** Request a Brief
+- **Operating rule:** one brief, one owner, one next action
+
+### Reusable skill pack
+Keep the internal skill pack small:
+- Intake capture
+- Triage
+- Routing
+- Brief drafting
+- Source mapping
+- Approval gate
+- Receipt formatting
+- Launch check
+- Weekly review
+- Spec-to-task conversion
+
+### Service-specific variants
+- peptide-service: brief, quote, consultation
+- biostatx: dataset review, analysis plan, reporting
+- genox-site: discovery framing, partner path
+- business-pipeline: intake routing, ops automation, spec-to-task conversion
+
+### Internal docs
+- `BROWN_BIOTECH_NOTION_OPERATING_HUB.md`
+- `BROWN_BIOTECH_SKILL_PACK.md`
+- `BROWN_BIOTECH_PLAYBOOK.md`

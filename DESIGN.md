@@ -39,12 +39,58 @@ Use these influences together:
 - **Premium polish:** Apple
 - **Conversion structure:** Stripe
 - **Hero energy:** Framer
+- **Agent-readable spec pattern:** oh-my-design (DESIGN.md as the single source of style truth)
 
 ## Core principles
 
 ### 1. Credible over clever
 Avoid playful copy that could weaken trust.
 Prefer concise, grounded, specific language.
+
+## System architecture map
+
+This is the operating model to implement across the site, Notion, and the local watcher stack:
+
+```mermaid
+flowchart TB
+  U[User / Partner / Research Lead] --> H[Homepage / Service Hub]
+  H --> I[Inquiry / Paid Brief Intake]
+  I --> T[Triage\nfit · urgency · approval risk]
+  T --> R{Human approval needed?}
+  R -->|yes| A[Review gate\nowner · decision · next action]
+  R -->|no| O[Auto-route\nowner · next action]
+  A --> E[Execution lane\nproject / analysis / support]
+  O --> E
+  E --> P[Proof artifact\nreport · receipt · case note]
+  P --> N[Notion HQ\nsource of truth]
+  N --> W[Weekly review / daily signal]
+  W --> H
+
+  subgraph Reference patterns
+    LC[LearningCell]\n(browser-visible demo, progressive loading)
+    OM[OpenMed]\n(inspectable runtime, explicit review, protected services)
+    SR[semble_rs]\n(compact evidence search, deps, impact, line numbers)
+    JO[Jina Omni]\n(multimodal retrieval across text/image/video/audio)
+  end
+
+  LC --> H
+  OM --> A
+  SR --> E
+  JO --> N
+```
+
+### What each reference contributes
+- **LearningCell** — make the browser surface tangible, fast, and visibly loading.
+- **OpenMed** — make review explicit, protect high-stakes steps, and keep artifacts visible.
+- **semble_rs** — make search evidence-first: compact, line-based, dependency-aware.
+- **Jina Omni** — connect text, figures, captures, and datasets in one retrieval layer.
+
+### Architecture rules
+- Browser UI should always show *what is happening*, *who owns it*, and *what happens next*.
+- Notion remains the source of truth for routing, proof, and weekly review.
+- Search should return evidence, not just keywords.
+- High-stakes actions always stop at a human review gate.
+- The same operating model should work for website inquiries, research signals, and partner requests.
 
 ### 2. One page, one job
 Each page should have a clear primary action.
@@ -89,6 +135,13 @@ The site may mention AI acceleration, but should clearly preserve human approval
 - keep surfaces clean and slightly elevated
 - use consistent borders and shadows
 - keep copy short and decisive
+
+### Do for agent-facing design systems
+- make the style source explicit in `DESIGN.md`
+- prefer command-line or code-snippet examples for developer confidence
+- use preset-based variants instead of freeform visual chaos
+- keep each screen readable as a spec, not just a screenshot
+- verify the layout in-browser before freezing the style
 
 ### Don’t
 - don’t use neon-heavy sci-fi visuals
@@ -172,6 +225,15 @@ Use a small set of surface types:
 - thin border
 - subtle shadow or blur only if it improves polish
 - avoid heavy glassmorphism
+
+## Agent-readable style cues
+
+When the site is used as a reference for AI coding agents, prefer:
+- a single style source (`DESIGN.md`)
+- code/CLI snippets that look executable
+- preset-based brand variants instead of ad hoc styling
+- a visible spec panel or brand wall to show the system, not just the screenshot
+- restrained contrast, disciplined spacing, and short technical labels
 
 ## Buttons and CTAs
 

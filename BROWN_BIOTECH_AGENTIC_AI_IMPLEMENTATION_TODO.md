@@ -39,6 +39,13 @@ Build a narrow, human-controlled, revenue-first service first. Do not build a ge
 - [ ] Recommended next actions
 - [ ] Source list
 
+### 4b. Create an agent-readable design system
+- [ ] Keep a single `DESIGN.md` at repo root
+- [ ] Define visual rules, tone rules, CTA rules, and forbidden phrases
+- [ ] Treat `DESIGN.md` as the style source for AI coding agents
+- [ ] Verify the layout in-browser before freezing the style
+- [ ] Keep the design spec aligned with the live homepage and service hub
+
 ---
 
 ## P1 — Build the MVP
@@ -48,6 +55,15 @@ Build a narrow, human-controlled, revenue-first service first. Do not build a ge
 - [ ] Add keyword / competitor / disease filters
 - [ ] Add exclude list
 - [ ] Store watchlist in Notion or a lightweight DB
+
+### 5b. Build a weekly dataset watcher for research sources
+- [x] Define scan sources (HF Datasets, bioRxiv, Zenodo, GEO, cellxgene, HCA, OpenFold, RFdiffusion)
+- [x] Add query families for aging, fibrosis, metabolism, spatial, and protein design
+- [x] Score datasets by license, raw availability, modality pairing, perturbation, and cohort depth
+- [x] Use a 7+ ingest / 4–6 QC / 3- archive rule
+- [x] Produce Monday scan, Wednesday benchmark, Friday worth-integrating report
+- [x] Keep provenance and license notes attached to every hit
+- [x] Implement in `research-watcher/watch_datasets.py`, `research-watcher/run.sh`, and `research-watcher/ingest_template.py`
 
 ### 6. Build the synthesis workflow
 - [ ] Monitor public sources
@@ -61,6 +77,9 @@ Build a narrow, human-controlled, revenue-first service first. Do not build a ge
 - [ ] Save client preferences
 - [ ] Save approved language snippets
 - [ ] Reuse prior source lists and exclusions
+- [ ] Add multimodal retrieval over PDFs, screenshots, figures, and audio notes
+- [ ] Keep provenance attached to every retrieval hit
+- [ ] Confirm license / commercial usage before production rollout
 
 ### 8. Add observability
 - [ ] Track requests processed

@@ -13,8 +13,8 @@ export default function Footer() {
               </div>
               <span className="text-lg font-bold text-white">Brown Biotech</span>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-              AI-assisted research support and service lanes for labs, founders, and collaborators.
+            <p className="text-sm text-gray-300 leading-relaxed max-w-xs">
+              AI-first, human-controlled research support and service lanes for labs, founders, and collaborators.
               Built for clearer scopes, cleaner handoffs, and better next steps.
             </p>
           </div>
@@ -26,11 +26,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "About", href: "#about" },
-                { label: "Platform", href: "#platform" },
                 { label: "Services", href: "#services" },
+                { label: "Proof", href: "#proof" },
                 { label: "Service Hub", href: "/services" },
-                { label: "Process", href: "#process" },
-                { label: "Why Us", href: "#why-us" },
+                { label: "Operator", href: "/operator" },
                 { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.label}>

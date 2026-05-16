@@ -31,14 +31,13 @@ export default function Platform() {
           className="text-center mb-6"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Service Lanes
+            Works with your tools
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            Our 3 Core Offers
+            Three lanes, one operating motion
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            A simple structure for moving from first inquiry to a clear next
-            step.
+            Keep the scope clean, route the request fast, and keep the partner path visible. The stack is simple on purpose: Notion, Telegram, GitHub, Vercel, and the browser demo all point back to the same brief.
           </p>
         </motion.div>
 

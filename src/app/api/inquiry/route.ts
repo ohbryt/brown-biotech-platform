@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 import {
+  buildBriefDraft,
   buildInquirySubject,
-  formatInquiryMessage,
+  formatInquiryRecord,
+  getDeliveryNote,
+  getDeliveryTargets,
   normalizeServiceLane,
   triageIntake,
   type IntakeFormPayload,
-} from "@/lib/intake";
+} from "../../../lib/intake";
+import { parseInquiryRequest } from "../../../lib/inquiry";
+import { buildAttachmentLines, saveInquiryAttachments, summarizeAttachmentList, type SavedInquiryAttachment } from "../../../lib/upload-store";
 
 const NOTION_INBOX_PAGE_ID = "356f2735-33a4-8147-b448-e5ef03f9157c";
 const NOTION_INTAKE_DATABASE_ID = process.env.NOTION_INTAKE_DATABASE_ID || "";
@@ -21,26 +26,15 @@ function toSelect(value: string, fallback = "Other"): string {
   return toText(value) || fallback;
 }
 
-function compactMessage(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>) {
+function evidenceSummaryLine(payload: IntakeFormPayload): string {
   return [
-    `Source: ${payload.source || "website"}`,
-    `Service: ${normalizeServiceLane(payload.serviceLane || payload.serviceName || payload.projectType)}`,
-    `Priority: ${payload.priority || "Medium"}`,
-    `Route: ${triage.route}`,
-    `Owner: ${triage.owner}`,
-    `Fit score: ${triage.fitScore}`,
-    `Urgency score: ${triage.urgencyScore}`,
-    `Human approval: ${triage.approvalRequired ? `Yes (${triage.approvalReason || "other"})` : "No"}`,
-    `Name: ${payload.name || ""}`,
-    `Email: ${payload.email || ""}`,
-    `Company / Lab: ${payload.company || ""}`,
-    `Timeline: ${payload.timeline || ""}`,
-    `Budget range: ${payload.budgetRange || ""}`,
-    `Target outcome: ${payload.outcome || payload.problem || ""}`,
-    `Constraints: ${payload.constraints || ""}`,
-    "",
-    payload.message || "",
-  ].join("\n");
+    payload.evidenceTypes?.length ? `Types: ${payload.evidenceTypes.join(", ")}` : null,
+    payload.evidenceSummary ? `Summary: ${toText(payload.evidenceSummary)}` : null,
+    payload.evidenceLinks ? `Links: ${toText(payload.evidenceLinks)}` : null,
+    payload.evidenceAttachments?.length ? `Files: ${summarizeAttachmentList(payload.evidenceAttachments)}` : null,
+  ]
+    .filter(Boolean)
+    .join(" | ") || "None provided";
 }
 
 function getNotionProperties(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>) {
@@ -75,6 +69,18 @@ function getNotionProperties(payload: IntakeFormPayload, triage: ReturnType<type
   };
 }
 
+function buildEvidenceBlock(payload: IntakeFormPayload, attachments: SavedInquiryAttachment[]) {
+  const blockLines = [
+    "## Evidence stack",
+    `- Types: ${payload.evidenceTypes?.length ? payload.evidenceTypes.join(", ") : "None provided"}`,
+    payload.evidenceSummary ? `- Summary: ${payload.evidenceSummary}` : null,
+    payload.evidenceLinks ? `- Links: ${payload.evidenceLinks}` : null,
+    attachments.length ? `- Files: ${summarizeAttachmentList(attachments)}` : `- Files: None provided`,
+  ].filter(Boolean) as string[];
+
+  return blockLines.join("\n");
+}
+
 async function maybeSendToTelegram(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>, notionUrl?: string) {
   if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
 
@@ -90,6 +96,7 @@ async function maybeSendToTelegram(payload: IntakeFormPayload, triage: ReturnTyp
     `Company: ${payload.company || ""}`,
     `Timeline: ${payload.timeline || ""}`,
     `Budget: ${payload.budgetRange || ""}`,
+    `Evidence: ${evidenceSummaryLine(payload)}`,
     `Next: ${triage.nextAction}`,
     notionUrl ? `Notion: ${notionUrl}` : null,
     "",
@@ -109,10 +116,13 @@ async function maybeSendToTelegram(payload: IntakeFormPayload, triage: ReturnTyp
   });
 }
 
-async function createNotionDatabasePage(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>) {
+async function createNotionDatabasePage(
+  payload: IntakeFormPayload,
+  triage: ReturnType<typeof triageIntake>,
+  requestId: string,
+) {
   if (!NOTION_INTAKE_DATABASE_ID) return null;
 
-  const requestId = `BR-${Date.now()}`;
   const res = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
     headers: {
@@ -138,61 +148,16 @@ async function createNotionDatabasePage(payload: IntakeFormPayload, triage: Retu
   return {
     pageId: data?.id as string | undefined,
     url: data?.url as string | undefined,
-    requestId,
   };
 }
 
-async function appendNotionBlocks(pageId: string, payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>, requestId: string) {
-  const blocks = [
-    {
-      object: "block",
-      type: "heading_3",
-      heading_3: {
-        rich_text: [
-          {
-            type: "text",
-            text: { content: buildInquirySubject({ ...payload, subject: `${buildInquirySubject(payload)} (${requestId})` }) },
-          },
-        ],
-      },
-    },
-    {
-      object: "block",
-      type: "paragraph",
-      paragraph: {
-        rich_text: [
-          {
-            type: "text",
-            text: { content: formatInquiryMessage(payload, triage) },
-          },
-        ],
-      },
-    },
-  ];
-
-  await fetch(`https://api.notion.com/v1/blocks/${pageId}/children`, {
-    method: "PATCH",
-    headers: {
-      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
-      "Content-Type": "application/json",
-      "Notion-Version": "2022-06-28",
-    },
-    body: JSON.stringify({ children: blocks }),
-  });
-}
-
-async function maybeSendToNotion(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>) {
-  const apiKey = process.env.NOTION_API_KEY;
-  if (!apiKey) return { notionUrl: undefined, requestId: `BR-${Date.now()}` };
-
-  if (NOTION_INTAKE_DATABASE_ID) {
-    const page = await createNotionDatabasePage(payload, triage);
-    if (!page?.pageId) return { notionUrl: page?.url, requestId: page?.requestId || `BR-${Date.now()}` };
-    await appendNotionBlocks(page.pageId, payload, triage, page.requestId);
-    return { notionUrl: page.url, requestId: page.requestId };
-  }
-
-  const requestId = `BR-${Date.now()}`;
+async function appendNotionBlocks(
+  pageId: string,
+  payload: IntakeFormPayload,
+  triage: ReturnType<typeof triageIntake>,
+  requestId: string,
+  attachments: SavedInquiryAttachment[],
+) {
   const blocks = [
     {
       object: "block",
@@ -213,7 +178,80 @@ async function maybeSendToNotion(payload: IntakeFormPayload, triage: ReturnType<
         rich_text: [
           {
             type: "text",
-            text: { content: formatInquiryMessage(payload, triage) },
+            text: { content: formatInquiryRecord(payload, triage, requestId, undefined) },
+          },
+        ],
+      },
+    },
+    {
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        rich_text: [
+          {
+            type: "text",
+            text: { content: buildEvidenceBlock(payload, attachments) },
+          },
+        ],
+      },
+    },
+  ];
+
+  await fetch(`https://api.notion.com/v1/blocks/${pageId}/children`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${process.env.NOTION_API_KEY}`,
+      "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28",
+    },
+    body: JSON.stringify({ children: blocks }),
+  });
+}
+
+async function maybeSendToNotion(payload: IntakeFormPayload, triage: ReturnType<typeof triageIntake>, requestId: string, attachments: SavedInquiryAttachment[]) {
+  const apiKey = process.env.NOTION_API_KEY;
+  if (!apiKey) return { notionUrl: undefined, requestId };
+
+  if (NOTION_INTAKE_DATABASE_ID) {
+    const page = await createNotionDatabasePage(payload, triage, requestId);
+    if (!page?.pageId) return { notionUrl: page?.url, requestId };
+    await appendNotionBlocks(page.pageId, payload, triage, requestId, attachments);
+    return { notionUrl: page.url, requestId };
+  }
+
+  const blocks = [
+    {
+      object: "block",
+      type: "heading_3",
+      heading_3: {
+        rich_text: [
+          {
+            type: "text",
+            text: { content: `${buildInquirySubject(payload)} (${requestId})` },
+          },
+        ],
+      },
+    },
+    {
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        rich_text: [
+          {
+            type: "text",
+            text: { content: formatInquiryRecord(payload, triage, requestId, undefined) },
+          },
+        ],
+      },
+    },
+    {
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        rich_text: [
+          {
+            type: "text",
+            text: { content: buildEvidenceBlock(payload, attachments) },
           },
         ],
       },
@@ -253,6 +291,7 @@ async function maybeSendToSlack(payload: IntakeFormPayload, triage: ReturnType<t
         `Email: ${payload.email || ""}`,
         `Company: ${payload.company || ""}`,
         `Timeline: ${payload.timeline || ""}`,
+        `Evidence: ${evidenceSummaryLine(payload)}`,
         notionUrl ? `Notion: ${notionUrl}` : null,
         payload.message || "",
       ].filter(Boolean).join("\n"),
@@ -275,7 +314,11 @@ async function maybeSendToFormspree(payload: IntakeFormPayload, triage: ReturnTy
       email: payload.email,
       company: payload.company,
       timeline: payload.timeline,
-      message: formatInquiryMessage(payload, triage),
+      evidenceTypes: payload.evidenceTypes?.join(", ") || "",
+      evidenceSummary: payload.evidenceSummary || "",
+      evidenceLinks: payload.evidenceLinks || "",
+      evidenceAttachments: summarizeAttachmentList(payload.evidenceAttachments),
+      message: formatInquiryRecord(payload, triage),
       _subject: buildInquirySubject(payload),
     }),
   });
@@ -288,37 +331,23 @@ async function maybeSendToFormspree(payload: IntakeFormPayload, triage: ReturnTy
 
 export async function POST(request: Request) {
   try {
-    const contentType = request.headers.get("content-type") || "";
-    const rawPayload = contentType.includes("application/json")
-      ? await request.json()
-      : Object.fromEntries(await request.formData());
+    const parsed = await parseInquiryRequest(request);
+    if (!parsed.ok) {
+      return NextResponse.json({ ok: false, error: parsed.error }, { status: parsed.status });
+    }
 
-    const payload = {
-      source: String(rawPayload.source || "website") as IntakeFormPayload["source"],
-      serviceLane: rawPayload.serviceLane,
-      serviceName: rawPayload.serviceName,
-      projectType: rawPayload.projectType,
-      name: String(rawPayload.name || ""),
-      email: String(rawPayload.email || ""),
-      company: String(rawPayload.company || ""),
-      timeline: String(rawPayload.timeline || ""),
-      budgetRange: String(rawPayload.budgetRange || ""),
-      priority: String(rawPayload.priority || "Medium") as IntakeFormPayload["priority"],
-      problem: String(rawPayload.problem || ""),
-      outcome: String(rawPayload.outcome || ""),
-      humanApprovalRequired:
-        rawPayload.humanApprovalRequired === true || rawPayload.humanApprovalRequired === "true" || rawPayload.humanApprovalRequired === "yes",
-      approvalReason: String(rawPayload.approvalReason || "") as IntakeFormPayload["approvalReason"],
-      constraints: String(rawPayload.constraints || ""),
-      message: String(rawPayload.message || ""),
-      subject: String(rawPayload.subject || ""),
-    } satisfies IntakeFormPayload;
-
-    const triage = triageIntake(payload);
-    const notion = (await maybeSendToNotion(payload, triage)) ?? {
-      notionUrl: undefined,
-      requestId: `BR-${Date.now()}`,
+    const requestId = `BR-${Date.now()}`;
+    const attachments = parsed.attachments?.length ? await saveInquiryAttachments(requestId, parsed.attachments) : [];
+    const payload: IntakeFormPayload = {
+      ...parsed.payload,
+      evidenceAttachments: attachments,
     };
+    const triage = triageIntake(payload);
+    const notion = (await maybeSendToNotion(payload, triage, requestId, attachments)) ?? {
+      notionUrl: undefined,
+      requestId,
+    };
+    const deliveryTargets = getDeliveryTargets(Boolean(notion.notionUrl));
 
     await Promise.allSettled([
       maybeSendToTelegram(payload, triage, notion.notionUrl),
@@ -331,6 +360,10 @@ export async function POST(request: Request) {
       requestId: notion.requestId,
       triage,
       notionUrl: notion.notionUrl,
+      briefDraft: buildBriefDraft(payload, triage),
+      deliveryTargets,
+      deliveryNote: getDeliveryNote(deliveryTargets),
+      attachments,
       message: "Inquiry received and routed.",
     });
   } catch (error) {

@@ -153,6 +153,10 @@ A human-controlled research agent that produces weekly insight briefs and alerts
   - source watchlists
   - customer preferences
   - approved language snippets
+  - PDFs / screenshots / figures / audio notes
+- keep provenance and human approval attached to reused evidence
+- add a separate dataset watcher for aging / fibrosis / metabolism / spatial / protein design inputs
+- implemented in `research-watcher/` with cron wrapper, ingestion template, and QC notebook skeleton
 
 ### Tool/MCP integrations
 - **Notion:** operating hub, briefs, client state

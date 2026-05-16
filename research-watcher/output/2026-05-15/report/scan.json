@@ -1,0 +1,349 @@
+{
+  "mode": "report",
+  "axis": "aging–fibrosis–metabolism–single-cell/spatial–clinical translation",
+  "generated_at": "2026-05-14T21:00:51.933563+00:00",
+  "hit_count": 8,
+  "hits": [
+    {
+      "title": "longevity-db/human-muscle-aging-atlas-snRNAseq",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/longevity-db/human-muscle-aging-atlas-snRNAseq",
+      "license": "cc-by-4.0",
+      "modality": "single-cell",
+      "key_metadata": {
+        "id": "longevity-db/human-muscle-aging-atlas-snRNAseq",
+        "downloads": 13,
+        "likes": 0,
+        "tags": [
+          "annotations_creators:found",
+          "multilinguality:monolingual",
+          "source_datasets:original",
+          "language:en",
+          "license:cc-by-4.0",
+          "size_categories:100K<n<1M",
+          "format:parquet",
+          "modality:tabular",
+          "modality:text",
+          "library:datasets",
+          "library:dask",
+          "library:mlcroissant",
+          "library:polars",
+          "region:us",
+          "single-cell",
+          "single-nucleus",
+          "snRNA-seq",
+          "scRNA-seq",
+          "human",
+          "skeletal-muscle",
+          "aging",
+          "longevity",
+          "cell-atlas",
+          "anndata",
+          "gene-expression",
+          "pca",
+          "umap",
+          "dimensionality-reduction",
+          "cell-types",
+          "biomarkers"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "Human Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset 1. Data Overview This dataset provides single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the human skeletal muscle across different age groups. It serves as a rich resource for investigating cell-type specific gene expression changes and cellular composition shifts that occur during the aging process in a critical human tissue. The original data was sourced from the Human… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/human-muscle-aging-atlas-snRNAseq."
+      },
+      "raw_file_availability": "no",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: longevity-db/human-muscle-aging-atlas-snRNAseq shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-05-14T21:00:38.402897+00:00",
+      "provenance": {
+        "source_id": "longevity-db/human-muscle-aging-atlas-snRNAseq",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "tyang816/ProteinGym_v1",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/tyang816/ProteinGym_v1",
+      "license": "apache-2.0",
+      "modality": "protein-design",
+      "key_metadata": {
+        "id": "tyang816/ProteinGym_v1",
+        "downloads": 43,
+        "likes": 0,
+        "tags": [
+          "license:apache-2.0",
+          "region:us"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "📑 Github https://github.com/tyang816/ProtSSN 🙌 Citation Please cite our work if you have used our code or data for dry experiment testing/wet experiment directed evolution. We are pleased to see improvements in the subsequent work. @article{tan2023protssn, title={Semantical and Topological Protein Encoding Toward Enhanced Bioactivity and Thermostability}, author={Tan, Yang and Zhou, Bingxin and Zheng, Lirong and Fan, Guisheng and Hong, Liang}, journal={bioRxiv}… See the full description on the dataset page: https://huggingface.co/datasets/tyang816/ProteinGym_v1."
+      },
+      "raw_file_availability": "no",
+      "score": 2,
+      "why_it_matters": "Archive-only signal for now: tyang816/ProteinGym_v1 does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "ProteinGym",
+      "collected_at": "2026-05-14T21:00:49.580566+00:00",
+      "provenance": {
+        "source_id": "tyang816/ProteinGym_v1",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "OATML-Markslab/ProteinGym_v1",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v1",
+      "license": "unknown",
+      "modality": "protein-design",
+      "key_metadata": {
+        "id": "OATML-Markslab/ProteinGym_v1",
+        "downloads": 2176,
+        "likes": 8,
+        "tags": [
+          "size_categories:1M<n<10M",
+          "region:us",
+          "biology",
+          "deep-learning",
+          "protein-fitness"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "ProteinGym ProteinGym is a benchmark suite for evaluating protein fitness prediction and design models. It includes both substitution and indel mutations, a wide variety of experimentally assayed proteins, and clinically annotated mutations that are relevant to human disease. In total, ProteinGym includes nearly 3 million different mutations. Dataset Details ProteinGym is split into four separate benchmarks, based on the prediction target and the type of mutation… See the full description on the dataset page: https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v1."
+      },
+      "raw_file_availability": "no",
+      "score": 2,
+      "why_it_matters": "Archive-only signal for now: OATML-Markslab/ProteinGym_v1 does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "ProteinGym",
+      "collected_at": "2026-05-14T21:00:48.758412+00:00",
+      "provenance": {
+        "source_id": "OATML-Markslab/ProteinGym_v1",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "longevity-db/mouse-muscle-aging-atlas-snRNAseq",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/longevity-db/mouse-muscle-aging-atlas-snRNAseq",
+      "license": "cc-by-4.0",
+      "modality": "single-cell",
+      "key_metadata": {
+        "id": "longevity-db/mouse-muscle-aging-atlas-snRNAseq",
+        "downloads": 47,
+        "likes": 0,
+        "tags": [
+          "annotations_creators:found",
+          "multilinguality:monolingual",
+          "source_datasets:original",
+          "language:en",
+          "license:cc-by-4.0",
+          "size_categories:100K<n<1M",
+          "format:parquet",
+          "modality:tabular",
+          "modality:text",
+          "library:datasets",
+          "library:dask",
+          "library:mlcroissant",
+          "library:polars",
+          "region:us",
+          "single-cell",
+          "single-nucleus",
+          "snRNA-seq",
+          "scRNA-seq",
+          "mouse",
+          "skeletal-muscle",
+          "aging",
+          "longevity",
+          "cell-atlas",
+          "anndata",
+          "gene-expression",
+          "pca",
+          "umap",
+          "dimensionality-reduction",
+          "highly-variable-genes"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "Mouse Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset Dataset Overview This dataset comprises single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the mouse skeletal muscle across different age groups. It serves as a valuable resource for investigating cell-type-specific gene expression changes and cellular composition shifts that occur during the aging process in a crucial mammalian model system. The data was sourced from the… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/mouse-muscle-aging-atlas-snRNAseq."
+      },
+      "raw_file_availability": "no",
+      "score": 2,
+      "why_it_matters": "Archive-only signal for now: longevity-db/mouse-muscle-aging-atlas-snRNAseq does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-05-14T21:00:38.667965+00:00",
+      "provenance": {
+        "source_id": "longevity-db/mouse-muscle-aging-atlas-snRNAseq",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "genbio-ai/ProteinGYM-DMS",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/genbio-ai/ProteinGYM-DMS",
+      "license": "unknown",
+      "modality": "protein-design",
+      "key_metadata": {
+        "id": "genbio-ai/ProteinGYM-DMS",
+        "downloads": 692,
+        "likes": 1,
+        "tags": [
+          "region:us"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "ProteinGYM DMS Benchmark DMS Benchmark includes three types of mutations: indels, single substitution and multiple substitutions. Each tsv file contains all data for a single task, representing all possible mutations on a specific protein sequence. The filename corresponds to the task name. Here we use randomly cross-validation scheme, where the data for each task is randomly divided into five folds and the fold_id column indicates the fold assignment. The labels are continuous… See the full description on the dataset page: https://huggingface.co/datasets/genbio-ai/ProteinGYM-DMS."
+      },
+      "raw_file_availability": "no",
+      "score": 0,
+      "why_it_matters": "Archive-only signal for now: genbio-ai/ProteinGYM-DMS does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "ProteinGym",
+      "collected_at": "2026-05-14T21:00:50.643699+00:00",
+      "provenance": {
+        "source_id": "genbio-ai/ProteinGYM-DMS",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "ICML2022/ProteinGym",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/ICML2022/ProteinGym",
+      "license": "unknown",
+      "modality": "protein-design",
+      "key_metadata": {
+        "id": "ICML2022/ProteinGym",
+        "downloads": 781,
+        "likes": 11,
+        "tags": [
+          "arxiv:2205.13760",
+          "region:us"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark corresponds to… See the full description on the dataset page: https://huggingface.co/datasets/ICML2022/ProteinGym."
+      },
+      "raw_file_availability": "no",
+      "score": 0,
+      "why_it_matters": "Archive-only signal for now: ICML2022/ProteinGym does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "ProteinGym",
+      "collected_at": "2026-05-14T21:00:48.115969+00:00",
+      "provenance": {
+        "source_id": "ICML2022/ProteinGym",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "OATML-Markslab/ProteinGym_v0.1",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v0.1",
+      "license": "unknown",
+      "modality": "protein-design",
+      "key_metadata": {
+        "id": "OATML-Markslab/ProteinGym_v0.1",
+        "downloads": 1822,
+        "likes": 15,
+        "tags": [
+          "arxiv:2205.13760",
+          "region:us"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark corresponds to… See the full description on the dataset page: https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v0.1."
+      },
+      "raw_file_availability": "no",
+      "score": 0,
+      "why_it_matters": "Archive-only signal for now: OATML-Markslab/ProteinGym_v0.1 does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "ProteinGym",
+      "collected_at": "2026-05-14T21:00:47.593331+00:00",
+      "provenance": {
+        "source_id": "OATML-Markslab/ProteinGym_v0.1",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    },
+    {
+      "title": "SharkieJones/celldega_Visium-HD_hCRC",
+      "source": "HF",
+      "url": "https://huggingface.co/datasets/SharkieJones/celldega_Visium-HD_hCRC",
+      "license": "unknown",
+      "modality": "spatial",
+      "key_metadata": {
+        "id": "SharkieJones/celldega_Visium-HD_hCRC",
+        "downloads": 1,
+        "likes": 0,
+        "tags": [
+          "region:us"
+        ],
+        "file_count": 0,
+        "raw_files": [],
+        "description": "This dataset was obtained from https://www.10xgenomics.com/datasets"
+      },
+      "raw_file_availability": "no",
+      "score": 0,
+      "why_it_matters": "Archive-only signal for now: SharkieJones/celldega_Visium-HD_hCRC does not clear the immediate intake threshold.",
+      "next_action": "Archive the hit and keep provenance for future search.",
+      "query": "Visium HD",
+      "collected_at": "2026-05-14T21:00:45.425387+00:00",
+      "provenance": {
+        "source_id": "SharkieJones/celldega_Visium-HD_hCRC",
+        "api": "huggingface.co/api/datasets"
+      },
+      "risk_signals": [
+        "processed only, no obvious raw/semi-raw assets"
+      ]
+    }
+  ],
+  "queries": [
+    "sarcopenia single-cell",
+    "aging muscle atlas",
+    "frailty multi-omics",
+    "muscle fibrosis spatial transcriptomics",
+    "skeletal muscle aging Visium",
+    "human aging cohort metabolomics",
+    "fibroblast atlas",
+    "FAP spatial transcriptomics",
+    "MASH liver atlas",
+    "lung fibrosis single-cell",
+    "fibrosis perturb-seq",
+    "extracellular matrix multiomics",
+    "OXPHOS dependency CRISPR",
+    "mitochondrial vulnerability atlas",
+    "tumor metabolism single-cell",
+    "metabolic flux transcriptome",
+    "ferroptosis atlas",
+    "Xenium atlas",
+    "CosMx dataset",
+    "Visium HD",
+    "multiplex imaging spatial",
+    "spatial metabolomics",
+    "RFdiffusion dataset",
+    "protein cofold",
+    "enzyme design benchmark",
+    "ProteinGym",
+    "OpenFold weights"
+  ]
+}
