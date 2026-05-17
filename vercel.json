@@ -1,11 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/services/", "destination": "/services" },
-    { "source": "/operator/", "destination": "/operator" },
-    { "source": "/browser-test/", "destination": "/browser-test" }
-  ],
   "headers": [
     {
       "source": "/(.*)",
