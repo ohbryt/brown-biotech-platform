@@ -1,8 +1,31 @@
 # Brown Biotech Notion Operating Hub
 
-This page is the working outline for the Brown Biotech operating hub.
-It should stay aligned with the website language:
-**one brief, one owner, one next action**.
+>This page is the working outline for the Brown Biotech operating hub.
+>It should stay aligned with the website language:
+>**one brief, one owner, one next action**.
+
+## System of Intelligence — Architecture
+
+```
+PubMed / ClinicalTrials / ChEMBL / GEO    ← System of Record (SoR)
+        ↓ 읽고 · 쓰고 · 추론하는 레이어
+Hermes Agent + ARP v24                    ← System of Intelligence (SoI)
+        ↓ decision-ready 출력
+Paid Briefs → Notion DB                   ← 제도적 기억 (institutional memory)
+```
+
+### SoI 운영 로그 (automated)
+| Run | Trigger | Output |
+|-----|---------|--------|
+| Morning triage (06:00 KST) | 28 journals, 7 topics | Notion DB entries |
+| Research watcher scan | 27 queries, weekly | 97+ hits, scored |
+| Paid Brief delivery | Per request | Brief archive in Notion |
+
+### 왜 SoI인가
+- **전환 비용** = 데이터 축적이 아닌 **추론 맥적** (workflow + reasoning context)
+- **데이터 품질** = AI 자동 기록 → Notion DB가 매일 풍부해짐
+- **制度적 기억** = 담당자 이직해도 맥락 유지
+- **TAM 확대** = "관심 있는 모든 biotech 질문" = Paid Briefs 범위
 
 ## HQ
 - **Primary motion:** Paid Brief → peptide-service

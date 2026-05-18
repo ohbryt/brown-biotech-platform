@@ -31,13 +31,13 @@ export default function Platform() {
           className="text-center mb-6"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Works with your tools
+            System of Intelligence
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
             Three lanes, one operating motion
           </h2>
           <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Keep the scope clean, route the request fast, and keep the partner path visible. The stack is simple on purpose: Notion, Telegram, GitHub, Vercel, and the browser demo all point back to the same brief.
+            Brown Biotech runs a continuous reasoning layer over PubMed, ClinicalTrials, ChEMBL, and GEO — 28 journals, 27 queries, 5 disease axes. Every brief is decision-ready. Every handoff is visible.
           </p>
         </motion.div>
 

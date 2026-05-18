@@ -43,7 +43,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 shadow-lg shadow-black/10 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
-              Brown Biotech · inspectable paid-brief harness
+              Brown Biotech · System of Intelligence — biotech reasoning layer
             </span>
           </motion.div>
 
@@ -65,7 +65,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-7 max-w-2xl text-lg leading-8 text-gray-300"
           >
-            Start with a paid brief, bring text, files, and signals together, keep the route visible, and use human review on anything high-stakes.
+            Start with a paid brief — powered by a live reasoning layer over PubMed, ClinicalTrials, ChEMBL, and GEO. Every brief is decision-ready. Every handoff is visible.
           </motion.p>
 
           <motion.div
