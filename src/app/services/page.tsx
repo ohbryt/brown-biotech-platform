@@ -134,21 +134,21 @@ export default function ServicesPage() {
                 ["Lanes", "3 primary lanes"],
                 ["Output", "Route preview"],
               ].map(([label, value]) => (
-                <div key={label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
-                  <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100/70">{label}</div>
+                <div key={label} className="rounded-2xl border border-white/10 bg-white/12 px-4 py-3 backdrop-blur">
+                  <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-amber-100/80">{label}</div>
                   <div className="mt-1 text-sm font-semibold text-white">{value}</div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-200">
+            <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-100">
               {[
                 "Human review on high-stakes",
                 "Notion receipt",
                 "Private by default",
                 "Decision-grade handoff",
               ].map((pill) => (
-                <span key={pill} className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
+                <span key={pill} className="inline-flex items-center rounded-full border border-white/10 bg-white/12 px-4 py-2 backdrop-blur">
                   {pill}
                 </span>
               ))}

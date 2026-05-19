@@ -9,13 +9,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-heading",
   display: "swap",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
   display: "swap",
   weight: ["400", "500"],
 });
