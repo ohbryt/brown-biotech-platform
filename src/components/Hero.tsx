@@ -41,7 +41,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 shadow-lg shadow-black/10 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/12 px-4 py-2 text-sm font-medium text-gray-100 shadow-lg shadow-black/10 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
               Brown Biotech · System of Intelligence — biotech reasoning layer
             </span>
@@ -79,7 +79,7 @@ export default function Hero() {
               "One owner",
               "One next action",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-white/8 px-4 py-3 text-sm font-semibold text-white backdrop-blur">
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white backdrop-blur">
                 {item}
               </div>
             ))}
@@ -127,7 +127,7 @@ export default function Hero() {
             {highlights.map((item) => (
               <span
                 key={item}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/12 px-4 py-2 text-sm text-gray-100 backdrop-blur"
               >
                 <CheckCircle2 className="h-4 w-4 text-cta" />
                 {item}
