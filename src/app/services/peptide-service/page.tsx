@@ -33,6 +33,26 @@ const boundaries = [
   "The first output is a decision-ready brief, not a vague promise.",
 ];
 
+const assayTypes = ["ELISA", "qPCR", "Proteomics / MASS-spec", "Cell-based assay", "Other"];
+
+const pricingTiers = [
+  {
+    tier: "Sample Brief",
+    range: "₩0.3M ~ ₩1M",
+    description: "Quick fit check or initial scoping conversation.",
+  },
+  {
+    tier: "Paid Brief",
+    range: "₩2M ~ ₩8M",
+    description: "Focused scope document with route preview and next action.",
+  },
+  {
+    tier: "Project",
+    range: "₩8M ~ ₩30M+",
+    description: "Full execution lane with deliverables and review gates.",
+  },
+];
+
 export default function PeptideServicePage() {
   return (
     <main className="min-h-screen bg-surface">
@@ -89,6 +109,54 @@ export default function PeptideServicePage() {
         </div>
       </section>
 
+      {/* Pricing Table */}
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Offer ladder</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">Pricing overview</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-text-muted">
+            Three engagement tiers — each scoped before any commitment.
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {pricingTiers.map((item) => (
+              <div key={item.tier} className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-cta">{item.tier}</p>
+                  <span className="rounded-full bg-gradient-to-r from-primary/10 to-cta/10 px-3 py-1 text-xs font-semibold text-primary">
+                    {item.range}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-text-muted">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Assay Type Selector */}
+      <section className="mx-auto max-w-6xl px-4 pb-0 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Service specifics</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">Assay type</h2>
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-text-muted">
+            Tell us the primary assay or detection method for your peptide project.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {assayTypes.map((assay) => (
+              <div
+                key={assay}
+                className="group flex items-center gap-3 rounded-2xl border border-border bg-white px-5 py-4 shadow-sm transition hover:border-primary/50 hover:shadow-md"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-cta/15">
+                  <FlaskConical className="h-4 w-4 text-cta" />
+                </div>
+                <p className="text-sm font-semibold text-text">{assay}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ServiceInquiryCard
         serviceName="peptide-service"
         title="Send a peptide project brief"
@@ -98,6 +166,11 @@ export default function PeptideServicePage() {
           "What outcome would make this useful?",
           "Do you need a quote, consultation, or scoped action plan?",
         ]}
+        peptideFields={{
+          assayTypes: ["ELISA", "qPCR", "Proteomics / MASS-spec", "Cell-based assay", "Other"],
+          targetOrganismLabel: "Target organism / matrix",
+          hasSequenceLabel: "I have a peptide/protein sequence",
+        }}
       />
     </main>
   );
