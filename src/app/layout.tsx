@@ -1,24 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteName = "Brown Biotech Inc.";
 const siteDescription =
   "Brown Biotech Inc. helps labs, founders, and collaborators turn complex biotech questions into clear next steps through focused service lanes, pilot workflows, and decision-ready reporting.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-  weight: ["400", "500"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -124,8 +110,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${ibmPlexMono.variable}`}>
-      <body className="antialiased font-[family-name:var(--font-heading)]">
+    <html lang="en" className="font-heading antialiased">
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
