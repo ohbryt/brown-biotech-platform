@@ -43,3 +43,57 @@ Add this category to the internal business-model matrix and use it as a referenc
 
 ## One-line framing
 **From data to model to recurring license: the new biotech AI revenue path.**
+
+---
+
+# Addendum: Google Labs Science (2026-05-20)
+
+## Source
+URL: `https://labs.google/science/` — Experimental tools, waitlist access ("Express interest")
+
+## Three Tools + Competitive Position
+
+| Tool | Built with | What it does | Brown Biotech lane impact |
+|---|---|---|---|
+| **Literature Insights** | NotebookLM | Literature search → structured data table → artifacts (reports, slides, infographics) | Direct competition to paid brief + biostatx |
+| **Hypothesis Generation** | Co-Scientist | Multi-agent scientific method simulation → knowledge gaps → testable research plans | Structural validation of PRISM self-evolution loop |
+| **Computational Discovery** | AlphaEvolve + ERA | Agentic code generation + scoring based on optimization metrics | Adjacent to molecular design + ADMET work |
+
+## Key Observations
+
+1. **All three are waitlist-only** — no public API or pricing. This is early-stage Google Labs territory, not a market-ready product.
+
+2. **Literature Insights** is the most immediately competitive — it automated the literature review → structured output pipeline that Brown Biotech's paid brief delivers manually with human review.
+
+3. **Hypothesis Generation (Co-Scientist)** architecture is structurally identical to the PRISM self-evolution concept — multi-agent role simulation of the scientific method. This validates the approach but also means Google will compete on the architecture itself once they open it up.
+
+4. **Computational Discovery** via AlphaEvolve has proven mathematical optimization results (matrix multiplication, sorting algorithms). If extended to molecular/chemical optimization, it becomes a direct competitor to the peptide-service molecular design lane.
+
+5. **The "Built with" branding** (NotebookLM, Co-Scientist, AlphaEvolve) signals Google is positioning these as productized wrappers over core DeepMind research — distribution through Google's consumer + enterprise channels.
+
+## Implications for Brown Biotech
+
+### Threat matrix
+- **Short-term:** Low. Waitlist-only means no immediate market pressure.
+- **Medium-term:** If Literature Insights goes public and gets NotebookLM distribution, it commoditizes the literature review portion of the paid brief. Brown Biotech's edge is human review + domain expertise + Korean market access.
+- **Long-term:** If Co-Scientist opens as an API, Brown Biotech could integrate it as a layer in PRISM rather than compete with it.
+
+### Opportunity: Integration over competition
+- Monitor for API openings on all three tools
+- If Co-Scientist API becomes available → integrate into PRISM as the hypothesis generation layer
+- If Literature Insights API becomes available → wire into the brief intake pipeline as automated literature preprocessing
+- Position Brown Biotech as the domain-expert wrapper around these powerful but generic tools
+
+### Defensive positioning
+- Double down on human review + Korean market expertise as the durable moat
+- Build proof assets (case notes, publications) that showcase what the human layer adds beyond what automated tools produce
+- Keep the paid brief lane focused on decision-ready output, not just information retrieval
+
+## Monitoring Triggers
+- [ ] Any tool moves from "Express interest" to public beta or API
+- [ ] Pricing or tiering announcement
+- [ ] Scientific publications or case studies using these tools
+- [ ] Adoption signals from pharma/lifescience companies
+
+## Last Updated
+2026-05-20

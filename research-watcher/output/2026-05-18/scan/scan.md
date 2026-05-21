@@ -1,7 +1,7 @@
-# Brown Biotech research watcher — Wednesday benchmark
+# Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-05-19T21:01:15.860043+00:00
+**Generated:** 2026-05-18T02:30:50.312334+00:00
 
 ## Top hits
 ### 1. Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH]
@@ -10,7 +10,7 @@
 - Modality: single-cell + spatial
 - Score: 9/10
 - Raw file availability: yes
-- Key metadata: {"accession": "GSE299886", "taxon": "synthetic construct; Homo sapiens", "gds_type": "Other", "sample_count": 3, "suppfile": "CSV", "pdat": "2025/06/30"}
+- Key metadata: {"accession": "GSE299886", "taxon": "Homo sapiens; synthetic construct", "gds_type": "Other", "sample_count": 3, "suppfile": "CSV", "pdat": "2025/06/30"}
 - Why it matters: Strong fit for immediate Brown Biotech intake: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
 - Next action: Ingest immediately and prepare a handoff brief.
 - Query: multiplex imaging spatial

@@ -9,6 +9,12 @@ type ServiceInquiryCardProps = {
   title: string;
   description: string;
   prompts: string[];
+  /** Peptide-service specific fields */
+  peptideFields?: {
+    assayTypes?: string[];
+    targetOrganismLabel?: string;
+    hasSequenceLabel?: string;
+  };
 };
 
 export default function ServiceInquiryCard({
@@ -16,6 +22,7 @@ export default function ServiceInquiryCard({
   title,
   description,
   prompts,
+  peptideFields,
 }: ServiceInquiryCardProps) {
   const subject = useMemo(() => `Brown Biotech paid brief: ${serviceName}`, [serviceName]);
 
@@ -399,6 +406,42 @@ export default function ServiceInquiryCard({
                     className="w-full rounded-xl border border-white/15 bg-black/25 px-4 py-3 text-white placeholder:text-gray-300 outline-none transition focus:border-cta/70 focus:bg-black/30 focus:ring-2 focus:ring-cta/25"
                   />
                 </label>
+
+                {peptideFields?.assayTypes && (
+                  <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+                    <p className="text-sm font-semibold text-white">Assay type</p>
+                    <p className="mt-1 text-sm text-gray-300">Select the primary assay or detection method for your peptide project.</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {peptideFields.assayTypes.map((assay) => (
+                        <label key={assay} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-gray-100 cursor-pointer transition hover:bg-white/10 has-[:checked]:border-cta has-[:checked]:bg-cta/15 has-[:checked]:text-white">
+                          <input type="radio" name="assayType" value={assay} className="sr-only" />
+                          {assay}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {peptideFields?.targetOrganismLabel && (
+                  <label className="block">
+                    <span className="mb-2 flex items-center gap-2 text-sm font-semibold text-white">
+                      <svg className="h-4 w-4 text-cta" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                      {peptideFields.targetOrganismLabel}
+                    </span>
+                    <input
+                      name="targetOrganism"
+                      placeholder="e.g. human serum, mouse tissue, cell lysate, synthetic"
+                      className="w-full rounded-xl border border-white/15 bg-black/25 px-4 py-3 text-white placeholder:text-gray-300 outline-none transition focus:border-cta/70 focus:bg-black/30 focus:ring-2 focus:ring-cta/25"
+                    />
+                  </label>
+                )}
+
+                {peptideFields?.hasSequenceLabel && (
+                  <label className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 cursor-pointer">
+                    <input type="checkbox" name="hasSequence" value="yes" className="h-5 w-5 rounded border-white/20 bg-transparent text-cta focus:ring-cta/25" />
+                    <span className="text-sm font-semibold text-white">{peptideFields.hasSequenceLabel}</span>
+                  </label>
+                )}
 
                 <label className="block">
                   <span className="mb-2 flex items-center gap-2 text-sm font-semibold text-white">

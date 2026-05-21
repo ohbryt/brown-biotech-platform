@@ -12,15 +12,18 @@ const highlights = [
 const laneCards = [
   {
     title: "peptide-service",
-    desc: "Peptide projects, scoped and routed through a visible brief.",
+    desc: "From target to supplier shortlist — scoped, cited, and routed in one brief.",
+    outcome: "Clear scope → supplier shortlist",
   },
   {
     title: "biostatx",
-    desc: "Biostatistics, analysis, and reporting with a clear review path.",
+    desc: "Analysis plan, statistical review, and decision-ready report for your dataset.",
+    outcome: "Dataset → decision path",
   },
   {
     title: "genox-site",
-    desc: "Discovery / genomics-facing support for scope, partnership, and review.",
+    desc: "Discovery framing, partner scoping, and evidence-backed brief for genomics projects.",
+    outcome: "Discovery → partner-ready brief",
   },
 ];
 
@@ -170,6 +173,7 @@ export default function Hero() {
                       </div>
                       <h3 className="mt-2 text-lg font-semibold text-white">{lane.title}</h3>
                       <p className="mt-1 text-sm font-medium leading-6 text-gray-100">{lane.desc}</p>
+                      <p className="mt-2 text-xs font-medium text-amber-400/80">{lane.outcome}</p>
                     </div>
                     <div className="rounded-xl border border-white/15 bg-white/10 p-2 text-white">
                       <Gauge className="h-5 w-5" />

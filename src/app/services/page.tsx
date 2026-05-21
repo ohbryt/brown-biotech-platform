@@ -37,6 +37,17 @@ const lanes = [
     cta: "Discuss a project",
     accent: "from-primary-light to-cta",
   },
+  {
+    name: "Inventa",
+    href: "/services/inventa",
+    icon: Sparkles,
+    summary: "AI research agent tournament for biotech hypothesis generation.",
+    forWhom: "Teams that want structured competitive AI research with ranking.",
+    deliverables: ["Hypothesis brief", "Evidence map", "Ranking score"],
+    cta: "Join Waitlist",
+    accent: "from-amber-400 to-orange-500",
+    badge: "Coming soon",
+  },
 ];
 
 const steps = [
@@ -104,7 +115,7 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub for peptide-service, biostatx, genox-site, and business-pipeline.",
+  description: "Brown Biotech service hub for peptide-service, biostatx, genox-site, Inventa, and business-pipeline.",
   alternates: { canonical: "/services" },
 };
 
@@ -131,7 +142,7 @@ export default function ServicesPage() {
               {[
                 ["Privacy", "Private"],
                 ["Response", "24h"],
-                ["Lanes", "3 primary lanes"],
+                ["Lanes", "4 primary lanes"],
                 ["Output", "Route preview"],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/12 px-4 py-3 backdrop-blur">
@@ -168,7 +179,7 @@ export default function ServicesPage() {
 
       <section id="lanes" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <span className="kicker">Three core offers</span>
+          <span className="kicker">Four core offers</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
             Choose the lane that matches the project.
           </h2>
@@ -187,9 +198,15 @@ export default function ServicesPage() {
                 </div>
                 <div className="mt-6 flex items-center justify-between gap-4">
                   <h3 className="text-2xl font-semibold text-text">{lane.name}</h3>
-                  <span className="rounded-full border border-cta/20 bg-cta/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-cta">
-                    Lane
-                  </span>
+                  {lane.badge ? (
+                    <span className="rounded-full border border-amber-200/20 bg-amber-100/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
+                      {lane.badge}
+                    </span>
+                  ) : (
+                    <span className="rounded-full border border-cta/20 bg-cta/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-cta">
+                      Lane
+                    </span>
+                  )}
                 </div>
                 <p className="mt-3 text-text-muted leading-7">{lane.summary}</p>
                 <div className="mt-6 rounded-2xl bg-white/70 p-5">

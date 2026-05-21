@@ -8,40 +8,44 @@ const proofCards = [
     icon: CheckCircle2,
     title: "Research proof",
     desc: "Scoped memos, citations, and decision-ready summaries that make the work easier to trust.",
+    stat: "Brief first",
   },
   {
     icon: BookOpen,
     title: "Publications",
     desc: "Selected outputs stay public so partners can see the reasoning, not just the branding.",
+    stat: "Evidence-led",
   },
   {
     icon: Users,
     title: "Community",
     desc: "Useful updates, discussions, and reading notes keep the ecosystem warm without noise.",
+    stat: "Signal-rich",
   },
   {
     icon: Sparkles,
     title: "Partner funnel",
     desc: "Serious inbound interest gets routed into a brief, an owner, and a next action.",
+    stat: "Route → owner → action",
   },
 ];
 
 const publicationItems = [
   {
     title: "Research brief",
-    desc: "Scoped summary with citations and a recommendation.",
+    desc: "Scoped summary with citations, evidence map, and a recommendation you can act on.",
   },
   {
     title: "Case note",
-    desc: "A compact proof note with outcome and lesson learned.",
+    desc: "A compact proof note with outcome, methods used, and what made the difference.",
   },
   {
     title: "Methods note",
-    desc: "Reusable workflow or analysis note for repeat work.",
+    desc: "Reusable analysis workflow or statistical approach you can apply to your next project.",
   },
   {
     title: "Partner update",
-    desc: "A public signal that opens the next serious conversation.",
+    desc: "A focused signal brief that opens the next serious conversation with a clear ask.",
   },
 ];
 
@@ -84,6 +88,9 @@ export default function ProofAndPartner() {
                 </div>
                 <h3 className="text-lg font-semibold text-text mb-2">{card.title}</h3>
                 <p className="text-sm text-text-muted leading-relaxed">{card.desc}</p>
+                <div className="mt-4 inline-flex rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary">
+                  {card.stat}
+                </div>
               </motion.div>
             );
           })}
