@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, FlaskConical, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, FlaskConical, ShieldCheck, Sparkles } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -129,6 +129,42 @@ export default function PeptideServicePage() {
                 <p className="mt-3 text-sm leading-7 text-text-muted">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Drug Discovery — System of Intelligence */}
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-[2rem] border border-slate-700/50 bg-slate-900/60 p-8 lg:p-12">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,119,6,0.12),transparent_50%)]" />
+          <div className="relative">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
+              <Sparkles className="h-3 w-3" />
+              New capability
+            </span>
+            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              We don&apos;t sell database access. We sell the reasoning layer on top of it.
+            </h2>
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+              At Brown Biotech, our AI drug discovery pipeline begins where standard virtual screening ends. Every molecule that passes through our FPembed molecular fingerprint engine is not merely indexed — it is understood within a high-dimensional chemical space that encodes pharmacokinetic relevance, structural novelty, and target alignment simultaneously.
+            </p>
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-gray-300">
+              Our reasoning layer sits atop the ARP v24 infrastructure, leveraging the same PRISM optimization pathways that power our peptide synthesis services. This means when you submit a lead compound or a pharmacophore hypothesis, our system doesn&apos;t return a list of similar molecules — it returns decision-scored candidates ranked by synthetic accessibility, off-target liability, and ADMET prediction confidence.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/services/ai-drug-discovery"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light"
+              >
+                Explore AI Drug Discovery <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="#brief"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10"
+              >
+                Request a Discovery Brief
+              </Link>
+            </div>
           </div>
         </div>
       </section>
