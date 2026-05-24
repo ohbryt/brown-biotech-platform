@@ -48,6 +48,17 @@ const lanes = [
     accent: "from-amber-400 to-orange-500",
     badge: "Coming soon",
   },
+  {
+    name: "Research Intelligence",
+    href: "/services/research-intelligence",
+    icon: Sparkles,
+    summary: "TrueSkill-ranked preprint tournament — multi-model pairwise comparison for longevity science.",
+    forWhom: "Teams that need decision-ready scientific rankings, not a reading list.",
+    deliverables: ["AI Impact Assessment", "TrueSkill-ranked shortlist", "Confidence intervals"],
+    cta: "Request Intelligence Brief",
+    accent: "from-primary to-cta",
+    badge: "Beta",
+  },
 ];
 
 const steps = [
