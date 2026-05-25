@@ -1,0 +1,38 @@
+{
+  "name": "biomed-reflections-v1",
+  "version": "1.0.0",
+  "description": "Biomedical reflection QA dataset for PRISM Memory Model",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-01-15T00:00:00Z",
+  "generator_model": "Qwen2.5-32B-Instruct",
+  "memory_model_base": "MedGemma-4b-it",
+  "source_corpus": {
+    "name": "PubMed/PMC Open Access",
+    "count": 50000,
+    "date_range": "2024-01-01/2025-12-31"
+  },
+  "files": [
+    {
+      "path": "biomed-reflections-v1/train.jsonl.gz",
+      "checksum_alg": "sha256",
+      "checksum": "a3f5c...abc1",
+      "size_bytes": 8589934592,
+      "records": 1640000
+    },
+    {
+      "path": "biomed-reflections-v1/val.jsonl.gz",
+      "checksum_alg": "sha256",
+      "checksum": "b7d9e...def2",
+      "size_bytes": 1073741824,
+      "records": 205000
+    }
+  ],
+  "dois": [
+    "10.1038/s41586-025-99999-0",
+    "10.1016/j.cell.2025.987654"
+  ],
+  "new_dois": [],
+  "new_modalities": [],
+  "new_batches": [],
+  "schema_version_changed": false
+}

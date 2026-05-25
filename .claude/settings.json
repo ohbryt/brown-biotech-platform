@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "deny": [
+      "node_modules/**",
+      ".next/**",
+      "*.lock",
+      "dist/**",
+      "build/**",
+      ".venv/**",
+      "__pycache__/**",
+      "*.pyc",
+      ".turbo/**",
+      ".vercel/**"
+    ]
+  },
+  "tabs": {
+    "maxOpen": 50
+  }
+}

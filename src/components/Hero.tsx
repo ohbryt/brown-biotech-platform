@@ -318,56 +318,11 @@ export default function Hero() {
             </defs>
 
             {/* Labels */}
-            <text
-              x="60"
-              y="115"
-              fontFamily="Virgil, sans-serif"
-              fontSize="12"
-              fill="#a5d8ff"
-              opacity="0.7"
-            >
-              PubMed
-            </text>
-            <text
-              x="630"
-              y="60"
-              fontFamily="Virgil, sans-serif"
-              fontSize="12"
-              fill="#d0bfff"
-              opacity="0.7"
-            >
-              ClinicalTrials
-            </text>
-            <text
-              x="650"
-              y="430"
-              fontFamily="Virgil, sans-serif"
-              fontSize="12"
-              fill="#fde68a"
-              opacity="0.7"
-            >
-              ChEMBL
-            </text>
-            <text
-              x="100"
-              y="420"
-              fontFamily="Virgil, sans-serif"
-              fontSize="14"
-              fill="#fcd34d"
-              opacity="0.6"
-            >
-              AI
-            </text>
-            <text
-              x="700"
-              y="310"
-              fontFamily="Virgil, sans-serif"
-              fontSize="12"
-              fill="#67e8f9"
-              opacity="0.5"
-            >
-              OPEN
-            </text>
+            <text x="60" y="115" fontFamily="Virgil, sans-serif" fontSize="12" fill="#a5d8ff" opacity="0.7">PubMed</text>
+            <text x="630" y="60" fontFamily="Virgil, sans-serif" fontSize="12" fill="#d0bfff" opacity="0.7">ClinicalTrials</text>
+            <text x="650" y="430" fontFamily="Virgil, sans-serif" fontSize="12" fill="#fde68a" opacity="0.7">ChEMBL</text>
+            <text x="100" y="420" fontFamily="Virgil, sans-serif" fontSize="14" fill="#fcd34d" opacity="0.6">AI</text>
+            <text x="700" y="310" fontFamily="Virgil, sans-serif" fontSize="12" fill="#67e8f9" opacity="0.5">OPEN</text>
           </svg>
         </motion.div>
       </div>
@@ -377,11 +332,7 @@ export default function Hero() {
         transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a
-          href="#about"
-          aria-label="Scroll down"
-          className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10"
-        >
+        <a href="#about" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10">
           <ChevronDown className="h-5 w-5" />
         </a>
       </motion.div>
