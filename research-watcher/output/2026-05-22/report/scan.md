@@ -1,22 +1,10 @@
-# Brown Biotech research watcher — Monday scan
+# Brown Biotech research watcher — Friday worth-integrating report
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-05-24T21:01:12.723616+00:00
+**Generated:** 2026-05-21T21:01:55.593483+00:00
 
 ## Top hits
-### 1. Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets
-- Source: GEO
-- License: NCBI public repository
-- Modality: single-cell + spatial
-- Score: 9/10
-- Raw file availability: yes
-- Key metadata: {"accession": "GSE277080", "taxon": "Homo sapiens", "gds_type": "Other", "sample_count": 38, "suppfile": "CSV, TAR", "pdat": "2025/07/28"}
-- Why it matters: Strong fit for immediate Brown Biotech intake: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
-- Next action: Ingest immediately and prepare a handoff brief.
-- Query: enzyme design benchmark
-- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277080
-
-### 2. Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH]
+### 1. Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH]
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -28,7 +16,7 @@
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE299886
 
-### 3. Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [Xenium]
+### 2. Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [Xenium]
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -39,6 +27,18 @@
 - Next action: Ingest immediately and prepare a handoff brief.
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE300007
+
+### 3. High-resolution and noninvasive profiling of the tumor microenvironment with spatial ecotypes [Visium]
+- Source: GEO
+- License: NCBI public repository
+- Modality: single-cell + spatial
+- Score: 9/10
+- Raw file availability: yes
+- Key metadata: {"accession": "GSE320041", "taxon": "Homo sapiens", "gds_type": "Other", "sample_count": 17, "suppfile": "CSV, H5, JPG, JSON, PARQUET, PNG, RDS", "pdat": "2026/05/07"}
+- Why it matters: Strong fit for immediate Brown Biotech intake: High-resolution and noninvasive profiling of the tumor microenvironment with spatial ecotypes [Visium] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
+- Next action: Ingest immediately and prepare a handoff brief.
+- Query: Visium HD
+- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE320041
 
 ## Query families
 

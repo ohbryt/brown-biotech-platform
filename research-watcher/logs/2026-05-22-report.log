@@ -1,0 +1,12 @@
+[brown-biotech] watcher start
+root=/Users/ocm/apps/brown-biotech-platform
+mode=report
+outdir=/Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-22/report
+Brown Biotech watcher complete: 100 hits across 27 queries.
+- [9/10] GEO: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH] → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [Xenium] → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: High-resolution and noninvasive profiling of the tumor microenvironment with spatial ecotypes [Visium] → Ingest immediately and prepare a handoff brief.
+Outputs written to: /Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-22/report
+[brown-biotech] publishing Notion weekly report
+https://www.notion.so/Brown-Biotech-dataset-report-report-2026-05-22-367f273533a481c6a6edca550cd5b50c
+[brown-biotech] watcher done
