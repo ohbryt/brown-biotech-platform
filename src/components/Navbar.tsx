@@ -6,11 +6,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FlaskConical } from "lucide-react";
 
 const navLinks = [
+  { label: "Daily Tech Digest", href: "/digest" },
   { label: "About", href: "#about" },
   { label: "Platform", href: "#platform" },
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Why Us", href: "#why-us" },
+  { label: "Multi-Omics Analysis", href: "/multiomics" },
   { label: "Operator", href: "/operator" },
   { label: "Contact", href: "#contact" },
 ];
