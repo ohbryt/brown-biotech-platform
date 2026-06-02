@@ -1,0 +1,12 @@
+[brown-biotech] watcher start
+root=/Users/ocm/apps/brown-biotech-platform
+mode=report
+outdir=/Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-29/report
+Brown Biotech watcher complete: 99 hits across 27 queries.
+- [9/10] GEO: CRISPR-based chemogenomic profiling reveals redox vulnerabilities to epigallocatechin-3-gallate and green tea polyphenol extract. → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH] → Ingest immediately and prepare a handoff brief.
+Outputs written to: /Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-05-29/report
+[brown-biotech] publishing Notion weekly report
+https://www.notion.so/Brown-Biotech-dataset-report-report-2026-05-29-36ef273533a481baa2b8dbe3cc3083d5
+[brown-biotech] watcher done

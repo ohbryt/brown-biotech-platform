@@ -9,25 +9,27 @@ export const dynamic = "force-dynamic";
 const CONTENT_DIR = path.join(process.cwd(), "..", "..", "content", "daily-digest");
 
 interface Props {
-  params: { date: string };
+  params: Promise<{ date: string }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { date } = await params;
   return {
-    title: `Daily Tech Digest — ${params.date} | Brown Biotech`,
-    description: `Brown Biotech daily signal brief for ${params.date}.`,
+    title: `Daily Tech Digest — ${date} | Brown Biotech`,
+    description: `Brown Biotech daily signal brief for ${date}.`,
   };
 }
 
 export default async function DigestDetailPage({ params }: Props) {
-  const filename = `${params.date}.md`;
+  const { date } = await params;
+  const filename = `${date}.md`;
   const filepath = path.join(CONTENT_DIR, filename);
   let content = "";
 
   try {
     content = await fs.readFile(filepath, "utf-8");
   } catch {
-    content = `#Digest not found\n\nNo digest found for ${params.date}.`;
+    content = `# Digest not found\n\nNo digest found for ${date}.`;
   }
 
   // Simple markdown strip for preview (keep bold/lists)
@@ -54,13 +56,13 @@ export default async function DigestDetailPage({ params }: Props) {
       <main className="max-w-3xl mx-auto px-6 py-8">
         <div className="mb-6 flex items-center gap-3 text-zinc-500">
           <Calendar className="w-4 h-4" />
-          <span className="text-sm">{params.date}</span>
+          <span className="text-sm">{date}</span>
         </div>
 
         <div className="rounded-xl border border-zinc-700/60 bg-[#151310] overflow-hidden">
           <div className="bg-gradient-to-r from-amber-900/20 to-transparent px-7 py-6 border-b border-zinc-800">
             <h1 className="text-xl font-semibold text-white">
-              Daily Tech Digest — {params.date}
+              Daily Tech Digest — {date}
             </h1>
           </div>
 
