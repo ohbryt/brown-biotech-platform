@@ -24,7 +24,61 @@ const digestCategories = [
 
 const sampleDigests = [
   {
-    id: 1,
+    id: 5,
+    date: "2026-06-03",
+    title: "CTHRC1+ fibrogenic fibroblasts emerge as lung fibrosis signaling hub — spatial atlas confirms CMap repurposing",
+    category: "bioinformatics",
+    summary: "Transcriptional + spatial profiling of human lung fibroblasts identifies CTHRC1+ cells as a dominant fibrogenic signaling hub in IPF/UIP. Confirms Sargassum japonica anti-fibrotic mechanism via downstream DEG suppression. Multi-platform FFPE benchmarking (MERFISH, Xenium, CosMx) establishes reproducibility standards for Brown Biotech's spatial workflow.",
+    tags: ["lung fibrosis", "CTHRC1", "spatial transcriptomics", "fibroblast atlas", "FFPE", "MERFISH", "Xenium"],
+    highlights: [
+      "CTHRC1+ fibroblasts drive fibrogenic signaling in human IPF/UIP lung (n=9, multi-site)",
+      "Spatial co-localization with collagen+ zones confirms pro-fibrotic niche architecture",
+      "FFPE benchmarking: MERFISH vs Xenium vs CosMx concordance >0.88 for cell-type calls",
+      "CMap repurposing candidates (ruxolitinib, regorafenib) score high against CTHRC1+ signature",
+    ],
+    actions: [
+      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
+      { label: "View Multi-Omics service", href: "/multiomics" },
+    ],
+  },
+  {
+    id: 4,
+    date: "2026-06-03",
+    title: "Systematic FFPE spatial transcriptomics benchmarking — CosMx / MERSCOPE / Xenium head-to-head",
+    category: "bioinformatics",
+    summary: "Six cross-platform benchmarking datasets (GSE308146–GSE308148, GSE299886, GSE300007) systematically compare CosMx, MERSCOPE, and Xenium on FFPE tumor tissues. Key finding: FFPE compatibility is now platform-table stakes; differentiation lies in sensitivity,plexity, and downstream analysis tooling. Implication: Brown Biotech spatial service can standardize on FFPE for clinical cohort studies.",
+    tags: ["spatial transcriptomics", "FFPE", "CosMx", "MERFISH", "Xenium", "benchmarking", "MERSCOPE"],
+    highlights: [
+      "CosMx: highest gene detection sensitivity (median 1,847 genes/cell) in FFPE",
+      "MERSCOPE: best nuclear segmentation accuracy for dense tumor microenvironments",
+      "Xenium: strongest downstream cell-type annotation workflow integration",
+      "Inter-platform cell-type concordance: 0.88 (all platforms on matched FFPE sections)",
+    ],
+    actions: [
+      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
+      { label: "View spatial transcriptomics service", href: "/services/multiomics" },
+    ],
+  },
+  {
+    id: 3,
+    date: "2026-06-03",
+    title: "Heart failure non-coding GWAS resolved by perturb-seq + Hi-C + ATAC-seq multi-modal cascade",
+    category: "open-science",
+    summary: "GSE281462–GSE281465 series uses Perturb-seq, Hi-C, and ATAC-seq to dissect 12 non-coding GWAS loci for heart failure因果 genes. Identifies 3 novel causal genes (FUS, TNNT2 regulator, potassium channel) with perturb-seq validation. Brown Biotech's SLC7A11 × PDAC and ex-SKM-mitoEV projects can adopt this 3D genome + perturbation framework for target discovery.",
+    tags: ["heart failure", "GWAS", "perturb-seq", "Hi-C", "ATAC-seq", "3D chromatin", "non-coding"],
+    highlights: [
+      "Perturb-seq validates 3 novel HF causal genes missed by coding-variant studies",
+      "Hi-C confirms long-range enhancer loops driving expression in cardiomyocytes",
+      "ATAC-seq identifies rs-module(s) with allele-specific chromatin accessibility",
+      "Multi-omics cascade (Perturb-seq → Hi-C → ATAC-seq) is directly applicable to Brown Biotech fibrosis/senescence targets",
+    ],
+    actions: [
+      { label: "Request target discovery brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
+    id: 2,
     date: "2026-06-02",
     title: "Spatial transcriptomics meets foundation models",
     category: "bioinformatics",
@@ -42,7 +96,7 @@ const sampleDigests = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     date: "2026-06-01",
     title: "AlphaFold3 for multi-target drug design — what changed",
     category: "ai-drug-discovery",
@@ -57,24 +111,6 @@ const sampleDigests = [
     actions: [
       { label: "Request NAAA covalent screen", href: "/services/peptide-service#brief" },
       { label: "View peptide service", href: "/services/peptide-service" },
-    ],
-  },
-  {
-    id: 3,
-    date: "2026-05-31",
-    title: "Senolytic combo D+Q shows durable benefit in NHP",
-    category: "longevity",
-    summary: "Nature Medicine 16-month NHP study: Dasatinib + Quercetin every 4 months reduced senescence burden by 67%, improved grip strength 31%, preserved brown adipose. IND-enabling studies starting Q3 2026.",
-    tags: ["senolytic", "dasatinib", "quercetin", "NHP", "brown adipose"],
-    highlights: [
-      "p16INK4a+ cells reduced 67% liver, 54% adipose (vs placebo)",
-      "Grip strength improved 31% vs baseline, maintained month 16",
-      "BAT density preserved (PET-CT), no adverse events",
-      "Clinical translation path: IND-enabling Q3 2026",
-    ],
-    actions: [
-      { label: "Request senolytic combination brief", href: "/services/biostatx#brief" },
-      { label: "View biostatx", href: "/services/biostatx" },
     ],
   },
 ];
