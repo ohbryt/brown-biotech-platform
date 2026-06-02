@@ -222,27 +222,6 @@ export default function DigestPage() {
         </div>
       </section>
 
-      {/* Subscribe CTA */}
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/50 p-10">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_50%,rgba(245,158,11,0.08),transparent)]" />
-          <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-white">Get it in your inbox</h3>
-              <p className="mt-3 text-zinc-400 max-w-xl">
-                Daily digest delivered at 06:00 KST. One email, zero noise, decision-ready signal.
-              </p>
-            </div>
-            <Link
-              href="/services/business-pipeline#brief"
-              className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-bold text-white shadow-xl shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 whitespace-nowrap transition"
-            >
-              Request digest subscription <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </main>
   );
