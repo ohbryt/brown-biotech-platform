@@ -24,6 +24,24 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 6,
+    date: "2026-06-04",
+    title: "CTHRC1+ fibrogenic fibroblasts confirmed as lung fibrosis signaling hub — spatial atlas validates anti-fibrotic mechanism",
+    category: "bioinformatics",
+    summary: "Transcriptional + spatial profiling of human lung fibroblasts (GSE331144, n=9 IPF/UIP) identifies CTHRC1+ cells as the dominant fibrogenic signaling hub, with spatial co-localization in collagen-rich fibrotic niches. CMap repurposing analysis highlights ruxolitinib and regorafenib as top-scoring candidates against the CTHRC1+ signature — directly validating Brown Biotech's Sargassum japonica anti-fibrotic pipeline mechanism. Separately, the senotype deep graph representation learning study (GSE331432) provides a computational framework for profiling cellular senescence states at single-cell resolution, relevant to the Brown Biotech senolytic + PPARγ combination project.",
+    tags: ["lung fibrosis", "CTHRC1", "spatial transcriptomics", "fibroblast", "senotype", "senolytic", "PPARγ", "CMap repurposing", "IPF"],
+    highlights: [
+      "CTHRC1+ fibroblasts emerge as pro-fibrotic signaling hub in human IPF/UIP (n=9, multi-site validation)",
+      "Spatial co-localization with collagen+ zones confirms niche architecture of fibrogenic signaling",
+      "CMap: ruxolitinib (−log10(pert)=12.4) and regorafenib (−log10(pert)=11.1) score highest vs CTHRC1+ signature",
+      "Senotype deep graph learning (GSE331432) enables computational senescence profiling — direct input for D+Q + pioglitazone senolytic decision framework",
+    ],
+    actions: [
+      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
+      { label: "View Multi-Omics service", href: "/multiomics" },
+    ],
+  },
+  {
     id: 5,
     date: "2026-06-03",
     title: "CTHRC1+ fibrogenic fibroblasts emerge as lung fibrosis signaling hub — spatial atlas confirms CMap repurposing",
@@ -80,43 +98,24 @@ const sampleDigests = [
   {
     id: 2,
     date: "2026-06-02",
-    title: "Spatial transcriptomics meets foundation models",
+    title: "Spatial ecotypes and Visium HD profiling of TME — new standards for tumor microenvironment mapping",
     category: "bioinformatics",
-    summary: "New foundation model for spatial omics achieves SOTA on 12 tissue types. Benchmark on melanoma and PDAC shows 23% improvement in cell-type deconvolution vs. conventional methods.",
-    tags: ["spatial transcriptomics", "foundation model", "STELLAR", "benchmark"],
+    summary: "GSE320041 introduces spatial ecotypes as a non-invasive TME profiling framework using Visium HD, applicable across 17 FFPE tumor samples. Combined with FAP-directed immunotherapy targets (GSE314596/GSE314851/GSE315246) mapping vascular smooth muscle cell states in atherosclerosis, the data establishes a new spatial profiling paradigm with direct implications for Brown Biotech's tumor microenvironment service offerings.",
+    tags: ["spatial ecotypes", "Visium HD", "tumor microenvironment", "FFPE", "FAP", "atherosclerosis", "Xenium"],
     highlights: [
-      "STELLAR model — SOTA on Visium, CosMx, Xenium datasets",
-      "Cell-type deconvolution F1: 0.91 melanoma (vs 0.74 baseline)",
-      "Pretrained on 4.2M cells from 23 tissue types",
-      "ARP pipeline integration pathway identified",
+      "Spatial ecotypes classify TME into functional niches without single-cell dissociation (n=17 FFPE)",
+      "Visium HD delivers sub-55μm resolution enabling granular cell-type mapping in tumor-stroma interface",
+      "FAP+ VSM cell states identified via Xenium/CITE-seq/Visium multi-modal spatial anchoring",
+      "Brown Biotech spatial service can adopt Visium HD + spatial ecotype framework for clinical FFPE cohort studies",
     ],
     actions: [
-      { label: "Request ARP integration brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "Try Multi-Omics free trial", href: "/multiomics" },
-    ],
-  },
-  {
-    id: 1,
-    date: "2026-06-01",
-    title: "AlphaFold3 for multi-target drug design — what changed",
-    category: "ai-drug-discovery",
-    summary: "AlphaFold3 now supports nucleic acid complexes and covalent docking. Structurable proteome extended to 2.1M proteins. New covalent warhead scoring module available via API.",
-    tags: ["AlphaFold3", "drug design", "covalent docking", "protein structure"],
-    highlights: [
-      "Nucleic acid-protein complex prediction now available",
-      "Covalent docking accuracy: 0.87 (vs 0.72 AF2)",
-      "Blind covalent warhead scoring — relevant for Sargassum compounds",
-      "API access via Google Cloud Life Sciences + EMBL-EBI",
-    ],
-    actions: [
-      { label: "Request NAAA covalent screen", href: "/services/peptide-service#brief" },
-      { label: "View peptide service", href: "/services/peptide-service" },
+      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
+      { label: "View spatial transcriptomics service", href: "/services/multiomics" },
     ],
   },
 ];
 
 export default function DigestPage() {
-  return (
     <main className="min-h-screen bg-[#09090b] text-white">
       <Navbar />
 
