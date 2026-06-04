@@ -116,6 +116,7 @@ const sampleDigests = [
 ];
 
 export default function DigestPage() {
+  return (
     <main className="min-h-screen bg-[#09090b] text-white">
       <Navbar />
 

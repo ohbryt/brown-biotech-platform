@@ -1,0 +1,10 @@
+[brown-biotech] watcher start
+root=/Users/ocm/apps/brown-biotech-platform
+mode=benchmark
+outdir=/Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-06-03/benchmark
+Brown Biotech watcher complete: 101 hits across 27 queries.
+- [9/10] GEO: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [MERFISH] → Ingest immediately and prepare a handoff brief.
+- [9/10] GEO: Comparison of imaging based single-cell resolution spatial transcriptomics profiling platforms using formalin-fixed paraffin-embedded tumor samples [Xenium] → Ingest immediately and prepare a handoff brief.
+Outputs written to: /Users/ocm/apps/brown-biotech-platform/research-watcher/output/2026-06-03/benchmark
+[brown-biotech] watcher done
