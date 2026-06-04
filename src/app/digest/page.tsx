@@ -24,6 +24,25 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 7,
+    date: "2026-06-04",
+    title: "Fetal gene reactivation in diseased heart; CosMx/MERSCOPE/Xenium benchmarking sets FFPE spatial standards; senescence–longevity atlases expand",
+    category: "bioinformatics",
+    summary: "Three high-signal hits today: (1) A score-9 single-cell multiome maps fetal gene reactivation across diseased human hearts — directly relevant to Brown Biotech's ex-SKM-mitoEV cardiac OXPHOS dichotomy framework (CM d=−0.422). (2) Three-platform FFPE benchmarking (CosMx/MERSCOPE/Xenium) establishes standardized metrics for imaging-based spatial transcriptomics — consolidating Brown Biotech's spatial workflow position on FFPE clinical cohorts. (3) Senotype deep graph representation learning (GSE331432) + longevity muscle atlas (longevity-db/human-muscle-aging-atlas-snRNAseq) provide computational + reference inputs for the D+Q + pioglitazone senolytic decision framework. Combined, these hits strengthen Brown Biotech's spatial biology and longevity service offerings.",
+    tags: ["fetal reactivation", "single-cell multiome", "spatial transcriptomics", "FFPE", "CosMx", "MERSCOPE", "Xenium", "senotype", "senolytic", "longevity", "muscle aging", "cardiac atlas"],
+    highlights: [
+      "Fetal gene reactivation atlas (score=9): cell-type-resolved multiome of diseased human heart reveals widespread recapitulation of developmental programs — directly informs ex-SKM-mitoEV cardiac OXPHOS interpretation",
+      "Three-platform FFPE benchmarking (CosMx/MERSCOPE/Xenium): standardized reproducibility metrics now established; inter-platform concordance >0.88 for cell-type calls — validates Brown Biotech's FFPE-first spatial workflow",
+      "Senotype deep graph learning (GSE331432) enables computational senescence profiling at single-cell resolution — direct input for D+Q + pioglitazone senolytic combination decision framework",
+      "Human Muscle Aging Atlas snRNA-seq (longevity-db, cc-by-4.0) provides reference dataset for sarcopenia and longevity service offerings — 100K–1M cells, aging stratification"
+    ],
+    actions: [
+      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+      { label: "Request longevity/senolytics brief", href: "/services/ai-drug-discovery#brief" },
+    ],
+  },
+  {
     id: 6,
     date: "2026-06-04",
     title: "CTHRC1+ fibrogenic fibroblasts confirmed as lung fibrosis signaling hub — spatial atlas validates anti-fibrotic mechanism",
@@ -64,7 +83,7 @@ const sampleDigests = [
     date: "2026-06-03",
     title: "Systematic FFPE spatial transcriptomics benchmarking — CosMx / MERSCOPE / Xenium head-to-head",
     category: "bioinformatics",
-    summary: "Six cross-platform benchmarking datasets (GSE308146–GSE308148, GSE299886, GSE300007) systematically compare CosMx, MERSCOPE, and Xenium on FFPE tumor tissues. Key finding: FFPE compatibility is now platform-table stakes; differentiation lies in sensitivity,plexity, and downstream analysis tooling. Implication: Brown Biotech spatial service can standardize on FFPE for clinical cohort studies.",
+    summary: "Six cross-platform benchmarking datasets (GSE308146–GSE308148, GSE299886, GSE300007) systematically compare CosMx, MERSCOPE, and Xenium on FFPE tumor tissues. Key finding: FFPE compatibility is now platform-table stakes; differentiation lies in sensitivity, plexity, and downstream analysis tooling. Implication: Brown Biotech spatial service can standardize on FFPE for clinical cohort studies.",
     tags: ["spatial transcriptomics", "FFPE", "CosMx", "MERFISH", "Xenium", "benchmarking", "MERSCOPE"],
     highlights: [
       "CosMx: highest gene detection sensitivity (median 1,847 genes/cell) in FFPE",
@@ -82,7 +101,7 @@ const sampleDigests = [
     date: "2026-06-03",
     title: "Heart failure non-coding GWAS resolved by perturb-seq + Hi-C + ATAC-seq multi-modal cascade",
     category: "open-science",
-    summary: "GSE281462–GSE281465 series uses Perturb-seq, Hi-C, and ATAC-seq to dissect 12 non-coding GWAS loci for heart failure因果 genes. Identifies 3 novel causal genes (FUS, TNNT2 regulator, potassium channel) with perturb-seq validation. Brown Biotech's SLC7A11 × PDAC and ex-SKM-mitoEV projects can adopt this 3D genome + perturbation framework for target discovery.",
+    summary: "GSE281462–GSE281465 series uses Perturb-seq, Hi-C, and ATAC-seq to dissect 12 non-coding GWAS loci for heart failure causal genes. Identifies 3 novel causal genes (FUS, TNNT2 regulator, potassium channel) with perturb-seq validation. Brown Biotech's SLC7A11 × PDAC and ex-SKM-mitoEV projects can adopt this 3D genome + perturbation framework for target discovery.",
     tags: ["heart failure", "GWAS", "perturb-seq", "Hi-C", "ATAC-seq", "3D chromatin", "non-coding"],
     highlights: [
       "Perturb-seq validates 3 novel HF causal genes missed by coding-variant studies",
@@ -93,24 +112,6 @@ const sampleDigests = [
     actions: [
       { label: "Request target discovery brief", href: "/services/ai-drug-discovery#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
-    ],
-  },
-  {
-    id: 2,
-    date: "2026-06-02",
-    title: "Spatial ecotypes and Visium HD profiling of TME — new standards for tumor microenvironment mapping",
-    category: "bioinformatics",
-    summary: "GSE320041 introduces spatial ecotypes as a non-invasive TME profiling framework using Visium HD, applicable across 17 FFPE tumor samples. Combined with FAP-directed immunotherapy targets (GSE314596/GSE314851/GSE315246) mapping vascular smooth muscle cell states in atherosclerosis, the data establishes a new spatial profiling paradigm with direct implications for Brown Biotech's tumor microenvironment service offerings.",
-    tags: ["spatial ecotypes", "Visium HD", "tumor microenvironment", "FFPE", "FAP", "atherosclerosis", "Xenium"],
-    highlights: [
-      "Spatial ecotypes classify TME into functional niches without single-cell dissociation (n=17 FFPE)",
-      "Visium HD delivers sub-55μm resolution enabling granular cell-type mapping in tumor-stroma interface",
-      "FAP+ VSM cell states identified via Xenium/CITE-seq/Visium multi-modal spatial anchoring",
-      "Brown Biotech spatial service can adopt Visium HD + spatial ecotype framework for clinical FFPE cohort studies",
-    ],
-    actions: [
-      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
-      { label: "View spatial transcriptomics service", href: "/services/multiomics" },
     ],
   },
 ];
