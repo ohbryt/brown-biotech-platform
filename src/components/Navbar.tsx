@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Process", href: "#process" },
   { label: "Why Us", href: "#why-us" },
   { label: "Multi-Omics Analysis", href: "/multiomics" },
+  { label: "BioStatX", href: "/biostatx" },
   { label: "Operator", href: "/operator" },
   { label: "Contact", href: "#contact" },
 ];
