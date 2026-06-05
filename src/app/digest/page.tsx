@@ -23,7 +23,27 @@ const digestCategories = [
 ];
 
 const sampleDigests = [
+[
   {
+    id: 8,
+    date: "2026-06-06",
+    title: "Spatial mapping of metastatic pancreatic cancer lineage plasticity (CosMx); Head & Neck Cancer CRISPR dependencies reveal precision therapeutic subtypes; Bladder Cancer Xenium atlas exposes lineage-specific vulnerabilities",
+    category: "bioinformatics",
+    summary: "Three high-impact hits today: (1) Spatial transcriptomics of metastatic pancreatic cancer (GSE277782, CosMx, n=7) maps transcriptomic and lineage plasticity at single-cell spatial resolution — tumor cell identity is a defining factor of the TME composition, with direct implications for Brown Biotech's anti-fibrotic pipeline mechanism via ECM remodeling signals. (2) Head and Neck Cancer CRISPR screen (GSE311507, n=16) links metabolic subtype-specific dependencies to drug vulnerabilities — OXA + Glasgow metabolic program predicts greater sensitivity; actionable for precision therapeutics. (3) Muscle-Invasive Bladder Cancer Xenium spatial atlas (GSE326226, n=5) reveals Nectin family lineage-specific vulnerabilities with spatial context — directly applicable to Brown Biotech's spatial service offering for FFPE clinical cohorts.",
+    tags: ["pancreatic cancer", "metastatic", "lineage plasticity", "CosMx", "spatial transcriptomics", "head and neck cancer", "CRISPR", "drug vulnerability", "bladder cancer", "Xenium", "Nectin", "fibrosis", "ECM", "FFPE"],
+    highlights: [
+      "Metastatic pancreatic cancer spatial mapping (GSE277782): tumor cell identity is the primary determinant of TME composition — lineage plasticity drives metastatic potential and ECM remodeling signals relevant to Brown Biotech anti-fibrotic pipeline",
+      "Head & Neck Cancer CRISPR dependencies (GSE311507): metabolic subtype-specific drug vulnerabilities identified; OXA + Glasgow program predicts therapeutic sensitivity — actionable for precision oncology service",
+      "Bladder Cancer Xenium spatial atlas (GSE326226): Nectin family lineage-specific vulnerabilities with spatial architecture context — validates Brown Biotech's FFPE spatial workflow on clinical urothelial carcinoma cohorts",
+      "All three datasets: raw files available, NCBI public repository license, single-cell + spatial pairing — maximum Brown Biotech intake score (9/9)"
+    ],
+    actions: [
+      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+    ],
+  },
+{
     id: 7,
     date: "2026-06-04",
     title: "Fetal gene reactivation in diseased heart; CosMx/MERSCOPE/Xenium benchmarking sets FFPE spatial standards; senescence–longevity atlases expand",
@@ -42,7 +62,7 @@ const sampleDigests = [
       { label: "Request longevity/senolytics brief", href: "/services/ai-drug-discovery#brief" },
     ],
   },
-  {
+{
     id: 6,
     date: "2026-06-04",
     title: "CTHRC1+ fibrogenic fibroblasts confirmed as lung fibrosis signaling hub — spatial atlas validates anti-fibrotic mechanism",
@@ -60,7 +80,7 @@ const sampleDigests = [
       { label: "View Multi-Omics service", href: "/multiomics" },
     ],
   },
-  {
+{
     id: 5,
     date: "2026-06-03",
     title: "CTHRC1+ fibrogenic fibroblasts emerge as lung fibrosis signaling hub — spatial atlas confirms CMap repurposing",
@@ -78,7 +98,7 @@ const sampleDigests = [
       { label: "View Multi-Omics service", href: "/multiomics" },
     ],
   },
-  {
+{
     id: 4,
     date: "2026-06-03",
     title: "Systematic FFPE spatial transcriptomics benchmarking — CosMx / MERSCOPE / Xenium head-to-head",
@@ -95,25 +115,8 @@ const sampleDigests = [
       { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
       { label: "View spatial transcriptomics service", href: "/services/multiomics" },
     ],
-  },
-  {
-    id: 3,
-    date: "2026-06-03",
-    title: "Heart failure non-coding GWAS resolved by perturb-seq + Hi-C + ATAC-seq multi-modal cascade",
-    category: "open-science",
-    summary: "GSE281462–GSE281465 series uses Perturb-seq, Hi-C, and ATAC-seq to dissect 12 non-coding GWAS loci for heart failure causal genes. Identifies 3 novel causal genes (FUS, TNNT2 regulator, potassium channel) with perturb-seq validation. Brown Biotech's SLC7A11 × PDAC and ex-SKM-mitoEV projects can adopt this 3D genome + perturbation framework for target discovery.",
-    tags: ["heart failure", "GWAS", "perturb-seq", "Hi-C", "ATAC-seq", "3D chromatin", "non-coding"],
-    highlights: [
-      "Perturb-seq validates 3 novel HF causal genes missed by coding-variant studies",
-      "Hi-C confirms long-range enhancer loops driving expression in cardiomyocytes",
-      "ATAC-seq identifies rs-module(s) with allele-specific chromatin accessibility",
-      "Multi-omics cascade (Perturb-seq → Hi-C → ATAC-seq) is directly applicable to Brown Biotech fibrosis/senescence targets",
-    ],
-    actions: [
-      { label: "Request target discovery brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
-    ],
-  },
+  }
+  ]
 ];
 
 export default function DigestPage() {
