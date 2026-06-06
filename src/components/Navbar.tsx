@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FlaskConical } from "lucide-react";
 
 const navLinks = [
-  { label: "Daily Tech Digest", href: "/digest" },
+  { label: "Daily Tech Digest", href: "/blog/daily-digest" },
+  { label: "Research Pulse", href: "/blog/research-pulse" },
   { label: "About", href: "#about" },
   { label: "Platform", href: "#platform" },
   { label: "Services", href: "#services" },
