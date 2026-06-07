@@ -23,7 +23,6 @@ const digestCategories = [
 ];
 
 const sampleDigests = [
-[
   {
     id: 8,
     date: "2026-06-06",
@@ -116,7 +115,6 @@ const sampleDigests = [
       { label: "View spatial transcriptomics service", href: "/services/multiomics" },
     ],
   }
-  ]
 ];
 
 export default function DigestPage() {
