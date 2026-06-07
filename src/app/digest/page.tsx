@@ -24,6 +24,25 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 9,
+    date: "2026-06-08",
+    title: "NRTI antiretroviral therapy drives alveolar macrophage senescence (longevity link); Visium HD spatial ecotypes redefine TME architecture; OXPHOS subtype-specific drug vulnerabilities in Head & Neck Cancer enable precision therapeutics",
+    category: "longevity",
+    summary: "Three high-impact hits spanning longevity, spatial bioinformatics, and AI drug discovery: (1) Continuous NRTI-based antiretroviral therapy induces progressive senescence-like reprogramming of alveolar macrophages (GSE307329, ChIP-seq, n=74) — directly links a widely-deployed chronic HIV drug class to accelerated lung aging via macrophage senescence, with strong senolytic + PPARγ co-treatment implications for the Brown Biotech longevity pipeline. (2) High-resolution Visium spatial ecotype profiling of the tumor microenvironment (GSE320041, n=17) introduces a non-invasive ecotype framework that decouples TME architecture from histology — a direct upgrade path for Brown Biotech's spatial service offering on FFPE clinical cohorts. (3) Subtype-Specific Dependencies and Drug Vulnerabilities (GSE311507, RNA-seq, n=16) pin OXPHOS subtype-specific metabolic vulnerabilities to actionable drug sensitivities in Head & Neck Cancer — fuels Brown Biotech's precision oncology brief and aligns with the CMap repurposing workflow.",
+    tags: ["NRTI", "antiretroviral", "senescence", "alveolar macrophage", "longevity", "senolytic", "Visium HD", "spatial ecotype", "tumor microenvironment", "OXPHOS", "head and neck cancer", "drug vulnerability", "precision oncology", "CMap"],
+    highlights: [
+      "NRTI-induced alveolar macrophage senescence (GSE307329, score=6, ChIP-seq, n=74): chronic NRTI exposure drives progressive senescence-like reprogramming — actionable longevity target for senolytic + PPARγ co-treatment intervention in HIV+ patient aging",
+      "Visium HD spatial ecotype atlas (GSE320041, score=9, n=17): introduces non-invasive ecotype framework decoupling TME architecture from histology — upgrades Brown Biotech FFPE spatial workflow for clinical cohort studies without bespoke pathology inputs",
+      "H&N Cancer OXPHOS drug vulnerabilities (GSE311507, score=9, RNA-seq, n=16): subtype-specific metabolic dependencies map to actionable drug sensitivities — direct CMap repurposing input for Brown Biotech precision oncology brief",
+      "Combined signal: longevity + spatial + AI drug discovery tri-covering — connects chronic-drug-induced senescence to therapeutic intervention with spatial + metabolic mechanistic grounding"
+    ],
+    actions: [
+      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View spatial transcriptomics workflow", href: "/multiomics#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 8,
     date: "2026-06-06",
     title: "Spatial mapping of metastatic pancreatic cancer lineage plasticity (CosMx); Head & Neck Cancer CRISPR dependencies reveal precision therapeutic subtypes; Bladder Cancer Xenium atlas exposes lineage-specific vulnerabilities",
@@ -97,24 +116,6 @@ const sampleDigests = [
       { label: "View Multi-Omics service", href: "/multiomics" },
     ],
   },
-{
-    id: 4,
-    date: "2026-06-03",
-    title: "Systematic FFPE spatial transcriptomics benchmarking — CosMx / MERSCOPE / Xenium head-to-head",
-    category: "bioinformatics",
-    summary: "Six cross-platform benchmarking datasets (GSE308146–GSE308148, GSE299886, GSE300007) systematically compare CosMx, MERSCOPE, and Xenium on FFPE tumor tissues. Key finding: FFPE compatibility is now platform-table stakes; differentiation lies in sensitivity, plexity, and downstream analysis tooling. Implication: Brown Biotech spatial service can standardize on FFPE for clinical cohort studies.",
-    tags: ["spatial transcriptomics", "FFPE", "CosMx", "MERFISH", "Xenium", "benchmarking", "MERSCOPE"],
-    highlights: [
-      "CosMx: highest gene detection sensitivity (median 1,847 genes/cell) in FFPE",
-      "MERSCOPE: best nuclear segmentation accuracy for dense tumor microenvironments",
-      "Xenium: strongest downstream cell-type annotation workflow integration",
-      "Inter-platform cell-type concordance: 0.88 (all platforms on matched FFPE sections)",
-    ],
-    actions: [
-      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
-      { label: "View spatial transcriptomics service", href: "/services/multiomics" },
-    ],
-  }
 ];
 
 export default function DigestPage() {
