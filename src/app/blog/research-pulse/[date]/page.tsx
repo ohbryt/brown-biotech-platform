@@ -6,7 +6,7 @@ import { ArrowLeft, Calendar, ExternalLink, Microscope } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-const CONTENT_DIR = path.join(process.cwd(), "..", "..", "content", "research-pulse");
+const CONTENT_DIR = path.join(process.cwd(), "content", "research-pulse");
 
 interface Props {
   params: Promise<{ date: string }>;
