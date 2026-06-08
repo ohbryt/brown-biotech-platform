@@ -48,52 +48,59 @@ export async function* iterateFastq(
   let yielded = 0;
   let seen = 0;
 
-  for await (const chunk of decoded.values()) {
-    buffer += chunk;
-    let nl: number;
-    while ((nl = buffer.indexOf("\n")) !== -1) {
-      let line = buffer.slice(0, nl);
-      if (line.endsWith("\r")) line = line.slice(0, -1);
-      buffer = buffer.slice(nl + 1);
-      if (line.length === 0) {
-        lineIndex = 0;
-        continue;
-      }
-      if (lineIndex === 0) {
-        // id line — must start with '@'
-        if (line.startsWith("@")) {
-          pendingId = line.slice(1).split(/\s/)[0];
-        } else {
-          // malformed; reset
-          pendingId = "";
+  const reader = decoded.getReader();
+  try {
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      buffer += value;
+      let nl: number;
+      while ((nl = buffer.indexOf("\n")) !== -1) {
+        let line = buffer.slice(0, nl);
+        if (line.endsWith("\r")) line = line.slice(0, -1);
+        buffer = buffer.slice(nl + 1);
+        if (line.length === 0) {
+          lineIndex = 0;
+          continue;
         }
-      } else if (lineIndex === 1) {
-        pendingSeq = line;
-      } else if (lineIndex === 2) {
-        // + line (optional description)
-        pendingPlus = line;
-      } else if (lineIndex === 3) {
-        pendingQual = line;
-        if (pendingId && pendingSeq) {
-          seen++;
-          if (subsampleEveryN <= 1 || seen % subsampleEveryN === 0) {
-            yield {
-              id: pendingId,
-              seq: pendingSeq,
-              qual: pendingQual,
-              length: pendingSeq.length,
-            };
-            yielded++;
-            if (yielded >= maxRecords) return;
+        if (lineIndex === 0) {
+          // id line — must start with '@'
+          if (line.startsWith("@")) {
+            pendingId = line.slice(1).split(/\s/)[0];
+          } else {
+            // malformed; reset
+            pendingId = "";
           }
+        } else if (lineIndex === 1) {
+          pendingSeq = line;
+        } else if (lineIndex === 2) {
+          // + line (optional description)
+          pendingPlus = line;
+        } else if (lineIndex === 3) {
+          pendingQual = line;
+          if (pendingId && pendingSeq) {
+            seen++;
+            if (subsampleEveryN <= 1 || seen % subsampleEveryN === 0) {
+              yield {
+                id: pendingId,
+                seq: pendingSeq,
+                qual: pendingQual,
+                length: pendingSeq.length,
+              };
+              yielded++;
+              if (yielded >= maxRecords) return;
+            }
+          }
+          pendingId = "";
+          pendingSeq = "";
+          pendingPlus = "";
+          pendingQual = "";
         }
-        pendingId = "";
-        pendingSeq = "";
-        pendingPlus = "";
-        pendingQual = "";
+        lineIndex = (lineIndex + 1) % 4;
       }
-      lineIndex = (lineIndex + 1) % 4;
     }
+  } finally {
+    reader.releaseLock();
   }
 
   // Flush any trailing partial record
@@ -114,8 +121,7 @@ export async function* iterateFastq(
 export function fastqStream(file: File | Blob): ReadableStream<Uint8Array> {
   const raw = file.stream();
   if (!isGzipFile(file)) return raw;
-  // @ts-expect-error DecompressionStream is available in modern browsers
-  // and Node 18+. If absent, the caller should disable .gz uploads.
+  // DecompressionStream is available in modern browsers and Node 18+.
   return raw.pipeThrough(new DecompressionStream("gzip"));
 }
 

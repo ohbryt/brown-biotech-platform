@@ -151,10 +151,11 @@ export async function runStrictOmicsPipeline(
     },
     onEvent
   );
-  const { report: trim } = await runTrim(recordsFromArray(records), {
+  const { report: trimPromise } = await runTrim(recordsFromArray(records), {
     minMeanQuality: 20,
     minLength: 30,
   });
+  const trim = await trimPromise;
   emit(
     {
       stage: "trim",

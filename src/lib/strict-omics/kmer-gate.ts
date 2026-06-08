@@ -185,11 +185,11 @@ export async function runSpeciesGate(
 
   const total = Object.values(votes).reduce((a, b) => a + b, 0);
   const composition: Record<string, number> = {};
-  for (const [k, v] of votes) composition[k] = total ? v / total : 0;
+  for (const [k, v] of Object.entries(votes)) composition[k] = total ? v / total : 0;
 
   let dominant: string | null = null;
   let dominantCount = 0;
-  for (const [k, v] of votes) {
+  for (const [k, v] of Object.entries(votes)) {
     if (v > dominantCount) {
       dominant = k;
       dominantCount = v;
