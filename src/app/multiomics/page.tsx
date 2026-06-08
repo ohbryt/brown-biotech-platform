@@ -2,8 +2,9 @@
 
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload, FileSpreadsheet, BarChart3, Network, Dna, Activity, CheckCircle2, AlertCircle, Loader2, X, ChevronRight, DnaIcon } from "lucide-react";
+import { Upload, FileSpreadsheet, BarChart3, Network, Dna, Activity, CheckCircle2, AlertCircle, Loader2, X, ChevronRight, DnaIcon, FlaskConical, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import { isFastqFile, stashFile } from "@/lib/handoff-db";
 
 const ANALYSIS_MODULES = [
   { id: "deg", label: "DEG Analysis", short: "Differential Expression", icon: BarChart3, color: "#F59E0B", glow: "rgba(245,158,11,0.3)", desc: "Fold change, t-test, BH correction", step: 1 },
@@ -47,6 +48,14 @@ export default function MultiOmicsPage() {
   const [currentModuleIndex, setCurrentModuleIndex] = useState(-1);
   const [uploadProgress, setUploadProgress] = useState(0);
 
+  // Strict-mode handoff state. When `strictMode` is on, the dropzone also
+  // accepts FASTQ files; a FASTQ drop is staged into `fastqFile` and the
+  // user gets a single "Open in strict-omics workbench" button that
+  // stashes the file into IndexedDB and navigates to the workbench.
+  const [strictMode, setStrictMode] = useState(false);
+  const [fastqFile, setFastqFile] = useState<File | null>(null);
+  const [handoffPending, setHandoffPending] = useState(false);
+
   const handleDrag = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -59,13 +68,63 @@ export default function MultiOmicsPage() {
     e.stopPropagation();
     setDragActive(false);
     const droppedFile = e.dataTransfer.files?.[0];
-    if (droppedFile?.name.endsWith(".csv")) setFile(droppedFile);
-  }, []);
+    if (!droppedFile) return;
+    if (strictMode && isFastqFile(droppedFile.name)) {
+      setFastqFile(droppedFile);
+      setFile(null);
+      return;
+    }
+    if (droppedFile.name.endsWith(".csv")) {
+      setFile(droppedFile);
+      setFastqFile(null);
+    }
+  }, [strictMode]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
-    if (selected?.name.endsWith(".csv")) setFile(selected);
+    if (!selected) return;
+    if (strictMode && isFastqFile(selected.name)) {
+      setFastqFile(selected);
+      setFile(null);
+      return;
+    }
+    if (selected.name.endsWith(".csv")) {
+      setFile(selected);
+      setFastqFile(null);
+    }
   };
+
+  // Toggling strict mode clears any staged FASTQ (the user's intent is
+  // likely different now), but does NOT touch an active analysis run.
+  const toggleStrictMode = useCallback(() => {
+    setStrictMode((prev) => {
+      const next = !prev;
+      if (!next) {
+        setFastqFile(null);
+      }
+      return next;
+    });
+  }, []);
+
+  const openInStrictOmics = useCallback(async () => {
+    if (!fastqFile || handoffPending) return;
+    setHandoffPending(true);
+    try {
+      const uuid = await stashFile(fastqFile);
+      // navigate with autoRun=1 so the workbench runs the pipeline as soon
+      // as the file is loaded
+      window.location.assign(
+        `/services/strict-omics?preload=${encodeURIComponent(uuid)}&autoRun=1`
+      );
+    } catch (err) {
+      setHandoffPending(false);
+      setAnalysisResult({
+        status: "error",
+        modules: {},
+        error: `Failed to prepare handoff: ${String(err)}. The strict-omics workbench needs IndexedDB access; check that your browser is not in private mode.`,
+      });
+    }
+  }, [fastqFile, handoffPending]);
 
   const runAnalysis = async () => {
     if (!file) return;
@@ -148,6 +207,9 @@ export default function MultiOmicsPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
               DEG · Volcano · Pathway · PPI/Hub Gene · TF — fully automated. Pipeline runs in seconds.
+            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-500">
+              Have raw FASTQ instead? Flip on <button type="button" onClick={toggleStrictMode} className="text-amber-300 underline decoration-dotted underline-offset-4 hover:text-amber-200">Strict mode</button> and we&apos;ll route it to the audit-grade workbench (browser-side QC, species gate, trim).
             </p>
           </div>
         </div>
@@ -280,8 +342,41 @@ export default function MultiOmicsPage() {
           <div className="absolute inset-0 rounded-3xl bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
           
           <div className="relative">
-            <h2 className="text-2xl font-bold text-white">Try it now</h2>
-            <p className="mt-2 text-sm text-zinc-400">Gene expression matrix · rows = genes, columns = samples · CSV format</p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-white">Try it now</h2>
+                <p className="mt-2 text-sm text-zinc-400">
+                  {strictMode
+                    ? "Strict mode on · accepts .fastq / .fq / .fastq.gz (routed to the audit-grade workbench) and .csv (runs locally)"
+                    : "Gene expression matrix · rows = genes, columns = samples · CSV format"}
+                </p>
+              </div>
+              {/* Strict-mode toggle */}
+              <button
+                type="button"
+                onClick={toggleStrictMode}
+                aria-pressed={strictMode}
+                className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold transition ${
+                  strictMode
+                    ? "border-amber-500/50 bg-amber-500/15 text-amber-200 shadow-lg shadow-amber-500/10"
+                    : "border-zinc-700 bg-zinc-800/60 text-zinc-300 hover:border-zinc-500 hover:text-white"
+                }`}
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Strict mode
+                <span
+                  className={`relative ml-1 inline-block h-4 w-7 rounded-full transition ${
+                    strictMode ? "bg-amber-500" : "bg-zinc-600"
+                  }`}
+                >
+                  <span
+                    className={`absolute top-0.5 h-3 w-3 rounded-full bg-white shadow transition ${
+                      strictMode ? "left-3.5" : "left-0.5"
+                    }`}
+                  />
+                </span>
+              </button>
+            </div>
 
             {/* Drop zone */}
             <div
@@ -292,17 +387,76 @@ export default function MultiOmicsPage() {
               className={`mt-6 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed p-10 transition-all duration-300 cursor-pointer ${
                 dragActive
                   ? "border-amber-400 bg-amber-400/5"
+                  : fastqFile
+                  ? "border-amber-500/50 bg-amber-500/5"
                   : file
                   ? "border-emerald-500/40 bg-emerald-500/5"
                   : "border-zinc-700 hover:border-zinc-600 bg-zinc-800/30"
               }`}
             >
               <AnimatePresence mode="wait">
-                {file ? (
+                {fastqFile ? (
+                  <motion.div
+                    key="fastq"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    className="flex flex-col items-center gap-4"
+                  >
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-500/10 border border-amber-500/30">
+                      <FlaskConical className="h-8 w-8 text-amber-400" />
+                    </div>
+                    <div className="text-center">
+                      <p className="font-semibold text-white text-lg">{fastqFile.name}</p>
+                      <p className="mt-1 text-sm text-zinc-400">
+                        {(fastqFile.size / 1024 / 1024).toFixed(2)} MB · ready for strict-omics workbench
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); setFastqFile(null); }}
+                        className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:border-red-500/50 hover:text-red-400 transition"
+                      >
+                        <X className="h-4 w-4" /> Remove
+                      </button>
+                      <label className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:border-zinc-500 hover:text-white transition cursor-pointer">
+                        <Upload className="h-4 w-4" /> Change
+                        <input
+                          type="file"
+                          accept={strictMode ? ".csv,.fastq,.fq,.fastq.gz,.fq.gz,text/plain,application/gzip" : ".csv"}
+                          className="hidden"
+                          onChange={handleFileChange}
+                        />
+                      </label>
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); openInStrictOmics(); }}
+                        disabled={handoffPending}
+                        className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2 font-semibold text-white shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 disabled:opacity-60 transition"
+                      >
+                        {handoffPending ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" /> Preparing handoff…
+                          </>
+                        ) : (
+                          <>
+                            <ShieldCheck className="h-4 w-4" /> Open in strict-omics workbench
+                            <ArrowRight className="h-4 w-4" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <p className="text-xs text-zinc-500 mt-1 max-w-md text-center">
+                      Your file stays on this device — we stash it in browser storage and hand the workbench a reference. The pipeline runs locally; nothing is uploaded.
+                    </p>
+                  </motion.div>
+                ) : file ? (
                   <motion.div
                     key="file"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
                     className="flex flex-col items-center gap-4"
                   >
                     <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
@@ -321,7 +475,12 @@ export default function MultiOmicsPage() {
                       </button>
                       <label className="flex items-center gap-2 rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:border-zinc-500 hover:text-white transition cursor-pointer">
                         <Upload className="h-4 w-4" /> Change
-                        <input type="file" accept=".csv" className="hidden" onChange={handleFileChange} />
+                        <input
+                          type="file"
+                          accept={strictMode ? ".csv,.fastq,.fq,.fastq.gz,.fq.gz,text/plain,application/gzip" : ".csv"}
+                          className="hidden"
+                          onChange={handleFileChange}
+                        />
                       </label>
                     </div>
                   </motion.div>
@@ -330,21 +489,33 @@ export default function MultiOmicsPage() {
                     key="upload"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
                     className="flex flex-col items-center gap-4"
                   >
                     <div className={`flex h-16 w-16 items-center justify-center rounded-2xl border-2 transition-all duration-300 ${dragActive ? "border-amber-400 bg-amber-400/10" : "border-dashed border-zinc-600 bg-zinc-800"}`}>
                       <Upload className={`h-8 w-8 transition-colors ${dragActive ? "text-amber-400" : "text-zinc-500"}`} />
                     </div>
                     <div className="text-center">
-                      <p className="text-zinc-300 font-medium">Drop your CSV file here</p>
+                      <p className="text-zinc-300 font-medium">
+                        {strictMode ? "Drop a FASTQ or CSV file here" : "Drop your CSV file here"}
+                      </p>
                       <p className="mt-1 text-sm text-zinc-500">or</p>
                     </div>
                     <label className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 font-semibold text-white shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 transition cursor-pointer">
                       <FileSpreadsheet className="h-4 w-4" />
                       Browse Files
-                      <input type="file" accept=".csv" className="hidden" onChange={handleFileChange} />
+                      <input
+                        type="file"
+                        accept={strictMode ? ".csv,.fastq,.fq,.fastq.gz,.fq.gz,text/plain,application/gzip" : ".csv"}
+                        className="hidden"
+                        onChange={handleFileChange}
+                      />
                     </label>
-                    <p className="text-xs text-zinc-600 mt-2">Supports: .csv · Max 10MB</p>
+                    <p className="text-xs text-zinc-600 mt-2">
+                      {strictMode
+                        ? "Supports: .csv · .fastq · .fq · .fastq.gz · Max 10MB CSV, up to 200K reads for FASTQ (browser-side only)"
+                        : "Supports: .csv · Max 10MB"}
+                    </p>
                   </motion.div>
                 )}
               </AnimatePresence>

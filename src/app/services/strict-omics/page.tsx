@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Sigma, CheckCircle2, ShieldCheck, GitBranch } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
-import StrictOmicsWorkbench from "@/components/strict-omics/StrictOmicsWorkbench";
+import StrictOmicsWorkbenchClient from "@/components/strict-omics/StrictOmicsWorkbenchClient";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -154,7 +154,7 @@ export default function StrictOmicsPage() {
               ))}
             </div>
           </div>
-          <StrictOmicsWorkbench />
+          <StrictOmicsWorkbenchClient />
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-gray-400">
             <span>Up to 200K reads processed locally per run. No upload. No server pipeline call.</span>
             <Link href="/multiomics" className="text-amber-300 hover:text-amber-200">

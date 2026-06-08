@@ -25,6 +25,7 @@ import {
   type PipelineResult,
 } from "@/lib/strict-omics/pipeline";
 import { loadKmerIndex, type KmerIndex } from "@/lib/strict-omics/kmer-gate";
+import { consumeStash as defaultConsumeStash } from "@/lib/handoff-db";
 
 type Verdict = "PASS" | "FAIL" | "UNKNOWN" | null;
 
@@ -38,7 +39,23 @@ const STAGES = [
   { id: "report", label: "Report" },
 ] as const;
 
-export default function StrictOmicsWorkbench() {
+export interface StrictOmicsWorkbenchProps {
+  /** When set, the workbench will fetch a stashed file from this source
+   *  (typically a UUID-keyed IndexedDB record from /multiomics handoff). */
+  preloadUuid?: string | null;
+  /** If true, the workbench will auto-run the pipeline once the stashed
+   *  file is loaded. Ignored when preloadUuid is null. */
+  autoRun?: boolean;
+  /** Function used to consume the stashed file. The default uses our
+   *  IndexedDB handoff store. */
+  onPreloadConsumed?: (uuid: string) => Promise<File | null>;
+}
+
+export default function StrictOmicsWorkbench({
+  preloadUuid = null,
+  autoRun = false,
+  onPreloadConsumed,
+}: StrictOmicsWorkbenchProps = {}) {
   const [file, setFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
   const [running, setRunning] = useState(false);
@@ -161,6 +178,46 @@ export default function StrictOmicsWorkbench() {
   const run = useCallback(() => {
     if (file) runWithFile(file);
   }, [file, runWithFile]);
+
+  // Cross-page file handoff: when preloadUuid is set, fetch the stashed
+  // file from IndexedDB and (optionally) auto-run the pipeline.
+  // We use a ref to ensure we only consume each UUID once.
+  const consumedRef = useRef<string | null>(null);
+  useEffect(() => {
+    if (!preloadUuid) return;
+    if (!index) return; // wait for the k-mer index
+    if (consumedRef.current === preloadUuid) return;
+    consumedRef.current = preloadUuid;
+    const consumer = onPreloadConsumed ?? defaultConsumeStash;
+    let cancelled = false;
+    setError(null);
+    consumer(preloadUuid)
+      .then((f) => {
+        if (cancelled) return;
+        if (!f) {
+          setError(
+            "Handoff file not found. It may have been consumed already or expired. Drop a FASTQ to start a new run."
+          );
+          return;
+        }
+        setFile(f);
+        setResult(null);
+        setInterpretText(null);
+        if (autoRun) {
+          // small delay so the UI shows the file before running
+          setTimeout(() => {
+            if (!cancelled) runWithFile(f);
+          }, 50);
+        }
+      })
+      .catch((e) => {
+        if (cancelled) return;
+        setError(`Failed to load handoff file: ${String(e)}`);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [preloadUuid, index, autoRun, onPreloadConsumed, runWithFile]);
 
   const stageIndex = useMemo(() => {
     if (!progress) return -1;
