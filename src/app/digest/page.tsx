@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 10,
+    date: "2026-06-09",
+    title: "Heart Failure GWAS 3D Chromatin causal-gene atlas; EZH2→ferroptosis axis in HCC + pan-cancer exhausted-macrophage atlas; FAP-directed atherosclerosis immunotherapy multi-modal atlas (CITEseq + Visium + Xenium)",
+    category: "bioinformatics",
+    summary: "Three high-impact fresh hits today spanning regulatory genomics, ferroptosis therapeutics, and cardiovascular immunotherapy: (1) Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure (GSE281462 ATAC-seq n=4 + GSE281463 Hi-C n=4 + GSE281464 Perturb-seq n=7 + GSE281465 RNA-seq n=3, score 9) integrates GWAS with 3D chromatin architecture + Perturb-seq to pinpoint causal heart-failure genes — a four-modality dataset and a direct upgrade for Brown Biotech's regulatory-element interpretation + target-prioritization pipeline. (2) Inhibition of EZH2 restores normal expression of genes associated with cysteine metabolism and ferroptosis in HCC (GSE237951 RNA-seq n=8 + GSE268195 CUT&Tag n=12, score 6) combined with a Single-Cell Atlas of Pan-Cancer Immunotherapy Reveals the Role of Ferroptosis in Exhausted Macrophages (GSE302068, n=9, score 6) — together these define a druggable EZH2→ferroptosis axis that bridges longevity (ferroptosis is a regulated cell-death mode) and AI drug discovery (tazemetostat-class EZH2 inhibitors with ferroptosis-inducing combinations). (3) Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy (GSE314596 Human_CITEseq n=58 + GSE314851 Visium n=16 + GSE315246 Xenium n=17 + GSE314598 Mouse_Aorta_BiTE, score 6/3) delivers a four-modality atlas supporting FAP-BiTE atherosclerosis immunotherapy — strong clinical/precision-oncology handoff with raw files across CITEseq, Visium, and Xenium.",
+    tags: ["heart failure", "GWAS", "3D chromatin", "ATAC-seq", "Hi-C", "Perturb-seq", "causal gene", "regulatory element", "EZH2", "ferroptosis", "HCC", "CUT&Tag", "pan-cancer", "exhausted macrophages", "immunotherapy", "FAP", "atherosclerosis", "BiTE", "CITEseq", "Visium", "Xenium", "vascular smooth muscle", "precision oncology", "longevity", "regulated cell death"],
+    highlights: [
+      "Heart Failure 3D Chromatin causal-gene atlas (GSE281462-465, score 9, 4 modalities, n=4+4+7+3): GWAS + ATAC-seq + Hi-C + Perturb-seq + RNA-seq identifies causal heart-failure genes via high-resolution 3D chromatin interactions — direct input for Brown Biotech regulatory-element interpretation and target prioritization",
+      "EZH2→ferroptosis axis in HCC (GSE237951 + GSE268195, score 6+6, RNA-seq n=8 + CUT&Tag n=12): EZH2 inhibition restores cysteine metabolism and ferroptosis in hepatocellular carcinoma — actionable therapeutic angle for tazemetostat-class EZH2 inhibitors combined with ferroptosis inducers (CMap-repurposing friendly)",
+      "Pan-Cancer ferroptosis in exhausted macrophages (GSE302068, score 6, single-cell n=9): single-cell atlas of pan-cancer immunotherapy linking ferroptosis to exhausted-macrophage states — bridges longevity (regulated cell death) and AI drug discovery (next-generation IO combinations)",
+      "FAP-directed atherosclerosis immunotherapy multi-modal atlas (GSE314596 + GSE314851 + GSE315246 + GSE314598, score 6+3, 4 modalities, n=58+16+17+6): CITEseq + Visium + Xenium + mouse-aorta BiTE supports FAP-BiTE atherosclerosis immunotherapy — three-modality spatial + clinical evidence for Brown Biotech cardiovascular precision-oncology handoff"
+    ],
+    actions: [
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View Multi-Omics service", href: "/multiomics#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
+    ],
+  },
+  {
     id: 9,
     date: "2026-06-08",
     title: "NRTI antiretroviral therapy drives alveolar macrophage senescence (longevity link); Visium HD spatial ecotypes redefine TME architecture; OXPHOS subtype-specific drug vulnerabilities in Head & Neck Cancer enable precision therapeutics",
@@ -92,24 +112,6 @@ const sampleDigests = [
       "Spatial co-localization with collagen+ zones confirms niche architecture of fibrogenic signaling",
       "CMap: ruxolitinib (−log10(pert)=12.4) and regorafenib (−log10(pert)=11.1) score highest vs CTHRC1+ signature",
       "Senotype deep graph learning (GSE331432) enables computational senescence profiling — direct input for D+Q + pioglitazone senolytic decision framework",
-    ],
-    actions: [
-      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
-      { label: "View Multi-Omics service", href: "/multiomics" },
-    ],
-  },
-{
-    id: 5,
-    date: "2026-06-03",
-    title: "CTHRC1+ fibrogenic fibroblasts emerge as lung fibrosis signaling hub — spatial atlas confirms CMap repurposing",
-    category: "bioinformatics",
-    summary: "Transcriptional + spatial profiling of human lung fibroblasts identifies CTHRC1+ cells as a dominant fibrogenic signaling hub in IPF/UIP. Confirms Sargassum japonica anti-fibrotic mechanism via downstream DEG suppression. Multi-platform FFPE benchmarking (MERFISH, Xenium, CosMx) establishes reproducibility standards for Brown Biotech's spatial workflow.",
-    tags: ["lung fibrosis", "CTHRC1", "spatial transcriptomics", "fibroblast atlas", "FFPE", "MERFISH", "Xenium"],
-    highlights: [
-      "CTHRC1+ fibroblasts drive fibrogenic signaling in human IPF/UIP lung (n=9, multi-site)",
-      "Spatial co-localization with collagen+ zones confirms pro-fibrotic niche architecture",
-      "FFPE benchmarking: MERFISH vs Xenium vs CosMx concordance >0.88 for cell-type calls",
-      "CMap repurposing candidates (ruxolitinib, regorafenib) score high against CTHRC1+ signature",
     ],
     actions: [
       { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
