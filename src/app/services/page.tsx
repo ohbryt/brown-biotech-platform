@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma } from "lucide-react";
 import { MARKET_SIGNALS } from "@/lib/intake";
 
 const siteName = "Brown Biotech Inc.";
@@ -36,6 +36,16 @@ const lanes = [
     deliverables: ["Scope memo", "Direction", "Partner path"],
     cta: "Discuss a project",
     accent: "from-primary-light to-cta",
+  },
+  {
+    name: "strict-omics",
+    href: "/services/strict-omics",
+    icon: Sigma,
+    summary: "Audit-grade transcriptomics pipelines with RO-Crate provenance and LLM-validated gates.",
+    forWhom: "Teams that need a defensible, reproducible multi-platform omics workflow.",
+    deliverables: ["Run manifest", "RO-Crate provenance", "Decision-ready brief"],
+    cta: "Request a Pipeline Brief",
+    accent: "from-amber-500 to-primary-dark",
   },
   {
     name: "Inventa",
@@ -115,7 +125,7 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub for peptide-service, biostatx, genox-site, Inventa, and business-pipeline.",
+  description: "Brown Biotech service hub for peptide-service, biostatx, genox-site, strict-omics, Inventa, and business-pipeline.",
   alternates: { canonical: "/services" },
 };
 
@@ -142,7 +152,7 @@ export default function ServicesPage() {
               {[
                 ["Privacy", "Private"],
                 ["Response", "24h"],
-                ["Lanes", "4 primary lanes"],
+                ["Lanes", "5 primary lanes"],
                 ["Output", "Route preview"],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/12 px-4 py-3 backdrop-blur">
@@ -179,7 +189,7 @@ export default function ServicesPage() {
 
       <section id="lanes" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <span className="kicker">Four core offers</span>
+          <span className="kicker">Five core offers</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
             Choose the lane that matches the project.
           </h2>

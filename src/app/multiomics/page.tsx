@@ -410,23 +410,46 @@ export default function MultiOmicsPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTAs */}
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/50 p-10">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_50%,rgba(245,158,11,0.08),transparent)]" />
-          <div className="relative flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div>
-              <h3 className="text-2xl font-bold text-white">Need deeper analysis?</h3>
-              <p className="mt-3 text-zinc-400 max-w-xl">
-                Custom pathways, cohort comparisons, integrated multi-omics, and manuscript-ready figures — request a paid brief.
+        <div className="mb-6">
+          <h3 className="text-2xl font-bold text-white">Need more than a self-service run?</h3>
+          <p className="mt-3 text-zinc-400 max-w-2xl">
+            The CSV tool is for fast exploration. For a defensible, reproducible multi-platform omics workflow, choose a lane.
+          </p>
+        </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/50 p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_50%,rgba(245,158,11,0.08),transparent)]" />
+            <div className="relative">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-400">Supporting lane</p>
+              <h4 className="mt-3 text-xl font-bold text-white">Deeper biostatistics</h4>
+              <p className="mt-3 text-sm text-zinc-400 max-w-md">
+                Custom pathways, cohort comparisons, integrated multi-omics, and manuscript-ready figures.
               </p>
+              <Link
+                href="/services/biostatx#brief"
+                className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 font-bold text-white shadow-xl shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 transition"
+              >
+                Request a Paid Brief <CheckCircle2 className="h-5 w-5" />
+              </Link>
             </div>
-            <Link
-              href="/services/biostatx#brief"
-              className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-bold text-white shadow-xl shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 whitespace-nowrap transition"
-            >
-              Request a Paid Brief <CheckCircle2 className="h-5 w-5" />
-            </Link>
+          </div>
+          <div className="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-zinc-900/60 to-zinc-900/50 p-8">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_20%_50%,rgba(245,158,11,0.14),transparent)]" />
+            <div className="relative">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">Project lane</p>
+              <h4 className="mt-3 text-xl font-bold text-white">Strict, audit-grade pipeline</h4>
+              <p className="mt-3 text-sm text-zinc-300 max-w-md">
+                LLM proposes, deterministic gates decide. Container-pinned runs, RO-Crate provenance, technology-specific branches. Project-tier.
+              </p>
+              <Link
+                href="/services/strict-omics#brief"
+                className="mt-6 inline-flex items-center gap-2 rounded-2xl border border-amber-500/40 bg-amber-500/10 px-6 py-3 font-bold text-amber-200 hover:bg-amber-500/20 transition"
+              >
+                Scope a pipeline <CheckCircle2 className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch, Sparkles } from "lucide-react";
+import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch, Sparkles, Sigma } from "lucide-react";
 
 const services = [
   {
@@ -31,6 +31,13 @@ const services = [
     desc: "A simple intake surface that routes the right request to the right lane with a clear owner.",
     badge: "Route preview",
     gradient: "from-cta to-cta-light",
+  },
+  {
+    icon: Sigma,
+    title: "strict-omics",
+    desc: "Audit-grade transcriptomics pipelines. LLM proposes, deterministic gates decide. Project-tier engagements.",
+    badge: "Project lane",
+    gradient: "from-amber-500 to-primary-dark",
   },
   {
     icon: GitBranch,
