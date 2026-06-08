@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Sigma, CheckCircle2, ShieldCheck, GitBranch } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
+import StrictOmicsWorkbench from "@/components/strict-omics/StrictOmicsWorkbench";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "strict-omics · audit-grade transcriptomics pipelines",
   description:
-    "LLM proposes, deterministic gates decide. Strict, reproducible multi-platform transcriptomics pipelines with RO-Crate provenance and container-pinned runs.",
+    "Browser-side workbench for strict-omics ingestion: parse FASTQ, run FastQC-equivalent QC, classify species against a k-mer index, quality-trim reads. Production alignment and RO-Crate provenance run on the Brown Biotech Nextflow backend.",
   keywords: [
     "transcriptomics",
     "RNA-seq",
@@ -23,13 +24,16 @@ export const metadata: Metadata = {
     "reproducible pipelines",
     "LLM guardrails",
     "Pydantic",
+    "species gate",
+    "FastQC",
+    "Kraken2",
     "biotech services",
   ],
   alternates: { canonical: "/services/strict-omics" },
   openGraph: {
     title: "strict-omics · audit-grade transcriptomics pipelines",
     description:
-      "LLM proposes, deterministic gates decide. Strict, reproducible multi-platform transcriptomics pipelines with RO-Crate provenance.",
+      "Browser-side strict-omics workbench. LLM proposes, deterministic gates decide. Production alignment on Nextflow / Snakemake backend.",
     type: "website",
     url: `${siteUrl}/services/strict-omics`,
   },
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "strict-omics · audit-grade transcriptomics pipelines",
     description:
-      "LLM proposes, deterministic gates decide. Strict, reproducible multi-platform transcriptomics pipelines.",
+      "Browser-side strict-omics workbench. LLM proposes, deterministic gates decide.",
   },
 };
 
@@ -59,23 +63,23 @@ const cards = [
 const steps = [
   {
     title: "Ingestion gate",
-    desc: "Repository metadata, platform/assay fields, publication cross-check. Fail-closed: conflicting evidence moves to manual review or rejection.",
+    desc: "Repository metadata, platform/assay fields, publication cross-check. Fail-closed: conflicting evidence moves to manual review or rejection. The browser workbench above runs the first 4 gates locally.",
   },
   {
     title: "Empirical species check",
-    desc: "FastQ Screen / Kraken2 for RNA-seq; verifyBamID2 + CrosscheckFingerprints for human samples. Wrong-species or contamination is rejected before alignment.",
+    desc: "FastQ Screen / Kraken2 for RNA-seq; verifyBamID2 + CrosscheckFingerprints for human samples. The browser workbench uses a k-mer index to fail-closed if the dominant species is not on the allow-list.",
   },
   {
     title: "Technology-specific branch",
-    desc: "Microarray (RLE, NUSE, percent present) and RNA-seq (FastQC, RNA-SeQC 2, RSeQC) are never mixed. Batch effects are detected before they are corrected.",
+    desc: "Microarray (RLE, NUSE, percent present) and RNA-seq (FastQC, RNA-SeQC 2, RSeQC) are never mixed. Batch effects are detected before they are corrected. Production runs only.",
   },
   {
     title: "Containerised QC",
-    desc: "Pinned Nextflow / Snakemake runs, MultiQC aggregation, batch-aware thresholds. ENCODE-style read depth and replicate standards where applicable.",
+    desc: "Pinned Nextflow / Snakemake runs, MultiQC aggregation, batch-aware thresholds. ENCODE-style read depth and replicate standards where applicable. Production runs only.",
   },
   {
     title: "Provenance & handoff",
-    desc: "DataLad-versioned data, RO-Crate workflow-run provenance, Git-versioned code, and a decision-ready brief that links every output back to a study accession.",
+    desc: "DataLad-versioned data, RO-Crate workflow-run provenance, Git-versioned code, and a decision-ready brief that links every output back to a study accession. Production runs only.",
   },
 ];
 
@@ -119,45 +123,49 @@ const boundaries = [
 export default function StrictOmicsPage() {
   return (
     <main className="min-h-screen bg-surface">
-      <section className="relative overflow-hidden bg-dark text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(217,119,6,0.16),transparent_25%),radial-gradient(circle_at_85%_30%,rgba(146,64,14,0.18),transparent_24%)]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
-              <Sigma className="h-4 w-4 text-cta" />
-              strict-omics · project lane
-            </span>
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              LLM proposes. Deterministic gates decide.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Strict, reproducible multi-platform transcriptomics pipelines with RO-Crate provenance and container-pinned runs. The LLM is a candidate generator; a Pydantic-validated gate is the final decision-maker.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3 text-sm text-gray-300">
+      {/* Live workbench */}
+      <section className="relative bg-dark text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(217,119,6,0.10),transparent_30%),radial-gradient(circle_at_85%_60%,rgba(146,64,14,0.10),transparent_28%)] pointer-events-none" />
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
+                <Sigma className="h-4 w-4 text-cta" />
+                strict-omics · project lane
+              </span>
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+                LLM proposes. Deterministic gates decide.
+              </h1>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-gray-300">
+                Run the first four ingestion gates in your browser right now — parse, QC, species gate, trim.
+                Production alignment, RO-Crate provenance, and the full pipeline run on our Nextflow / Snakemake backend.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 text-xs text-gray-300">
               {[
                 "Fail-closed ingestion gate",
-                "Technology-specific branches",
-                "Container-pinned reproducibility",
-                "RO-Crate workflow provenance",
+                "Browser-side QC + species",
+                "Container-pinned production",
+                "RO-Crate provenance",
               ].map((item) => (
-                <span key={item} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
+                <span key={item} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur">
                   {item}
                 </span>
               ))}
             </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
-                Request a Pipeline Brief <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/multiomics" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
-                Try the self-service tool
-              </Link>
-            </div>
+          </div>
+          <StrictOmicsWorkbench />
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-xs text-gray-400">
+            <span>Up to 200K reads processed locally per run. No upload. No server pipeline call.</span>
+            <Link href="/multiomics" className="text-amber-300 hover:text-amber-200">
+              Have a CSV instead? Try the multi-omics tool →
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      {/* Why / How / What */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
           {cards.map((item) => (
             <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
@@ -169,9 +177,13 @@ export default function StrictOmicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+      <section id="methodology" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Operating steps</span>
+          <p className="mt-2 max-w-3xl text-sm leading-7 text-text-muted">
+            The workbench above covers steps 1, 2, and 5. Steps 3 and 4 (alignment and containerised production QC) run on
+            the backend.
+          </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {steps.map((step, index) => (
               <div key={step.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
@@ -184,7 +196,7 @@ export default function StrictOmicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -209,7 +221,7 @@ export default function StrictOmicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Standards we enforce</span>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-text-muted">
@@ -226,7 +238,7 @@ export default function StrictOmicsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Boundaries</span>
           <div className="mt-4 grid gap-4 lg:grid-cols-3">
@@ -243,7 +255,7 @@ export default function StrictOmicsPage() {
       <ServiceInquiryCard
         serviceName="strict-omics"
         title="Scope a strict, audit-grade transcriptomics pipeline"
-        description="Send a short note and we will return a route preview, an owner, and a fit score. Project-tier engagements start at ₩8M."
+        description="Send a short note and we will return a route preview, an owner, and a fit score. Project-tier engagements start at \u20A98M."
         prompts={[
           "Which organism and assay type are you working with? (Homo sapiens, Mus musculus, microarray, bulk RNA-seq, single-cell, spatial, etc.)",
           "Do you have raw data, and in what format? (FASTQ / SRA / BAM for RNA-seq, CEL / IDAT for microarray, or processed matrices only.)",
