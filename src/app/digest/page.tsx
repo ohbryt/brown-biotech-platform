@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 11,
+    date: "2026-06-10",
+    title: "Pancreatic cancer transcriptional-addiction ChIPmentation + scATAC organoid atlas defines druggable epigenetic dependencies; cross-species single-cell multiomics of EMT tumor states (mouse + human); sexually-dimorphic human/mouse adrenal gland tissue-turnover atlas reframes hormone aging",
+    category: "ai-drug-discovery",
+    summary: "Three fresh high-impact hits spanning AI drug discovery, bioinformatics, and longevity: (1) Targeting transcriptional addiction to pro-proliferative programs in pancreatic cancer delivers a matched ChIPmentation organoid (GSE296816, n=3) + scATAC organoid (GSE296818, n=8) + ChIPmentation (GSE296819, n=2) dataset, pdat 2026/06/04, score 6/6/3 — directly maps druggable epigenetic dependencies in PDAC organoids and is an immediate CMap-friendly input for Brown Biotech precision-oncology target prioritization. (2) Single cell multiomics unravel the transcription networks controlling the different EMT tumor states (GSE288137, mouse + human, n=16, pdat 2026/06/07, score 6) provides a cross-species single-cell multiomics dissection of the EMT transcription-factor programs that drive metastasis — a fresh mechanistic anchor for Brown Biotech spatial + DEG + TF-motif pipeline work on solid tumor progression. (3) Human and mouse adrenal glands are characterized by species-specific and sexually-dimorphic heterogeneity and tissue turnover (GSE253852 mouse + human mixed n=31 + GSE293042 VisiumHD mouse n=2, pdat 2026/05/11, score 9/6) introduces a score-9 cross-species adrenal atlas with VisiumHD spatial support — reframes adrenal aging, stress-axis biology, and sexually-dimorphic hormone turnover with direct relevance to Brown Biotech's longevity/senolytic service and to stress-mediated immunosenescence discussions.",
+    tags: ["pancreatic cancer", "transcriptional addiction", "ChIPmentation", "scATAC", "organoid", "epigenetic drug target", "CMap", "precision oncology", "EMT", "single-cell multiomics", "transcription network", "metastasis", "TF motif", "DEG", "mouse human cross-species", "adrenal gland", "Visium HD", "sexually dimorphic", "tissue turnover", "hormone aging", "stress axis", "senolytic", "longevity", "open science reference atlas"],
+    highlights: [
+      "Pancreatic cancer transcriptional-addiction multi-modality atlas (GSE296816 ChIPmentation organoid n=3 + GSE296818 scATAC organoid n=8 + GSE296819 ChIPmentation n=2, score 6+6+3, pdat 2026/06/04): matched ChIPmentation + scATAC in PDAC organoids pin druggable epigenetic dependencies for pro-proliferative transcriptional programs — direct CMap repurposing input for Brown Biotech precision-oncology brief",
+      "EMT single-cell multiomics across species (GSE288137, mouse + human, n=16, score 6, pdat 2026/06/07): cross-species single-cell multiomics dissects the transcription-factor networks controlling distinct EMT tumor states — a fresh mechanistic anchor for Brown Biotech DEG + TF-motif + spatial pipeline on solid-tumor progression and metastasis",
+      "Cross-species adrenal gland tissue-turnover atlas (GSE253852 mixed human+mouse n=31 + GSE293042 VisiumHD mouse n=2, score 9+6, pdat 2026/05/11): introduces species-specific and sexually-dimorphic heterogeneity + tissue-turnover atlas with VisiumHD spatial support — reframes adrenal aging, stress-axis biology, and hormone-mediated immunosenescence relevant to Brown Biotech longevity/senolytic service",
+      "Combined signal: epigenetic drug target (PDAC) + cross-species single-cell multiomics (EMT) + sexually-dimorphic hormone atlas (adrenal) — three orthogonal modalities spanning AI drug discovery, bioinformatics, and longevity, all clean-license GEO with raw files available"
+    ],
+    actions: [
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View Multi-Omics service", href: "/multiomics#brief" },
+      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 10,
     date: "2026-06-09",
     title: "Heart Failure GWAS 3D Chromatin causal-gene atlas; EZH2→ferroptosis axis in HCC + pan-cancer exhausted-macrophage atlas; FAP-directed atherosclerosis immunotherapy multi-modal atlas (CITEseq + Visium + Xenium)",
@@ -98,24 +118,6 @@ const sampleDigests = [
       { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
       { label: "Request longevity/senolytics brief", href: "/services/ai-drug-discovery#brief" },
-    ],
-  },
-{
-    id: 6,
-    date: "2026-06-04",
-    title: "CTHRC1+ fibrogenic fibroblasts confirmed as lung fibrosis signaling hub — spatial atlas validates anti-fibrotic mechanism",
-    category: "bioinformatics",
-    summary: "Transcriptional + spatial profiling of human lung fibroblasts (GSE331144, n=9 IPF/UIP) identifies CTHRC1+ cells as the dominant fibrogenic signaling hub, with spatial co-localization in collagen-rich fibrotic niches. CMap repurposing analysis highlights ruxolitinib and regorafenib as top-scoring candidates against the CTHRC1+ signature — directly validating Brown Biotech's Sargassum japonica anti-fibrotic pipeline mechanism. Separately, the senotype deep graph representation learning study (GSE331432) provides a computational framework for profiling cellular senescence states at single-cell resolution, relevant to the Brown Biotech senolytic + PPARγ combination project.",
-    tags: ["lung fibrosis", "CTHRC1", "spatial transcriptomics", "fibroblast", "senotype", "senolytic", "PPARγ", "CMap repurposing", "IPF"],
-    highlights: [
-      "CTHRC1+ fibroblasts emerge as pro-fibrotic signaling hub in human IPF/UIP (n=9, multi-site validation)",
-      "Spatial co-localization with collagen+ zones confirms niche architecture of fibrogenic signaling",
-      "CMap: ruxolitinib (−log10(pert)=12.4) and regorafenib (−log10(pert)=11.1) score highest vs CTHRC1+ signature",
-      "Senotype deep graph learning (GSE331432) enables computational senescence profiling — direct input for D+Q + pioglitazone senolytic decision framework",
-    ],
-    actions: [
-      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
-      { label: "View Multi-Omics service", href: "/multiomics" },
     ],
   },
 ];
