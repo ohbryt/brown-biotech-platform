@@ -53,6 +53,12 @@ def stage4_with_rubric(brief_markdown: str, task: str, scorer) -> tuple[str, dic
         return brief_markdown, {"error": repr(e), "consolidated_score": None, "verdict": "scoring_failed"}
 
     # Build Rubric Score footer
+    judges_used = sorted({
+        jr.get("judge", "?")
+        for jr in score.get("judge_breakdown", [])
+        if "error" not in jr
+    })
+    judges_line = ", ".join(judges_used) if judges_used else "(none — see errors below)"
     lines = [
         "",
         "---",
@@ -63,13 +69,20 @@ def stage4_with_rubric(brief_markdown: str, task: str, scorer) -> tuple[str, dic
         "",
         f"**Judge variance flag**: {score.get('variance_flag', '?')}",
         "",
-        "**Multi-LLM judges**: Gemini 2.5 Pro, Claude 3.7 Sonnet, GPT-4.1, Gemini 2.0 Flash",
+        f"**Multi-LLM judges**: {judges_line}",
         "",
         "**Per-criterion (mean, 1-5)**:",
         "",
     ]
     for crit, val in (score.get("per_criterion") or {}).items():
         lines.append(f"- `{crit}`: {val if val is not None else 'n/a'}")
+    # Surface judge errors if any
+    errors = [jr for jr in score.get("judge_breakdown", []) if "error" in jr]
+    if errors:
+        lines.append("")
+        lines.append("**Judge errors**:")
+        for e in errors:
+            lines.append(f"- `{e.get('judge', '?')}`: {e.get('error', '?')[:200]}")
     lines.extend([
         "",
         "*Source: BB-rubric-v1 adapted from Yeoh et al. 2026 (bioRxiv 2026.06.03.730004). "
