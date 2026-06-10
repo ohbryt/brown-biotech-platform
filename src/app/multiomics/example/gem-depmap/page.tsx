@@ -17,6 +17,9 @@ interface GemDepmapResult {
     top_pathways: Array<{ pathway: string; n_essential: number; total: number; pct: number }>;
   }>;
   summary?: { n_lineages: number; n_cell_lines: number; mean_druggable_top20: number; most_common_pathway: string };
+  matched?: { name: string; depmap_id: string; primary_disease: string; lineage_name: string };
+  n_druggable_top20?: number;
+  interpretation?: string;
   error?: string;
 }
 
@@ -114,7 +117,6 @@ export default function GemDepmapExamplePage() {
             <p className="text-cyan-300">Querying pre-computed vulnerabilities for A549…</p>
           </div>
         )}
-
         {result?.error && (
           <div className="rounded-2xl border border-red-500/30 bg-red-500/5 p-6">
             <div className="flex items-center gap-2 mb-2">
@@ -122,6 +124,17 @@ export default function GemDepmapExamplePage() {
               <p className="font-semibold text-red-400">Analysis failed</p>
             </div>
             <p className="text-sm text-red-300/80">{result.error}</p>
+          </div>
+        )}
+
+        {/* Interpretation */}
+        {result?.interpretation && (
+          <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/5 p-6 mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Sparkles className="h-5 w-5 text-cyan-400" />
+              <p className="font-semibold text-cyan-400">Interpretation</p>
+            </div>
+            <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-wrap">{result.interpretation}</p>
           </div>
         )}
 

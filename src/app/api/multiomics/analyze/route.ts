@@ -99,9 +99,9 @@ export async function POST(req: NextRequest) {
             n_druggable_top20: first.n_druggable_top20,
             data_version: "DepMap Public 26Q1 (Chronos)",
             methodology: "Pre-computed gene_effect scores intersected with KEGG metabolic pathways. Chronos < -0.5 = essential.",
-            summary: `Top essential metabolic genes for ${first.cell_line} (${first.primary_disease}). ${first.n_druggable_top20} of top 20 are druggable. Most-impacted pathway: ${first.top_pathways?.[0]?.pathway ?? "n/a"} (${first.top_pathways?.[0]?.pct ?? 0}% essentiality).`,
+            interpretation: `Top essential metabolic genes for ${first.cell_line} (${first.primary_disease}). ${first.n_druggable_top20} of top 20 are druggable. Most-impacted pathway: ${first.top_pathways?.[0]?.pathway ?? "n/a"} (${first.top_pathways?.[0]?.pct ?? 0}% essentiality).`,
           }
-        : { matched: null, top_dependencies: [], summary: "No cell line matched." };
+        : { matched: null, top_dependencies: [], interpretation: "No cell line matched." };
       return NextResponse.json({ ...result, ...legacy });
     }
     if (type === "gem-depmap-info") {
