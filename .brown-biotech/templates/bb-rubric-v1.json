@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "source_paper": "bioRxiv 2026.06.03.730004 (Yeoh, Patro, Wong, Poh)",
+  "adapted_date": "2026-06-10",
+  "scale": "1 (poor) to 5 (excellent)",
+  "max_per_task": 45,
+  "domain": [
+    {
+      "name": "accuracy",
+      "weight_default": 1.0,
+      "prompt_hint": "Factual correctness vs ground truth / literature."
+    },
+    {
+      "name": "completeness",
+      "weight_default": 1.0,
+      "prompt_hint": "All required dimensions addressed; no major omissions."
+    },
+    {
+      "name": "relevance",
+      "weight_default": 1.0,
+      "prompt_hint": "Output stays on-scope for the BB paid-brief decision criteria."
+    },
+    {
+      "name": "depth",
+      "weight_default": 1.0,
+      "prompt_hint": "Mechanistic + clinical + competitive depth, not surface-level."
+    },
+    {
+      "name": "clarity",
+      "weight_default": 1.0,
+      "prompt_hint": "Reader can act on it without re-reading."
+    },
+    {
+      "name": "organization",
+      "weight_default": 0.7,
+      "prompt_hint": "Headers, tables, bullets used where they help."
+    },
+    {
+      "name": "conciseness",
+      "weight_default": 0.7,
+      "prompt_hint": "No padding. Premium copy, not academic verbosity."
+    },
+    {
+      "name": "critical_analysis",
+      "weight_default": 1.5,
+      "prompt_hint": "BB DIFFERENTIATOR. Limitations, failure modes, conflicting evidence."
+    },
+    {
+      "name": "examples_analogies",
+      "weight_default": 1.0,
+      "prompt_hint": "Concrete examples (drug, trial, molecule) - not abstractions."
+    }
+  ],
+  "coding": [
+    {
+      "name": "readability_style",
+      "weight_default": 0.7,
+      "prompt_hint": "PEP8 / clean naming / formatting."
+    },
+    {
+      "name": "correctness",
+      "weight_default": 2.0,
+      "prompt_hint": "BB #1 metric for code. Runs without error, returns expected output."
+    },
+    {
+      "name": "efficiency",
+      "weight_default": 0.7,
+      "prompt_hint": "Avoids redundant work, uses model.context_managers, parallelizes where it matters."
+    },
+    {
+      "name": "simplicity",
+      "weight_default": 0.5,
+      "prompt_hint": "No premature abstraction. Straight-line code where appropriate."
+    },
+    {
+      "name": "error_handling",
+      "weight_default": 1.5,
+      "prompt_hint": "BB DIFFERENTIATOR. try/except on file IO, IDs, solver status, NaN checks."
+    },
+    {
+      "name": "example_provided",
+      "weight_default": 0.5,
+      "prompt_hint": "Working example with realistic input/output."
+    },
+    {
+      "name": "clear_io",
+      "weight_default": 1.0,
+      "prompt_hint": "Input/output contracts explicit; prints/plots expected results."
+    },
+    {
+      "name": "documentation_comments",
+      "weight_default": 0.7,
+      "prompt_hint": "Comments bridge bio reasoning and code steps."
+    },
+    {
+      "name": "biological_mapping",
+      "weight_default": 1.0,
+      "prompt_hint": "Variables/functions reflect biology, not just generic Python."
+    }
+  ],
+  "bb_extensions": [
+    {
+      "name": "decision_readiness",
+      "weight_default": 2.0,
+      "prompt_hint": "Can a CEO make a go/no-go decision from this brief alone? Yes/no + why."
+    },
+    {
+      "name": "bb_service_link",
+      "weight_default": 1.0,
+      "prompt_hint": "Does the brief surface a relevant BB service lane (peptide-service, brown-ai-peach, etc.)?"
+    },
+    {
+      "name": "citation_hygiene",
+      "weight_default": 1.5,
+      "prompt_hint": "PMIDs / DOIs / NCT IDs cited inline, not just URLs."
+    }
+  ],
+  "judge_ensemble_models": [
+    "google/gemini-2.5-pro",
+    "anthropic/claude-3.5-sonnet",
+    "openai/gpt-4.1",
+    "google/gemini-2.0-flash"
+  ],
+  "judge_aggregation": "mean",
+  "variance_alert_threshold": 1.0
+}
