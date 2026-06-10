@@ -6,7 +6,9 @@ import { ArrowLeft, Calendar, ExternalLink, Microscope } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-const CONTENT_DIR = path.join(process.cwd(), "content", "research-pulse");
+// public/ is automatically included in the Vercel deployment bundle,
+// so fs.readFile from this path works at request time.
+const CONTENT_DIR = path.join(process.cwd(), "public", "content", "research-pulse");
 
 interface Props {
   params: Promise<{ date: string }>;
