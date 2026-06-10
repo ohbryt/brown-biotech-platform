@@ -29,3 +29,10 @@ npm-debug.log*
 next-env.d.ts
 
 .vercel
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Data caches (pre-computed DepMap data lives in data/, this rule excludes /tmp)
