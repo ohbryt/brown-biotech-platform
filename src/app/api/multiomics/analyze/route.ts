@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { writeFile, unlink } from "fs/promises";
 import { spawn } from "child_process";
 import path from "path";
+import { runAdmetBatch, AdmetResult } from "@/lib/admet";
+import { queryGemDepmap, getDatabaseInfo, listLineages } from "@/lib/gem-depmap";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -21,11 +23,11 @@ export const maxDuration = 60;
  *
  * ADMET:
  *   - Multipart: { file: CSV with smiles column }
- *   - OR JSON: { smiles: ["CCO", ...] } (server writes temp CSV)
+ *   - OR JSON: { smiles: ["CCO", ...] }
  *
  * GEM-DepMap:
- *   - JSON: { cell_line: "A549" } OR { lineage_id: "breast" }
- *   - Multipart: { type: "gem-depmap", cell_line: "A549" } (multipart form)
+ *   - JSON: { cell_line: "A549" } OR { lineage_id: "lung_nsclc" } OR { disease: "lung" }
+ *   - Multipart: { type: "gem-depmap", cell_line: "A549" }
  */
 export async function POST(req: NextRequest) {
   try {
@@ -33,7 +35,10 @@ export async function POST(req: NextRequest) {
     let type = "transcriptomics";
     let cellLine: string | null = null;
     let lineageId: string | null = null;
+    let disease: string | null = null;
+    let topN: number | null = null;
     let smilesList: string[] | null = null;
+    let names: string[] | null = null;
     let file: File | null = null;
 
     if (contentType.includes("multipart/form-data")) {
@@ -41,13 +46,19 @@ export async function POST(req: NextRequest) {
       type = (formData.get("type") as string) || "transcriptomics";
       cellLine = (formData.get("cell_line") as string) || null;
       lineageId = (formData.get("lineage_id") as string) || null;
+      disease = (formData.get("disease") as string) || null;
+      const topNStr = formData.get("top_n") as string;
+      if (topNStr) topN = parseInt(topNStr, 10);
       file = (formData.get("file") as File | null) || null;
     } else if (contentType.includes("application/json")) {
       const body = await req.json();
       type = body.type || "transcriptomics";
       cellLine = body.cell_line || null;
       lineageId = body.lineage_id || null;
+      disease = body.disease || null;
+      topN = body.top_n || null;
       smilesList = body.smiles || null;
+      names = body.names || null;
     } else {
       // Fallback: try formData
       try {
@@ -63,10 +74,23 @@ export async function POST(req: NextRequest) {
 
     // -------- Dispatch by type --------
     if (type === "admet") {
-      return await handleAdmet(file, smilesList);
+      return await handleAdmet(file, smilesList, names);
     }
     if (type === "gem-depmap") {
-      return handleGemDepmap({ cell_line: cellLine, lineage_id: lineageId });
+      return NextResponse.json(
+        queryGemDepmap({
+          cell_line: cellLine,
+          lineage_id: lineageId,
+          disease: disease,
+          top_n: topN || 15,
+        })
+      );
+    }
+    if (type === "gem-depmap-info") {
+      return NextResponse.json({
+        database: getDatabaseInfo(),
+        lineages: listLineages(),
+      });
     }
     // Default: transcriptomics
     return await handleTranscriptomics(file);
@@ -76,7 +100,7 @@ export async function POST(req: NextRequest) {
 }
 
 // ---------------------------------------------------------------------------
-// Transcriptomics (existing pipeline — preserved as-is)
+// Transcriptomics (existing pipeline — preserved as-is, pre-existing Python dep)
 // ---------------------------------------------------------------------------
 async function handleTranscriptomics(file: File | null) {
   if (!file || !file.name.endsWith(".csv")) {
@@ -91,7 +115,6 @@ async function handleTranscriptomics(file: File | null) {
   await writeFile(tmpPath, buffer);
 
   return new Promise<Response>((resolve) => {
-    const results: Record<string, any> = {};
     let stdout = "";
     let stderr = "";
 
@@ -115,14 +138,17 @@ async function handleTranscriptomics(file: File | null) {
       } else {
         resolve(NextResponse.json({
           status: "error",
-          error: stderr || "Analysis failed. Check your CSV format.",
+          error: stderr || stdout || "Analysis failed. Check your CSV format. (Note: Python runtime required.)",
         }));
       }
     });
 
     child.on("error", async (err) => {
       try { await unlink(tmpPath); } catch {}
-      resolve(NextResponse.json({ status: "error", error: err.message }));
+      resolve(NextResponse.json({
+        status: "error",
+        error: `Python runtime unavailable on server: ${err.message}. The transcriptomics pipeline requires a Python backend. ADMET and GEM-DepMap are now available.`,
+      }));
     });
 
     setTimeout(() => {
@@ -133,12 +159,13 @@ async function handleTranscriptomics(file: File | null) {
 }
 
 // ---------------------------------------------------------------------------
-// ADMET
+// ADMET — TypeScript implementation, no Python required
 // ---------------------------------------------------------------------------
-async function handleAdmet(file: File | null, smilesList: string[] | null) {
-  let tmpPath: string | null = null;
-
+async function handleAdmet(file: File | null, smilesList: string[] | null, names: string[] | null) {
   try {
+    let smiles: string[] = [];
+    let molNames: string[] = [];
+
     if (file) {
       if (!file.name.endsWith(".csv")) {
         return NextResponse.json(
@@ -146,15 +173,23 @@ async function handleAdmet(file: File | null, smilesList: string[] | null) {
           { status: 400 }
         );
       }
-      tmpPath = path.join("/tmp", `admet_${Date.now()}_${file.name}`);
-      const buffer = Buffer.from(await file.arrayBuffer());
-      await writeFile(tmpPath, buffer);
+      const text = await file.text();
+      const parsed = parseCsv(text);
+      const smilesIdx = parsed.header.findIndex((h) => /^(smiles|SMILES)$/i.test(h.trim()));
+      const nameIdx = parsed.header.findIndex((h) => /^(name|Name)$/i.test(h.trim()));
+      if (smilesIdx === -1) {
+        return NextResponse.json(
+          { status: "error", error: "CSV must contain a 'smiles' column." },
+          { status: 400 }
+        );
+      }
+      smiles = parsed.rows.map((r) => r[smilesIdx] || "").filter((s) => s.trim());
+      if (nameIdx !== -1) {
+        molNames = parsed.rows.map((r) => r[nameIdx] || "");
+      }
     } else if (smilesList && Array.isArray(smilesList) && smilesList.length > 0) {
-      // Server-side: write a temporary CSV from the JSON smiles list
-      tmpPath = path.join("/tmp", `admet_${Date.now()}.csv`);
-      const csvBody = "smiles,name\n" +
-        smilesList.map((s, i) => `${s.replace(/[",\n\r]/g, "")},mol_${i + 1}`).join("\n") + "\n";
-      await writeFile(tmpPath, csvBody);
+      smiles = smilesList;
+      molNames = names || [];
     } else {
       return NextResponse.json(
         { status: "error", error: "ADMET requires either a .csv file upload or a JSON body with 'smiles': [...]" },
@@ -162,109 +197,72 @@ async function handleAdmet(file: File | null, smilesList: string[] | null) {
       );
     }
 
-    return await runPythonScript(
-      path.join(process.cwd(), "scripts/admet_prediction.py"),
-      tmpPath,
-      "admet"
-    );
-  } finally {
-    if (tmpPath) {
-      try { await unlink(tmpPath); } catch {}
+    if (smiles.length > 200) {
+      return NextResponse.json(
+        { status: "error", error: `ADMET batch limited to 200 molecules. Received ${smiles.length}.` },
+        { status: 400 }
+      );
     }
+
+    const { results, summary } = runAdmetBatch({ smiles, names: molNames });
+    return NextResponse.json({ status: "done", module: "admet", summary, results });
+  } catch (err: any) {
+    return NextResponse.json({ status: "error", error: err.message }, { status: 500 });
   }
 }
 
 // ---------------------------------------------------------------------------
-// GEM-DepMap (synchronous via stdin JSON)
+// Minimal CSV parser (handles quoted fields with commas + escaped quotes)
 // ---------------------------------------------------------------------------
-function handleGemDepmap(input: { cell_line: string | null; lineage_id: string | null }) {
-  return new Promise<Response>((resolve) => {
-    let stdout = "";
-    let stderr = "";
-
-    const child = spawn("python3", [
-      path.join(process.cwd(), "scripts/gem_depmap_vulnerability.py"),
-    ], { timeout: 25000 });
-
-    child.stdout.on("data", (d) => { stdout += d.toString(); });
-    child.stderr.on("data", (d) => { stderr += d.toString(); });
-
-    child.on("close", (code) => {
-      if (code === 0 && stdout) {
-        try {
-          const parsed = JSON.parse(stdout);
-          resolve(NextResponse.json({ status: "done", ...parsed }));
-        } catch {
-          resolve(NextResponse.json({ status: "done", summary: stdout.slice(0, 500) }));
-        }
+function parseCsv(text: string): { header: string[]; rows: string[][] } {
+  const lines: string[] = [];
+  let cur = "";
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (ch === '"') {
+      if (inQuotes && text[i + 1] === '"') {
+        cur += '"';
+        i++;
       } else {
-        resolve(NextResponse.json({
-          status: "error",
-          error: stderr || "GEM-DepMap analysis failed.",
-        }));
+        inQuotes = !inQuotes;
       }
-    });
-
-    child.on("error", (err) => {
-      resolve(NextResponse.json({ status: "error", error: err.message }));
-    });
-
-    // Send the JSON input via stdin
-    try {
-      const inputStr = JSON.stringify(input);
-      child.stdin.write(inputStr);
-      child.stdin.end();
-    } catch (e) {
-      // ignore stdin errors; the child will exit with non-zero
+    } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
+      if (cur.length > 0) {
+        lines.push(cur);
+        cur = "";
+      }
+      if (ch === "\r" && text[i + 1] === "\n") i++;
+    } else {
+      cur += ch;
     }
+  }
+  if (cur.length > 0) lines.push(cur);
+  if (lines.length === 0) return { header: [], rows: [] };
 
-    setTimeout(() => {
-      try { child.kill(); } catch {}
-      resolve(NextResponse.json({ status: "error", error: "GEM-DepMap query timed out." }));
-    }, 22000);
-  });
-}
-
-// ---------------------------------------------------------------------------
-// Helper: run a Python script with a single file argument
-// ---------------------------------------------------------------------------
-function runPythonScript(scriptPath: string, argPath: string, moduleName: string): Promise<Response> {
-  return new Promise<Response>((resolve) => {
-    let stdout = "";
-    let stderr = "";
-
-    const child = spawn("python3", [scriptPath, argPath], { timeout: 55000 });
-
-    child.stdout.on("data", (d) => { stdout += d.toString(); });
-    child.stderr.on("data", (d) => { stderr += d.toString(); });
-
-    child.on("close", (code) => {
-      if (code === 0 && stdout) {
-        try {
-          const parsed = JSON.parse(stdout);
-          resolve(NextResponse.json({ status: "done", ...parsed }));
-        } catch {
-          resolve(NextResponse.json({
-            status: "done",
-            module: moduleName,
-            summary: stdout.slice(0, 500),
-          }));
+  const header = lines[0].split(",").map((h) => h.trim());
+  const rows = lines.slice(1).map((line) => {
+    const cells: string[] = [];
+    let cell = "";
+    let q = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') {
+        if (q && line[i + 1] === '"') {
+          cell += '"';
+          i++;
+        } else {
+          q = !q;
         }
+      } else if (ch === "," && !q) {
+        cells.push(cell);
+        cell = "";
       } else {
-        resolve(NextResponse.json({
-          status: "error",
-          error: stderr || `${moduleName} analysis failed.`,
-        }));
+        cell += ch;
       }
-    });
-
-    child.on("error", (err) => {
-      resolve(NextResponse.json({ status: "error", error: err.message }));
-    });
-
-    setTimeout(() => {
-      child.kill();
-      resolve(NextResponse.json({ status: "error", error: `${moduleName} analysis timed out.` }));
-    }, 55000);
+    }
+    cells.push(cell);
+    return cells;
   });
+  return { header, rows };
 }
