@@ -90,11 +90,26 @@ bb_extensions:
     prompt_hint: "PMIDs / DOIs / NCT IDs cited inline, not just URLs."
 
 # JUDGE ENSEMBLE CONFIG (Yeoh et al. used 4-LLM ensemble)
+# Brown Biotech's primary provider is `minimax` (MiniMax-M3) — currently
+# has credits. OpenRouter has 0 credits as of 2026-06-10, so we use minimax
+# directly for now. Add OpenRouter judges here once credits are topped up.
 judge_ensemble_models:
-  - google/gemini-2.5-pro
-  - anthropic/claude-3.5-sonnet
-  - openai/gpt-4.1
-  - google/gemini-2.0-flash
+  - model: MiniMax-M3
+    provider: minimax
+    base_url: https://api.minimax.io/v1/
+    api_key_env: MINIMAX_API_KEY
+  - model: MiniMax-M3
+    provider: minimax
+    base_url: https://api.minimax.io/v1/
+    api_key_env: MINIMAX_API_KEY
+  - model: MiniMax-M3
+    provider: minimax
+    base_url: https://api.minimax.io/v1/
+    api_key_env: MINIMAX_API_KEY
 
 judge_aggregation: mean
 variance_alert_threshold: 1.0
+# NOTE: All 3 judges use the same model in single-provider mode. Once
+# OpenRouter credits are restored, replace 2 of these with openai/gpt-4.1
+# + anthropic/claude-3.5-sonnet to get true ensemble diversity (the point
+# of the methodology from Yeoh et al. 2026).
