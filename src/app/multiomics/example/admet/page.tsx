@@ -3,22 +3,51 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Atom, ArrowLeft, CheckCircle2, AlertCircle, Loader2, Sparkles, ArrowRight, FileText, FlaskConical } from "lucide-react";
+import { Atom, ArrowLeft, CheckCircle2, AlertCircle, Loader2, Sparkles, ArrowRight, FlaskConical } from "lucide-react";
 
 interface AdmetResult {
   status: string;
-  molecules?: Array<{
-    id: number;
+  module?: string;
+  summary?: {
+    n_total: number;
+    n_valid: number;
+    n_lipinski_pass: number;
+    n_veber_pass: number;
+    n_egan_pass: number;
+    n_bbb_likely: number;
+    n_hERG_alert: number;
+    n_PAIN_alert: number;
+    n_high_risk: number;
+    mean_MW: number;
+    mean_logP: number;
+  };
+  results?: Array<{
     name: string;
     smiles: string;
     valid: boolean;
-    descriptors?: Record<string, number>;
-    rules?: Record<string, boolean | number>;
-    admet_risk?: string;
     error?: string;
+    descriptors?: {
+      mw: number;
+      logp: number;
+      hba: number;
+      hbd: number;
+      tpsa: number;
+      rotb: number;
+      aromatic_rings: number;
+      formula: string;
+    };
+    rules?: {
+      lipinski: { pass: boolean; violations: string[] };
+      veber: { pass: boolean };
+      egan: { pass: boolean };
+      bbb: { likely: boolean; reason: string };
+    };
+    alerts?: {
+      herg: { triggered: boolean; matches: string[] };
+      pains: { triggered: boolean; matches: string[] };
+    };
+    risk_score?: "low" | "medium" | "high";
   }>;
-  summary?: string;
-  summary_metrics?: Record<string, any>;
   error?: string;
 }
 
@@ -45,7 +74,8 @@ export default function AdmetExamplePage() {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             type: "admet",
-            smiles: EXAMPLE_DRUGS.map(d => d.smiles),
+            smiles: EXAMPLE_DRUGS.map((d) => d.smiles),
+            names: EXAMPLE_DRUGS.map((d) => d.name),
           }),
         });
         const data = await res.json();
@@ -61,7 +91,9 @@ export default function AdmetExamplePage() {
       }
     }
     run();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
@@ -86,7 +118,7 @@ export default function AdmetExamplePage() {
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
-            Aspirin, caffeine, ibuprofen, metformin, imatinib, and atorvastatin — run through our RDKit-based ADMET pipeline. Lipinski, Veber, BBB permeability, hERG, and PAINS alerts.
+            Aspirin, caffeine, ibuprofen, metformin, imatinib, and atorvastatin — run through our openchemlib-based ADMET pipeline. Lipinski, Veber, Egan, BBB permeability, hERG, and PAINS alerts.
           </p>
         </div>
       </section>
@@ -95,9 +127,9 @@ export default function AdmetExamplePage() {
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {[
-            { icon: FlaskConical, label: "1. Input", desc: "6 FDA-approved drugs (SMILES)", color: "purple" },
-            { icon: Atom, label: "2. Compute", desc: "RDKit descriptors + 10+ rule-based filters", color: "purple" },
-            { icon: CheckCircle2, label: "3. Score", desc: "Composite low/moderate/high risk per molecule", color: "purple" },
+            { icon: FlaskConical, label: "1. Input", desc: "6 FDA-approved drugs (SMILES)" },
+            { icon: Atom, label: "2. Compute", desc: "openchemlib descriptors + 5 rule-based filters" },
+            { icon: CheckCircle2, label: "3. Score", desc: "Composite low/medium/high risk per molecule" },
           ].map((step, i) => {
             const Icon = step.icon;
             return (
@@ -125,7 +157,7 @@ export default function AdmetExamplePage() {
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-12">
         <h2 className="text-xl font-bold text-white mb-4">Input molecules</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {EXAMPLE_DRUGS.map((d, i) => (
+          {EXAMPLE_DRUGS.map((d) => (
             <div key={d.name} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
               <div className="flex items-center justify-between mb-2">
                 <p className="font-semibold text-white">{d.name}</p>
@@ -158,17 +190,31 @@ export default function AdmetExamplePage() {
           </div>
         )}
 
-        {result && !result.error && result.summary && (
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 mb-6">
+        {result && result.summary && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 mb-6"
+          >
             <div className="flex items-center gap-2 mb-3">
               <Sparkles className="h-5 w-5 text-purple-400" />
               <p className="font-semibold text-purple-400">Summary</p>
             </div>
-            <p className="text-sm text-purple-300/80 leading-relaxed whitespace-pre-wrap">{result.summary}</p>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 text-sm">
+              <Stat label="Total" value={result.summary.n_total} />
+              <Stat label="Lipinski pass" value={`${result.summary.n_lipinski_pass}/${result.summary.n_total}`} />
+              <Stat label="BBB likely" value={`${result.summary.n_bbb_likely}/${result.summary.n_total}`} />
+              <Stat label="hERG alert" value={`${result.summary.n_hERG_alert}/${result.summary.n_total}`} />
+              <Stat label="High risk" value={`${result.summary.n_high_risk}/${result.summary.n_total}`} />
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-3 text-xs text-purple-300/80">
+              <span>Mean MW: <span className="font-mono text-zinc-300">{result.summary.mean_MW}</span></span>
+              <span>Mean logP: <span className="font-mono text-zinc-300">{result.summary.mean_logP}</span></span>
+            </div>
           </motion.div>
         )}
 
-        {result?.molecules && result.molecules.length > 0 && (
+        {result?.results && result.results.length > 0 && (
           <div className="overflow-hidden rounded-2xl border border-zinc-800">
             <table className="w-full text-sm">
               <thead className="bg-zinc-900">
@@ -188,45 +234,47 @@ export default function AdmetExamplePage() {
                 </tr>
               </thead>
               <tbody>
-                {result.molecules.map((m, i) => (
-                  <tr key={m.id} className={`border-t border-zinc-800 ${i % 2 === 0 ? "bg-zinc-900/30" : ""}`}>
+                {result.results.map((m, i) => (
+                  <tr key={i} className={`border-t border-zinc-800 ${i % 2 === 0 ? "bg-zinc-900/30" : ""}`}>
                     <td className="px-4 py-3">
                       <p className="font-semibold text-white">{m.name}</p>
                       <p className="text-xs text-zinc-500 font-mono truncate max-w-[180px]" title={m.smiles}>{m.smiles}</p>
                     </td>
                     {m.valid ? (
                       <>
-                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.mw?.toFixed(1)}</td>
-                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.logp?.toFixed(2)}</td>
+                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.mw.toFixed(1)}</td>
+                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.logp.toFixed(2)}</td>
                         <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.hba}/{m.descriptors?.hbd}</td>
-                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.tpsa?.toFixed(1)}</td>
+                        <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.tpsa.toFixed(1)}</td>
                         <td className="px-3 py-3 text-zinc-300 font-mono text-xs">{m.descriptors?.rotb}</td>
                         <td className="px-3 py-3">
-                          {m.rules?.lipinski_pass ? (
+                          {m.rules?.lipinski.pass ? (
                             <span className="inline-block px-1.5 py-0.5 rounded text-xs bg-emerald-500/20 text-emerald-300">Pass</span>
                           ) : (
-                            <span className="inline-block px-1.5 py-0.5 rounded text-xs bg-amber-500/20 text-amber-300">{m.rules?.lipinski_violations} v</span>
+                            <span className="inline-block px-1.5 py-0.5 rounded text-xs bg-amber-500/20 text-amber-300">
+                              {m.rules?.lipinski.violations.length} v
+                            </span>
                           )}
                         </td>
                         <td className="px-3 py-3">
-                          {m.rules?.veber_pass ? <span className="text-emerald-400">✓</span> : <span className="text-zinc-600">–</span>}
+                          {m.rules?.veber.pass ? <span className="text-emerald-400">✓</span> : <span className="text-zinc-600">–</span>}
                         </td>
                         <td className="px-3 py-3">
-                          {m.rules?.bbb_likely ? <span className="text-emerald-400">✓</span> : <span className="text-zinc-600">–</span>}
+                          {m.rules?.bbb.likely ? <span className="text-emerald-400">✓</span> : <span className="text-zinc-600">–</span>}
                         </td>
                         <td className="px-3 py-3">
-                          {m.rules?.herg_alert ? <span className="text-red-400">⚠</span> : <span className="text-zinc-600">–</span>}
+                          {m.alerts?.herg.triggered ? <span className="text-red-400">⚠</span> : <span className="text-zinc-600">–</span>}
                         </td>
                         <td className="px-3 py-3">
-                          {m.rules?.pains_alert ? <span className="text-red-400">⚠</span> : <span className="text-zinc-600">–</span>}
+                          {m.alerts?.pains.triggered ? <span className="text-red-400">⚠</span> : <span className="text-zinc-600">–</span>}
                         </td>
                         <td className="px-4 py-3">
                           <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${
-                            m.admet_risk === "low" ? "bg-emerald-500/20 text-emerald-300" :
-                            m.admet_risk === "moderate" ? "bg-amber-500/20 text-amber-300" :
+                            m.risk_score === "low" ? "bg-emerald-500/20 text-emerald-300" :
+                            m.risk_score === "medium" ? "bg-amber-500/20 text-amber-300" :
                             "bg-red-500/20 text-red-300"
                           }`}>
-                            {m.admet_risk || "—"}
+                            {m.risk_score || "—"}
                           </span>
                         </td>
                       </>
@@ -246,7 +294,7 @@ export default function AdmetExamplePage() {
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 mb-6">
           <h3 className="text-sm font-semibold text-zinc-300 mb-2">How this pipeline works</h3>
           <p className="text-sm text-zinc-400 leading-relaxed">
-            Each SMILES is parsed by RDKit; descriptors (MW, logP, HBA/HBD, TPSA, rotatable bonds) are computed. Rules applied: <strong className="text-zinc-200">Lipinski Ro5</strong> (MW ≤ 500, logP ≤ 5, HBD ≤ 5, HBA ≤ 10), <strong className="text-zinc-200">Veber</strong> (TPSA ≤ 140, RotB ≤ 10), <strong className="text-zinc-200">Egan</strong> (TPSA ≤ 131.6, logP in [−1, 5.88]), <strong className="text-zinc-200">BBB (Clark)</strong> (TPSA ≤ 90, MW ≤ 400, logP in [1, 4]). SMARTS panels detect hERG-likely basic amines, CYP3A4 liabilities, and PAINS substructures. Composite risk is a weighted score across all rules. All computation runs in &lt;1s per molecule — no ML model, no GPU.
+            Each SMILES is parsed by openchemlib; descriptors (MW, logP, HBA/HBD, TPSA, rotatable bonds) are computed. Rules applied: <strong className="text-zinc-200">Lipinski Ro5</strong> (MW ≤ 500, logP ≤ 5, HBD ≤ 5, HBA ≤ 10), <strong className="text-zinc-200">Veber</strong> (TPSA ≤ 140, RotB ≤ 10), <strong className="text-zinc-200">Egan</strong> (TPSA ≤ 131.6, logP in [−1, 6]), <strong className="text-zinc-200">BBB (Clark)</strong> (TPSA ≤ 90, MW ≤ 400, logP in [1, 4]). Structural alerts detect hERG-likely basic amines and PAINS substructures. Composite risk is a weighted score across all rules. All computation runs in &lt;100ms per molecule — pure JavaScript, no ML model, no GPU.
           </p>
         </div>
         <div className="grid gap-6 lg:grid-cols-2">
@@ -275,5 +323,14 @@ export default function AdmetExamplePage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div>
+      <p className="text-xs text-zinc-500">{label}</p>
+      <p className="font-mono text-zinc-100">{value}</p>
+    </div>
   );
 }

@@ -3,33 +3,20 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Microscope, ArrowLeft, CheckCircle2, AlertCircle, Loader2, Sparkles, ArrowRight, Atom } from "lucide-react";
+import { Microscope, ArrowLeft, AlertCircle, Loader2, Sparkles, ArrowRight, Atom } from "lucide-react";
 
 interface GemDepmapResult {
-  status: string;
-  matched?: {
+  matches: number;
+  results: Array<{
     depmap_id: string;
-    name: string;
+    cell_line: string;
     primary_disease: string;
-    lineage_id: string;
-    lineage_name: string;
-  };
-  top_dependencies?: Array<{
-    gene: string;
-    score: number;
-    pathway: string;
-    druggable: boolean;
+    lineage: string;
+    n_druggable_top20: number;
+    top_dependencies: Array<{ gene: string; score: number; pathway: string; druggable: boolean }>;
+    top_pathways: Array<{ pathway: string; n_essential: number; total: number; pct: number }>;
   }>;
-  top_pathways?: Array<{
-    pathway: string;
-    n_essential: number;
-    total: number;
-    pct: number;
-  }>;
-  n_druggable_top20?: number;
-  data_version?: string;
-  methodology?: string;
-  summary?: string;
+  summary?: { n_lineages: number; n_cell_lines: number; mean_druggable_top20: number; most_common_pathway: string };
   error?: string;
 }
 
@@ -47,7 +34,7 @@ export default function GemDepmapExamplePage() {
         const res = await fetch("/api/multiomics/analyze", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ type: "gem-depmap", cell_line: EXAMPLE_CELL_LINE }),
+          body: JSON.stringify({ type: "gem-depmap", cell_line: EXAMPLE_CELL_LINE, top_n: 20 }),
         });
         const data = await res.json();
         if (!cancelled) {
@@ -56,14 +43,18 @@ export default function GemDepmapExamplePage() {
         }
       } catch (err) {
         if (!cancelled) {
-          setResult({ status: "error", error: String(err) });
+          setResult({ matches: 0, results: [], error: String(err) });
           setLoading(false);
         }
       }
     }
     run();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
+
+  const match = result?.results?.[0];
 
   return (
     <main className="min-h-screen bg-[#09090b] text-white">
@@ -96,10 +87,10 @@ export default function GemDepmapExamplePage() {
       <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           {[
-            { label: "1. Source", desc: "DepMap Public 26Q1 Chronos", color: "cyan" },
-            { label: "2. Filter", desc: "~103 KEGG metabolic genes", color: "cyan" },
-            { label: "3. Rank", desc: "Most-negative Chronos = most essential", color: "cyan" },
-            { label: "4. Annotate", desc: "Pathway + druggability overlay", color: "cyan" },
+            { label: "1. Source", desc: "DepMap Public 26Q1 Chronos" },
+            { label: "2. Filter", desc: "~103 KEGG metabolic genes" },
+            { label: "3. Rank", desc: "Most-negative Chronos = most essential" },
+            { label: "4. Annotate", desc: "Pathway + druggability overlay" },
           ].map((step, i) => (
             <motion.div
               key={i}
@@ -134,47 +125,38 @@ export default function GemDepmapExamplePage() {
           </div>
         )}
 
-        {result && !result.error && result.matched && (
+        {match && !result?.error && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
             {/* Cell line card */}
             <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/5 p-6">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-lg font-bold text-white">{result.matched.name}</h2>
-                <span className="text-xs text-zinc-500 font-mono">{result.matched.depmap_id}</span>
+                <h2 className="text-lg font-bold text-white">{match.cell_line}</h2>
+                <span className="text-xs text-zinc-500 font-mono">{match.depmap_id}</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
                 <div>
                   <p className="text-xs text-zinc-500">Disease</p>
-                  <p className="font-semibold text-white">{result.matched.primary_disease}</p>
+                  <p className="font-semibold text-white">{match.primary_disease}</p>
                 </div>
                 <div>
                   <p className="text-xs text-zinc-500">Lineage</p>
-                  <p className="text-zinc-300">{result.matched.lineage_name}</p>
-                </div>
-                <div>
-                  <p className="text-xs text-zinc-500">Metabolic genes screened</p>
-                  <p className="font-semibold text-cyan-300">103</p>
+                  <p className="text-zinc-300">{match.lineage}</p>
                 </div>
                 <div>
                   <p className="text-xs text-zinc-500">Druggable (top 20)</p>
-                  <p className="font-semibold text-cyan-300">{result.n_druggable_top20}</p>
+                  <p className="font-semibold text-cyan-300">{match.n_druggable_top20}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-zinc-500">DB size</p>
+                  <p className="text-zinc-300">
+                    {result?.summary?.n_cell_lines} cells / {result?.summary?.n_lineages} lineages
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Summary */}
-            {result.summary && (
-              <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="h-5 w-5 text-cyan-400" />
-                  <p className="font-semibold text-cyan-400">Interpretation</p>
-                </div>
-                <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-wrap">{result.summary}</p>
-              </div>
-            )}
-
             {/* Top dependencies */}
-            {result.top_dependencies && result.top_dependencies.length > 0 && (
+            {match.top_dependencies && match.top_dependencies.length > 0 && (
               <div>
                 <h3 className="text-sm font-semibold text-zinc-300 mb-3">Top essential metabolic genes</h3>
                 <div className="overflow-hidden rounded-2xl border border-zinc-800">
@@ -189,7 +171,7 @@ export default function GemDepmapExamplePage() {
                       </tr>
                     </thead>
                     <tbody>
-                      {result.top_dependencies.map((dep, i) => (
+                      {match.top_dependencies.map((dep, i) => (
                         <tr key={dep.gene} className={`border-t border-zinc-800 ${i % 2 === 0 ? "bg-zinc-900/30" : ""}`}>
                           <td className="px-4 py-3 text-zinc-500 font-mono text-xs">#{i + 1}</td>
                           <td className="px-3 py-3 font-mono font-semibold text-white">{dep.gene}</td>
@@ -207,11 +189,11 @@ export default function GemDepmapExamplePage() {
             )}
 
             {/* Top pathways */}
-            {result.top_pathways && result.top_pathways.length > 0 && (
+            {match.top_pathways && match.top_pathways.length > 0 && (
               <div>
                 <h3 className="text-sm font-semibold text-zinc-300 mb-3">Most-impacted pathways</h3>
                 <div className="space-y-2">
-                  {result.top_pathways.slice(0, 8).map((pw, i) => (
+                  {match.top_pathways.slice(0, 8).map((pw) => (
                     <div key={pw.pathway} className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/50 p-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-white truncate">{pw.pathway}</p>
@@ -229,8 +211,10 @@ export default function GemDepmapExamplePage() {
               </div>
             )}
 
-            {result.data_version && (
-              <p className="text-xs text-zinc-500 italic">Source: {result.data_version} · Broad Institute DepMap</p>
+            {result?.summary && (
+              <p className="text-xs text-zinc-500 italic">
+                Source: DepMap Public 26Q1 (Chronos) · {result.summary.n_lineages} lineages / {result.summary.n_cell_lines} cell lines · {result.summary.most_common_pathway} is the most commonly essential pathway
+              </p>
             )}
           </motion.div>
         )}

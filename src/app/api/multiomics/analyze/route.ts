@@ -77,14 +77,32 @@ export async function POST(req: NextRequest) {
       return await handleAdmet(file, smilesList, names);
     }
     if (type === "gem-depmap") {
-      return NextResponse.json(
-        queryGemDepmap({
-          cell_line: cellLine,
-          lineage_id: lineageId,
-          disease: disease,
-          top_n: topN || 15,
-        })
-      );
+      const result = queryGemDepmap({
+        cell_line: cellLine,
+        lineage_id: lineageId,
+        disease: disease,
+        top_n: topN || 15,
+      });
+      // Provide a `matched` + `top_dependencies` legacy view for the multiomics page.
+      const first = result.results?.[0];
+      const legacy = first
+        ? {
+            matched: {
+              depmap_id: first.depmap_id,
+              name: first.cell_line,
+              primary_disease: first.primary_disease,
+              lineage_id: first.lineage,
+              lineage_name: first.lineage,
+            },
+            top_dependencies: first.top_dependencies,
+            top_pathways: first.top_pathways,
+            n_druggable_top20: first.n_druggable_top20,
+            data_version: "DepMap Public 26Q1 (Chronos)",
+            methodology: "Pre-computed gene_effect scores intersected with KEGG metabolic pathways. Chronos < -0.5 = essential.",
+            summary: `Top essential metabolic genes for ${first.cell_line} (${first.primary_disease}). ${first.n_druggable_top20} of top 20 are druggable. Most-impacted pathway: ${first.top_pathways?.[0]?.pathway ?? "n/a"} (${first.top_pathways?.[0]?.pct ?? 0}% essentiality).`,
+          }
+        : { matched: null, top_dependencies: [], summary: "No cell line matched." };
+      return NextResponse.json({ ...result, ...legacy });
     }
     if (type === "gem-depmap-info") {
       return NextResponse.json({
@@ -205,7 +223,34 @@ async function handleAdmet(file: File | null, smilesList: string[] | null, names
     }
 
     const { results, summary } = runAdmetBatch({ smiles, names: molNames });
-    return NextResponse.json({ status: "done", module: "admet", summary, results });
+    // Provide a `molecules` view matching the legacy multiomics page shape.
+    // New shape: rules.lipinski.pass / alerts.herg.triggered / risk_score
+    // Legacy shape: rules.lipinski_pass / rules.herg_alert / admet_risk
+    const molecules = results.map((r, i) => ({
+      id: i,
+      name: r.name,
+      smiles: r.smiles,
+      valid: r.valid,
+      error: r.error,
+      descriptors: r.descriptors,
+      rules: {
+        lipinski_pass: r.valid && r.rules.lipinski.pass,
+        lipinski_violations: r.valid ? r.rules.lipinski.violations.length : 0,
+        veber_pass: r.valid && r.rules.veber.pass,
+        egan_pass: r.valid && r.rules.egan.pass,
+        bbb_likely: r.valid && r.rules.bbb.likely,
+        herg_alert: r.valid && r.alerts.herg.triggered,
+        pains_alert: r.valid && r.alerts.pains.triggered,
+      },
+      admet_risk: r.risk_score === "medium" ? "moderate" : r.risk_score,
+    }));
+    return NextResponse.json({
+      status: "done",
+      module: "admet",
+      summary,
+      results,        // canonical new shape
+      molecules,      // legacy shape for the multiomics page
+    });
   } catch (err: any) {
     return NextResponse.json({ status: "error", error: err.message }, { status: 500 });
   }
