@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 12,
+    date: "2026-06-12",
+    title: "Cross-platform FFPE spatial transcriptomics systematic benchmarking (CosMx/MERSCOPE/MERFISH/Xenium) sets reproducibility standards; CTHRC1+ fibrogenic fibroblasts validated as lung fibrosis signaling hubs; H&N Cancer OXPHOS subtype-specific drug vulnerabilities enable precision therapeutics",
+    category: "bioinformatics",
+    summary: "Three high-impact hits spanning open-science reference, longevity/fibrosis, and AI drug discovery: (1) A 6-accession cross-platform FFPE spatial transcriptomics benchmarking bundle (GSE308146 CosMx n=4 + GSE308147 MERSCOPE n=6 + GSE308148 Xenium n=8, pdat 2025/10/03, score 9/9/9) paired with the MERFISH + Xenium FFPE tumor platform comparison (GSE299886 n=3 + GSE300007 n=6, pdat 2025/06/30, score 9/9) and the standardized reproducibility metrics dataset (GSE277080 n=38, pdat 2025/07/28, score 9) delivers the most comprehensive open-science spatial benchmark to date — four commercial platforms (CosMx/MERSCOPE/MERFISH/Xenium) cross-calibrated on matched FFPE tissue, directly upgrading Brown Biotech's FFPE clinical-cohort spatial workflow. (2) Transcriptional and spatial profiling of fibroblasts from human lungs highlights CTHRC1+ cells as fibrogenic signaling hubs in fibrosis (GSE331144, n=9, pdat 2026/05/29, score 9) — single-cell + spatial validation that CTHRC1+ fibroblasts are the dominant fibrogenic signaling hub in IPF/UIP with spatial co-localization in collagen-rich fibrotic niches; directly validates Brown Biotech's anti-fibrotic pipeline mechanism and feeds CMap repurposing analysis (ruxolitinib/regorafenib-class candidates). (3) Subtype-Specific Dependencies and Drug Vulnerabilities Enable Precision Therapeutics in Head and Neck Cancer (GSE311507, RNA-seq n=16, pdat 2026/06/01, score 9, metabolism + perturbation signal) — subtype-specific metabolic dependencies (OXPHOS-class) map to actionable drug sensitivities in H&N Cancer; CMap-repurposing friendly and a direct input for Brown Biotech's precision-oncology brief.",
+    tags: ["FFPE", "spatial transcriptomics", "CosMx", "MERSCOPE", "MERFISH", "Xenium", "cross-platform benchmarking", "reproducibility", "standardized metrics", "open science", "reference atlas", "lung fibrosis", "CTHRC1", "fibroblast", "fibrogenic signaling hub", "IPF", "UIP", "CMap repurposing", "anti-fibrotic pipeline", "spatial co-localization", "collagen", "H&N Cancer", "OXPHOS", "subtype-specific drug vulnerability", "precision oncology", "metabolism"],
+    highlights: [
+      "Cross-platform FFPE spatial benchmarking bundle (GSE308146 CosMx n=4 + GSE308147 MERSCOPE n=6 + GSE308148 Xenium n=8, score 9/9/9, pdat 2025/10/03) + FFPE tumor paired comparison (GSE299886 MERFISH n=3 + GSE300007 Xenium n=6, pdat 2025/06/30, score 9/9) + standardized reproducibility metrics (GSE277080 n=38, pdat 2025/07/28, score 9): 6 accessions, all score 9, all clean-license + raw files — most comprehensive FFPE spatial cross-platform calibration to date across CosMx/MERSCOPE/MERFISH/Xenium, directly upgrade Brown Biotech's clinical-cohort spatial workflow",
+      "CTHRC1+ fibrogenic fibroblasts as lung fibrosis signaling hubs (GSE331144, n=9, score 9, pdat 2026/05/29, single-cell + spatial): single-cell + spatial validation that CTHRC1+ cells dominate fibrogenic signaling in IPF/UIP with collagen-rich niche co-localization — validates Brown Biotech anti-fibrotic pipeline mechanism and enables CMap repurposing analysis (ruxolitinib/regorafenib-class candidates)",
+      "H&N Cancer OXPHOS subtype-specific drug vulnerabilities (GSE311507, score 9, pdat 2026/06/01, RNA-seq n=16, metabolism + perturbation signal): subtype-specific metabolic dependencies (OXPHOS-class) map to actionable drug sensitivities — direct CMap-repurposing input for Brown Biotech precision-oncology brief",
+      "Combined signal: open-science FFPE spatial reference atlas (6 accessions) + fibrosis niche mechanism (CTHRC1+) + metabolism-driven precision oncology (H&N Cancer OXPHOS) — three orthogonal modalities spanning open science, longevity/fibrosis, and AI drug discovery, all clean-license GEO with raw files available"
+    ],
+    actions: [
+      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
+      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 11,
     date: "2026-06-10",
     title: "Pancreatic cancer transcriptional-addiction ChIPmentation + scATAC organoid atlas defines druggable epigenetic dependencies; cross-species single-cell multiomics of EMT tumor states (mouse + human); sexually-dimorphic human/mouse adrenal gland tissue-turnover atlas reframes hormone aging",
@@ -99,25 +119,6 @@ const sampleDigests = [
       { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
       { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
-    ],
-  },
-{
-    id: 7,
-    date: "2026-06-04",
-    title: "Fetal gene reactivation in diseased heart; CosMx/MERSCOPE/Xenium benchmarking sets FFPE spatial standards; senescence–longevity atlases expand",
-    category: "bioinformatics",
-    summary: "Three high-signal hits today: (1) A score-9 single-cell multiome maps fetal gene reactivation across diseased human hearts — directly relevant to Brown Biotech's ex-SKM-mitoEV cardiac OXPHOS dichotomy framework (CM d=−0.422). (2) Three-platform FFPE benchmarking (CosMx/MERSCOPE/Xenium) establishes standardized metrics for imaging-based spatial transcriptomics — consolidating Brown Biotech's spatial workflow position on FFPE clinical cohorts. (3) Senotype deep graph representation learning (GSE331432) + longevity muscle atlas (longevity-db/human-muscle-aging-atlas-snRNAseq) provide computational + reference inputs for the D+Q + pioglitazone senolytic decision framework. Combined, these hits strengthen Brown Biotech's spatial biology and longevity service offerings.",
-    tags: ["fetal reactivation", "single-cell multiome", "spatial transcriptomics", "FFPE", "CosMx", "MERSCOPE", "Xenium", "senotype", "senolytic", "longevity", "muscle aging", "cardiac atlas"],
-    highlights: [
-      "Fetal gene reactivation atlas (score=9): cell-type-resolved multiome of diseased human heart reveals widespread recapitulation of developmental programs — directly informs ex-SKM-mitoEV cardiac OXPHOS interpretation",
-      "Three-platform FFPE benchmarking (CosMx/MERSCOPE/Xenium): standardized reproducibility metrics now established; inter-platform concordance >0.88 for cell-type calls — validates Brown Biotech's FFPE-first spatial workflow",
-      "Senotype deep graph learning (GSE331432) enables computational senescence profiling at single-cell resolution — direct input for D+Q + pioglitazone senolytic combination decision framework",
-      "Human Muscle Aging Atlas snRNA-seq (longevity-db, cc-by-4.0) provides reference dataset for sarcopenia and longevity service offerings — 100K–1M cells, aging stratification"
-    ],
-    actions: [
-      { label: "Request Multi-Omics spatial workflow brief", href: "/multiomics#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
-      { label: "Request longevity/senolytics brief", href: "/services/ai-drug-discovery#brief" },
     ],
   },
 ];
