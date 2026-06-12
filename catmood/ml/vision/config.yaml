@@ -1,0 +1,53 @@
+# vision/config.yaml — emotion-state classifier config (Phase 0 scaffold)
+# Taxonomy is FROZEN at v1 — see catmood/ml/AGENTS.md rule 6. Do not edit
+# `classes` without updating docs/labeling-guidelines.md and the app enums.
+
+taxonomy_version: "v1"
+
+classes:
+  - relaxed_content
+  - alert_aroused
+  - fearful_anxious
+  - irritated_aggressive
+  - pain_discomfort
+
+input:
+  image_size: 224          # square crop of the detected cat face
+  channels: 3
+  normalize: imagenet      # mean/std of the chosen backbone's pretraining
+
+model:
+  # Pick ONE backbone; both are mobile-friendly and TFLite-exportable.
+  # Final choice is a human decision after a baseline comparison (TODO).
+  backbone: mobilenetv3_large_100   # alt: efficientnet_lite0 (timm)
+  pretrained: true
+  dropout: 0.2
+  num_classes: 5
+
+training:
+  # Placeholders — a human tunes these on real data (Phase 1+).
+  batch_size: 32
+  epochs: 30
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+  optimizer: adamw
+  scheduler: cosine
+  label_smoothing: 0.1
+  seed: 17
+  # Class weights TBD once real label counts exist (human decision #5 in README).
+  class_weights: null
+
+data:
+  # Folder layout documented in dataset.py. NO data exists in Phase 0.
+  root: data/vision            # gitignored; human places data here
+  datasheet: data/vision/DATASHEET.md   # required before any training run
+  # Splits are by CAT IDENTITY, never by image (AGENTS.md rule 7).
+  split:
+    by: cat_id
+    train: 0.7
+    val: 0.1
+    calibration: 0.1           # held out for temperature scaling
+    test: 0.1
+
+calibration:
+  method: temperature_scaling  # fit on the calibration split, post-training

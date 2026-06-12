@@ -1,0 +1,9 @@
+# ml/AGENTS.md rule 5: no dataset files are ever committed to git.
+data/
+# training/eval run artifacts stay local; metrics ship via sidecars in ../models
+runs/
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

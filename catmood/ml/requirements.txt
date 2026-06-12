@@ -1,0 +1,23 @@
+# catmood/ml dependencies — Phase 0 scaffold.
+# Loosely pinned on purpose: training is done off-device by a human in later
+# phases, who should resolve exact versions in a fresh venv at that time and
+# may then freeze with `pip freeze > requirements.lock.txt`.
+# Lower bounds reflect APIs the skeletons assume (e.g. torch.onnx.export,
+# librosa.feature.melspectrogram keyword args).
+
+torch>=2.1            # training (vision backbone, audio head)
+torchvision>=0.16     # transforms, mobilenetv3 weights
+timm>=0.9             # efficientnet-lite backbones
+ultralytics>=8.1      # YOLO11n cat-face detector fine-tune
+librosa>=0.10         # log-mel features (audio/features.py)
+numpy>=1.24
+scikit-learn>=1.3     # metrics: confusion matrix, precision/recall
+matplotlib>=3.7       # reliability diagrams, training curves
+tensorflow>=2.15      # TFLite converter for export
+onnx>=1.15            # PyTorch -> ONNX -> TF -> TFLite path
+# onnx2tf / onnx-tf: the human running export picks ONE converter and pins it
+# at export time; both churn quickly, so they are intentionally not listed here.
+
+# dev/test
+pytest>=7.4
+PyYAML>=6.0           # config loading

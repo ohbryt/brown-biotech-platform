@@ -1,0 +1,62 @@
+# audio/config.yaml — meow context classifier config (Phase 0 scaffold)
+# Taxonomy FROZEN at v1 (ml/AGENTS.md rule 6). `uncertain` is a REJECT
+# decision (confidence below threshold), NOT a trained class — the model
+# head has 3 outputs.
+
+taxonomy_version: "v1"
+
+contexts:                       # user-facing contexts
+  - food_request
+  - attention_isolation
+  - handling_contact
+  - uncertain                   # reject decision, not a model output
+
+trained_classes:                # what the head actually predicts (3 logits)
+  - food_request
+  - attention_isolation
+  - handling_contact
+
+features:                       # consumed by audio/features.py (IMPLEMENTED)
+  sample_rate: 16000            # Hz; resample everything to this
+  n_mels: 64                    # 64-bin log-mel
+  n_fft: 400                    # 25 ms window at 16 kHz
+  hop_length: 160               # 10 ms hop at 16 kHz
+  fmin: 50.0                    # Hz; below typical meow fundamentals
+  fmax: 8000.0                  # Hz; Nyquist at 16 kHz
+  log_offset: 1.0e-6            # numerical floor before log
+
+embedding:
+  # YAMNet produces 1024-d embeddings per ~0.96 s frame at 16 kHz.
+  model: yamnet                 # TF-Hub: google/yamnet/1 (human verifies license/version)
+  dim: 1024
+  pooling: mean                 # mean over frames within a meow event
+
+head:                           # small dense head on top of frozen embeddings
+  hidden: [128]
+  dropout: 0.3
+  num_classes: 3
+
+training:
+  # Placeholders — a human tunes on real data (Phase 1+).
+  batch_size: 32
+  epochs: 50
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+  seed: 17
+
+data:
+  root: data/catmeows           # gitignored; Zenodo download by a human
+  datasheet: data/catmeows/DATASHEET.md
+  # CatMeows: 440 vocalisations, 21 cats, 2 breeds — splits MUST be by cat
+  # identity (AGENTS.md rule 7). Exact allocation = human decision #3.
+  split:
+    by: cat_id
+    train: 0.6
+    val: 0.1
+    calibration: 0.15
+    test: 0.15
+
+reject:
+  # `uncertain` fires when calibrated max-prob < threshold. Value TBD after
+  # the first real calibration run (human decision #6); placeholder only.
+  confidence_threshold: null

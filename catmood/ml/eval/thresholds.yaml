@@ -1,0 +1,37 @@
+# eval/thresholds.yaml — CI eval-gate thresholds.
+#
+# PLACEHOLDERS ONLY. Every value below is null on purpose: setting numeric
+# gates before a first honest baseline exists would be fabricating
+# expectations (ml/AGENTS.md rule 1). A HUMAN sets real values after the
+# first real training + eval run (ml/README.md, human decision #7).
+#
+# Intended CI behavior (qa-test-engineer wires this up):
+#   - CI runs eval/evaluate.py + eval/calibration.py on the frozen test split
+#     and FAILS THE BUILD if any metric regresses past its gate below.
+#   - While values are null, the gate job must SKIP with a loud warning —
+#     never silently pass.
+
+thresholds_version: "0.0-placeholder"
+
+vision:
+  min_macro_f1: null            # TBD after first real run
+  min_per_class_recall:         # per-class floors; pain_discomfort matters
+    relaxed_content: null       # most for welfare (false negatives are the
+    alert_aroused: null         # costly direction) — human sets it strictest.
+    fearful_anxious: null
+    irritated_aggressive: null
+    pain_discomfort: null
+  max_ece: null                 # post-temperature-scaling ECE ceiling
+
+audio:
+  min_macro_f1: null
+  min_per_class_recall:
+    food_request: null
+    attention_isolation: null
+    handling_contact: null
+  max_ece: null
+  # reject threshold for `uncertain` lives in audio/config.yaml (reject block)
+  # and must be re-derived whenever calibration changes.
+
+detector:
+  min_map50: null               # mAP@0.5 on the held-out face-box test split
