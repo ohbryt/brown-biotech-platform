@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 13,
+    date: "2026-06-13",
+    title: "Chronic antibody-mediated rejection spatial immune atlas defines CXCL12-CXCR4 fibroblast-immune niche; MERFISH + RNA-Seq reveal neuroinflammatory sequelae of immune checkpoint inhibition (IO toxicity); circulating frailty miRNAs drive cellular senescence in cardiovascular aging",
+    category: "bioinformatics",
+    summary: "Three high-impact fresh hits spanning bioinformatics, AI drug discovery, and longevity: (1) A single-cell and spatial immune atlas of chronic antibody-mediated rejection reveals autoimmune-shared immune states and a CXCL12-CXCR4 fibroblast-immune niche (GSE328870, single-cell + spatial, pdat 2026/06/10, score 9) — delivers a score-9 transplant-immunology spatial atlas pinpointing the CXCL12-CXCR4 fibroblast-immune niche as the organizing hub in chronic antibody-mediated rejection; directly upgrades Brown Biotech's fibrosis spatial workflow and is CMap-repurposing friendly (plerixafor/mavorixafor-class CXCR4 antagonists). (2) Spatial transcriptomics reveals molecular mechanisms underlying neuroinflammatory and neurodegenerative sequelae of immune checkpoint inhibition — paired MERFISH (GSE322277, n=11) + RNA-Seq (GSE322681, n=20), pdat 2026/06/09, score 7/7 — first paired MERFISH+RNA-Seq dissection of ICI-induced neuroinflammation; actionable for IO-toxicity prediction, a critical gap in the AI drug discovery and clinical-development pipeline. (3) Circulating miRNAs Associated with Frailty in Old People with Cardiovascular Diseases Promote Cellular Senescence and Inflammation (GSE331433, n=24, pdat 2026/06/10, score 6) — circulating miRNA signature in cardiovascular-aging frailty functionally validated to drive cellular senescence and inflammation; direct input for Brown Biotech's longevity/senolytic service and biomarker discovery.",
+    tags: ["chronic antibody-mediated rejection", "transplant immunology", "single-cell + spatial", "CXCL12-CXCR4", "fibroblast-immune niche", "CMap repurposing", "plerixafor", "mavorixafor", "immune checkpoint inhibitor", "neuroinflammation", "MERFISH", "RNA-Seq", "ICI toxicity", "neurodegeneration", "frailty", "cardiovascular aging", "circulating miRNA", "senescence", "inflammation", "longevity", "senolytic", "biomarker"],
+    highlights: [
+      "Chronic antibody-mediated rejection spatial immune atlas (GSE328870, score 9, pdat 2026/06/10, single-cell + spatial): CXCL12-CXCR4 fibroblast-immune niche identified as the organizing hub in chronic antibody-mediated rejection — CMap-repurposing friendly (plerixafor/mavorixafor-class CXCR4 antagonists); direct upgrade for Brown Biotech's fibrosis spatial workflow",
+      "ICI-induced neuroinflammation paired MERFISH + RNA-Seq (GSE322277 n=11 + GSE322681 n=20, score 7/7, pdat 2026/06/09): first paired spatial atlas of immune checkpoint inhibitor neurotoxicity — critical for IO-toxicity prediction and adverse-event biomarker discovery in the clinical development pipeline",
+      "Frailty miRNAs drive cardiovascular-aging senescence (GSE331433, score 6, n=24, pdat 2026/06/10): circulating miRNA signature functionally validated to promote cellular senescence + inflammation in cardiovascular aging — direct biomarker and senolytic-target input for the Brown Biotech longevity service",
+      "Combined signal: spatial atlas (transplant immunology) + IO toxicity (paired MERFISH+RNA-Seq) + longevity (circulating senescence miRNAs) — three orthogonal modalities spanning bioinformatics, AI drug discovery, and longevity, all clean-license GEO with raw files available"
+    ],
+    actions: [
+      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
+      { label: "Request AI drug discovery / IO toxicity brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 12,
     date: "2026-06-12",
     title: "Cross-platform FFPE spatial transcriptomics systematic benchmarking (CosMx/MERSCOPE/MERFISH/Xenium) sets reproducibility standards; CTHRC1+ fibrogenic fibroblasts validated as lung fibrosis signaling hubs; H&N Cancer OXPHOS subtype-specific drug vulnerabilities enable precision therapeutics",
@@ -100,25 +120,6 @@ const sampleDigests = [
       { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
       { label: "View spatial transcriptomics workflow", href: "/multiomics#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
-    ],
-  },
-  {
-    id: 8,
-    date: "2026-06-06",
-    title: "Spatial mapping of metastatic pancreatic cancer lineage plasticity (CosMx); Head & Neck Cancer CRISPR dependencies reveal precision therapeutic subtypes; Bladder Cancer Xenium atlas exposes lineage-specific vulnerabilities",
-    category: "bioinformatics",
-    summary: "Three high-impact hits today: (1) Spatial transcriptomics of metastatic pancreatic cancer (GSE277782, CosMx, n=7) maps transcriptomic and lineage plasticity at single-cell spatial resolution — tumor cell identity is a defining factor of the TME composition, with direct implications for Brown Biotech's anti-fibrotic pipeline mechanism via ECM remodeling signals. (2) Head and Neck Cancer CRISPR screen (GSE311507, n=16) links metabolic subtype-specific dependencies to drug vulnerabilities — OXA + Glasgow metabolic program predicts greater sensitivity; actionable for precision therapeutics. (3) Muscle-Invasive Bladder Cancer Xenium spatial atlas (GSE326226, n=5) reveals Nectin family lineage-specific vulnerabilities with spatial context — directly applicable to Brown Biotech's spatial service offering for FFPE clinical cohorts.",
-    tags: ["pancreatic cancer", "metastatic", "lineage plasticity", "CosMx", "spatial transcriptomics", "head and neck cancer", "CRISPR", "drug vulnerability", "bladder cancer", "Xenium", "Nectin", "fibrosis", "ECM", "FFPE"],
-    highlights: [
-      "Metastatic pancreatic cancer spatial mapping (GSE277782): tumor cell identity is the primary determinant of TME composition — lineage plasticity drives metastatic potential and ECM remodeling signals relevant to Brown Biotech anti-fibrotic pipeline",
-      "Head & Neck Cancer CRISPR dependencies (GSE311507): metabolic subtype-specific drug vulnerabilities identified; OXA + Glasgow program predicts therapeutic sensitivity — actionable for precision oncology service",
-      "Bladder Cancer Xenium spatial atlas (GSE326226): Nectin family lineage-specific vulnerabilities with spatial architecture context — validates Brown Biotech's FFPE spatial workflow on clinical urothelial carcinoma cohorts",
-      "All three datasets: raw files available, NCBI public repository license, single-cell + spatial pairing — maximum Brown Biotech intake score (9/9)"
-    ],
-    actions: [
-      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
-      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
     ],
   },
 ];
