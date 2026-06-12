@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copy rules (root AGENTS.md): always hedged, never "diagnose"/"translate"
+     as literal claims, confidence in the sentence. Changes need a
+     welfare-science-reviewer pass. -->
+<resources>
+    <string name="app_name">CatMood</string>
+
+    <!-- Common actions -->
+    <string name="action_back">Back</string>
+    <string name="action_retry">Try again</string>
+    <string name="action_record">Record</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_simulate_recording">Simulate a recording</string>
+
+    <!-- Home -->
+    <string name="home_subtitle">An observation aid for how your cat might be feeling — everything stays on this device.</string>
+    <string name="home_action_photo">📷 Photo</string>
+    <string name="home_action_audio">🎙️ Audio</string>
+    <string name="home_recent_title">Recent observations</string>
+    <string name="home_empty">No observations yet. Try a photo or a meow recording.</string>
+
+    <!-- Photo result -->
+    <string name="photo_result_title">Photo result</string>
+    <string name="result_headline">Likely \"%1$s\" right now (%2$d%%)</string>
+    <string name="low_confidence_headline">Hard to say for sure. Try another angle?</string>
+    <string name="low_confidence_body">A clearer, front-facing photo usually helps.</string>
+    <string name="confidence_label">Confidence %1$d%%</string>
+    <string name="pain_section_title">Discomfort signs</string>
+    <string name="pain_level_low">Low — few signs that can relate to discomfort</string>
+    <string name="pain_level_moderate">Moderate — some signs that can relate to discomfort</string>
+    <string name="pain_level_high">Elevated — several signs that can relate to discomfort</string>
+    <string name="cues_section_title">Visible cues</string>
+    <string name="vet_note">Some signs that can relate to discomfort are present. This is not a diagnosis — if you\'re concerned, please consult a veterinarian.</string>
+    <string name="disclaimer_not_medical">CatMood is an observation aid, not a medical device. Results are probabilistic estimates, never a verdict or a diagnosis.</string>
+
+    <!-- Errors -->
+    <string name="error_no_cat">We couldn\'t find a cat face in this photo. A clearer, front-facing photo usually helps.</string>
+    <string name="error_too_noisy">Too noisy this time — a quieter room can help.</string>
+    <string name="error_model_load">Something went wrong on our side. Please try again.</string>
+
+    <!-- Audio record -->
+    <string name="audio_record_title">Record a meow</string>
+    <string name="audio_record_hint">5–10 seconds works best.</string>
+    <string name="audio_record_stub_note">Real recording is coming in a later update. For now you can try a simulated sample.</string>
+    <string name="cd_waveform_placeholder">Sound level preview, decorative</string>
+
+    <!-- Audio result -->
+    <string name="audio_result_title">Meow result</string>
+    <string name="audio_result_headline">This meow most resembles a \"%1$s\" pattern (%2$d%%)</string>
+    <string name="audio_uncertain_title">We couldn\'t tell this time</string>
+    <string name="audio_uncertain_body">A quieter room and a closer recording can help.</string>
+
+    <!-- History -->
+    <string name="history_title">History</string>
+    <string name="history_empty">No observations yet.</string>
+    <string name="history_filter_all">All cats</string>
+    <string name="history_type_photo">Photo</string>
+    <string name="history_type_audio">Meow</string>
+
+    <!-- Cat profiles -->
+    <string name="profile_title">Cat profiles</string>
+    <string name="profile_name_label">Name</string>
+    <string name="profile_breed_label">Breed (optional)</string>
+    <string name="profile_add">Add cat</string>
+    <string name="profile_empty">No cats yet — add your first cat.</string>
+    <string name="cd_delete_profile">Delete profile for %1$s</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_note">CatMood follows your system language (English / 한국어).</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_sharing_title">Share results off this device</string>
+    <string name="settings_sharing_note">Off by default. CatMood has no internet access, so photos, audio and results never leave your device. This switch does nothing yet.</string>
+    <string name="settings_model_version">Model version</string>
+    <string name="settings_disclaimers">Disclaimers</string>
+
+    <!-- Emotion state labels (taxonomy v1) -->
+    <string name="emotion_relaxed_content">relaxed</string>
+    <string name="emotion_alert_aroused">alert</string>
+    <string name="emotion_fearful_anxious">fearful or anxious</string>
+    <string name="emotion_irritated_aggressive">irritated</string>
+    <string name="emotion_pain_discomfort">possible discomfort</string>
+
+    <!-- Meow context labels -->
+    <string name="context_food_request">food request</string>
+    <string name="context_attention_isolation">attention or being alone</string>
+    <string name="context_handling_contact">being handled</string>
+    <string name="context_uncertain">uncertain</string>
+</resources>

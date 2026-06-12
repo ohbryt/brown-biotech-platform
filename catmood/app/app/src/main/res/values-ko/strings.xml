@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 카피 규칙 (루트 AGENTS.md): 항상 추정 표현(해요체), 번역/진단을 단정적으로
+     쓰지 않기, 신뢰도는 문장 안에. 변경 시 welfare-science-reviewer 검토 필요. -->
+<resources>
+    <string name="app_name">캣무드</string>
+
+    <!-- 공통 동작 -->
+    <string name="action_back">뒤로</string>
+    <string name="action_retry">다시 시도</string>
+    <string name="action_record">녹음</string>
+    <string name="action_stop">정지</string>
+    <string name="action_simulate_recording">녹음 시뮬레이션 해보기</string>
+
+    <!-- 홈 -->
+    <string name="home_subtitle">고양이의 기분을 함께 관찰하는 도우미예요 — 모든 데이터는 이 기기 안에만 있어요.</string>
+    <string name="home_action_photo">📷 사진</string>
+    <string name="home_action_audio">🎙️ 소리</string>
+    <string name="home_recent_title">최근 관찰</string>
+    <string name="home_empty">아직 관찰 기록이 없어요. 사진이나 울음소리로 시작해 보세요.</string>
+
+    <!-- 사진 결과 -->
+    <string name="photo_result_title">사진 결과</string>
+    <string name="result_headline">지금은 \'%1$s\' 상태일 가능성이 높아요 (%2$d%%)</string>
+    <string name="low_confidence_headline">확실히 말하긴 어려워요. 각도를 바꿔 다시 찍어볼까요?</string>
+    <string name="low_confidence_body">정면에서 더 또렷하게 찍으면 보통 도움이 돼요.</string>
+    <string name="confidence_label">신뢰도 %1$d%%</string>
+    <string name="pain_section_title">불편 신호</string>
+    <string name="pain_level_low">낮음 — 불편과 관련될 수 있는 신호가 거의 없어요</string>
+    <string name="pain_level_moderate">보통 — 불편과 관련될 수 있는 신호가 일부 보여요</string>
+    <string name="pain_level_high">높음 — 불편과 관련될 수 있는 신호가 여러 개 보여요</string>
+    <string name="cues_section_title">관찰된 신호</string>
+    <string name="vet_note">불편함과 관련될 수 있는 신호가 보여요. 진단은 아니에요 — 걱정되신다면 수의사와 상담해 보세요.</string>
+    <string name="disclaimer_not_medical">캣무드는 관찰 보조 도구이며 의료기기가 아니에요. 결과는 확률적인 추정일 뿐, 단정이나 진단이 아니에요.</string>
+
+    <!-- 오류 -->
+    <string name="error_no_cat">사진에서 고양이 얼굴을 찾지 못했어요. 정면에서 더 또렷하게 찍으면 보통 도움이 돼요.</string>
+    <string name="error_too_noisy">이번에는 주변이 시끄러웠어요. 더 조용한 곳에서 해보면 도움이 돼요.</string>
+    <string name="error_model_load">문제가 생겼어요. 다시 시도해 주세요.</string>
+
+    <!-- 소리 녹음 -->
+    <string name="audio_record_title">울음소리 녹음</string>
+    <string name="audio_record_hint">5~10초 녹음이 가장 좋아요.</string>
+    <string name="audio_record_stub_note">실제 녹음 기능은 곧 업데이트로 제공돼요. 지금은 시뮬레이션 샘플로 체험해 볼 수 있어요.</string>
+    <string name="cd_waveform_placeholder">소리 크기 미리보기, 장식용</string>
+
+    <!-- 소리 결과 -->
+    <string name="audio_result_title">울음소리 결과</string>
+    <string name="audio_result_headline">이 울음소리는 \'%1$s\' 패턴과 가장 비슷해요 (%2$d%%)</string>
+    <string name="audio_uncertain_title">이번에는 알기 어려웠어요</string>
+    <string name="audio_uncertain_body">조용한 곳에서 조금 더 가까이 녹음하면 도움이 돼요.</string>
+
+    <!-- 기록 -->
+    <string name="history_title">기록</string>
+    <string name="history_empty">아직 관찰 기록이 없어요.</string>
+    <string name="history_filter_all">모든 고양이</string>
+    <string name="history_type_photo">사진</string>
+    <string name="history_type_audio">울음소리</string>
+
+    <!-- 고양이 프로필 -->
+    <string name="profile_title">고양이 프로필</string>
+    <string name="profile_name_label">이름</string>
+    <string name="profile_breed_label">품종 (선택)</string>
+    <string name="profile_add">고양이 추가</string>
+    <string name="profile_empty">아직 등록된 고양이가 없어요. 첫 고양이를 추가해 보세요.</string>
+    <string name="cd_delete_profile">%1$s 프로필 삭제</string>
+
+    <!-- 설정 -->
+    <string name="settings_title">설정</string>
+    <string name="settings_language">언어</string>
+    <string name="settings_language_note">캣무드는 시스템 언어를 따라요 (English / 한국어).</string>
+    <string name="settings_privacy">개인정보 보호</string>
+    <string name="settings_sharing_title">기기 밖으로 결과 공유</string>
+    <string name="settings_sharing_note">기본값은 꺼짐이에요. 캣무드는 인터넷 권한이 없어서 사진, 소리, 결과가 기기를 떠나지 않아요. 이 스위치는 아직 동작하지 않아요.</string>
+    <string name="settings_model_version">모델 버전</string>
+    <string name="settings_disclaimers">면책 안내</string>
+
+    <!-- 감정 상태 라벨 (분류 체계 v1) -->
+    <string name="emotion_relaxed_content">편안</string>
+    <string name="emotion_alert_aroused">경계</string>
+    <string name="emotion_fearful_anxious">두려움·불안</string>
+    <string name="emotion_irritated_aggressive">예민·짜증</string>
+    <string name="emotion_pain_discomfort">불편 가능성</string>
+
+    <!-- 울음소리 맥락 라벨 -->
+    <string name="context_food_request">밥 달라는 요청</string>
+    <string name="context_attention_isolation">관심 요청·혼자 있을 때</string>
+    <string name="context_handling_contact">만지거나 안았을 때</string>
+    <string name="context_uncertain">판단 어려움</string>
+</resources>
