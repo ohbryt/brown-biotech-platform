@@ -1,7 +1,7 @@
-# Brown Biotech research watcher — Wednesday benchmark
+# Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-06-02T21:01:37.389601+00:00
+**Generated:** 2026-06-11T21:06:12.509515+00:00
 
 ## Top hits
 ### 1. Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets

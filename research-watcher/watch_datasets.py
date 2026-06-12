@@ -15,10 +15,12 @@ import datetime as dt
 import json
 import re
 import sys
+import time
 from pathlib import Path
 from typing import Any, Iterable, Optional
 from urllib.parse import quote_plus
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 AXIS_LABEL = "aging–fibrosis–metabolism–single-cell/spatial–clinical translation"
 HF_SEARCH_URL = "https://huggingface.co/api/datasets?search={query}&limit={limit}"
@@ -116,11 +118,30 @@ def slugify(value: str) -> str:
     return text or "dataset-hit"
 
 
-def http_get_json(url: str, timeout: int = 30) -> Any:
-    request = Request(url, headers={"User-Agent": "BrownBiotechDatasetWatcher/1.0"})
-    with urlopen(request, timeout=timeout) as response:
-        raw = response.read().decode("utf-8")
-    return json.loads(raw)
+def http_get_json(url: str, timeout: int = 30, max_attempts: int = 3) -> Any:
+    """GET a JSON URL with retry/backoff for transient upstream errors.
+
+    NCBI E-utilities (and similar gateways) occasionally return HTTP 5xx or
+    an HTML error body with status 200. We treat any non-JSON response as a
+    transient failure and retry up to ``max_attempts`` times.
+    """
+    last_error: Optional[BaseException] = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            request = Request(url, headers={"User-Agent": "BrownBiotechDatasetWatcher/1.0"})
+            with urlopen(request, timeout=timeout) as response:
+                raw = response.read().decode("utf-8")
+            try:
+                return json.loads(raw)
+            except ValueError as exc:
+                last_error = exc
+        except (HTTPError, URLError, TimeoutError) as exc:
+            last_error = exc
+        if attempt < max_attempts:
+            time.sleep(min(2 ** attempt, 8))
+    if last_error is not None:
+        raise last_error
+    raise ValueError(f"http_get_json failed for {url}")
 
 
 def normalize_text(value: Any) -> str:
@@ -392,27 +413,47 @@ def next_action(score: int) -> str:
     return "Archive the hit and keep provenance for future search."
 
 
-def collect_hits(sources: list[str], queries: list[str], limit: int) -> list[DatasetHit]:
+def collect_hits(sources: list[str], queries: list[str], limit: int) -> tuple[list[DatasetHit], list[str]]:
     hits: list[DatasetHit] = []
     seen: set[tuple[str, str]] = set()
+    source_errors: list[str] = []
     for query in queries:
         if "hf" in sources:
-            for item in hf_search(query, limit):
-                hit = build_hf_hit(query, item)
-                if hit and (hit.source, hit.title) not in seen:
-                    seen.add((hit.source, hit.title))
-                    hits.append(hit)
+            try:
+                for item in hf_search(query, limit):
+                    hit = build_hf_hit(query, item)
+                    if hit and (hit.source, hit.title) not in seen:
+                        seen.add((hit.source, hit.title))
+                        hits.append(hit)
+            except Exception as exc:  # noqa: BLE001
+                msg = f"hf[{query}]: {exc!r}"
+                source_errors.append(msg)
+                print(f"[watcher] {msg}", file=sys.stderr)
         if "geo" in sources:
-            ids = geo_search(query, limit)
+            try:
+                ids = geo_search(query, limit)
+            except Exception as exc:  # noqa: BLE001
+                msg = f"geo[{query}]: {exc!r}"
+                source_errors.append(msg)
+                print(f"[watcher] {msg}", file=sys.stderr)
+                continue
             if not ids:
                 continue
-            summary_root = geo_summary(ids)
+            try:
+                summary_root = geo_summary(ids)
+            except Exception as exc:  # noqa: BLE001
+                msg = f"geo-summary[{query}]: {exc!r}"
+                source_errors.append(msg)
+                print(f"[watcher] {msg}", file=sys.stderr)
+                continue
             for uid in ids:
                 hit = build_geo_hit(query, uid, summary_root)
                 if hit and (hit.source, hit.title) not in seen:
                     seen.add((hit.source, hit.title))
                     hits.append(hit)
-    return hits
+    if source_errors:
+        print(f"[watcher] {len(source_errors)} source error(s) this run; see logs.", file=sys.stderr)
+    return hits, source_errors
 
 
 def pick_queries(raw: str) -> list[str]:
@@ -480,7 +521,7 @@ def build_markdown_report(mode: str, hits: list[DatasetHit], queries: list[str])
     return "\n".join(lines).rstrip() + "\n"
 
 
-def write_outputs(output_dir: Path, mode: str, hits: list[DatasetHit], queries: list[str]) -> None:
+def write_outputs(output_dir: Path, mode: str, hits: list[DatasetHit], queries: list[str], source_errors: Optional[list[str]] = None) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     sorted_hits = sort_hits(hits)
     payload = {
@@ -490,6 +531,7 @@ def write_outputs(output_dir: Path, mode: str, hits: list[DatasetHit], queries: 
         "hit_count": len(sorted_hits),
         "hits": [hit.to_dict() for hit in sorted_hits],
         "queries": queries,
+        "source_errors": list(source_errors or []),
     }
     (output_dir / "scan.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (output_dir / "hits.jsonl").write_text("\n".join(json.dumps(hit.to_dict(), ensure_ascii=False) for hit in sorted_hits) + ("\n" if sorted_hits else ""), encoding="utf-8")
@@ -510,8 +552,8 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = parse_args(sys.argv[1:] if argv is None else argv)
     sources = [item.strip().lower() for item in args.sources.split(",") if item.strip()]
     queries = pick_queries(args.queries)
-    hits = collect_hits(sources=sources, queries=queries, limit=args.limit)
-    write_outputs(Path(args.output_dir), args.mode, hits, queries)
+    hits, source_errors = collect_hits(sources=sources, queries=queries, limit=args.limit)
+    write_outputs(Path(args.output_dir), args.mode, hits, queries, source_errors=source_errors)
 
     sorted_hits = sort_hits(hits)
     top = sorted_hits[:3]
