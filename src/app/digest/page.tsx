@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 14,
+    date: "2026-06-14",
+    title: "Quiet digest day: research-watcher produced no fresh hits over the weekend (Fri 2026-06-12 → Sun 2026-06-14); three uncurated backlog hits stand by — Xenium bladder cancer lineage-vulnerability atlas, craniosynostosis suture stem cell spatiotemporal atlas, FALD spatial transcriptomics of human fibrotic livers",
+    category: "open-science",
+    summary: "The research-watcher last completed a fresh scan on 2026-06-12 (Fri 06:11 KST) and did not emit a new scan over the weekend — hits.jsonl mtime is 2026-06-12T16:43:53 and the latest output directory is 2026-06-12/. All 104 curated hits carry collected_at=2026-06-11, so there is no new signal to surface today. Per cron policy we still publish a brief entry flagging the gap and pre-loading three high-priority uncurated hits that are queued for the next Brown Biotech intake: (1) A Xenium Spatial Atlas of Muscle-Invasive Bladder Cancer Reveals Lineage-Specific Vulnerabilities (GSE326226, n=5, pdat 2026/05/05, score 9, single-cell + spatial, clean license, raw files) — first score-9 Xenium bladder-cancer atlas exposing lineage-specific vulnerabilities, a direct precision-oncology brief input and a clean addition to the spatial-cohort pipeline. (2) Spatiotemporal single-cell atlas of suture stem cell dynamics in craniosynostosis (GSE303344 n=3 + GSE303460 n=14, pdat 2026/05/20, score 7/7, mouse, single-cell + spatial) — paired spatiotemporal dissection of suture stem-cell dynamics in a developmental disorder, useful for the spatial + DEG methodology lane. (3) Spatial transcriptomics of human FALD and normal livers (GSE306111, n=5, pdat 2026/03/01, score 6, human, spatial, raw files) — fresh spatial map of human fibrotic-vs-normal liver, complementary to the Brown Biotech anti-fibrotic pipeline and the CTHRC1+ lung fibrosis work already digested (id:12). These three are held in the backlog and will be promoted to the next non-quiet digest; the watcher's weekend gap (no Sat/Sun scan) will be re-verified on the 2026-06-15 run.",
+    tags: ["research-watcher", "weekend gap", "no new signals", "backlog", "Xenium", "bladder cancer", "muscle-invasive bladder cancer", "lineage-specific vulnerability", "precision oncology", "single-cell + spatial", "spatial transcriptomics", "suture stem cell", "craniosynostosis", "spatiotemporal atlas", "FALD", "fibrotic liver", "liver fibrosis", "anti-fibrotic pipeline", "open science", "GEO"],
+    highlights: [
+      "Watch status: research-watcher last completed a fresh scan 2026-06-12 06:11 KST — hits.jsonl mtime 2026-06-12T16:43:53, all 104 hits carry collected_at=2026-06-11, no output directories exist for 2026-06-13 or 2026-06-14. Cron policy: brief \"no new signals\" entry, do not skip the push.",
+      "Xenium Bladder Cancer lineage-vulnerability atlas (GSE326226, score 9, n=5, pdat 2026/05/05, single-cell + spatial, clean license, raw files): score-9 Xenium bladder-cancer atlas exposing lineage-specific vulnerabilities — direct precision-oncology brief input and clean addition to the Brown Biotech spatial-cohort pipeline; queued for the next non-quiet digest.",
+      "Spatiotemporal suture-stem-cell atlas in craniosynostosis (GSE303344 n=3 + GSE303460 n=14, score 7/7, pdat 2026/05/20, mouse, single-cell + spatial): paired spatiotemporal dissection of suture stem-cell dynamics in a developmental disorder — a useful single-cell + spatial methodology reference; queued for the next non-quiet digest.",
+      "Spatial transcriptomics of human FALD and normal livers (GSE306111, score 6, n=5, pdat 2026/03/01, human, spatial, raw files): fresh spatial map of fibrotic-vs-normal human liver, complementary to the Brown Biotech anti-fibrotic pipeline and the CTHRC1+ lung fibrosis hit already digested (id:12); queued for the next non-quiet digest."
+    ],
+    actions: [
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
+      { label: "Request anti-fibrotic pipeline brief", href: "/services/biostatx#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 13,
     date: "2026-06-13",
     title: "Chronic antibody-mediated rejection spatial immune atlas defines CXCL12-CXCR4 fibroblast-immune niche; MERFISH + RNA-Seq reveal neuroinflammatory sequelae of immune checkpoint inhibition (IO toxicity); circulating frailty miRNAs drive cellular senescence in cardiovascular aging",
@@ -101,25 +121,6 @@ const sampleDigests = [
       { label: "View Multi-Omics service", href: "/multiomics#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
       { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
-    ],
-  },
-  {
-    id: 9,
-    date: "2026-06-08",
-    title: "NRTI antiretroviral therapy drives alveolar macrophage senescence (longevity link); Visium HD spatial ecotypes redefine TME architecture; OXPHOS subtype-specific drug vulnerabilities in Head & Neck Cancer enable precision therapeutics",
-    category: "longevity",
-    summary: "Three high-impact hits spanning longevity, spatial bioinformatics, and AI drug discovery: (1) Continuous NRTI-based antiretroviral therapy induces progressive senescence-like reprogramming of alveolar macrophages (GSE307329, ChIP-seq, n=74) — directly links a widely-deployed chronic HIV drug class to accelerated lung aging via macrophage senescence, with strong senolytic + PPARγ co-treatment implications for the Brown Biotech longevity pipeline. (2) High-resolution Visium spatial ecotype profiling of the tumor microenvironment (GSE320041, n=17) introduces a non-invasive ecotype framework that decouples TME architecture from histology — a direct upgrade path for Brown Biotech's spatial service offering on FFPE clinical cohorts. (3) Subtype-Specific Dependencies and Drug Vulnerabilities (GSE311507, RNA-seq, n=16) pin OXPHOS subtype-specific metabolic vulnerabilities to actionable drug sensitivities in Head & Neck Cancer — fuels Brown Biotech's precision oncology brief and aligns with the CMap repurposing workflow.",
-    tags: ["NRTI", "antiretroviral", "senescence", "alveolar macrophage", "longevity", "senolytic", "Visium HD", "spatial ecotype", "tumor microenvironment", "OXPHOS", "head and neck cancer", "drug vulnerability", "precision oncology", "CMap"],
-    highlights: [
-      "NRTI-induced alveolar macrophage senescence (GSE307329, score=6, ChIP-seq, n=74): chronic NRTI exposure drives progressive senescence-like reprogramming — actionable longevity target for senolytic + PPARγ co-treatment intervention in HIV+ patient aging",
-      "Visium HD spatial ecotype atlas (GSE320041, score=9, n=17): introduces non-invasive ecotype framework decoupling TME architecture from histology — upgrades Brown Biotech FFPE spatial workflow for clinical cohort studies without bespoke pathology inputs",
-      "H&N Cancer OXPHOS drug vulnerabilities (GSE311507, score=9, RNA-seq, n=16): subtype-specific metabolic dependencies map to actionable drug sensitivities — direct CMap repurposing input for Brown Biotech precision oncology brief",
-      "Combined signal: longevity + spatial + AI drug discovery tri-covering — connects chronic-drug-induced senescence to therapeutic intervention with spatial + metabolic mechanistic grounding"
-    ],
-    actions: [
-      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "View spatial transcriptomics workflow", href: "/multiomics#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
     ],
   },
 ];
