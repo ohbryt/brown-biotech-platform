@@ -157,7 +157,7 @@ export default async function ResearchPulsePage() {
                   Source: PubMed / PMC (28 journals, 7 topics)
                 </span>
                 <Link
-                  href={`/blog/research-pulse/${latest.date}`}
+                  href={`/blog/research-pulse/${latest.filename.replace(".md", "")}`}
                   className="text-xs text-emerald-400 hover:text-emerald-300 flex items-center gap-1 transition-colors"
                 >
                   Full pulse <ArrowRight className="w-3 h-3" />
@@ -182,7 +182,7 @@ export default async function ResearchPulsePage() {
               {archives.map((d) => (
                 <Link
                   key={d.filename}
-                  href={`/blog/research-pulse/${d.date}`}
+                  href={`/blog/research-pulse/${d.filename.replace(".md", "")}`}
                   className="flex items-center justify-between px-4 py-3 rounded-lg border border-zinc-800/60 bg-[#111109] hover:border-zinc-700 transition-colors group"
                 >
                   <div className="flex items-center gap-3">
