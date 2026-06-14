@@ -24,6 +24,27 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 15,
+    date: "2026-06-15",
+    title: "PRC2 perturbation in naive-to-primed hPSC transition maps dynamic poised-enhancer connectivity and an epigenetic drug-target landscape (score 9, n=45); NRTI antiretroviral therapy drives progressive alveolar-macrophage senescence (n=74, ChIP-seq); spatial atlas of maternal-fetal cell contributions to severe preeclampsia (n=152)",
+    category: "ai-drug-discovery",
+    summary: "Three fresh high-impact hits spanning AI drug discovery, longevity, and clinical, with the watcher resuming its daily 06:00 KST cadence after the 2026-06-12 weekend gap (collected_at 2026-06-14T21:02 UTC = 2026-06-15 06:02 KST; 104 hits ingested in the new 2026-06-15/ output directory, 29 score-6+ fresh after de-duplicating against prior digests): (1) Dynamics of poised enhancer connectivity upon PRC2 perturbation during the naive-to-primed transition of human pluripotent stem cells (GSE309649, n=45, pdat 2026/06/10, mixed modality, score 9, clean license, raw files, perturbation signal, no risk signals) maps the 3D-chromatin rewiring caused by PRC2 inhibition in hPSC state transition — a score-9 perturbation dataset that directly extends the EZH2/tazemetostat axis surfaced in id:10 into a new naive-to-primed pluripotency context and is CMap-repurposing friendly for next-generation PRC2/EZH2 inhibitors. (2) Continuous NRTI-based antiretroviral therapy induces progressive senescence-like reprogramming of alveolar macrophages (GSE307329, n=74, pdat 2026/05/15, transcriptomics + ChIP-seq) provides a large n=74 cohort showing NRTI-driven progressive senescence-like reprogramming of alveolar macrophages — direct input for the Brown Biotech longevity/senolytic service and a clean drug-repurposing screen for HIV-PULM comorbidity biology. (3) Spatially resolved maternal and fetal cell contributions to severe Preeclampsia (GSE319236, n=152, pdat 2026/06/11, spatial, clean license, raw files, no risk signals) delivers a large n=152 spatial cohort dissecting severe preeclampsia — a fresh spatial reference for maternal-fetal medicine and a direct clinical/translational input for biomarker and trial-design discussions.",
+    tags: ["PRC2", "EZH2", "poised enhancer", "3D chromatin", "hPSC", "naive-to-primed", "pluripotency", "perturbation", "CMap repurposing", "tazemetostat", "AI drug discovery", "epigenetic drug target", "NRTI", "antiretroviral", "alveolar macrophage", "senescence", "senolytic", "senomorphic", "ChIP-seq", "transcriptomics", "HIV-PULM", "comorbidity", "drug repurposing", "preeclampsia", "maternal-fetal medicine", "spatial transcriptomics", "biomarker", "clinical", "open science"],
+    highlights: [
+      "PRC2 perturbation hPSC poised-enhancer atlas (GSE309649, score 9, n=45, pdat 2026/06/10, mixed modality, clean license, raw files, no risk signals): score-9 perturbation atlas of poised-enhancer connectivity during the naive-to-primed hPSC transition — extends the EZH2/tazemetostat axis from id:10 into a new pluripotency context; CMap-repurposing friendly for next-generation PRC2/EZH2 inhibitors",
+      "NRTI antiretroviral therapy drives alveolar-macrophage senescence (GSE307329, n=74, pdat 2026/05/15, transcriptomics + ChIP-seq): n=74 cohort shows NRTI-driven progressive senescence-like reprogramming of alveolar macrophages — direct senolytic/senomorphic input and HIV-PULM comorbidity drug-repurposing angle for the Brown Biotech longevity service",
+      "Spatial atlas of severe preeclampsia (GSE319236, n=152, pdat 2026/06/11, spatial, clean license, raw files, no risk signals): large n=152 spatial cohort dissecting maternal-fetal cell contributions to severe preeclampsia — fresh spatial reference for maternal-fetal medicine and clinical/translational biomarker development",
+      "Combined signal: AI drug discovery (PRC2/EZH2 perturbation) + longevity (NRTI-driven alveolar-macrophage senescence) + clinical (severe preeclampsia spatial) — three orthogonal modalities spanning ai-drug-discovery, longevity, and clinical categories, all clean-license GEO with raw files available; the watcher resumed its daily 06:00 KST cadence (collected_at 2026-06-14T21:02 UTC = 2026-06-15 06:02 KST) and emitted 104 hits, of which 29 are score-6+ fresh after de-duplicating against prior digests"
+    ],
+    actions: [
+      { label: "Request AI drug discovery / epigenetic brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request clinical/translational brief", href: "/services/biostatx#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+
+  {
     id: 14,
     date: "2026-06-14",
     title: "Quiet digest day: research-watcher produced no fresh hits over the weekend (Fri 2026-06-12 → Sun 2026-06-14); three uncurated backlog hits stand by — Xenium bladder cancer lineage-vulnerability atlas, craniosynostosis suture stem cell spatiotemporal atlas, FALD spatial transcriptomics of human fibrotic livers",
@@ -102,28 +123,7 @@ const sampleDigests = [
       { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
       { label: "View biostatx service", href: "/services/biostatx" },
     ],
-  },
-  {
-    id: 10,
-    date: "2026-06-09",
-    title: "Heart Failure GWAS 3D Chromatin causal-gene atlas; EZH2→ferroptosis axis in HCC + pan-cancer exhausted-macrophage atlas; FAP-directed atherosclerosis immunotherapy multi-modal atlas (CITEseq + Visium + Xenium)",
-    category: "bioinformatics",
-    summary: "Three high-impact fresh hits today spanning regulatory genomics, ferroptosis therapeutics, and cardiovascular immunotherapy: (1) Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure (GSE281462 ATAC-seq n=4 + GSE281463 Hi-C n=4 + GSE281464 Perturb-seq n=7 + GSE281465 RNA-seq n=3, score 9) integrates GWAS with 3D chromatin architecture + Perturb-seq to pinpoint causal heart-failure genes — a four-modality dataset and a direct upgrade for Brown Biotech's regulatory-element interpretation + target-prioritization pipeline. (2) Inhibition of EZH2 restores normal expression of genes associated with cysteine metabolism and ferroptosis in HCC (GSE237951 RNA-seq n=8 + GSE268195 CUT&Tag n=12, score 6) combined with a Single-Cell Atlas of Pan-Cancer Immunotherapy Reveals the Role of Ferroptosis in Exhausted Macrophages (GSE302068, n=9, score 6) — together these define a druggable EZH2→ferroptosis axis that bridges longevity (ferroptosis is a regulated cell-death mode) and AI drug discovery (tazemetostat-class EZH2 inhibitors with ferroptosis-inducing combinations). (3) Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy (GSE314596 Human_CITEseq n=58 + GSE314851 Visium n=16 + GSE315246 Xenium n=17 + GSE314598 Mouse_Aorta_BiTE, score 6/3) delivers a four-modality atlas supporting FAP-BiTE atherosclerosis immunotherapy — strong clinical/precision-oncology handoff with raw files across CITEseq, Visium, and Xenium.",
-    tags: ["heart failure", "GWAS", "3D chromatin", "ATAC-seq", "Hi-C", "Perturb-seq", "causal gene", "regulatory element", "EZH2", "ferroptosis", "HCC", "CUT&Tag", "pan-cancer", "exhausted macrophages", "immunotherapy", "FAP", "atherosclerosis", "BiTE", "CITEseq", "Visium", "Xenium", "vascular smooth muscle", "precision oncology", "longevity", "regulated cell death"],
-    highlights: [
-      "Heart Failure 3D Chromatin causal-gene atlas (GSE281462-465, score 9, 4 modalities, n=4+4+7+3): GWAS + ATAC-seq + Hi-C + Perturb-seq + RNA-seq identifies causal heart-failure genes via high-resolution 3D chromatin interactions — direct input for Brown Biotech regulatory-element interpretation and target prioritization",
-      "EZH2→ferroptosis axis in HCC (GSE237951 + GSE268195, score 6+6, RNA-seq n=8 + CUT&Tag n=12): EZH2 inhibition restores cysteine metabolism and ferroptosis in hepatocellular carcinoma — actionable therapeutic angle for tazemetostat-class EZH2 inhibitors combined with ferroptosis inducers (CMap-repurposing friendly)",
-      "Pan-Cancer ferroptosis in exhausted macrophages (GSE302068, score 6, single-cell n=9): single-cell atlas of pan-cancer immunotherapy linking ferroptosis to exhausted-macrophage states — bridges longevity (regulated cell death) and AI drug discovery (next-generation IO combinations)",
-      "FAP-directed atherosclerosis immunotherapy multi-modal atlas (GSE314596 + GSE314851 + GSE315246 + GSE314598, score 6+3, 4 modalities, n=58+16+17+6): CITEseq + Visium + Xenium + mouse-aorta BiTE supports FAP-BiTE atherosclerosis immunotherapy — three-modality spatial + clinical evidence for Brown Biotech cardiovascular precision-oncology handoff"
-    ],
-    actions: [
-      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "View Multi-Omics service", href: "/multiomics#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
-      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
-    ],
-  },
-];
+  },];
 
 export default function DigestPage() {
   return (
