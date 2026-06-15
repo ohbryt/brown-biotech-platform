@@ -2,54 +2,59 @@ import type { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
+const serviceRoutes: Array<{ path: string; priority?: number }> = [
+  { path: "/services/peptide-service", priority: 0.8 },
+  { path: "/services/biostatx", priority: 0.7 },
+  { path: "/services/genox-site", priority: 0.7 },
+  { path: "/services/ai-drug-discovery", priority: 0.7 },
+  { path: "/services/research-intelligence", priority: 0.7 },
+  { path: "/services/strict-omics", priority: 0.7 },
+  { path: "/services/business-pipeline", priority: 0.7 },
+  { path: "/services/pricing", priority: 0.6 },
+  { path: "/services/inventa", priority: 0.5 },
+];
+
+const otherRoutes: Array<{ path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }> = [
+  { path: "/case-studies", changeFrequency: "monthly", priority: 0.6 },
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
   return [
     {
       url: siteUrl,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${siteUrl}/services`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
-    {
-      url: `${siteUrl}/services/peptide-service`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/services/biostatx`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/services/genox-site`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/services/strict-omics`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/services/business-pipeline`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    ...serviceRoutes.map((route) => ({
+      url: `${siteUrl}${route.path}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: route.priority ?? 0.7,
+    })),
+    ...otherRoutes.map((route) => ({
+      url: `${siteUrl}${route.path}`,
+      lastModified: now,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    })),
     {
       url: `${siteUrl}/blog/daily-digest`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "daily",
+      priority: 0.6,
+    },
+    {
+      url: `${siteUrl}/blog/research-pulse`,
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 0.6,
     },
   ];
