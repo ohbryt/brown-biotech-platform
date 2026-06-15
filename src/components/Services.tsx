@@ -1,50 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Workflow, Crosshair, ShieldCheck, Users, Gift, MessageSquare, GitBranch, Sparkles, Sigma } from "lucide-react";
+import { FlaskConical, BarChart3, Sparkles, Sigma, GitBranch, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
-const services = [
+const primaryLanes = [
   {
-    icon: Workflow,
-    title: "peptide-service",
-    desc: "The default entry point for peptide work: brief first, quote second, execution after scope is clear.",
-    badge: "Primary lane",
-    gradient: "from-primary to-primary-dark",
+    icon: FlaskConical,
+    name: "peptide-service",
+    badge: "Primary",
+    desc: "The default entry point for peptide work. Brief first, quote second, execution after scope is clear.",
+    href: "/services/peptide-service",
   },
   {
-    icon: Crosshair,
-    title: "biostatx",
-    desc: "Biostatistics and reporting support for teams that need a cleaner decision path.",
-    badge: "Supporting lane",
-    gradient: "from-cta to-primary",
+    icon: BarChart3,
+    name: "biostatx",
+    badge: "Supporting",
+    desc: "Biostatistics and reporting for teams that need a cleaner decision path from raw data to evidence.",
+    href: "/services/biostatx",
   },
   {
-    icon: ShieldCheck,
-    title: "genox-site",
+    icon: Sparkles,
+    name: "genox-site",
+    badge: "Supporting",
     desc: "Discovery and genomics-facing support for scoping, framing, and partner conversations.",
-    badge: "Supporting lane",
-    gradient: "from-primary-light to-primary",
+    href: "/services/genox-site",
   },
-  {
-    icon: Users,
-    title: "Service Hub",
-    desc: "A simple intake surface that routes the right request to the right lane with a clear owner.",
-    badge: "Route preview",
-    gradient: "from-cta to-cta-light",
-  },
+];
+
+const adjacentLanes = [
   {
     icon: Sigma,
-    title: "strict-omics",
-    desc: "Audit-grade transcriptomics pipelines. LLM proposes, deterministic gates decide. Project-tier engagements.",
+    name: "strict-omics",
     badge: "Project lane",
-    gradient: "from-amber-500 to-primary-dark",
+    desc: "Audit-grade transcriptomics pipelines. LLM proposes, deterministic gates decide.",
+    href: "/services/strict-omics",
   },
   {
     icon: GitBranch,
-    title: "business-pipeline",
-    desc: "A company-owned pipeline for routing, review, and decision-ready briefs that can scale across the business.",
+    name: "business-pipeline",
     badge: "Strategic upgrade",
-    gradient: "from-primary-dark to-cta",
+    desc: "The company pipeline itself, packaged as a reusable workflow with review gate.",
+    href: "/services/business-pipeline",
   },
 ];
 
@@ -57,124 +54,139 @@ const offerLadder = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative overflow-hidden bg-white py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Service lanes
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
-            One brief, one owner, one next action.
+          <span className="kicker">Service lanes</span>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-text tracking-tight">
+            Three primary lanes. Two more when you need them.
           </h2>
-          <p className="text-lg text-text-muted max-w-2xl mx-auto">
-            Inspectable service lanes for teams that want a visible route, a clear owner, and a faster path to a useful handoff. Text, files, and signals all enter the same brief. The harness stays the same even when the model changes. Paid brief is the default entry point.
+          <p className="mt-5 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
+            Each lane is a clear entry point with one owner, a fixed deliverable, and a visible next step. Paid brief is the default; project and retainer tiers are reserved for scoped work.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((svc, i) => (
-            <motion.div
-              key={svc.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
-              whileHover={{ y: -6 }}
-              className="bg-surface rounded-2xl p-8 border border-gray-100 card-glow text-center cursor-default group"
-            >
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${svc.gradient} mb-6 shadow-lg shadow-primary/10`}>
-                <svc.icon className="h-7 w-7 text-white" />
-              </div>
-              <div className="mb-4 inline-flex rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                {svc.badge}
-              </div>
-              <h3 className="text-lg font-bold text-text mb-3">
-                {svc.title}
-              </h3>
-              <p className="text-sm text-text-muted leading-relaxed">
-                {svc.desc}
-              </p>
-            </motion.div>
-          ))}
+        {/* Primary lanes — 3 cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {primaryLanes.map((lane, i) => {
+            const Icon = lane.icon;
+            const isPrimary = lane.badge === "Primary";
+            return (
+              <motion.div
+                key={lane.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
+                whileHover={{ y: -6 }}
+                className={`group relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 ${
+                  isPrimary
+                    ? "border-2 border-cta/30 bg-gradient-to-br from-cta/5 via-white to-primary/5 shadow-lg shadow-cta/10"
+                    : "border border-gray-100 bg-surface"
+                }`}
+              >
+                <div className="flex items-start justify-between">
+                  <div className={`inline-flex h-14 w-14 items-center justify-center rounded-xl shadow-lg ${
+                    isPrimary
+                      ? "bg-gradient-to-br from-primary to-cta shadow-primary/20"
+                      : "bg-gradient-to-br from-primary/10 to-cta/10"
+                  }`}>
+                    <Icon className={`h-7 w-7 ${isPrimary ? "text-white" : "text-primary"}`} />
+                  </div>
+                  <span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] ${
+                    isPrimary
+                      ? "border border-cta/30 bg-cta/10 text-cta"
+                      : "border border-primary/15 bg-primary/5 text-primary"
+                  }`}>
+                    {lane.badge}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-text font-mono">
+                  {lane.name}
+                </h3>
+                <p className="mt-3 text-sm text-text-muted leading-relaxed flex-1">
+                  {lane.desc}
+                </p>
+                <Link
+                  href={lane.href}
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-cta transition-colors"
+                >
+                  Open lane
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
 
+        {/* Adjacent lanes — 2 compact cards */}
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {adjacentLanes.map((lane) => {
+            const Icon = lane.icon;
+            return (
+              <Link
+                key={lane.name}
+                href={lane.href}
+                className="group flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 transition-all hover:border-primary/20 hover:shadow-md"
+              >
+                <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-cta/10">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-mono text-sm font-semibold text-text">{lane.name}</h3>
+                    <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-text-muted">
+                      {lane.badge}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs text-text-muted leading-relaxed">{lane.desc}</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-text-muted transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* CTA strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-          className="mt-14 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/5 to-cta/5 p-8 sm:p-10"
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/5 via-white to-cta/5 p-6 sm:flex-row sm:p-8"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-            <div className="flex items-center gap-6 shrink-0">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-cta to-cta-light shadow-lg shadow-cta/10">
-                <Gift className="h-7 w-7 text-white" />
-              </div>
-            </div>
-            <div className="text-center sm:text-left">
-                <p className="text-xl font-bold text-text mb-2">
-                  Start with the paid-brief motion
-                </p>
-                <p className="text-text-muted">
-                  Tell us what you&apos;re trying to solve. We&apos;ll map the right lane, define the scope, and decide whether a deeper engagement makes sense.
-                </p>
-            </div>
-            <a
-              href="/services/business-pipeline#brief"
-              className="shrink-0 inline-flex items-center gap-2 bg-cta hover:bg-cta-light text-white font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer"
-            >
-              <MessageSquare className="h-4 w-4" />
-              Request a Paid Brief
-            </a>
-            <a
-              href="/browser-test"
-              className="shrink-0 inline-flex items-center gap-2 border border-primary/20 bg-white hover:border-primary/30 text-text font-semibold px-6 py-3 rounded-xl transition-colors cursor-pointer"
-            >
-              <Sparkles className="h-4 w-4" />
-              Try browser demo
-            </a>
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Offer ladder</p>
+            <h3 className="mt-2 text-2xl font-bold text-text">A clearer path from sample brief to retainer.</h3>
+            <p className="mt-2 text-sm text-text-muted">
+              Keep the entry point small, then expand only when the brief, the owner, and the next action are clear.
+            </p>
           </div>
+          <Link
+            href="/services/business-pipeline#brief"
+            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3 font-semibold text-white shadow-lg shadow-primary/10 transition hover:from-primary-light hover:to-cta-light"
+          >
+            Start with a brief
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-          className="mt-10 rounded-2xl border border-primary/15 bg-gradient-to-r from-primary/5 via-white to-cta/5 p-6 sm:p-8"
-        >
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Offer ladder</p>
-              <h3 className="mt-2 text-2xl font-bold text-text">A clearer path from sample brief to retainer.</h3>
-              <p className="mt-3 text-text-muted">
-                Keep the entry point small, then expand only when the brief, the owner, and the next action are clear.
-              </p>
+        {/* Offer ladder grid */}
+        <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {offerLadder.map((item) => (
+            <div key={item.name} className="rounded-2xl border border-border bg-white p-4 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{item.name}</p>
+              <p className="mt-2 text-lg font-bold text-text">{item.price}</p>
+              <p className="mt-2 text-sm text-text-muted">{item.note}</p>
             </div>
-            <a
-              href="/services/business-pipeline#brief"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3 font-semibold text-white shadow-lg shadow-primary/10 transition hover:from-primary-light hover:to-cta-light"
-            >
-              Start with a brief
-              <MessageSquare className="h-4 w-4" />
-            </a>
-          </div>
-          <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {offerLadder.map((item) => (
-              <div key={item.name} className="rounded-2xl border border-border bg-white p-4 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{item.name}</p>
-                <p className="mt-2 text-lg font-bold text-text">{item.price}</p>
-                <p className="mt-2 text-sm text-text-muted">{item.note}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

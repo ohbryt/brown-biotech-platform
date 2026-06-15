@@ -1,68 +1,78 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { SearchCheck, Rocket, ClipboardList } from "lucide-react";
+import { SearchCheck, Route, ClipboardCheck, ArrowRight } from "lucide-react";
 
 const steps = [
   {
     icon: SearchCheck,
     title: "Scope",
-    desc: "We clarify the need, audience, constraints, and what success looks like before any work begins.",
+    desc: "Clarify the need, audience, constraints, and the outcome you want before any work begins.",
   },
   {
-    icon: Rocket,
+    icon: Route,
     title: "Route",
-    desc: "We route the request to the right lane, define the deliverable, and confirm the first milestone.",
+    desc: "Assign the lane, name the owner, and confirm the first milestone. You see the route, not just the result.",
   },
   {
-    icon: ClipboardList,
+    icon: ClipboardCheck,
     title: "Deliver",
-    desc: "We hand over a structured output, practical recommendation, and a clear next-step plan.",
+    desc: "Hand over a structured output, a practical recommendation, and one clear next step.",
   },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="process" className="bg-white py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="mx-auto max-w-3xl text-center mb-14"
         >
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest mb-3 block">
-            Delegate the work
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-text mb-5 tracking-tight">
+          <span className="kicker">Delegate the work</span>
+          <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-text tracking-tight">
             Own the decisions, not the busy work.
           </h2>
-          <p className="text-lg text-text-muted max-w-2xl mx-auto">
+          <p className="mt-5 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
             A simple process designed for fast handoff, transparent expectations, and usable outputs. We keep the loop narrow so the team can focus on the next useful action.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
-              className="rounded-2xl border border-gray-100 bg-surface p-8 card-glow"
-            >
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-cta shadow-lg shadow-primary/10">
-                <step.icon className="h-6 w-6 text-white" />
-              </div>
-              <div className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-primary font-[family-name:var(--font-mono)]">
-                0{i + 1}
-              </div>
-              <h3 className="text-xl font-bold text-text mb-3">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-text-muted">{step.desc}</p>
-            </motion.div>
-          ))}
+        <div className="relative">
+          {/* Connector line (desktop) */}
+          <div className="pointer-events-none absolute left-1/2 top-12 hidden h-px w-2/3 -translate-x-1/2 lg:block">
+            <div className="h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
+                  className="relative rounded-2xl border border-gray-100 bg-surface p-8 transition hover:border-primary/20 hover:shadow-md"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-cta shadow-lg shadow-primary/10">
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    <span className="font-mono text-4xl font-bold text-primary/15">
+                      0{i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 text-xl font-bold text-text">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-text-muted">{step.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

@@ -1,12 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronDown, FlaskConical, BarChart3, Sparkles, ShieldCheck } from "lucide-react";
 
 const highlights = [
   "Inspectable workflow",
   "Human review required",
   "Decision-grade handoff",
+];
+
+const primaryLane = {
+  icon: FlaskConical,
+  name: "peptide-service",
+  note: "Brief → quote → execution",
+};
+
+const secondaryLanes = [
+  { icon: BarChart3, name: "biostatx", note: "Statistics for evidence" },
+  { icon: Sparkles, name: "genox-site", note: "Discovery & partner path" },
 ];
 
 export default function Hero() {
@@ -15,12 +26,13 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden bg-dark text-white"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(217,119,6,0.15),transparent_26%),radial-gradient(circle_at_80%_30%,rgba(180,83,9,0.12),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(146,64,14,0.10),transparent_30%)]" />
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(217,119,6,0.18),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(180,83,9,0.14),transparent_30%),radial-gradient(circle_at_50%_85%,rgba(146,64,14,0.10),transparent_32%)]" />
       <div className="absolute inset-0 dot-pattern opacity-20" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-      <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-16 px-4 py-28 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-24">
-        {/* LEFT — text */}
+      <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:py-24">
+        {/* LEFT — text-first */}
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,11 +49,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="mt-7 text-5xl font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl lg:text-7xl"
+            className="mt-7 text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            One brief, one owner,
+            One brief,
             <span className="block mt-2 text-transparent bg-gradient-to-r from-white via-amber-100 to-cta bg-clip-text">
-              one next action.
+              one owner, one next action.
             </span>
           </motion.h1>
 
@@ -51,7 +63,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-6 max-w-xl text-lg leading-7 text-gray-300"
           >
-            Start with a paid brief — powered by a live reasoning layer over PubMed, ClinicalTrials, ChEMBL, and GEO.
+            Start with a paid brief — powered by a live reasoning layer over PubMed, ClinicalTrials, ChEMBL, and GEO. We pick the lane, assign the owner, and ship a handoff you can act on.
           </motion.p>
 
           <motion.div
@@ -93,237 +105,114 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT — freedom illustration */}
+        {/* RIGHT — text-first service snapshot */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="relative flex items-center justify-center"
+          className="relative"
         >
-          <div className="absolute -inset-8 rounded-[3rem] bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-400/10 blur-3xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-white/[0.06] p-6 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-8">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-cta" />
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-100/90">
+                  Paid brief · routing preview
+                </p>
+              </div>
+              <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-gray-300">
+                Live
+              </span>
+            </div>
 
-          <svg
-            viewBox="0 0 800 500"
-            className="relative w-full max-w-[600px] drop-shadow-2xl"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Background */}
-            <rect width="800" height="500" fill="#0f172a" rx="24" />
+            <h2 className="mt-5 text-2xl font-semibold text-white sm:text-3xl">
+              One paid brief. Three lanes.
+            </h2>
+            <p className="mt-2 text-sm text-gray-400">
+              Every request enters the same harness and exits with a route, an owner, and a handoff.
+            </p>
 
-            {/* Grid lines — horizontal */}
-            {[100, 200, 300, 400].map((y) => (
-              <line
-                key={`h${y}`}
-                x1="0"
-                y1={y}
-                x2="800"
-                y2={y}
-                stroke="#67e8f9"
-                strokeWidth="0.3"
-                opacity="0.4"
-              />
-            ))}
-            {/* Grid lines — vertical */}
-            {[133, 266, 400, 533, 666].map((x) => (
-              <line
-                key={`v${x}`}
-                x1={x}
-                y1="0"
-                x2={x}
-                y2="500"
-                stroke="#67e8f9"
-                strokeWidth="0.3"
-                opacity="0.4"
-              />
-            ))}
+            {/* Primary lane */}
+            <div className="mt-6 rounded-2xl border border-cta/30 bg-gradient-to-br from-cta/15 via-primary/10 to-transparent p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-cta shadow-lg shadow-primary/30">
+                    <primaryLane.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <p className="font-mono text-sm font-semibold text-white">
+                        {primaryLane.name}
+                      </p>
+                      <span className="rounded-full border border-cta/30 bg-cta/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-widest text-cta">
+                        Primary
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-xs text-gray-400">
+                      {primaryLane.note}
+                    </p>
+                  </div>
+                </div>
+                <ArrowRight className="h-4 w-4 text-cta" />
+              </div>
+            </div>
 
-            {/* Curved paths — cyan */}
-            <path
-              d="M 120 80 Q 200 120 340 100"
-              fill="none"
-              stroke="#67e8f9"
-              strokeWidth="0.8"
-              opacity="0.6"
-            />
-            <path
-              d="M 520 420 Q 580 380 740 300"
-              fill="none"
-              stroke="#67e8f9"
-              strokeWidth="0.8"
-              opacity="0.6"
-            />
-            {/* Curved paths — purple */}
-            <path
-              d="M 600 80 Q 650 110 750 160"
-              fill="none"
-              stroke="#d0bfff"
-              strokeWidth="0.8"
-              opacity="0.6"
-            />
-            <path
-              d="M 80 400 Q 120 370 200 320"
-              fill="none"
-              stroke="#d0bfff"
-              strokeWidth="0.8"
-              opacity="0.6"
-            />
+            {/* Secondary lanes */}
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {secondaryLanes.map((lane) => {
+                const Icon = lane.icon;
+                return (
+                  <div
+                    key={lane.name}
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">
+                        <Icon className="h-4 w-4 text-amber-100" />
+                      </div>
+                      <div>
+                        <p className="font-mono text-sm font-semibold text-white">
+                          {lane.name}
+                        </p>
+                        <p className="mt-0.5 text-[11px] text-gray-400">
+                          {lane.note}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-            {/* Orbit rings */}
-            <ellipse
-              cx="400"
-              cy="250"
-              rx="52"
-              ry="52"
-              fill="none"
-              stroke="#67e8f9"
-              strokeWidth="1"
-              opacity="0.25"
-            />
-            <ellipse
-              cx="400"
-              cy="250"
-              rx="72"
-              ry="72"
-              fill="none"
-              stroke="#a5d8ff"
-              strokeWidth="0.7"
-              opacity="0.15"
-            />
+            {/* Proof row */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-5 text-xs text-gray-400">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                PubMed
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                ClinicalTrials
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                ChEMBL
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                GEO
+              </span>
+            </div>
 
-            {/* Central node cluster */}
-            {[
-              { cx: 393, cy: 243, r: 5, color: "#a5d8ff" },
-              { cx: 401, cy: 252, r: 4, color: "#67e8f9" },
-              { cx: 408, cy: 247, r: 3, color: "#fcd34d" },
-              { cx: 398, cy: 236, r: 3.5, color: "#67e8f9" },
-              { cx: 406, cy: 256, r: 2.5, color: "#d0bfff" },
-              { cx: 415, cy: 242, r: 4.5, color: "#a5d8ff" },
-              { cx: 395, cy: 257, r: 2.5, color: "#fde68a" },
-              { cx: 417, cy: 255, r: 3, color: "#67e8f9" },
-              { cx: 403, cy: 244, r: 2, color: "#d0bfff" },
-              { cx: 411, cy: 254, r: 2.5, color: "#a5d8ff" },
-            ].map((n, i) => (
-              <circle
-                key={`n${i}`}
-                cx={n.cx}
-                cy={n.cy}
-                r={n.r}
-                fill={n.color}
-                opacity="0.9"
-              />
-            ))}
-
-            {/* Peripheral particles */}
-            {[
-              { cx: 265, cy: 190, r: 2.5, color: "#a5d8ff" },
-              { cx: 505, cy: 280, r: 2, color: "#67e8f9" },
-              { cx: 180, cy: 155, r: 2, color: "#fcd34d" },
-              { cx: 620, cy: 350, r: 2.5, color: "#a5d8ff" },
-              { cx: 145, cy: 310, r: 2, color: "#67e8f9" },
-              { cx: 650, cy: 150, r: 2.5, color: "#d0bfff" },
-              { cx: 230, cy: 380, r: 2, color: "#fde68a" },
-              { cx: 560, cy: 115, r: 2, color: "#a5d8ff" },
-              { cx: 690, cy: 220, r: 2.5, color: "#67e8f9" },
-              { cx: 110, cy: 250, r: 2, color: "#d0bfff" },
-              { cx: 720, cy: 400, r: 2, color: "#fcd34d" },
-              { cx: 300, cy: 80, r: 2.5, color: "#67e8f9" },
-              { cx: 480, cy: 420, r: 2, color: "#a5d8ff" },
-              { cx: 130, cy: 140, r: 2, color: "#fde68a" },
-              { cx: 680, cy: 280, r: 2.5, color: "#67e8f9" },
-              { cx: 350, cy: 130, r: 2, color: "#d0bfff" },
-              { cx: 550, cy: 450, r: 2, color: "#a5d8ff" },
-              { cx: 60, cy: 340, r: 1.5, color: "#fcd34d" },
-              { cx: 740, cy: 170, r: 1.5, color: "#67e8f9" },
-              { cx: 200, cy: 430, r: 1.5, color: "#d0bfff" },
-            ].map((p, i) => (
-              <circle
-                key={`p${i}`}
-                cx={p.cx}
-                cy={p.cy}
-                r={p.r}
-                fill={p.color}
-                opacity="0.7"
-              />
-            ))}
-
-            {/* Arrows */}
-            <line
-              x1="320"
-              y1="210"
-              x2="380"
-              y2="210"
-              stroke="#fcd34d"
-              strokeWidth="2"
-              opacity="0.8"
-              markerStart="url(#dot)"
-              markerEnd="url(#arrow)"
-            />
-            <line
-              x1="420"
-              y1="300"
-              x2="510"
-              y2="250"
-              stroke="#a5d8ff"
-              strokeWidth="2"
-              opacity="0.8"
-              markerStart="url(#dot)"
-              markerEnd="url(#arrow)"
-            />
-            <line
-              x1="200"
-              y1="270"
-              x2="280"
-              y2="300"
-              stroke="#67e8f9"
-              strokeWidth="1.5"
-              opacity="0.7"
-              markerStart="url(#dot)"
-              markerEnd="url(#arrow)"
-            />
-            <line
-              x1="480"
-              y1="200"
-              x2="580"
-              y2="260"
-              stroke="#d0bfff"
-              strokeWidth="1.5"
-              opacity="0.7"
-              markerStart="url(#dot)"
-              markerEnd="url(#arrow)"
-            />
-
-            {/* Arrowhead defs */}
-            <defs>
-              <marker
-                id="dot"
-                viewBox="0 0 10 10"
-                refX="5"
-                refY="5"
-                markerWidth="6"
-                markerHeight="6"
-              >
-                <circle cx="5" cy="5" r="4" fill="#fcd34d" opacity="0.8" />
-              </marker>
-              <marker
-                id="arrow"
-                viewBox="0 0 10 10"
-                refX="5"
-                refY="5"
-                markerWidth="5"
-                markerHeight="5"
-                orient="auto"
-              >
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#fcd34d" opacity="0.8" />
-              </marker>
-            </defs>
-
-            {/* Labels */}
-            <text x="60" y="115" fontFamily="Virgil, sans-serif" fontSize="12" fill="#a5d8ff" opacity="0.7">PubMed</text>
-            <text x="630" y="60" fontFamily="Virgil, sans-serif" fontSize="12" fill="#d0bfff" opacity="0.7">ClinicalTrials</text>
-            <text x="650" y="430" fontFamily="Virgil, sans-serif" fontSize="12" fill="#fde68a" opacity="0.7">ChEMBL</text>
-            <text x="100" y="420" fontFamily="Virgil, sans-serif" fontSize="14" fill="#fcd34d" opacity="0.6">AI</text>
-            <text x="700" y="310" fontFamily="Virgil, sans-serif" fontSize="12" fill="#67e8f9" opacity="0.5">OPEN</text>
-          </svg>
+            {/* Human-review disclaimer */}
+            <div className="mt-4 flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5 text-[11px] leading-relaxed text-gray-400">
+              <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cta" />
+              <span>
+                High-stakes decisions route through human review. The harness can change; the owner does not.
+              </span>
+            </div>
+          </div>
         </motion.div>
       </div>
 
@@ -332,7 +221,7 @@ export default function Hero() {
         transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#about" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10">
+        <a href="#services" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10">
           <ChevronDown className="h-5 w-5" />
         </a>
       </motion.div>

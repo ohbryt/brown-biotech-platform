@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag } from "lucide-react";
 import { MARKET_SIGNALS } from "@/lib/intake";
 
 const siteName = "Brown Biotech Inc.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-const lanes = [
+const primaryLanes = [
   {
     name: "peptide-service",
     href: "/services/peptide-service",
@@ -16,6 +16,7 @@ const lanes = [
     deliverables: ["Scope call", "Quote", "Next step"],
     cta: "Request a Paid Brief",
     accent: "from-primary to-primary-dark",
+    badge: "Primary",
   },
   {
     name: "biostatx",
@@ -26,6 +27,7 @@ const lanes = [
     deliverables: ["Dataset review", "Analysis plan", "Report"],
     cta: "Send a dataset",
     accent: "from-cta to-primary",
+    badge: "Primary",
   },
   {
     name: "genox-site",
@@ -36,6 +38,32 @@ const lanes = [
     deliverables: ["Scope memo", "Direction", "Partner path"],
     cta: "Discuss a project",
     accent: "from-primary-light to-cta",
+    badge: "Primary",
+  },
+];
+
+const specialtyLanes = [
+  {
+    name: "ai-drug-discovery",
+    href: "/services/ai-drug-discovery",
+    icon: BrainCircuit,
+    summary: "Molecular reasoning layer — FPembed fingerprinting + ARP v24 decision-scored candidates.",
+    forWhom: "Teams that need decision-scored molecules, not a similarity list.",
+    deliverables: ["FPembed encoding", "ARP v24 scoring", "Ranked candidate report"],
+    cta: "Request a Discovery Brief",
+    accent: "from-primary-dark to-primary",
+    badge: "Specialty",
+  },
+  {
+    name: "research-intelligence",
+    href: "/services/research-intelligence",
+    icon: TrendingUp,
+    summary: "TrueSkill-ranked preprint tournament with multi-model pairwise evaluation.",
+    forWhom: "Longevity / omics / fibrosis teams that want ranked candidates, not a reading list.",
+    deliverables: ["AI Impact Assessment", "TrueSkill ranking", "Decision-ready brief"],
+    cta: "Request an Intelligence Brief",
+    accent: "from-cta to-primary-light",
+    badge: "Specialty",
   },
   {
     name: "strict-omics",
@@ -46,7 +74,25 @@ const lanes = [
     deliverables: ["Run manifest", "RO-Crate provenance", "Decision-ready brief"],
     cta: "Request a Pipeline Brief",
     accent: "from-amber-500 to-primary-dark",
+    badge: "Project",
   },
+];
+
+const strategicLanes = [
+  {
+    name: "business-pipeline",
+    href: "/services/business-pipeline",
+    icon: GitBranch,
+    summary: "A company-owned pipeline for biotech ops and decision-ready briefs.",
+    forWhom: "Teams that want a reusable workflow with review.",
+    deliverables: ["Blueprint", "Source map", "Delivery flow"],
+    cta: "Open the pipeline",
+    accent: "from-primary to-cta",
+    badge: "Strategic upgrade",
+  },
+];
+
+const comingSoonLanes = [
   {
     name: "Inventa",
     href: "/services/inventa",
@@ -73,17 +119,6 @@ const offerLadder = [
   { name: "Retainer", price: "₩3M ~ ₩15M+/mo", note: "Monthly research / ops support" },
 ];
 
-const pipeline = {
-  name: "business-pipeline",
-  href: "/services/business-pipeline#brief",
-  icon: GitBranch,
-  summary: "A company-owned pipeline for biotech ops and decision-ready briefs.",
-  forWhom: "Teams that want a reusable workflow with review.",
-  deliverables: ["Blueprint", "Source map", "Delivery flow"],
-  cta: "Request a Paid Brief",
-  accent: "from-primary to-cta",
-};
-
 const proofBlocks = [
   {
     icon: CheckCircle2,
@@ -107,6 +142,13 @@ const proofBlocks = [
   },
 ];
 
+const evidenceBlocks = [
+  { title: "Briefs", desc: "Decision-ready summaries and scoped requests." },
+  { title: "Visual evidence", desc: "Screenshots, figures, slides, and chart captures." },
+  { title: "Audio notes", desc: "Meeting clips and spoken context tied back to the brief." },
+  { title: "Approved snippets", desc: "Reusable language only after human review." },
+];
+
 const faqs = [
   {
     q: "What should I send first?",
@@ -125,9 +167,54 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub for peptide-service, biostatx, genox-site, strict-omics, Inventa, and business-pipeline.",
+  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), strategic pipeline (business-pipeline), and the Inventa waitlist.",
   alternates: { canonical: "/services" },
 };
+
+function LaneCard({ lane, large = false }: { lane: { name: string; href: string; icon: React.ComponentType<{ className?: string }>; summary: string; forWhom: string; deliverables: string[]; cta: string; accent: string; badge?: string }; large?: boolean }) {
+  const Icon = lane.icon;
+  return (
+    <article className={`premium-panel group flex h-full flex-col rounded-[1.75rem] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${large ? "lg:p-10" : ""}`}>
+      <div className="flex items-start justify-between gap-3">
+        <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${lane.accent} shadow-lg shadow-primary/10`}>
+          <Icon className="h-6 w-6 text-white" />
+        </div>
+        {lane.badge && (
+          <span className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] ${
+            lane.badge === "Coming soon"
+              ? "border border-amber-200/20 bg-amber-100/10 text-amber-700"
+              : lane.badge === "Strategic upgrade"
+                ? "border border-primary/15 bg-primary/5 text-primary"
+                : "border border-cta/20 bg-cta/10 text-cta"
+          }`}>
+            {lane.badge}
+          </span>
+        )}
+      </div>
+      <h3 className="mt-6 text-2xl font-semibold text-text font-mono">{lane.name}</h3>
+      <p className="mt-3 text-text-muted leading-7">{lane.summary}</p>
+      <div className="mt-5 rounded-2xl bg-white/70 p-5">
+        <p className="text-sm font-semibold uppercase tracking-wider text-primary">Best for</p>
+        <p className="mt-2 text-sm leading-relaxed text-text-muted">{lane.forWhom}</p>
+      </div>
+      <div className="mt-5">
+        <p className="text-sm font-semibold uppercase tracking-wider text-primary">Typical outputs</p>
+        <ul className="mt-3 space-y-2 text-sm text-text-muted">
+          {lane.deliverables.map((item) => (
+            <li key={item} className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-cta" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <Link href={lane.href} className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light">
+        {lane.cta}
+        <ArrowRight className="h-4 w-4" />
+      </Link>
+    </article>
+  );
+}
 
 export default function ServicesPage() {
   return (
@@ -139,20 +226,20 @@ export default function ServicesPage() {
           <div className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
-              Service hub
+              Service hub · 8 active lanes
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               One place for paid briefs, routing, and decision-ready service requests.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Route requests into the right lane, assign one owner, and move to the next step. If it is not a fit, we will say so quickly and keep the handoff clean. Brown Biotech works best when the request arrives with text, files, and signals together, and the same harness can keep working across models.
+              Three primary lanes. Three specialty services. One strategic pipeline. Every request returns a route preview, an owner, and a clear next step. If the fit is weak, we say so quickly and keep the handoff clean.
             </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Privacy", "Private"],
                 ["Response", "24h"],
-                ["Lanes", "5 primary lanes"],
+                ["Lanes", "8 active"],
                 ["Output", "Route preview"],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/12 px-4 py-3 backdrop-blur">
@@ -179,95 +266,83 @@ export default function ServicesPage() {
               <Link href="#offer-ladder" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
                 View offer ladder <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
-                Back to home
+              <Link href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
+                Contact us
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="lanes" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="primary-lanes" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-3xl">
-          <span className="kicker">Five core offers</span>
+          <span className="kicker">Primary lanes</span>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
-            Choose the lane that matches the project.
+            Three primary lanes.
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Each lane is easy to explain, route, and hand off. Submissions return a route preview.
+            The default entry points. Each is a clean route from inquiry to a decision-ready handoff.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {lanes.map((lane) => {
-            const Icon = lane.icon;
-            return (
-              <article key={lane.name} className="premium-panel group flex h-full flex-col rounded-[1.75rem] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl">
-                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${lane.accent} shadow-lg shadow-primary/10`}>
-                  <Icon className="h-6 w-6 text-white" />
-                </div>
-                <div className="mt-6 flex items-center justify-between gap-4">
-                  <h3 className="text-2xl font-semibold text-text">{lane.name}</h3>
-                  {lane.badge ? (
-                    <span className="rounded-full border border-amber-200/20 bg-amber-100/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-amber-300">
-                      {lane.badge}
-                    </span>
-                  ) : (
-                    <span className="rounded-full border border-cta/20 bg-cta/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-cta">
-                      Lane
-                    </span>
-                  )}
-                </div>
-                <p className="mt-3 text-text-muted leading-7">{lane.summary}</p>
-                <div className="mt-6 rounded-2xl bg-white/70 p-5">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-primary">Best for</p>
-                  <p className="mt-2 text-sm leading-relaxed text-text-muted">{lane.forWhom}</p>
-                </div>
-                <div className="mt-6">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-primary">Typical outputs</p>
-                  <ul className="mt-3 space-y-2 text-sm text-text-muted">
-                    {lane.deliverables.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-cta" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link href={lane.href} className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light">
-                  {lane.cta}
-                </Link>
-              </article>
-            );
-          })}
+          {primaryLanes.map((lane) => (
+            <LaneCard key={lane.name} lane={lane} />
+          ))}
         </div>
       </section>
 
-      <section id="offer-ladder" className="section-divider bg-white py-20">
+      <section id="specialty-lanes" className="section-divider bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
-            <span className="kicker">Offer ladder</span>
+            <span className="kicker">Specialty services</span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
-              A clearer path from sample brief to retainer.
+              Deeper lanes for specific questions.
             </h2>
             <p className="mt-4 text-lg text-text-muted">
-              Keep the entry point small, then expand only when the scope, owner, and next action are clear.
+              Use these when the request is more technical or the deliverable needs a defensible methodology.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {offerLadder.map((item) => (
-              <article key={item.name} className="premium-panel rounded-[1.5rem] p-6">
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">{item.name}</p>
-                <p className="mt-3 text-2xl font-semibold text-text">{item.price}</p>
-                <p className="mt-2 text-sm text-text-muted">{item.note}</p>
-              </article>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {specialtyLanes.map((lane) => (
+              <LaneCard key={lane.name} lane={lane} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-divider bg-white py-20">
+      <section id="offer-ladder" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-3xl">
+          <span className="kicker">Offer ladder</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+            A clearer path from sample brief to retainer.
+          </h2>
+          <p className="mt-4 text-lg text-text-muted">
+            Keep the entry point small, then expand only when the scope, owner, and next action are clear.
+          </p>
+          <Link
+            href="/services/pricing"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-cta transition-colors"
+          >
+            <Tag className="h-3.5 w-3.5" />
+            See the full pricing breakdown
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {offerLadder.map((item) => (
+            <article key={item.name} className="premium-panel rounded-[1.5rem] p-6">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">{item.name}</p>
+              <p className="mt-3 text-2xl font-semibold text-text">{item.price}</p>
+              <p className="mt-2 text-sm text-text-muted">{item.note}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="strategic" className="section-divider bg-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <span className="kicker">Strategic pipeline</span>
@@ -279,39 +354,29 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-1">
-            {[
-              pipeline,
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <article key={item.name} className="premium-panel group flex h-full flex-col rounded-[2rem] border border-primary/10 bg-gradient-to-br from-white via-white to-primary/5 p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl lg:flex-row lg:items-center lg:gap-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                    Strategic upgrade
-                  </div>
-                  <div className={`mt-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${item.accent} shadow-lg shadow-primary/10`}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="mt-6 lg:mt-0">
-                    <h3 className="text-2xl font-semibold text-text">{item.name}</h3>
-                    <p className="mt-3 text-text-muted leading-7">{item.summary}</p>
-                    <div className="mt-6 rounded-2xl bg-white/80 p-5">
-                      <p className="text-sm font-semibold uppercase tracking-wider text-primary">Best for</p>
-                      <p className="mt-2 text-sm leading-relaxed text-text-muted">{item.forWhom}</p>
-                    </div>
-                  </div>
-                  <div className="mt-6 flex flex-col gap-3 lg:mt-0 lg:ml-auto lg:min-w-[220px]">
-                    <Link href={item.href} className="inline-flex items-center justify-center gap-2 rounded-xl bg-dark px-5 py-3 font-semibold text-white transition hover:bg-dark/90">
-                      {item.cta}
-                    </Link>
-                    <div className="rounded-xl border border-border bg-white px-4 py-3 text-sm text-text-muted">
-                      Reusable workflow + review gate
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="grid gap-6">
+            {strategicLanes.map((lane) => (
+              <LaneCard key={lane.name} lane={lane} large />
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section id="coming-soon" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-3xl">
+          <span className="kicker">Coming soon</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+            Lane queue.
+          </h2>
+          <p className="mt-4 text-lg text-text-muted">
+            Two lanes in the queue. Join the waitlist to be first when they ship.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {comingSoonLanes.map((lane) => (
+            <LaneCard key={lane.name} lane={lane} />
+          ))}
         </div>
       </section>
 
@@ -380,18 +445,13 @@ export default function ServicesPage() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {[
-            ["Briefs", "Decision-ready summaries and scoped requests."],
-            ["Visual evidence", "Screenshots, figures, slides, and chart captures."],
-            ["Audio notes", "Meeting clips and spoken context tied back to the brief."],
-            ["Approved snippets", "Reusable language only after human review."],
-          ].map(([title, desc]) => (
-            <article key={title} className="premium-panel rounded-[1.5rem] p-6">
+          {evidenceBlocks.map((item) => (
+            <article key={item.title} className="premium-panel rounded-[1.5rem] p-6">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 text-primary">
                 <CheckCircle2 className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-text">{title}</h3>
-              <p className="mt-3 text-sm leading-7 text-text-muted">{desc}</p>
+              <h3 className="mt-4 text-lg font-semibold text-text">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-text-muted">{item.desc}</p>
             </article>
           ))}
         </div>
@@ -422,7 +482,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section id="contact" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
             <span className="kicker">FAQ</span>
@@ -438,7 +498,7 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-          <div id="contact" className="premium-panel rounded-[2rem] p-8 text-white bg-dark relative overflow-hidden">
+          <div className="premium-panel rounded-[2rem] p-8 text-white bg-dark relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,119,6,0.16),transparent_40%)]" />
             <div className="relative">
               <span className="kicker text-amber-100/80">Concierge</span>
@@ -458,7 +518,7 @@ export default function ServicesPage() {
                 <Link href="/" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light">
                   Home
                 </Link>
-                <Link href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3 font-semibold text-gray-200 transition hover:bg-white/5">
+                <Link href="/services/business-pipeline#brief" className="inline-flex items-center gap-2 rounded-xl border border-white/15 px-6 py-3 font-semibold text-gray-200 transition hover:bg-white/5">
                   Open inquiry details
                 </Link>
               </div>
