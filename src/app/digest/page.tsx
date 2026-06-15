@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
   {
+    id: 16,
+    date: "2026-06-16",
+    title: "Non-coding GWAS loci in heart failure dissected via matched ATAC-seq + Hi-C + Perturb-seq + RNA-seq (4-accession bundle, score 9, n=18); Xenium spatial atlas of muscle-invasive bladder cancer exposes lineage-specific vulnerabilities (score 9, n=5); paired spatiotemporal single-cell atlas of suture stem cell dynamics in craniosynostosis (score 7/7, n=17, mouse)",
+    category: "bioinformatics",
+    summary: "Three fresh high-impact hits spanning bioinformatics/AI drug discovery, precision oncology, and developmental spatial biology, drawn from the research-watcher's 2026-06-15 scan (collected_at 2026-06-14T21:02 UTC; 104 hits ingested, 82 new accessions not yet digested after de-duplicating against id:10–id:15): (1) Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure delivers a matched 4-accession multi-omic bundle — ATAC-seq (GSE281462, n=4) + Hi-C (GSE281463, n=4) + Perturb-seq (GSE281464, n=7) + RNA-seq (GSE281465, n=3), pdat 2025/06/16, all score 9, clean license, raw files, perturbation signal — a score-9 multi-modal dissection of non-coding GWAS loci in heart failure that links 3D chromatin architecture to causal gene regulatory programs, directly actionable for Brown Biotech's cardiac-fibrosis pipeline and the CMap repurposing lane. (2) A Xenium Spatial Atlas of Muscle-Invasive Bladder Cancer Reveals Lineage-Specific Vulnerabilities (GSE326226, n=5, pdat 2026/05/05, single-cell + spatial, clean license, raw files, score 9) — first score-9 Xenium bladder-cancer atlas exposing lineage-specific vulnerabilities, a direct precision-oncology brief input and a clean addition to the Brown Biotech spatial-cohort pipeline (promoted from id:14 backlog). (3) Spatiotemporal single-cell atlas of suture stem cell dynamics in craniosynostosis — paired Visium HD (GSE303344, n=3) + scRNA-Seq (GSE303460, n=14), pdat 2026/05/20, mouse, score 7/7, single-cell + spatial — paired spatiotemporal dissection of suture stem-cell dynamics in a developmental disorder, useful for the spatial + DEG methodology lane and the craniofacial developmental-biology brief (promoted from id:14 backlog).",
+    tags: ["non-coding GWAS", "heart failure", "3D chromatin", "ATAC-seq", "Hi-C", "Perturb-seq", "RNA-seq", "multi-omic bundle", "causal gene regulatory program", "cardiac fibrosis", "CMap repurposing", "Xenium", "bladder cancer", "muscle-invasive bladder cancer", "lineage-specific vulnerability", "precision oncology", "single-cell + spatial", "spatial transcriptomics", "Visium HD", "scRNA-Seq", "suture stem cell", "craniosynostosis", "spatiotemporal atlas", "developmental biology", "bioinformatics", "open science", "GEO"],
+    highlights: [
+      "Non-coding GWAS in heart failure — 4-accession multi-omic bundle (GSE281462 ATAC-seq n=4 + GSE281463 Hi-C n=4 + GSE281464 Perturb-seq n=7 + GSE281465 RNA-seq n=3, score 9/9/9/9, pdat 2025/06/16, all clean license + raw files + perturbation signal): score-9 multi-modal dissection of non-coding GWAS loci in heart failure linking 3D chromatin architecture to causal gene regulatory programs — direct cardiac-fibrosis pipeline input and CMap repurposing angle for Brown Biotech's AI drug discovery service",
+      "Xenium Spatial Atlas of muscle-invasive bladder cancer (GSE326226, score 9, n=5, pdat 2026/05/05, single-cell + spatial, clean license, raw files, suppfile CSV/H5/PARQUET/TIFF): first score-9 Xenium bladder-cancer atlas exposing lineage-specific vulnerabilities — direct precision-oncology brief input and clean addition to the Brown Biotech spatial-cohort pipeline (promoted from id:14 backlog)",
+      "Spatiotemporal suture-stem-cell atlas in craniosynostosis — paired Visium HD (GSE303344, score 7, n=3) + scRNA-Seq (GSE303460, score 7, n=14), pdat 2026/05/20, mouse, single-cell + spatial: paired spatiotemporal dissection of suture stem-cell dynamics in a developmental disorder — spatial + DEG methodology reference and craniofacial developmental-biology brief input (promoted from id:14 backlog)",
+      "Combined signal: multi-omic 3D-chromatin GWAS dissection (heart failure) + Xenium precision-oncology atlas (bladder cancer) + spatiotemporal developmental single-cell + spatial (craniosynostosis) — three orthogonal modalities spanning bioinformatics/AI drug discovery, clinical/precision oncology, and developmental biology, all clean-license GEO with raw files available; the 2026-06-15 scan emitted 104 hits, of which 82 accessions are new (not yet digested in id:10–id:15)"
+    ],
+    actions: [
+      { label: "Request AI drug discovery / cardiac fibrosis brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request spatial transcriptomics workflow brief", href: "/multiomics#brief" },
+      { label: "View biostatx service", href: "/services/biostatx" },
+    ],
+  },
+  {
     id: 15,
     date: "2026-06-15",
     title: "PRC2 perturbation in naive-to-primed hPSC transition maps dynamic poised-enhancer connectivity and an epigenetic drug-target landscape (score 9, n=45); NRTI antiretroviral therapy drives progressive alveolar-macrophage senescence (n=74, ChIP-seq); spatial atlas of maternal-fetal cell contributions to severe preeclampsia (n=152)",
@@ -104,26 +124,7 @@ const sampleDigests = [
       { label: "View biostatx service", href: "/services/biostatx" },
     ],
   },
-  {
-    id: 11,
-    date: "2026-06-10",
-    title: "Pancreatic cancer transcriptional-addiction ChIPmentation + scATAC organoid atlas defines druggable epigenetic dependencies; cross-species single-cell multiomics of EMT tumor states (mouse + human); sexually-dimorphic human/mouse adrenal gland tissue-turnover atlas reframes hormone aging",
-    category: "ai-drug-discovery",
-    summary: "Three fresh high-impact hits spanning AI drug discovery, bioinformatics, and longevity: (1) Targeting transcriptional addiction to pro-proliferative programs in pancreatic cancer delivers a matched ChIPmentation organoid (GSE296816, n=3) + scATAC organoid (GSE296818, n=8) + ChIPmentation (GSE296819, n=2) dataset, pdat 2026/06/04, score 6/6/3 — directly maps druggable epigenetic dependencies in PDAC organoids and is an immediate CMap-friendly input for Brown Biotech precision-oncology target prioritization. (2) Single cell multiomics unravel the transcription networks controlling the different EMT tumor states (GSE288137, mouse + human, n=16, pdat 2026/06/07, score 6) provides a cross-species single-cell multiomics dissection of the EMT transcription-factor programs that drive metastasis — a fresh mechanistic anchor for Brown Biotech spatial + DEG + TF-motif pipeline work on solid tumor progression. (3) Human and mouse adrenal glands are characterized by species-specific and sexually-dimorphic heterogeneity and tissue turnover (GSE253852 mouse + human mixed n=31 + GSE293042 VisiumHD mouse n=2, pdat 2026/05/11, score 9/6) introduces a score-9 cross-species adrenal atlas with VisiumHD spatial support — reframes adrenal aging, stress-axis biology, and sexually-dimorphic hormone turnover with direct relevance to Brown Biotech's longevity/senolytic service and to stress-mediated immunosenescence discussions.",
-    tags: ["pancreatic cancer", "transcriptional addiction", "ChIPmentation", "scATAC", "organoid", "epigenetic drug target", "CMap", "precision oncology", "EMT", "single-cell multiomics", "transcription network", "metastasis", "TF motif", "DEG", "mouse human cross-species", "adrenal gland", "Visium HD", "sexually dimorphic", "tissue turnover", "hormone aging", "stress axis", "senolytic", "longevity", "open science reference atlas"],
-    highlights: [
-      "Pancreatic cancer transcriptional-addiction multi-modality atlas (GSE296816 ChIPmentation organoid n=3 + GSE296818 scATAC organoid n=8 + GSE296819 ChIPmentation n=2, score 6+6+3, pdat 2026/06/04): matched ChIPmentation + scATAC in PDAC organoids pin druggable epigenetic dependencies for pro-proliferative transcriptional programs — direct CMap repurposing input for Brown Biotech precision-oncology brief",
-      "EMT single-cell multiomics across species (GSE288137, mouse + human, n=16, score 6, pdat 2026/06/07): cross-species single-cell multiomics dissects the transcription-factor networks controlling distinct EMT tumor states — a fresh mechanistic anchor for Brown Biotech DEG + TF-motif + spatial pipeline on solid-tumor progression and metastasis",
-      "Cross-species adrenal gland tissue-turnover atlas (GSE253852 mixed human+mouse n=31 + GSE293042 VisiumHD mouse n=2, score 9+6, pdat 2026/05/11): introduces species-specific and sexually-dimorphic heterogeneity + tissue-turnover atlas with VisiumHD spatial support — reframes adrenal aging, stress-axis biology, and hormone-mediated immunosenescence relevant to Brown Biotech longevity/senolytic service",
-      "Combined signal: epigenetic drug target (PDAC) + cross-species single-cell multiomics (EMT) + sexually-dimorphic hormone atlas (adrenal) — three orthogonal modalities spanning AI drug discovery, bioinformatics, and longevity, all clean-license GEO with raw files available"
-    ],
-    actions: [
-      { label: "Request precision oncology brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "View Multi-Omics service", href: "/multiomics#brief" },
-      { label: "Request longevity/senolytic brief", href: "/services/ai-drug-discovery#brief" },
-      { label: "View biostatx service", href: "/services/biostatx" },
-    ],
-  },];
+];
 
 export default function DigestPage() {
   return (
