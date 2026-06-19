@@ -34,6 +34,13 @@ export default async function DigestDetailPage({ params }: Props) {
     content = `# Digest not found\n\nNo digest found for ${date}.`;
   }
 
+  // Check if a parallel research digest exists for this date (06:00 KST track).
+  const researchPath = path.join(CONTENT_DIR, "research", `${date}.md`);
+  const hasResearch = await fs
+    .access(researchPath)
+    .then(() => true)
+    .catch(() => false);
+
   // Simple markdown strip for preview (keep bold/lists)
   const bodyHtml = content
     .replace(/\n##?\s+Top Signals.*/i, "")
@@ -77,7 +84,15 @@ export default async function DigestDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-zinc-800 text-center">
+        <div className="mt-8 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          {hasResearch && (
+            <Link
+              href={`/blog/daily-digest/research/${date}`}
+              className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
+            >
+              → Today's research digest (PubMed/GEO)
+            </Link>
+          )}
           <Link
             href="/services/business-pipeline#brief"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-amber-700/80 hover:bg-amber-600 text-white text-sm font-medium transition-colors"
