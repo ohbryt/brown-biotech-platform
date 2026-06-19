@@ -35,6 +35,6 @@ jobs:
 
       - name: Deploy to Vercel
         run: |
-          deployment_url=$(npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" --public | grep -oP 'https://[^ ]+\.vercel\.app')
+          deployment_url=$(npx vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN" | grep -oP 'https://[^ ]+\.vercel\.app')
           echo "Deployed to: $deployment_url"
           npx vercel@latest alias --token "$VERCEL_TOKEN" "$deployment_url" brownbio.tech
