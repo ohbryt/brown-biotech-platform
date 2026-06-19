@@ -93,7 +93,7 @@ export default async function ResearchDigestDetailPage({ params }: Props) {
             href={`/blog/daily-digest/${date}`}
             className="text-xs text-zinc-400 hover:text-amber-400 transition-colors"
           >
-            ← Today's signals brief (HN/GeekNews)
+            ← Today&apos;s signals brief (HN/GeekNews)
           </Link>
           <Link
             href="/services/ai-drug-discovery#brief"

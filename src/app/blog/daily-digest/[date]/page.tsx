@@ -90,7 +90,7 @@ export default async function DigestDetailPage({ params }: Props) {
               href={`/blog/daily-digest/research/${date}`}
               className="text-xs text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              → Today's research digest (PubMed/GEO)
+              → Today&apos;s research digest (PubMed/GEO)
             </Link>
           )}
           <Link
