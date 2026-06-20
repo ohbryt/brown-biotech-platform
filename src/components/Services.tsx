@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FlaskConical, BarChart3, Sparkles, Sigma, GitBranch, ArrowRight } from "lucide-react";
+import { FlaskConical, BarChart3, Sparkles, Sigma, GitBranch, BrainCircuit, TrendingUp, Network, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const primaryLanes = [
@@ -28,13 +28,37 @@ const primaryLanes = [
   },
 ];
 
-const adjacentLanes = [
+const specialtyLanes = [
+  {
+    icon: BrainCircuit,
+    name: "ai-drug-discovery",
+    badge: "Specialty",
+    desc: "FPembed molecular reasoning — decision-scored candidates, not similarity lists.",
+    href: "/services/ai-drug-discovery",
+  },
+  {
+    icon: TrendingUp,
+    name: "research-intelligence",
+    badge: "Specialty",
+    desc: "TrueSkill-ranked preprint tournament. Decision-ready shortlists, not reading lists.",
+    href: "/services/research-intelligence",
+  },
   {
     icon: Sigma,
     name: "strict-omics",
     badge: "Project lane",
     desc: "Audit-grade transcriptomics pipelines. LLM proposes, deterministic gates decide.",
     href: "/services/strict-omics",
+  },
+];
+
+const strategicLanes = [
+  {
+    icon: Network,
+    name: "arp-engine",
+    badge: "Flagship",
+    desc: "The reasoning layer every paid brief runs on. System of Intelligence, with human approval gates.",
+    href: "/services/arp-engine",
   },
   {
     icon: GitBranch,
@@ -65,10 +89,10 @@ export default function Services() {
         >
           <span className="kicker">Service lanes</span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-text tracking-tight">
-            Three primary lanes. Two more when you need them.
+            Three primary lanes. Five more when you need them.
           </h2>
           <p className="mt-5 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
-            Each lane is a clear entry point with one owner, a fixed deliverable, and a visible next step. Paid brief is the default; project and retainer tiers are reserved for scoped work.
+            Each lane is a clear entry point with one owner, a fixed deliverable, and a visible next step. Paid brief is the default; project, specialty, and strategic tiers are reserved for scoped work.
           </p>
         </motion.div>
 
@@ -125,23 +149,76 @@ export default function Services() {
           })}
         </div>
 
-        {/* Adjacent lanes — 2 compact cards */}
-        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {adjacentLanes.map((lane) => {
+        {/* Specialty lanes — 3 cards */}
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {specialtyLanes.map((lane, i) => {
             const Icon = lane.icon;
+            return (
+              <motion.div
+                key={lane.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
+                whileHover={{ y: -6 }}
+                className="group relative flex h-full flex-col rounded-2xl border border-gray-100 bg-surface p-8 transition-all duration-300"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-cta/10 shadow-lg">
+                    <Icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <span className="rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-primary">
+                    {lane.badge}
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-text font-mono">
+                  {lane.name}
+                </h3>
+                <p className="mt-3 text-sm text-text-muted leading-relaxed flex-1">
+                  {lane.desc}
+                </p>
+                <Link
+                  href={lane.href}
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-cta transition-colors"
+                >
+                  Open lane
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Strategic lanes — 2 compact cards (Flagship + Strategic upgrade) */}
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {strategicLanes.map((lane) => {
+            const Icon = lane.icon;
+            const isFlagship = lane.badge === "Flagship";
             return (
               <Link
                 key={lane.name}
                 href={lane.href}
-                className="group flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 transition-all hover:border-primary/20 hover:shadow-md"
+                className={`group flex items-center gap-4 rounded-2xl p-5 transition-all ${
+                  isFlagship
+                    ? "border-2 border-cta/30 bg-gradient-to-br from-cta/5 via-white to-primary/5 shadow-lg shadow-cta/10 hover:shadow-xl"
+                    : "border border-gray-100 bg-white hover:border-primary/20 hover:shadow-md"
+                }`}
               >
-                <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/10 to-cta/10">
-                  <Icon className="h-5 w-5 text-primary" />
+                <div className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg shadow-lg ${
+                  isFlagship
+                    ? "bg-gradient-to-br from-primary to-cta shadow-primary/20"
+                    : "bg-gradient-to-br from-primary/10 to-cta/10"
+                }`}>
+                  <Icon className={`h-5 w-5 ${isFlagship ? "text-white" : "text-primary"}`} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <h3 className="font-mono text-sm font-semibold text-text">{lane.name}</h3>
-                    <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-text-muted">
+                    <span className={`rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest ${
+                      isFlagship
+                        ? "border border-cta/30 bg-cta/10 text-cta"
+                        : "border border-border bg-surface text-text-muted"
+                    }`}>
                       {lane.badge}
                     </span>
                   </div>

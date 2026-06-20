@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag, Network } from "lucide-react";
 import { MARKET_SIGNALS } from "@/lib/intake";
 
 const siteName = "Brown Biotech Inc.";
@@ -75,6 +75,20 @@ const specialtyLanes = [
     cta: "Request a Pipeline Brief",
     accent: "from-amber-500 to-primary-dark",
     badge: "Project",
+  },
+];
+
+const flagshipLanes = [
+  {
+    name: "arp-engine",
+    href: "/services/arp-engine",
+    icon: Network,
+    summary: "The System of Intelligence behind every Brown Biotech lane. Continuous reasoning layer over public life-science data, with human approval gates.",
+    forWhom: "Teams that want to understand — or build on — the reasoning engine.",
+    deliverables: ["Engine overview", "Lane map", "Access paths"],
+    cta: "See the engine",
+    accent: "from-primary-dark to-cta",
+    badge: "Flagship",
   },
 ];
 
@@ -167,7 +181,7 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), strategic pipeline (business-pipeline), and the Inventa waitlist.",
+  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), flagship ARP engine, strategic pipeline (business-pipeline), and the Inventa waitlist.",
   alternates: { canonical: "/services" },
 };
 
@@ -338,6 +352,24 @@ export default function ServicesPage() {
               <p className="mt-3 text-2xl font-semibold text-text">{item.price}</p>
               <p className="mt-2 text-sm text-text-muted">{item.note}</p>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="flagship" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-3xl">
+          <span className="kicker">Flagship engine</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+            The System of Intelligence.
+          </h2>
+          <p className="mt-4 text-lg text-text-muted">
+            Brown Biotech&apos;s flagship engine. Continuous reasoning over public life-science data, with human approval gates. Every other lane runs on top of it.
+          </p>
+        </div>
+
+        <div className="grid gap-6">
+          {flagshipLanes.map((lane) => (
+            <LaneCard key={lane.name} lane={lane} large />
           ))}
         </div>
       </section>
