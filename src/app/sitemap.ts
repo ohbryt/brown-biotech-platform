@@ -10,6 +10,7 @@ const serviceRoutes: Array<{ path: string; priority?: number }> = [
   { path: "/services/research-intelligence", priority: 0.7 },
   { path: "/services/strict-omics", priority: 0.7 },
   { path: "/services/business-pipeline", priority: 0.7 },
+  { path: "/services/arp-engine", priority: 0.8 },
   { path: "/services/pricing", priority: 0.6 },
   { path: "/services/inventa", priority: 0.5 },
 ];
