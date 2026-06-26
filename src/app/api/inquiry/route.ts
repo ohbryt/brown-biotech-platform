@@ -17,6 +17,7 @@ const NOTION_INTAKE_DATABASE_ID = process.env.NOTION_INTAKE_DATABASE_ID || "";
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || process.env.BROWN_BIOTECH_TELEGRAM_BOT_TOKEN || "";
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || process.env.BROWN_BIOTECH_TELEGRAM_CHAT_ID || "";
 const TELEGRAM_THREAD_ID = process.env.TELEGRAM_THREAD_ID || process.env.BROWN_BIOTECH_TELEGRAM_THREAD_ID || "";
+const PRISM_URL = process.env.NEXT_PUBLIC_PRISM_URL || process.env.PRISM_URL || "";
 
 function toText(value: unknown): string {
   return String(value || "").trim();
@@ -329,6 +330,49 @@ async function maybeSendToFormspree(payload: IntakeFormPayload, triage: ReturnTy
   }
 }
 
+async function maybeRunPrismPreview(payload: IntakeFormPayload): Promise<{
+  question: string;
+  answer: string;
+  sources: Array<{ pmid: string; title: string; journal: string; year: number; score: number }>;
+} | null> {
+  if (!PRISM_URL) return null;
+  const lane = normalizeServiceLane(payload.serviceLane || payload.serviceName || "");
+  if (lane !== "biostatx") return null;
+
+  const question = [payload.problem, payload.outcome, payload.message, payload.evidenceSummary]
+    .filter(Boolean)
+    .join(" ")
+    .trim()
+    .slice(0, 500);
+  if (!question) return null;
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+    const response = await fetch(`${PRISM_URL}/rag/query`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question, top_k: 3, max_tokens: 200 }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error(`[biostatx] PRISM /rag/query ${response.status}: ${detail.slice(0, 200)}`);
+      return null;
+    }
+    const body = await response.json();
+    return {
+      question,
+      answer: typeof body.answer === "string" ? body.answer : "",
+      sources: Array.isArray(body.sources) ? body.sources : [],
+    };
+  } catch (err) {
+    console.error(`[biostatx] PRISM preview failed:`, err);
+    return null;
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const parsed = await parseInquiryRequest(request);
@@ -355,6 +399,8 @@ export async function POST(request: Request) {
       maybeSendToFormspree(payload, triage),
     ]);
 
+    const prismPreview = await maybeRunPrismPreview(payload);
+
     return NextResponse.json({
       ok: true,
       requestId: notion.requestId,
@@ -364,6 +410,7 @@ export async function POST(request: Request) {
       deliveryTargets,
       deliveryNote: getDeliveryNote(deliveryTargets),
       attachments,
+      prismPreview,
       message: "Inquiry received and routed.",
     });
   } catch (error) {

@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, BarChart3, CheckCircle2, ShieldCheck, FlaskConical, FileText, GitBranch } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
+import PrismLivePreview from "./PrismLivePreview";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const prismUrl = process.env.NEXT_PUBLIC_PRISM_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "biostatx",
-  description: "Brown Biotech biostatx — biostatistics, analysis, and reporting for teams that need a cleaner evidence path.",
+  description:
+    "Brown Biotech biostatx — biostatistics, analysis, and reporting for teams that need a cleaner evidence path. Live PRISM RAG preview included.",
+  keywords: ["biostatistics", "paid brief", "PRISM", "TurboQuant", "evidence-based", "research consulting"],
   alternates: { canonical: "/services/biostatx" },
+  openGraph: {
+    title: "biostatx · Brown Biotech",
+    description: "Decision-ready biostatistics briefs. Live PRISM RAG preview built in.",
+    type: "website",
+    url: `${siteUrl}/services/biostatx`,
+  },
 };
 
 const proofItems = [
@@ -218,13 +227,15 @@ export default function BiostatxPage() {
       <ServiceInquiryCard
         serviceName="biostatx"
         title="Send a dataset or analysis brief"
-        description="If you need a dataset review, a methods recommendation, or reporting support, send the basics and we&apos;ll route it quickly."
+        description="If you need a dataset review, a methods recommendation, or reporting support, send the basics and we'll route it quickly."
         prompts={[
           "What dataset or result do you want reviewed?",
           "Do you already have a hypothesis or analysis goal?",
           "Do you need a one-off report or an ongoing analysis partner?",
         ]}
       />
+
+      {prismUrl && <PrismLivePreview />}
     </main>
   );
 }
