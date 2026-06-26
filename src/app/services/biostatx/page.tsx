@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, BarChart3, CheckCircle2, ShieldCheck, FlaskConical, FileText, GitBranch } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 import PrismLivePreview from "./PrismLivePreview";
