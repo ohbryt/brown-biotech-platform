@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Platform from "@/components/Platform";
+import WaveDifference from "@/components/WaveDifference";
 import Services from "@/components/Services";
 import ProofAndPartner from "@/components/ProofAndPartner";
 import Process from "@/components/Process";
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Platform />
+      <WaveDifference />
       <Services />
       <ProofAndPartner />
       <Process />

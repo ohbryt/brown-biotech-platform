@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const cards = [
   {
     title: "Who it is for",
-    body: "Teams that want a reusable company asset for routing, review, and brief production—not just a one-off project deliverable.",
+    body: "Teams that want a reusable company asset for routing, review, and brief production — not just a one-off project deliverable.",
   },
   {
     title: "What we do",
@@ -24,6 +24,10 @@ const cards = [
   {
     title: "What you get",
     body: "A reusable operating pipeline, a clear handoff artifact, and a structure that can support consulting or product work.",
+  },
+  {
+    title: "Reasoning layer, not just tools",
+    body: "We sit between the model and the biology: procedure, source map, and human review. Boltz + Biomni handle the loop; we hand you the decision.",
   },
 ];
 

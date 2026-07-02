@@ -63,7 +63,25 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="mt-6 max-w-xl text-lg leading-7 text-gray-300"
           >
-            Start with a paid brief — powered by a live reasoning layer over PubMed, ClinicalTrials, ChEMBL, and GEO. We pick the lane, assign the owner, and ship a handoff you can act on.
+            Start with a paid brief — a continuous reasoning layer over
+            PubMed, ClinicalTrials, ChEMBL, and GEO. Agent halves the
+            work; the other half is biology judgment. One owner closes it.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.34, ease: "easeOut" }}
+            className="mt-3 max-w-xl text-sm leading-6 text-gray-400"
+          >
+            Now wired to Boltz-2 (protein design + cofold) and benchmarked
+            against Phylo&apos;s DrugDiscoveryBench — see{" "}
+            <a
+              href="#wave-difference"
+              className="text-amber-100 underline-offset-4 hover:underline"
+            >
+              why teams pick us
+            </a>
+            .
           </motion.p>
 
           <motion.div
