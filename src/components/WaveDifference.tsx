@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -206,12 +207,12 @@ export default function WaveDifference() {
             Request a Paid Brief
             <ArrowRight className="h-4 w-4" />
           </a>
-          <a
+          <Link
             href="/blog/research-pulse"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
           >
             See today&apos;s research pulse
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
