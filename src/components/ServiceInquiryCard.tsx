@@ -9,6 +9,8 @@ type ServiceInquiryCardProps = {
   title: string;
   description: string;
   prompts: string[];
+  /** Override the submit button label. Defaults to "Request a Paid Brief". */
+  submitLabel?: string;
   /** Peptide-service specific fields */
   peptideFields?: {
     assayTypes?: string[];
@@ -22,6 +24,7 @@ export default function ServiceInquiryCard({
   title,
   description,
   prompts,
+  submitLabel = "Request a Paid Brief",
   peptideFields,
 }: ServiceInquiryCardProps) {
   const subject = useMemo(() => `Brown Biotech paid brief: ${serviceName}`, [serviceName]);
@@ -186,7 +189,7 @@ export default function ServiceInquiryCard({
       <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Route preview</span>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">Request a Paid Brief</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">{title}</h2>
           <p className="mt-4 max-w-2xl text-lg leading-8 text-text-muted">{description}</p>
 
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -473,7 +476,7 @@ export default function ServiceInquiryCard({
                     </>
                   ) : (
                     <>
-                      Request a Paid Brief <ArrowRight className="h-4 w-4" />
+                      {submitLabel} <ArrowRight className="h-4 w-4" />
                     </>
                   )}
                 </button>
