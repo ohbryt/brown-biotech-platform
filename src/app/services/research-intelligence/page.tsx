@@ -34,6 +34,11 @@ const capabilities = [
     desc: "Not a ranking list — a ranked candidate report with AI Impact Assessment, confidence intervals, and ranked papers with next-action guidance.",
     icon: BrainCircuit,
   },
+  {
+    title: "PRISMA 2020 + RAISE Compliance",
+    desc: "Every brief follows PRISMA 2020 reporting standards and RAISE responsible-AI guidelines — same frameworks used by Cochrane and HTA agencies.",
+    icon: ShieldCheck,
+  },
 ];
 
 const workflow = [
@@ -75,6 +80,9 @@ export default function ResearchIntelligencePage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
               Brown Biotech Research Intelligence applies multi-model pairwise tournament ranking to longevity science preprints — so you get decision-ready candidates, not a reading list.
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-gray-400">
+              PRISMA 2020 + RAISE compliant. Qualitative reasoning layer on top of automated extraction — same evidence standards as Cochrane, designed for biotech and longevity decision-makers.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -195,7 +203,7 @@ export default function ResearchIntelligencePage() {
       <ServiceInquiryCard
         serviceName="research-intelligence"
         title="Request Research Intelligence Brief"
-        description="Tell us your research question, target category, or preprint set. We'll deliver a TrueSkill-ranked shortlist with AI Impact Assessments."
+        description="Tell us your research question, target category, or preprint set. We'll deliver a PRISMA-RAISE compliant, TrueSkill-ranked shortlist with AI Impact Assessments and decision-ready recommendations."
         prompts={[
           "What is your research question or hypothesis?",
           "Which category or topic area should we focus on?",

@@ -58,9 +58,9 @@ const specialtyLanes = [
     name: "research-intelligence",
     href: "/services/research-intelligence",
     icon: TrendingUp,
-    summary: "TrueSkill-ranked preprint tournament with multi-model pairwise evaluation.",
+    summary: "TrueSkill-ranked preprint tournament. PRISMA-RAISE compliant briefs — qualitative reasoning layer on top of automated extraction.",
     forWhom: "Longevity / omics / fibrosis teams that want ranked candidates, not a reading list.",
-    deliverables: ["AI Impact Assessment", "TrueSkill ranking", "Decision-ready brief"],
+    deliverables: ["AI Impact Assessment", "TrueSkill ranking", "PRISMA-RAISE compliant brief"],
     cta: "Request an Intelligence Brief",
     accent: "from-cta to-primary-light",
     badge: "Specialty",
@@ -139,7 +139,7 @@ const steps = [
 
 const offerLadder = [
   { name: "Sample Brief", price: "₩0.3M ~ ₩1M", note: "Preview / scope check" },
-  { name: "Paid Brief", price: "₩2M ~ ₩8M", note: "Decision-ready research doc" },
+  { name: "Paid Brief", price: "₩2M ~ ₩8M", note: "Decision-ready, PRISMA-RAISE compliant" },
   { name: "Project", price: "₩8M ~ ₩30M+", note: "Scoped analysis + execution" },
   { name: "Retainer", price: "₩3M ~ ₩15M+/mo", note: "Monthly research / ops support" },
 ];

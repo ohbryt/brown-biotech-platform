@@ -40,7 +40,7 @@ const specialtyLanes = [
     icon: TrendingUp,
     name: "research-intelligence",
     badge: "Specialty",
-    desc: "TrueSkill-ranked preprint tournament. Decision-ready shortlists, not reading lists.",
+    desc: "TrueSkill-ranked preprint tournament. PRISMA-RAISE compliant briefs with qualitative reasoning layer.",
     href: "/services/research-intelligence",
   },
   {
