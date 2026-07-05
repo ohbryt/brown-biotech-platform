@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Utensils, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowRight, Utensils, CheckCircle2, ShieldCheck, Sparkles, Music2, Compass, Heart, MapPin, Quote, UserRound, Star } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -64,6 +64,95 @@ const boundaries = [
   "No medical claims. We say 'may help' or 'according to WHO' — never 'cures', 'prevents', or 'treats'.",
   "No 'lonely person' framing. Guests are adults choosing connection, not patients.",
   "Personal data is held to PIPA minimum-necessary standards — name + verified contact only.",
+];
+
+const themes = [
+  {
+    title: "First dinner",
+    desc: "A small table, a soft start. Three courses, two strangers, no pressure to perform.",
+    icon: Sparkles,
+  },
+  {
+    title: "Hobby & culture",
+    desc: "Music, film, food, books. Pick a thread for the night — the host keeps it moving.",
+    icon: Music2,
+  },
+  {
+    title: "Life, chapter two",
+    desc: "Career transitions, retirement, empty nests, new cities. Adults with stories.",
+    icon: Compass,
+  },
+  {
+    title: "Healthy living",
+    desc: "Eating for energy, sleep, longevity, mental clarity. Not clinical — just thoughtful.",
+    icon: Heart,
+  },
+  {
+    title: "Neighbours",
+    desc: "Same district, never met. A weekly table for people who live five minutes apart.",
+    icon: MapPin,
+  },
+];
+
+const hosts = [
+  {
+    name: "Lead host",
+    role: "Gwangju pilot",
+    bio: "Trained in conversational facilitation. Owns matchmaking, post-dinner reflection, and table safety protocols.",
+  },
+  {
+    name: "Co-host",
+    role: "Tables & venues",
+    bio: "Logistics, restaurant partners, dietary notes, accessibility. Keeps the night running smoothly.",
+  },
+  {
+    name: "Medical advisor",
+    role: "MD/PhD · endocrinology & geriatric medicine",
+    bio: "Designs the social-prescribing framework. Reviews pilot outcomes against published evidence.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "K.O., 58",
+    quote: "The first comfortable laugh I'd had at a dinner table since retirement.",
+    role: "Pilot guest · Gwangju",
+  },
+  {
+    name: "L.S., 47",
+    quote: "I expected awkward silence. The host kept the table moving — I signed up for the next one before I left.",
+    role: "Pilot guest · Gwangju",
+  },
+  {
+    name: "P.J., 62",
+    quote: "I look forward to dinner again. Same host, rotating tablemates, a real conversation each week.",
+    role: "Pilot guest · Gwangju",
+  },
+];
+
+const plans = [
+  {
+    name: "Single dinner",
+    note: "First-time pilot · one curated table",
+    price: "Pilot pricing",
+    detail: "Final pricing announced at launch. Pilot guests invited at no charge.",
+    accent: "border-border",
+  },
+  {
+    name: "Membership",
+    note: "Weekly cadence · same host · rotating tablemates",
+    price: "Monthly pricing",
+    detail: "Final pricing announced at launch. Includes post-dinner check-in and seasonal table-switch.",
+    accent: "border-cta/40",
+    featured: true,
+  },
+  {
+    name: "Partner program",
+    note: "Municipal · insurer · employer group programs",
+    price: "Custom scoping",
+    detail: "Cohort size, table frequency, and reporting tier defined per partner.",
+    accent: "border-amber-300/30",
+  },
 ];
 
 export default function OndiningPage() {
@@ -162,11 +251,104 @@ export default function OndiningPage() {
         </div>
       </section>
 
+      {/* TABLE THEMES */}
+      <section id="themes" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Table themes</span>
+          <p className="mt-4 max-w-2xl text-base text-text-muted">
+            Every table picks a thread for the night. Hosts rotate the theme; guests can request a switch after the first dinner.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {themes.map((theme) => {
+              const Icon = theme.icon;
+              return (
+                <div key={theme.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                  <Icon className="h-5 w-5 text-cta" />
+                  <p className="mt-3 text-base font-semibold text-text">{theme.title}</p>
+                  <p className="mt-2 text-sm leading-7 text-text-muted">{theme.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* HOSTS */}
+      <section id="hosts" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Who runs the table</span>
+          <p className="mt-4 max-w-2xl text-base text-text-muted">
+            Hosts are trained, named, and held to a code. The medical advisor designs the social-prescribing framework behind the program.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {hosts.map((host) => (
+              <div key={host.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <UserRound className="h-5 w-5 text-cta" />
+                <p className="mt-3 text-base font-semibold text-text">{host.name}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">{host.role}</p>
+                <p className="mt-3 text-sm leading-7 text-text-muted">{host.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Pilot voices</span>
+          <p className="mt-4 max-w-2xl text-base text-text-muted">
+            Placeholder quotes from the pilot cohort. Real testimonials ship after the first 8 weeks.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <blockquote key={t.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <Quote className="h-5 w-5 text-cta" />
+                <p className="mt-3 text-sm leading-7 text-text-muted">&ldquo;{t.quote}&rdquo;</p>
+                <footer className="mt-4">
+                  <p className="text-sm font-semibold text-text">{t.name}</p>
+                  <p className="text-xs uppercase tracking-wider text-primary">{t.role}</p>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
+          <span className="kicker">Pilot pricing</span>
+          <p className="mt-4 max-w-2xl text-base text-text-muted">
+            Final pricing is set at launch. Pilot guests are invited at no charge; partner programs are scoped per cohort.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {plans.map((plan) => (
+              <article
+                key={plan.name}
+                className={`relative rounded-2xl border bg-white p-6 shadow-sm ${plan.accent} ${plan.featured ? "ring-2 ring-cta/30" : ""}`}
+              >
+                {plan.featured && (
+                  <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full border border-cta/30 bg-cta/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-cta">
+                    <Star className="h-3 w-3" /> Most popular
+                  </span>
+                )}
+                <p className="text-sm font-semibold uppercase tracking-wider text-primary">{plan.name}</p>
+                <p className="mt-2 text-lg font-semibold text-text">{plan.price}</p>
+                <p className="mt-3 text-sm leading-7 text-text-muted">{plan.note}</p>
+                <p className="mt-2 text-xs leading-6 text-text-muted">{plan.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* INQUIRY */}
       <ServiceInquiryCard
         serviceName="ondining"
         title="Join the Gwangju pilot"
         description="Send a short note. The host team will route you to the next available table or partnership conversation."
+        submitLabel="Join the pilot"
         prompts={[
           "Which city are you in? (We pilot in Gwangju, then expand nationwide.)",
           "What kind of evening are you looking for — solo dinner, partner dinner, or a group program?",
