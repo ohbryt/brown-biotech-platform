@@ -13,6 +13,7 @@ const serviceRoutes: Array<{ path: string; priority?: number }> = [
   { path: "/services/arp-engine", priority: 0.8 },
   { path: "/services/pricing", priority: 0.6 },
   { path: "/services/inventa", priority: 0.5 },
+  { path: "/services/ondining", priority: 0.5 },
 ];
 
 const otherRoutes: Array<{ path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }> = [
