@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag, Network } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag, Network, Utensils } from "lucide-react";
 import { MARKET_SIGNALS } from "@/lib/intake";
 
 const siteName = "Brown Biotech Inc.";
@@ -118,6 +118,17 @@ const comingSoonLanes = [
     accent: "from-amber-400 to-orange-500",
     badge: "Coming soon",
   },
+  {
+    name: "ondining",
+    href: "/services/ondining",
+    icon: Utensils,
+    summary: "Social dining for adults 40–60. Curated tables of 5–6 guests, trained hosts, designed with a medical advisor.",
+    forWhom: "Adults who want a real evening conversation, and municipal / insurer / corporate wellness partners.",
+    deliverables: ["Pilot table", "Trained host", "Post-dinner check-in"],
+    cta: "Join the Gwangju pilot",
+    accent: "from-orange-500 to-rose-700",
+    badge: "Coming soon",
+  },
 ];
 
 const steps = [
@@ -181,7 +192,7 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), flagship ARP engine, strategic pipeline (business-pipeline), and the Inventa waitlist.",
+  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), flagship ARP engine, strategic pipeline (business-pipeline), and the Inventa + ondining waitlists.",
   alternates: { canonical: "/services" },
 };
 
@@ -240,20 +251,20 @@ export default function ServicesPage() {
           <div className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-cta animate-pulse" />
-              Service hub · 8 active lanes
+              Service hub · 10 active lanes
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               One place for paid briefs, routing, and decision-ready service requests.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-300">
-              Three primary lanes. Three specialty services. One strategic pipeline. Every request returns a route preview, an owner, and a clear next step. If the fit is weak, we say so quickly and keep the handoff clean.
+              Three primary lanes. Three specialty services. One flagship engine. One strategic pipeline. Two lanes in the waitlist queue. Every request returns a route preview, an owner, and a clear next step. If the fit is weak, we say so quickly and keep the handoff clean.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Privacy", "Private"],
                 ["Response", "24h"],
-                ["Lanes", "8 active"],
+                ["Lanes", "10 active"],
                 ["Output", "Route preview"],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/12 px-4 py-3 backdrop-blur">
@@ -401,7 +412,7 @@ export default function ServicesPage() {
             Lane queue.
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Two lanes in the queue. Join the waitlist to be first when they ship.
+            Two lanes in the queue — including ondining&apos;s Gwangju social-dining pilot. Join the waitlist to be first when they ship.
           </p>
         </div>
 

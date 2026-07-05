@@ -5,7 +5,7 @@ import { FlaskConical, Clock, ShieldCheck } from "lucide-react";
 
 const stats = [
   {
-    value: "8+",
+    value: "9+",
     label: "Active service lanes",
     sub: "Paid brief → specialty → strategic upgrade",
     icon: FlaskConical,

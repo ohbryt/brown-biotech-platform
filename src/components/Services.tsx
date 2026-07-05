@@ -89,7 +89,7 @@ export default function Services() {
         >
           <span className="kicker">Service lanes</span>
           <h2 className="mt-3 text-4xl sm:text-5xl font-bold text-text tracking-tight">
-            Three primary lanes. Five more when you need them.
+            Three primary lanes. Six more when you need them.
           </h2>
           <p className="mt-5 text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
             Each lane is a clear entry point with one owner, a fixed deliverable, and a visible next step. Paid brief is the default; project, specialty, and strategic tiers are reserved for scoped work.
