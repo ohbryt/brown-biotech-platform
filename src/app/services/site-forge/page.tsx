@@ -90,7 +90,7 @@ export default function SiteForgePage() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-200 backdrop-blur">
               <Hammer className="h-4 w-4 text-cta" />
-              site-forge · specialty lane
+              site-forge · flagship lane
             </span>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Generate a biotech landing page in under a minute.
