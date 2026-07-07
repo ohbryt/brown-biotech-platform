@@ -76,17 +76,6 @@ const specialtyLanes = [
     accent: "from-amber-500 to-primary-dark",
     badge: "Project",
   },
-  {
-    name: "site-forge",
-    href: "/services/site-forge",
-    icon: Hammer,
-    summary: "Single-file biotech landing pages — generated, downloadable, ready to email. Outreach, conference booths, sample-brief previews.",
-    forWhom: "BB operators and partners who need a one-pager artifact in under a minute.",
-    deliverables: ["Self-contained HTML", "5 themes × 2 heading styles", "Accessibility built in"],
-    cta: "Open the generator",
-    accent: "from-primary-light to-cta",
-    badge: "Specialty",
-  },
 ];
 
 const flagshipLanes = [
@@ -99,6 +88,17 @@ const flagshipLanes = [
     deliverables: ["Engine overview", "Lane map", "Access paths"],
     cta: "See the engine",
     accent: "from-primary-dark to-cta",
+    badge: "Flagship",
+  },
+  {
+    name: "site-forge",
+    href: "/services/site-forge",
+    icon: Hammer,
+    summary: "Single-file biotech landing pages — generated, downloadable, ready to email. Outreach, conference booths, sample-brief previews.",
+    forWhom: "BB operators and partners who need a one-pager artifact in under a minute.",
+    deliverables: ["Self-contained HTML", "5 themes × 2 heading styles", "Accessibility built in"],
+    cta: "Open the generator",
+    accent: "from-primary-light to-cta",
     badge: "Flagship",
   },
 ];
@@ -203,7 +203,7 @@ const faqs = [
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Service Hub",
-  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), flagship ARP engine, strategic pipeline (business-pipeline), and the Inventa + ondining waitlists.",
+  description: "Brown Biotech service hub — 3 primary lanes (peptide-service, biostatx, genox-site), 3 specialty services (ai-drug-discovery, research-intelligence, strict-omics), 2 flagship capabilities (arp-engine, site-forge), strategic pipeline (business-pipeline), and the Inventa + ondining waitlists.",
   alternates: { canonical: "/services" },
 };
 

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Biostatistics and bioinformatics for decision-ready outputs — same-week turnaround.">
+<title>Brown Biotech Biostatx</title>
+<style>
+  :root {
+    --primary: #15803d;
+    --dark: #14532d;
+    --tint: #f0fdf4;
+    --text: #1f2328;
+    --muted: #555e68;
+    --surface: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.2; }
+  a { color: var(--primary); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--dark); color: #fff; padding: 0.6rem 1rem; z-index: 20;
+  }
+  .skip-link:focus { left: 0; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem; }
+
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--dark); color: #fff;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 64px; flex-wrap: wrap;
+  }
+  .brand { font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; padding: 0.5rem 0; }
+  nav ul { list-style: none; display: flex; gap: 0.25rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a {
+    color: #fff; text-decoration: none; padding: 0.6rem 0.8rem;
+    border-radius: 6px; display: inline-block;
+  }
+  nav a:hover { background: rgba(255,255,255,0.15); text-decoration: underline; }
+  .menu-btn {
+    display: none; background: none; color: #fff;
+    border: 1px solid rgba(255,255,255,0.5); border-radius: 6px;
+    padding: 0.5rem 0.85rem; font: inherit; cursor: pointer; min-height: 44px;
+  }
+  @media (max-width: 719px) {
+    .menu-btn { display: inline-block; }
+    nav { width: 100%; }
+    nav ul { display: none; flex-direction: column; padding-bottom: 0.75rem; }
+    nav ul.open { display: flex; }
+    nav a { padding: 0.75rem 0.8rem; }
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--dark), var(--primary));
+    color: #fff; text-align: center; padding: 5.5rem 1.25rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; }
+  .hero p { font-size: 1.2rem; max-width: 46ch; margin: 0 auto 2rem; opacity: 0.95; }
+  .btn {
+    display: inline-block; background: #fff; color: var(--dark);
+    font-weight: 700; text-decoration: none;
+    padding: 0.85rem 1.8rem; border-radius: 999px; min-height: 44px;
+  }
+  .btn:hover { opacity: 0.9; }
+
+  section.block { padding: 4rem 0; }
+  section.block.alt { background: var(--tint); }
+  section.block h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem); margin: 0 0 0.5rem;
+  }
+  .rule { width: 56px; height: 4px; background: var(--primary); border: 0; margin: 0 0 2rem; border-radius: 2px; }
+  .lead { max-width: 65ch; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 1.25rem; }
+  .card {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 12px; padding: 1.4rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin: 0 0 0.4rem; font-size: 1.08rem; }
+  .card p { margin: 0; color: var(--muted); }
+
+  .quote { margin: 0; padding: 1.4rem; background: var(--surface); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .quote blockquote { margin: 0 0 0.6rem; }
+  .quote p { margin: 0; font-size: 1.05rem; }
+  .quote figcaption { color: var(--muted); font-weight: 600; }
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 1.25rem; }
+
+  details {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 10px; padding: 0; margin-bottom: 0.75rem; max-width: 760px;
+  }
+  summary { font-weight: 600; cursor: pointer; padding: 1rem 1.2rem; }
+  details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--muted); }
+
+  footer.site {
+    background: var(--dark); color: #fff;
+    text-align: center; padding: 2rem 1.25rem; margin-top: 0;
+  }
+  footer.site p { margin: 0.2rem 0; opacity: 0.9; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Brown Biotech Biostatx</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <ul id="site-nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <h1>Brown Biotech Biostatx</h1>
+    <p>Biostatistics and bioinformatics for decision-ready outputs — same-week turnaround.</p>
+    <a class="btn" href="#contact">Get in touch</a>
+  </section>
+
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h">About us</h2>
+      <hr class="rule">
+      <p class="lead">Biostatx is Brown Biotech&#39;s statistical-analysis lane: regression, survival, dose-response, biomarker discovery, and reproducible figure-grade outputs. We pair R/Python tooling with a System-of-Intelligence reasoning layer that lets clients ask &#39;is this difference real, and what does it mean for the next experiment?&#39; — not just &#39;here is a p-value&#39;. Live RAG preview wired to PRISM FastAPI; full report delivered within a week for typical scopes.</p>
+    </div>
+  </section>
+
+  <section class="block alt" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">What we offer</h2>
+      <hr class="rule">
+      <div class="grid">
+        <div class="card">
+          <h3>Regression &amp; survival analysis</h3>
+          <p>Cox proportional hazards, Kaplan-Meier with competing risks, mixed-effects models. Output: publication-grade figures + interpretation memo.</p>
+        </div>
+        <div class="card">
+          <h3>Dose-response and PK/PD modeling</h3>
+          <p>Non-linear fits, Emax/Emax-Hill models, basic PK/PD parameter estimation. Used in early-stage in-vivo / in-vitro screens.</p>
+        </div>
+        <div class="card">
+          <h3>Biomarker discovery</h3>
+          <p>Multi-omics feature selection (DEG, methylation, proteomics), pathway enrichment, cross-cohort validation. Output: ranked candidate table + biological interpretation.</p>
+        </div>
+        <div class="card">
+          <h3>Reproducible figure pipeline</h3>
+          <p>R Markdown + ggplot2 + RO-Crate provenance. Every figure ships with the script, data hash, and environment snapshot.</p>
+        </div>
+        <div class="card">
+          <h3>PRISM RAG live preview</h3>
+          <p>Visitors can ask research questions and get real answers from a 19-chunk PubMed-backed RAG before submitting the formal inquiry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block alt" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Frequently asked questions</h2>
+      <hr class="rule">
+        <details>
+          <summary>What&#39;s the typical turnaround?</summary>
+          <p>Standard scope: 5 business days from data receipt. Complex multi-omics analyses: 2–3 weeks. Rush service available for 3-day delivery with surcharge.</p>
+        </details>
+        <details>
+          <summary>What data formats do you accept?</summary>
+          <p>CSV, TSV, RDS, Parquet, Excel. For omics: raw count matrices, processed Seurat/Scanpy objects, GEO supplements. We sign a data-use agreement before transfer.</p>
+        </details>
+        <details>
+          <summary>Do you sign publication co-authorship?</summary>
+          <p>If our analysts contribute substantive statistical design, yes. For routine analysis, we deliver an analytical report but reserve the right to be acknowledged but not co-authored.</p>
+        </details>
+        <details>
+          <summary>Can you handle clinical trial data?</summary>
+          <p>Yes — under CDA. We follow CONSORT and STROBE reporting guidelines. Sample-size re-estimation and adaptive-design support available.</p>
+        </details>
+        <details>
+          <summary>How is reproducibility ensured?</summary>
+          <p>Every output script runs from a pinned environment (renv or conda env yml), data is hashed (sha256), and RO-Crate metadata captures inputs, code, and outputs.</p>
+        </details>
+    </div>
+  </section>
+
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Contact us</h2>
+      <hr class="rule">
+      <div class="grid">
+        <div class="card"><h3>Email</h3><p><a href="mailto:biostatx@brownbio.tech">biostatx@brownbio.tech</a></p></div>
+        <div class="card"><h3>Address</h3><p>Seoul, Republic of Korea</p></div>
+        <div class="card"><h3>Hours</h3><p>Mon–Fri 09:00–18:00 KST</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <p>&copy; 2026 Brown Biotech Biostatx. All rights reserved.</p>
+  <p>Biostatistics and bioinformatics for decision-ready outputs — same-week turnaround.</p>
+</footer>
+</body>
+</html>

@@ -24,6 +24,24 @@ const samples = [
     bytes: "~9 KB",
   },
   {
+    name: "biostatx",
+    label: "Biostatx one-pager",
+    description:
+      "Biostatistics + bioinformatics lane — regression, survival, dose-response, RO-Crate-reproducible figures, PRISM RAG preview.",
+    href: "/site-forge/samples/biostatx.html",
+    theme: "forest (green)",
+    bytes: "~10 KB",
+  },
+  {
+    name: "paid-briefs",
+    label: "Paid Briefs one-pager",
+    description:
+      "Decision-ready research briefs — Sample / Paid / Project / Subscription tier explainer.",
+    href: "/site-forge/samples/paid-briefs.html",
+    theme: "cool (blue)",
+    bytes: "~10 KB",
+  },
+  {
     name: "ondining",
     label: "On-Dining Companion one-pager",
     description:
@@ -33,12 +51,12 @@ const samples = [
     bytes: "~9 KB",
   },
   {
-    name: "paid-briefs",
-    label: "Paid Briefs one-pager",
+    name: "business-pipeline",
+    label: "Business Pipeline one-pager",
     description:
-      "Decision-ready research briefs — Sample / Paid / Project / Subscription tier explainer.",
-    href: "/site-forge/samples/paid-briefs.html",
-    theme: "cool (blue)",
+      "Company-owned operating-system lane — blueprint, source map, delivery flow, receipt template.",
+    href: "/site-forge/samples/business-pipeline.html",
+    theme: "mono (gray)",
     bytes: "~9 KB",
   },
 ];
