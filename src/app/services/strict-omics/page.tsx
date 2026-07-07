@@ -4,7 +4,7 @@ import { ArrowRight, Sigma, CheckCircle2, ShieldCheck, GitBranch } from "lucide-
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 import StrictOmicsWorkbenchClient from "@/components/strict-omics/StrictOmicsWorkbenchClient";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brownbio.tech";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, GitBranch, CheckCircle2, ShieldCheck } from "lucide-react";
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brownbio.tech";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

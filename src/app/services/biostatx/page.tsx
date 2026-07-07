@@ -4,7 +4,7 @@ import { ArrowRight, BarChart3, CheckCircle2, ShieldCheck, FlaskConical, FileTex
 import ServiceInquiryCard from "@/components/ServiceInquiryCard";
 import PrismLivePreview from "./PrismLivePreview";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brownbio.tech";
 const prismUrl = process.env.NEXT_PUBLIC_PRISM_URL;
 
 export const metadata: Metadata = {
