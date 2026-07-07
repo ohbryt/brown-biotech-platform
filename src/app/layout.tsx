@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-description: [
+  keywords: [
     "drug discovery",
     "AI",
     "biotech",
