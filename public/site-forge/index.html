@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Site Generator</title>
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --panel: #ffffff;
+    --text: #1c2430;
+    --muted: #5b6472;
+    --border: #d8dde4;
+    --primary: #2456c4;
+    --primary-dark: #1a409a;
+    --focus: #7c3aed;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181f;
+      --panel: #1e242e;
+      --text: #e8ecf2;
+      --muted: #a3adbb;
+      --border: #39424f;
+      --primary: #6ea0ff;
+      --primary-dark: #8fb5ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  header.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.4rem;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+  }
+  header.app-header h1 { font-size: 1.15rem; margin: 0; }
+  header.app-header p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
+  main {
+    display: grid;
+    grid-template-columns: minmax(320px, 420px) 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    height: calc(100vh - 62px);
+  }
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; height: auto; }
+    .preview-pane { height: 80vh; }
+  }
+
+  .form-pane {
+    overflow-y: auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem 2rem;
+  }
+  .preview-pane {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .preview-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .preview-toolbar .spacer { flex: 1; }
+  .preview-body {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    background:
+      repeating-conic-gradient(rgba(128,128,128,0.08) 0% 25%, transparent 0% 50%)
+      50% / 24px 24px;
+    overflow: auto;
+    padding: 0;
+  }
+  iframe#preview {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transition: width 0.2s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    iframe#preview { transition: none; }
+  }
+  .preview-body.mobile { padding: 1rem 0; }
+  .preview-body.mobile iframe#preview {
+    width: 375px;
+    height: calc(100% - 2rem);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+  }
+
+  fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem 1rem;
+  }
+  legend { font-weight: 600; padding: 0 0.4rem; font-size: 0.95rem; }
+  label { display: block; font-size: 0.85rem; font-weight: 600; margin: 0.7rem 0 0.25rem; }
+  input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+  textarea { resize: vertical; min-height: 4.2em; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+  }
+  .hint { font-size: 0.78rem; color: var(--muted); margin: 0.25rem 0 0; }
+
+  .radio-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem; }
+  .radio-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+  }
+  .radio-row label:has(input:checked) {
+    border-color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+  }
+  .swatch {
+    width: 0.85rem; height: 0.85rem;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.25);
+  }
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3rem 0.8rem; margin-top: 0.4rem; }
+  .check-grid label {
+    display: flex; align-items: center; gap: 0.45rem;
+    margin: 0; font-weight: 500; font-size: 0.88rem; cursor: pointer;
+  }
+  input[type="checkbox"], input[type="radio"] { width: 1.05rem; height: 1.05rem; accent-color: var(--primary); }
+
+  .item-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.4rem;
+    align-items: start;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 0.55rem;
+    margin-top: 0.55rem;
+  }
+  .item-row .fields { display: grid; gap: 0.35rem; }
+  .item-row input, .item-row textarea { font-size: 0.85rem; }
+  .item-row textarea { min-height: 3em; }
+
+  button {
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    cursor: pointer;
+    min-height: 40px;
+  }
+  button:hover { border-color: var(--primary); }
+  button.primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    button.primary { color: #10141b; }
+  }
+  button.primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+  button.small { min-height: 32px; padding: 0.25rem 0.6rem; font-size: 0.78rem; }
+  button.ghost { border-style: dashed; width: 100%; margin-top: 0.6rem; }
+  button[aria-pressed="true"] {
+    background: color-mix(in srgb, var(--primary) 16%, var(--panel));
+    border-color: var(--primary);
+  }
+  .status { font-size: 0.82rem; color: var(--muted); margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div>
+    <h1>Business Site Generator</h1>
+    <p>Fill in the details, preview live, download a ready-to-host website.</p>
+  </div>
+</header>
+
+<main>
+  <!-- ============ FORM ============ -->
+  <section class="form-pane" aria-label="Website settings">
+    <form id="genForm" novalidate>
+
+      <fieldset>
+        <legend>Business</legend>
+
+        <label for="bizName">Business name</label>
+        <input type="text" id="bizName" value="Acme Bakery" autocomplete="organization">
+
+        <label for="industry">Industry preset</label>
+        <select id="industry">
+          <option value="bakery" selected>Bakery / Café</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="salon">Salon / Spa</option>
+          <option value="fitness">Fitness / Gym</option>
+          <option value="consulting">Consulting</option>
+          <option value="tech">Tech / Agency</option>
+          <option value="retail">Retail Shop</option>
+          <option value="clinic">Clinic / Medical</option>
+          <option value="photography">Photography</option>
+          <option value="custom">Custom (blank)</option>
+        </select>
+        <p class="hint">Choosing a preset fills the content fields below with starter copy. Edit anything afterwards.</p>
+
+        <label for="tagline">Tagline</label>
+        <input type="text" id="tagline">
+
+        <label for="about">About text</label>
+        <textarea id="about" rows="4"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>Branding</legend>
+
+        <span id="themeLabel" style="font-size:0.85rem;font-weight:600;">Color theme</span>
+        <div class="radio-row" role="radiogroup" aria-labelledby="themeLabel">
+          <label><input type="radio" name="theme" value="warm" checked><span class="swatch" style="background:#c2410c"></span>Warm</label>
+          <label><input type="radio" name="theme" value="cool"><span class="swatch" style="background:#0369a1"></span>Cool</label>
+          <label><input type="radio" name="theme" value="forest"><span class="swatch" style="background:#15803d"></span>Forest</label>
+          <label><input type="radio" name="theme" value="bold"><span class="swatch" style="background:#7c3aed"></span>Bold</label>
+          <label><input type="radio" name="theme" value="mono"><span class="swatch" style="background:#171717"></span>Mono</label>
+        </div>
+
+        <span id="fontLabel" style="font-size:0.85rem;font-weight:600;display:block;margin-top:0.8rem;">Heading style</span>
+        <div class="radio-row" role="radiogroup" aria-labelledby="fontLabel">
+          <label><input type="radio" name="headingFont" value="sans" checked>Modern (sans-serif)</label>
+          <label><input type="radio" name="headingFont" value="serif">Classic (serif)</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sections</legend>
+        <div class="check-grid">
+          <label><input type="checkbox" id="secAbout" checked>About</label>
+          <label><input type="checkbox" id="secServices" checked>Services</label>
+          <label><input type="checkbox" id="secTestimonials" checked>Testimonials</label>
+          <label><input type="checkbox" id="secFaq" checked>FAQ</label>
+          <label><input type="checkbox" id="secContact" checked>Contact</label>
+        </div>
+        <p class="hint">The hero banner and navigation are always included.</p>
+      </fieldset>
+
+      <fieldset id="servicesFieldset">
+        <legend>Services</legend>
+        <div id="servicesList"></div>
+        <button type="button" class="ghost" id="addService">+ Add service</button>
+      </fieldset>
+
+      <fieldset id="testimonialsFieldset">
+        <legend>Testimonials</legend>
+        <div id="testimonialsList"></div>
+        <button type="button" class="ghost" id="addTestimonial">+ Add testimonial</button>
+      </fieldset>
+
+      <fieldset id="faqFieldset">
+        <legend>FAQ</legend>
+        <div id="faqList"></div>
+        <button type="button" class="ghost" id="addFaq">+ Add question</button>
+      </fieldset>
+
+      <fieldset id="contactFieldset">
+        <legend>Contact details</legend>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" value="(555) 010-4477" autocomplete="tel">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" value="hello@example.com" autocomplete="email">
+
+        <label for="address">Address</label>
+        <input type="text" id="address" value="123 Main Street, Springfield" autocomplete="street-address">
+
+        <label for="hours">Opening hours</label>
+        <input type="text" id="hours" value="Mon–Sat 7:00–18:00">
+      </fieldset>
+
+    </form>
+  </section>
+
+  <!-- ============ PREVIEW ============ -->
+  <section class="preview-pane" aria-label="Website preview">
+    <div class="preview-toolbar">
+      <button type="button" id="viewDesktop" aria-pressed="true">Desktop</button>
+      <button type="button" id="viewMobile" aria-pressed="false">Mobile</button>
+      <span class="spacer"></span>
+      <p class="status" id="status" aria-live="polite"></p>
+      <button type="button" id="copyHtml">Copy HTML</button>
+      <button type="button" class="primary" id="download">&#11015; Download website</button>
+    </div>
+    <div class="preview-body" id="previewBody">
+      <iframe id="preview" title="Live preview of the generated website"></iframe>
+    </div>
+  </section>
+</main>
+
+<script>
+"use strict";
+
+/* ---------------- Presets ---------------- */
+const PRESETS = {
+  bakery: {
+    tagline: "Fresh bread and pastries, baked every morning",
+    about: "We are a family-run bakery serving the neighbourhood since day one. Every loaf, croissant and cake is made from scratch each morning with simple, honest ingredients — no shortcuts, no preservatives.",
+    services: [
+      ["Artisan Breads", "Sourdough, rye, baguettes and seasonal specials, baked fresh daily."],
+      ["Pastries & Cakes", "Croissants, tarts and custom celebration cakes made to order."],
+      ["Coffee Bar", "Locally roasted espresso drinks, the perfect match for a warm pastry."],
+      ["Catering", "Breakfast trays and dessert platters for offices and events."]
+    ],
+    testimonials: [
+      ["The sourdough is the best in town — we buy a loaf every Saturday without fail.", "Maria G."],
+      ["They made our wedding cake and it was both beautiful and delicious.", "Tom & Elena"]
+    ],
+    faq: [
+      ["Do you take custom cake orders?", "Yes — please order at least 5 days in advance so we can plan your design and flavours."],
+      ["Do you have gluten-free options?", "We bake a small gluten-free range every Friday. Call ahead to reserve."],
+      ["Can I order for pickup?", "Absolutely. Call or email before 3pm and your order will be ready the next morning."]
+    ]
+  },
+  restaurant: {
+    tagline: "Seasonal cooking, warm hospitality",
+    about: "Our kitchen celebrates local produce with a menu that changes with the seasons. Whether it's a quick lunch or a long dinner with friends, we want every visit to feel like coming home.",
+    services: [
+      ["Lunch & Dinner", "A concise, seasonal menu built around local farms and daily catches."],
+      ["Private Dining", "A dedicated room for parties of 8–24 with set menus."],
+      ["Events & Catering", "Off-site catering for weddings, offices and celebrations."],
+      ["Wine Cellar", "A curated list of small producers, with pairings for every menu."]
+    ],
+    testimonials: [
+      ["Every dish felt considered. Easily our favourite spot in the city.", "Priya S."],
+      ["They catered our company retreat — flawless from start to finish.", "Daniel W."]
+    ],
+    faq: [
+      ["Do you take reservations?", "Yes, online or by phone. Walk-ins are welcome at the bar."],
+      ["Can you accommodate dietary restrictions?", "Our menu always includes vegetarian, vegan and gluten-free options — just tell your server."],
+      ["Is there parking nearby?", "A public garage is one block away and street parking is free after 6pm."]
+    ]
+  },
+  salon: {
+    tagline: "Look sharp. Feel restored.",
+    about: "Our studio blends skilled styling with genuine care. From precision cuts to full spa days, our team takes the time to understand exactly what you want before a single snip.",
+    services: [
+      ["Cuts & Styling", "Consultation-led cuts, blowouts and styling for every hair type."],
+      ["Color", "Balayage, highlights and gloss treatments using low-damage formulas."],
+      ["Nails & Skin", "Manicures, pedicures and rejuvenating facials."],
+      ["Massage & Spa", "Deep-tissue and relaxation massage in a calm, private room."]
+    ],
+    testimonials: [
+      ["First salon where the cut looks exactly like the photo I brought in.", "Jess K."],
+      ["The spa package was the perfect birthday gift. So relaxing.", "Amara O."]
+    ],
+    faq: [
+      ["Do I need an appointment?", "Appointments are recommended, but we keep a few walk-in slots each day."],
+      ["What products do you use?", "We work with cruelty-free, salon-grade product lines and retail them in-store."],
+      ["What is your cancellation policy?", "Please give us 24 hours notice so we can offer the slot to someone else."]
+    ]
+  },
+  fitness: {
+    tagline: "Stronger every session",
+    about: "We are a community-first gym with expert coaching and zero intimidation. Whether you are picking up a barbell for the first time or chasing a personal record, our coaches meet you where you are.",
+    services: [
+      ["Group Classes", "Strength, HIIT, mobility and spin — 40+ classes every week."],
+      ["Personal Training", "1-on-1 coaching with individualized programming and check-ins."],
+      ["Open Gym", "Full free-weight floor, racks, turf and cardio deck, open early to late."],
+      ["Nutrition Coaching", "Practical, sustainable nutrition plans that fit real life."]
+    ],
+    testimonials: [
+      ["Down 12kg and deadlifting double what I started with. The coaches are amazing.", "Chris B."],
+      ["The 6am class is the best part of my day. Great people, great energy.", "Nadia R."]
+    ],
+    faq: [
+      ["Do you offer trial passes?", "Yes — your first week is free, including all group classes."],
+      ["Are beginners welcome?", "Absolutely. Every membership starts with a free movement assessment."],
+      ["Can I freeze my membership?", "Memberships can be frozen for up to 3 months per year at no cost."]
+    ]
+  },
+  consulting: {
+    tagline: "Clear strategy. Measurable results.",
+    about: "We help small and mid-size businesses cut through complexity — sharpening strategy, streamlining operations and building the systems that let teams do their best work.",
+    services: [
+      ["Strategy & Planning", "Market analysis, positioning and pragmatic growth roadmaps."],
+      ["Operations", "Process mapping and automation that removes bottlenecks."],
+      ["Finance & Analytics", "Dashboards, forecasting and unit economics you can act on."],
+      ["Leadership Coaching", "Executive coaching and team workshops that stick."]
+    ],
+    testimonials: [
+      ["They paid for themselves in the first quarter. Rare clarity and follow-through.", "COO, regional logistics firm"],
+      ["Our onboarding time dropped from six weeks to nine days after their process work.", "Founder, SaaS startup"]
+    ],
+    faq: [
+      ["How do engagements work?", "We start with a short paid discovery sprint, then propose a fixed-scope engagement with clear deliverables."],
+      ["Do you work with early-stage companies?", "Yes — we have packages sized for startups as well as established firms."],
+      ["Are you available remotely?", "All engagements can run fully remote, on-site, or hybrid."]
+    ]
+  },
+  tech: {
+    tagline: "We design and build software that ships",
+    about: "We are a compact team of designers and engineers who take products from idea to launch. Small enough to move fast, senior enough to get it right the first time.",
+    services: [
+      ["Product Design", "Research, UX and interface design that users actually enjoy."],
+      ["Web & Mobile Development", "Modern, maintainable apps built with proven stacks."],
+      ["Cloud & DevOps", "Infrastructure, CI/CD and monitoring that scale with you."],
+      ["Ongoing Support", "Retainers for iteration, maintenance and performance work."]
+    ],
+    testimonials: [
+      ["Shipped our MVP in eight weeks and it held up flawlessly at launch.", "CTO, fintech startup"],
+      ["The rare agency that pushes back with better ideas instead of just saying yes.", "Head of Product, retail brand"]
+    ],
+    faq: [
+      ["What does a typical project cost?", "Most projects range from a fixed-scope sprint to multi-month builds. We scope together and quote before any commitment."],
+      ["Who owns the code?", "You do — full IP transfer, documented and handed over."],
+      ["Do you work with existing codebases?", "Yes. We regularly audit, stabilize and extend inherited systems."]
+    ]
+  },
+  retail: {
+    tagline: "Curated goods, friendly service",
+    about: "Our shop is a hand-picked collection of things we genuinely love — quality pieces from independent makers, sold by people who know the story behind every item.",
+    services: [
+      ["In-Store Shopping", "Browse the full collection and get honest, unhurried advice."],
+      ["Click & Collect", "Order ahead and pick up the same day at the counter."],
+      ["Gift Wrapping", "Complimentary wrapping and handwritten cards, year-round."],
+      ["Local Delivery", "Free delivery within the city on orders over a minimum spend."]
+    ],
+    testimonials: [
+      ["Every gift I've bought here has been a hit. The staff recommendations are gold.", "Hannah L."],
+      ["My favourite shop on the street — always something new and interesting.", "Marco D."]
+    ],
+    faq: [
+      ["What is your return policy?", "Returns and exchanges within 30 days with receipt, no questions asked."],
+      ["Do you sell gift cards?", "Yes, in any amount — physical in-store or digital by email."],
+      ["Do you restock sold-out items?", "Often! Leave your email at the counter and we'll notify you."]
+    ]
+  },
+  clinic: {
+    tagline: "Caring for your health, close to home",
+    about: "Our clinic provides thorough, unhurried primary care for the whole family. We combine modern diagnostics with old-fashioned listening, because good medicine starts with understanding you.",
+    services: [
+      ["General Practice", "Check-ups, chronic condition management and preventive care."],
+      ["Pediatrics", "Gentle, family-centred care for infants through teens."],
+      ["Diagnostics", "On-site lab work, ECG and ultrasound with fast results."],
+      ["Telehealth", "Video consultations for follow-ups and minor concerns."]
+    ],
+    testimonials: [
+      ["The first doctor's office where I never feel rushed. They truly listen.", "Patient since 2019"],
+      ["Booked online at 8am, seen by 10am, results the same day. Exceptional.", "New patient"]
+    ],
+    faq: [
+      ["Are you accepting new patients?", "Yes — register online or call the front desk and we'll get you scheduled."],
+      ["Do you accept insurance?", "We work with most major insurers. Contact us to confirm your plan."],
+      ["What about urgent concerns?", "Same-day sick visits are held every morning. Call when we open at 8am."]
+    ]
+  },
+  photography: {
+    tagline: "Honest moments, beautifully kept",
+    about: "I photograph people the way they really are — relaxed, unposed and genuinely themselves. From weddings to brand shoots, my goal is images you'll still love in twenty years.",
+    services: [
+      ["Weddings & Elopements", "Full-day documentary coverage with a fine-art finish."],
+      ["Portraits & Family", "Relaxed sessions at home, outdoors or in the studio."],
+      ["Brand & Product", "Imagery that gives small businesses a big-brand look."],
+      ["Events", "Conferences, launches and celebrations, delivered within 72 hours."]
+    ],
+    testimonials: [
+      ["Our wedding photos made my mother cry — in the best way.", "Sofia & James"],
+      ["The brand shoot doubled the click-through on our ads. Worth every penny.", "Owner, ceramics studio"]
+    ],
+    faq: [
+      ["How far in advance should we book?", "Weddings book 6–12 months out; portrait sessions usually 2–3 weeks."],
+      ["How many photos do we receive?", "A curated gallery of fully edited images — typically 60–80 per hour of coverage."],
+      ["Do you travel?", "Yes, worldwide. Travel within 100km is always included."]
+    ]
+  },
+  custom: {
+    tagline: "Your tagline here",
+    about: "Tell visitors who you are, what you do, and why you do it well. Two or three sentences is plenty.",
+    services: [
+      ["Service one", "A short description of this service."],
+      ["Service two", "A short description of this service."],
+      ["Service three", "A short description of this service."]
+    ],
+    testimonials: [
+      ["A short quote from a happy customer.", "Customer name"]
+    ],
+    faq: [
+      ["A common question customers ask?", "A clear, helpful answer."]
+    ]
+  }
+};
+
+/* Themes for the GENERATED site: [primary, dark, tinted bg] — all pass 4.5:1 on white */
+const THEMES = {
+  warm:   { primary: "#c2410c", dark: "#7c2d12", tint: "#fff7ed" },
+  cool:   { primary: "#0369a1", dark: "#0c4a6e", tint: "#f0f9ff" },
+  forest: { primary: "#15803d", dark: "#14532d", tint: "#f0fdf4" },
+  bold:   { primary: "#6d28d9", dark: "#4c1d95", tint: "#f5f3ff" },
+  mono:   { primary: "#171717", dark: "#171717", tint: "#fafafa" }
+};
+
+const FONTS = {
+  sans:  `system-ui, -apple-system, "Segoe UI", Roboto, sans-serif`,
+  serif: `Georgia, "Times New Roman", serif`
+};
+
+/* ---------------- Helpers ---------------- */
+const $ = (id) => document.getElementById(id);
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+function slugify(s) {
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "website";
+}
+
+/* ---------------- Dynamic item lists ---------------- */
+function makeRow(listEl, fields, values) {
+  const row = document.createElement("div");
+  row.className = "item-row";
+  const wrap = document.createElement("div");
+  wrap.className = "fields";
+  fields.forEach((f, i) => {
+    const el = document.createElement(f.tag);
+    if (f.tag === "input") el.type = "text";
+    el.placeholder = f.placeholder;
+    el.setAttribute("aria-label", f.placeholder);
+    el.value = values[i] || "";
+    el.className = f.cls;
+    el.addEventListener("input", scheduleUpdate);
+    wrap.appendChild(el);
+  });
+  const del = document.createElement("button");
+  del.type = "button";
+  del.className = "small";
+  del.textContent = "Remove";
+  del.setAttribute("aria-label", "Remove this item");
+  del.addEventListener("click", () => { row.remove(); scheduleUpdate(); });
+  row.appendChild(wrap);
+  row.appendChild(del);
+  listEl.appendChild(row);
+}
+
+const addServiceRow = (t, d) => makeRow($("servicesList"),
+  [{ tag: "input", placeholder: "Service name", cls: "svc-title" },
+   { tag: "textarea", placeholder: "Short description", cls: "svc-desc" }], [t, d]);
+
+const addTestimonialRow = (q, a) => makeRow($("testimonialsList"),
+  [{ tag: "textarea", placeholder: "Quote", cls: "tst-quote" },
+   { tag: "input", placeholder: "Customer name", cls: "tst-author" }], [q, a]);
+
+const addFaqRow = (q, a) => makeRow($("faqList"),
+  [{ tag: "input", placeholder: "Question", cls: "faq-q" },
+   { tag: "textarea", placeholder: "Answer", cls: "faq-a" }], [q, a]);
+
+function readRows(listEl, sel1, sel2) {
+  return [...listEl.querySelectorAll(".item-row")].map(r => [
+    r.querySelector("." + sel1).value.trim(),
+    r.querySelector("." + sel2).value.trim()
+  ]).filter(pair => pair[0] || pair[1]);
+}
+
+/* ---------------- State ---------------- */
+function collectState() {
+  return {
+    name: $("bizName").value.trim() || "My Business",
+    tagline: $("tagline").value.trim(),
+    about: $("about").value.trim(),
+    theme: document.querySelector('input[name="theme"]:checked').value,
+    headingFont: document.querySelector('input[name="headingFont"]:checked').value,
+    sections: {
+      about: $("secAbout").checked,
+      services: $("secServices").checked,
+      testimonials: $("secTestimonials").checked,
+      faq: $("secFaq").checked,
+      contact: $("secContact").checked
+    },
+    services: readRows($("servicesList"), "svc-title", "svc-desc"),
+    testimonials: readRows($("testimonialsList"), "tst-quote", "tst-author"),
+    faq: readRows($("faqList"), "faq-q", "faq-a"),
+    contact: {
+      phone: $("phone").value.trim(),
+      email: $("email").value.trim(),
+      address: $("address").value.trim(),
+      hours: $("hours").value.trim()
+    }
+  };
+}
+
+function applyPreset(key) {
+  const p = PRESETS[key];
+  if (!p) return;
+  $("tagline").value = p.tagline;
+  $("about").value = p.about;
+  $("servicesList").innerHTML = "";
+  p.services.forEach(([t, d]) => addServiceRow(t, d));
+  $("testimonialsList").innerHTML = "";
+  p.testimonials.forEach(([q, a]) => addTestimonialRow(q, a));
+  $("faqList").innerHTML = "";
+  p.faq.forEach(([q, a]) => addFaqRow(q, a));
+}
+
+/* ---------------- Site builder ---------------- */
+function buildSiteHTML(s) {
+  const t = THEMES[s.theme];
+  const e = escapeHtml;
+  const navItems = [];
+  if (s.sections.about) navItems.push(["#about", "About"]);
+  if (s.sections.services && s.services.length) navItems.push(["#services", "Services"]);
+  if (s.sections.testimonials && s.testimonials.length) navItems.push(["#testimonials", "Testimonials"]);
+  if (s.sections.faq && s.faq.length) navItems.push(["#faq", "FAQ"]);
+  if (s.sections.contact) navItems.push(["#contact", "Contact"]);
+
+  const navHtml = navItems.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join("\n          ");
+
+  const servicesHtml = s.services.map(([title, desc]) => `
+        <div class="card">
+          <h3>${e(title)}</h3>
+          <p>${e(desc)}</p>
+        </div>`).join("");
+
+  const testimonialsHtml = s.testimonials.map(([quote, author]) => `
+        <figure class="quote">
+          <blockquote><p>&ldquo;${e(quote)}&rdquo;</p></blockquote>
+          <figcaption>&mdash; ${e(author)}</figcaption>
+        </figure>`).join("");
+
+  const faqHtml = s.faq.map(([q, a]) => `
+        <details>
+          <summary>${e(q)}</summary>
+          <p>${e(a)}</p>
+        </details>`).join("");
+
+  const contactBits = [];
+  if (s.contact.phone) contactBits.push(`<div class="card"><h3>Phone</h3><p><a href="tel:${e(s.contact.phone.replace(/[^+\d]/g, ""))}">${e(s.contact.phone)}</a></p></div>`);
+  if (s.contact.email) contactBits.push(`<div class="card"><h3>Email</h3><p><a href="mailto:${e(s.contact.email)}">${e(s.contact.email)}</a></p></div>`);
+  if (s.contact.address) contactBits.push(`<div class="card"><h3>Address</h3><p>${e(s.contact.address)}</p></div>`);
+  if (s.contact.hours) contactBits.push(`<div class="card"><h3>Hours</h3><p>${e(s.contact.hours)}</p></div>`);
+
+  const year = new Date().getFullYear();
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="${e(s.tagline || s.name)}">
+<title>${e(s.name)}</title>
+<style>
+  :root {
+    --primary: ${t.primary};
+    --dark: ${t.dark};
+    --tint: ${t.tint};
+    --text: #1f2328;
+    --muted: #555e68;
+    --surface: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    font-family: ${FONTS.sans};
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: ${FONTS[s.headingFont]}; line-height: 1.2; }
+  a { color: var(--primary); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--dark); color: #fff; padding: 0.6rem 1rem; z-index: 20;
+  }
+  .skip-link:focus { left: 0; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem; }
+
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--dark); color: #fff;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 64px; flex-wrap: wrap;
+  }
+  .brand { font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; padding: 0.5rem 0; }
+  nav ul { list-style: none; display: flex; gap: 0.25rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a {
+    color: #fff; text-decoration: none; padding: 0.6rem 0.8rem;
+    border-radius: 6px; display: inline-block;
+  }
+  nav a:hover { background: rgba(255,255,255,0.15); text-decoration: underline; }
+  .menu-btn {
+    display: none; background: none; color: #fff;
+    border: 1px solid rgba(255,255,255,0.5); border-radius: 6px;
+    padding: 0.5rem 0.85rem; font: inherit; cursor: pointer; min-height: 44px;
+  }
+  @media (max-width: 719px) {
+    .menu-btn { display: inline-block; }
+    nav { width: 100%; }
+    nav ul { display: none; flex-direction: column; padding-bottom: 0.75rem; }
+    nav ul.open { display: flex; }
+    nav a { padding: 0.75rem 0.8rem; }
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--dark), var(--primary));
+    color: #fff; text-align: center; padding: 5.5rem 1.25rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; }
+  .hero p { font-size: 1.2rem; max-width: 46ch; margin: 0 auto 2rem; opacity: 0.95; }
+  .btn {
+    display: inline-block; background: #fff; color: var(--dark);
+    font-weight: 700; text-decoration: none;
+    padding: 0.85rem 1.8rem; border-radius: 999px; min-height: 44px;
+  }
+  .btn:hover { opacity: 0.9; }
+
+  section.block { padding: 4rem 0; }
+  section.block.alt { background: var(--tint); }
+  section.block h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem); margin: 0 0 0.5rem;
+  }
+  .rule { width: 56px; height: 4px; background: var(--primary); border: 0; margin: 0 0 2rem; border-radius: 2px; }
+  .lead { max-width: 65ch; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 1.25rem; }
+  .card {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 12px; padding: 1.4rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin: 0 0 0.4rem; font-size: 1.08rem; }
+  .card p { margin: 0; color: var(--muted); }
+
+  .quote { margin: 0; padding: 1.4rem; background: var(--surface); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .quote blockquote { margin: 0 0 0.6rem; }
+  .quote p { margin: 0; font-size: 1.05rem; }
+  .quote figcaption { color: var(--muted); font-weight: 600; }
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 1.25rem; }
+
+  details {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 10px; padding: 0; margin-bottom: 0.75rem; max-width: 760px;
+  }
+  summary { font-weight: 600; cursor: pointer; padding: 1rem 1.2rem; }
+  details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--muted); }
+
+  footer.site {
+    background: var(--dark); color: #fff;
+    text-align: center; padding: 2rem 1.25rem; margin-top: 0;
+  }
+  footer.site p { margin: 0.2rem 0; opacity: 0.9; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">${e(s.name)}</a>
+    ${navItems.length ? `<button class="menu-btn" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <ul id="site-nav-list">
+          ${navHtml}
+      </ul>
+    </nav>` : ""}
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <h1>${e(s.name)}</h1>
+    ${s.tagline ? `<p>${e(s.tagline)}</p>` : ""}
+    ${s.sections.contact ? `<a class="btn" href="#contact">Get in touch</a>` : ""}
+  </section>
+${s.sections.about ? `
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h">About us</h2>
+      <hr class="rule">
+      <p class="lead">${e(s.about)}</p>
+    </div>
+  </section>` : ""}
+${s.sections.services && s.services.length ? `
+  <section class="block alt" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">What we offer</h2>
+      <hr class="rule">
+      <div class="grid">${servicesHtml}
+      </div>
+    </div>
+  </section>` : ""}
+${s.sections.testimonials && s.testimonials.length ? `
+  <section class="block" id="testimonials" aria-labelledby="testimonials-h">
+    <div class="wrap">
+      <h2 id="testimonials-h">What customers say</h2>
+      <hr class="rule">
+      <div class="quotes">${testimonialsHtml}
+      </div>
+    </div>
+  </section>` : ""}
+${s.sections.faq && s.faq.length ? `
+  <section class="block alt" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Frequently asked questions</h2>
+      <hr class="rule">${faqHtml}
+    </div>
+  </section>` : ""}
+${s.sections.contact ? `
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Contact us</h2>
+      <hr class="rule">
+      <div class="grid">
+        ${contactBits.join("\n        ")}
+      </div>
+    </div>
+  </section>` : ""}
+</main>
+
+<footer class="site">
+  <p>&copy; ${year} ${e(s.name)}. All rights reserved.</p>
+  ${s.tagline ? `<p>${e(s.tagline)}</p>` : ""}
+</footer>
+
+<script>
+  var btn = document.querySelector(".menu-btn");
+  var list = document.getElementById("site-nav-list");
+  if (btn && list) {
+    btn.addEventListener("click", function () {
+      var open = list.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    list.addEventListener("click", function (ev) {
+      if (ev.target.tagName === "A") {
+        list.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+<\/script>
+</body>
+</html>`;
+}
+
+/* ---------------- Preview / actions ---------------- */
+let timer = null;
+function scheduleUpdate() {
+  clearTimeout(timer);
+  timer = setTimeout(updatePreview, 250);
+}
+function updatePreview() {
+  $("preview").srcdoc = buildSiteHTML(collectState());
+}
+
+function setStatus(msg) {
+  $("status").textContent = msg;
+  setTimeout(() => { if ($("status").textContent === msg) $("status").textContent = ""; }, 4000);
+}
+
+$("download").addEventListener("click", () => {
+  const s = collectState();
+  const blob = new Blob([buildSiteHTML(s)], { type: "text/html" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = slugify(s.name) + ".html";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  setStatus("Downloaded " + a.download + " — open it in a browser or upload it to any host.");
+});
+
+$("copyHtml").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(buildSiteHTML(collectState()));
+    setStatus("HTML copied to clipboard.");
+  } catch {
+    setStatus("Copy failed — use Download instead.");
+  }
+});
+
+$("viewDesktop").addEventListener("click", () => setView(false));
+$("viewMobile").addEventListener("click", () => setView(true));
+function setView(mobile) {
+  $("previewBody").classList.toggle("mobile", mobile);
+  $("viewDesktop").setAttribute("aria-pressed", String(!mobile));
+  $("viewMobile").setAttribute("aria-pressed", String(mobile));
+}
+
+$("industry").addEventListener("change", (ev) => {
+  applyPreset(ev.target.value);
+  updatePreview();
+});
+$("genForm").addEventListener("input", scheduleUpdate);
+$("addService").addEventListener("click", () => { addServiceRow("", ""); });
+$("addTestimonial").addEventListener("click", () => { addTestimonialRow("", ""); });
+$("addFaq").addEventListener("click", () => { addFaqRow("", ""); });
+
+/* ---------------- Init ---------------- */
+applyPreset("bakery");
+updatePreview();
+</script>
+</body>
+</html>

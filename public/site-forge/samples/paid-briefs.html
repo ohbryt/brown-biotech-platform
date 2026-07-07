@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Decision-ready research for biotech operators — published in 5 to 10 business days.">
+<title>Brown Biotech Paid Briefs</title>
+<style>
+  :root {
+    --primary: #0369a1;
+    --dark: #0c4a6e;
+    --tint: #f0f9ff;
+    --text: #1f2328;
+    --muted: #555e68;
+    --surface: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background: var(--surface);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.2; }
+  a { color: var(--primary); }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+  .skip-link {
+    position: absolute; left: -999px; top: 0;
+    background: var(--dark); color: #fff; padding: 0.6rem 1rem; z-index: 20;
+  }
+  .skip-link:focus { left: 0; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem; }
+
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--dark); color: #fff;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 64px; flex-wrap: wrap;
+  }
+  .brand { font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; padding: 0.5rem 0; }
+  nav ul { list-style: none; display: flex; gap: 0.25rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a {
+    color: #fff; text-decoration: none; padding: 0.6rem 0.8rem;
+    border-radius: 6px; display: inline-block;
+  }
+  nav a:hover { background: rgba(255,255,255,0.15); text-decoration: underline; }
+  .menu-btn {
+    display: none; background: none; color: #fff;
+    border: 1px solid rgba(255,255,255,0.5); border-radius: 6px;
+    padding: 0.5rem 0.85rem; font: inherit; cursor: pointer; min-height: 44px;
+  }
+  @media (max-width: 719px) {
+    .menu-btn { display: inline-block; }
+    nav { width: 100%; }
+    nav ul { display: none; flex-direction: column; padding-bottom: 0.75rem; }
+    nav ul.open { display: flex; }
+    nav a { padding: 0.75rem 0.8rem; }
+  }
+
+  .hero {
+    background: linear-gradient(160deg, var(--dark), var(--primary));
+    color: #fff; text-align: center; padding: 5.5rem 1.25rem;
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; }
+  .hero p { font-size: 1.2rem; max-width: 46ch; margin: 0 auto 2rem; opacity: 0.95; }
+  .btn {
+    display: inline-block; background: #fff; color: var(--dark);
+    font-weight: 700; text-decoration: none;
+    padding: 0.85rem 1.8rem; border-radius: 999px; min-height: 44px;
+  }
+  .btn:hover { opacity: 0.9; }
+
+  section.block { padding: 4rem 0; }
+  section.block.alt { background: var(--tint); }
+  section.block h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem); margin: 0 0 0.5rem;
+  }
+  .rule { width: 56px; height: 4px; background: var(--primary); border: 0; margin: 0 0 2rem; border-radius: 2px; }
+  .lead { max-width: 65ch; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 1.25rem; }
+  .card {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 12px; padding: 1.4rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin: 0 0 0.4rem; font-size: 1.08rem; }
+  .card p { margin: 0; color: var(--muted); }
+
+  .quote { margin: 0; padding: 1.4rem; background: var(--surface); border-left: 4px solid var(--primary); border-radius: 0 12px 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .quote blockquote { margin: 0 0 0.6rem; }
+  .quote p { margin: 0; font-size: 1.05rem; }
+  .quote figcaption { color: var(--muted); font-weight: 600; }
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 1.25rem; }
+
+  details {
+    background: var(--surface); border: 1px solid #e3e6ea;
+    border-radius: 10px; padding: 0; margin-bottom: 0.75rem; max-width: 760px;
+  }
+  summary { font-weight: 600; cursor: pointer; padding: 1rem 1.2rem; }
+  details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--muted); }
+
+  footer.site {
+    background: var(--dark); color: #fff;
+    text-align: center; padding: 2rem 1.25rem; margin-top: 0;
+  }
+  footer.site p { margin: 0.2rem 0; opacity: 0.9; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top">Brown Biotech Paid Briefs</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <ul id="site-nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <h1>Brown Biotech Paid Briefs</h1>
+    <p>Decision-ready research for biotech operators — published in 5 to 10 business days.</p>
+    <a class="btn" href="#contact">Get in touch</a>
+  </section>
+
+  <section class="block" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h">About us</h2>
+      <hr class="rule">
+      <p class="lead">Brown Biotech Paid Briefs are the company&#39;s flagship service lane: scoped, evidence-anchored research documents that turn a vague question into a clear next action. Every brief combines literature mining (PubMed, GEO, ClinicalTrials), target validation, IP landscape, and ADMET scoring into an 8–15 page PDF plus a structured dataset. We don&#39;t sell database access — we sell the reasoning layer on top of it.</p>
+    </div>
+  </section>
+
+  <section class="block alt" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">What we offer</h2>
+      <hr class="rule">
+      <div class="grid">
+        <div class="card">
+          <h3>Sample Brief — fit check</h3>
+          <p>Quick scoping conversation (₩0.3M–1M). Output: 2-page PDF confirming whether a paid brief is the right fit, and what the scope should be. 3 business days.</p>
+        </div>
+        <div class="card">
+          <h3>Paid Brief — focused scope</h3>
+          <p>Decision-ready research on a single question (₩2M–8M). 8–15 page PDF + structured dataset (CSV/JSON). 5–10 business days. Includes one revision round.</p>
+        </div>
+        <div class="card">
+          <h3>Project Brief — full lane</h3>
+          <p>End-to-end research + report + delivery for a defined biotech problem (₩8M–30M+). Multi-week engagement with review gates. Custom deliverable format.</p>
+        </div>
+        <div class="card">
+          <h3>Subscription Briefs — recurring</h3>
+          <p>Weekly or monthly intelligence on a chosen topic (peptide CDMO pricing, IPF trial landscape, AI drug-discovery tooling, etc.). Starting at ₩4M/quarter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block alt" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Frequently asked questions</h2>
+      <hr class="rule">
+        <details>
+          <summary>What&#39;s the difference between Sample and Paid?</summary>
+          <p>Sample = fit check, 2-page PDF, ₩0.3M–1M. Use it to confirm scope before committing. Paid = full 8–15 page brief + dataset, ₩2M–8M, decision-ready. Both are scoped in writing before any payment.</p>
+        </details>
+        <details>
+          <summary>What topics can you cover?</summary>
+          <p>Anywhere inside biotech: target validation, IPF/fibrosis, NASH, oncology, peptide CDMO, AI drug discovery, longevity/senolytics, multi-omics, regulatory pathways. Outside biotech (e.g., medical device hardware) we refer out.</p>
+        </details>
+        <details>
+          <summary>How is source quality ensured?</summary>
+          <p>Every claim cites a DOI or URL inline. PubMed records are fetched via NCBI eutils with 4-attempt retry. Triangulation: ≥2 independent sources per major claim. Failed fetches trigger re-runs, not silent zeros.</p>
+        </details>
+        <details>
+          <summary>Who has access to the brief?</summary>
+          <p>Just you (and any email CCs you specify). Briefs are not republished or reused. We retain an anonymized topic and rubric score for internal QA only.</p>
+        </details>
+        <details>
+          <summary>Can I publish the brief externally?</summary>
+          <p>Yes — Sample Briefs are public. Paid Briefs are normally client-confidential but we offer a &#39;publishable&#39; tier (₩+30%) for clients who want a public version with redactions.</p>
+        </details>
+    </div>
+  </section>
+
+  <section class="block" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <h2 id="contact-h">Contact us</h2>
+      <hr class="rule">
+      <div class="grid">
+        <div class="card"><h3>Email</h3><p><a href="mailto:briefs@brownbio.tech">briefs@brownbio.tech</a></p></div>
+        <div class="card"><h3>Address</h3><p>Seoul, Republic of Korea</p></div>
+        <div class="card"><h3>Hours</h3><p>Mon–Fri 09:00–18:00 KST</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <p>&copy; 2026 Brown Biotech Paid Briefs. All rights reserved.</p>
+  <p>Decision-ready research for biotech operators — published in 5 to 10 business days.</p>
+</footer>
+</body>
+</html>

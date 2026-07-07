@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag, Network, Utensils } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, Phone, Sparkles, FlaskConical, BarChart3, GitBranch, Sigma, BrainCircuit, TrendingUp, Tag, Network, Utensils, Hammer } from "lucide-react";
 import { MARKET_SIGNALS } from "@/lib/intake";
 
 const siteName = "Brown Biotech Inc.";
@@ -75,6 +75,17 @@ const specialtyLanes = [
     cta: "Request a Pipeline Brief",
     accent: "from-amber-500 to-primary-dark",
     badge: "Project",
+  },
+  {
+    name: "site-forge",
+    href: "/services/site-forge",
+    icon: Hammer,
+    summary: "Single-file biotech landing pages — generated, downloadable, ready to email. Outreach, conference booths, sample-brief previews.",
+    forWhom: "BB operators and partners who need a one-pager artifact in under a minute.",
+    deliverables: ["Self-contained HTML", "5 themes × 2 heading styles", "Accessibility built in"],
+    cta: "Open the generator",
+    accent: "from-primary-light to-cta",
+    badge: "Specialty",
   },
 ];
 
