@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     "Brown Biotech's ARP engine — the reasoning layer every paid brief runs on. Continuous intelligence over public life-science data, with human approval gates.",
   alternates: { canonical: "/services/arp-engine" },
+  openGraph: { url: "/services/arp-engine" },
+  twitter: { card: "summary_large_image" },
 };
 
 const capabilities = [

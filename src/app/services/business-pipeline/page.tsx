@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "business-pipeline",
   description: "Brown Biotech business pipeline for agentic drug discovery and biotech operations.",
   alternates: { canonical: "/services/business-pipeline" },
+  openGraph: { url: "/services/business-pipeline" },
+  twitter: { card: "summary_large_image" },
 };
 
 const cards = [

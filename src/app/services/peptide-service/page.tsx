@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "peptide-service",
   description: "Brown Biotech peptide-service landing page for peptide-related projects, quotes, and consults.",
   alternates: { canonical: "/services/peptide-service" },
+  openGraph: { url: "/services/peptide-service" },
+  twitter: { card: "summary_large_image" },
 };
 
 const cards = [

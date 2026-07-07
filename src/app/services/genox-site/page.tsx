@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "genox-site",
   description: "Brown Biotech genox-site — discovery and genomics-facing support for early-stage research and partnership conversations.",
   alternates: { canonical: "/services/genox-site" },
+  openGraph: { url: "/services/genox-site" },
+  twitter: { card: "summary_large_image" },
 };
 
 const proofItems = [

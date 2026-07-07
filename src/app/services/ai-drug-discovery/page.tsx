@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   title: "AI Drug Discovery",
   description: "Brown Biotech AI drug discovery — molecular fingerprint embedding, reasoning layer, and decision-scored candidates for peptide and small-molecule projects.",
   alternates: { canonical: "/services/ai-drug-discovery" },
+  openGraph: { url: "/services/ai-drug-discovery" },
+  twitter: { card: "summary_large_image" },
 };
 
 const capabilities = [

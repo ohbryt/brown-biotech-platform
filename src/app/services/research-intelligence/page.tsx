@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description:
     "AI-powered research intelligence for longevity science. TrueSkill-ranked preprint analysis, pairwise tournament evaluation, and decision-ready scientific briefs.",
   alternates: { canonical: "/services/research-intelligence" },
+  openGraph: { url: "/services/research-intelligence" },
+  twitter: { card: "summary_large_image" },
 };
 
 const capabilities = [
