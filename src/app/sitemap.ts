@@ -11,9 +11,18 @@ const serviceRoutes: Array<{ path: string; priority?: number }> = [
   { path: "/services/strict-omics", priority: 0.7 },
   { path: "/services/business-pipeline", priority: 0.7 },
   { path: "/services/arp-engine", priority: 0.8 },
+  { path: "/services/site-forge", priority: 0.8 },
   { path: "/services/pricing", priority: 0.6 },
   { path: "/services/inventa", priority: 0.5 },
   { path: "/services/ondining", priority: 0.5 },
+];
+
+const siteForgeSamples = [
+  "peptide-service",
+  "biostatx",
+  "paid-briefs",
+  "ondining",
+  "business-pipeline",
 ];
 
 const otherRoutes: Array<{ path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }> = [
@@ -59,5 +68,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.6,
     },
+    ...siteForgeSamples.map((name) => ({
+      url: `${siteUrl}/site-forge/samples/${name}.html`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
   ];
 }

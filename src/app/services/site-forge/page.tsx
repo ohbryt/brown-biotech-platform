@@ -11,6 +11,29 @@ export const metadata: Metadata = {
   description:
     "Brown Biotech Site Forge — single-file biotech landing pages generated and shipped as ready-to-email artifacts. Outreach, conference booths, sample-brief previews.",
   alternates: { canonical: "/services/site-forge" },
+  openGraph: {
+    title: "Brown Biotech Site Forge — single-file biotech landing pages",
+    description:
+      "Generate a biotech landing page in 60 seconds. Self-contained HTML, 5 themes, accessibility built in. Free generator + 5 live samples.",
+    url: "/services/site-forge",
+    siteName: "Brown Biotech Inc.",
+    type: "website",
+    images: [
+      {
+        url: "/services/site-forge/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Brown Biotech Site Forge — single-file biotech landing pages",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brown Biotech Site Forge — single-file biotech landing pages",
+    description:
+      "Generate a biotech landing page in 60 seconds. Self-contained HTML, 5 themes, accessibility built in. Free generator + 5 live samples.",
+    images: ["/services/site-forge/opengraph-image"],
+  },
 };
 
 const samples = [
@@ -83,6 +106,56 @@ const features = [
 export default function SiteForgePage() {
   return (
     <main className="min-h-screen bg-surface">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Biotech Landing Page Generation",
+            name: "Brown Biotech Site Forge",
+            description:
+              "Single-file biotech landing pages generated and shipped as ready-to-email artifacts. Outreach, conference booths, sample-brief previews.",
+            url: `${siteUrl}/services/site-forge`,
+            provider: {
+              "@type": "Organization",
+              name: "Brown Biotech Inc.",
+              url: siteUrl,
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "sales",
+                email: "brownbio.ocm@gmail.com",
+                telephone: "+82-62-715-5377",
+              },
+            },
+            areaServed: "Worldwide",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+              description:
+                "Free self-serve generator + free sample downloads. Custom one-pager engagements quoted per scope.",
+            },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Sample one-pagers",
+              itemListElement: [
+                "peptide-service",
+                "biostatx",
+                "paid-briefs",
+                "ondining",
+                "business-pipeline",
+              ].map((name, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name,
+                url: `${siteUrl}/site-forge/samples/${name}.html`,
+              })),
+            },
+          }),
+        }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-dark text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(217,119,6,0.16),transparent_25%),radial-gradient(circle_at_85%_30%,rgba(146,64,14,0.18),transparent_24%)]" />
