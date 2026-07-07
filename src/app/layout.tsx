@@ -4,7 +4,7 @@ import "./globals.css";
 const siteName = "Brown Biotech Inc.";
 const siteDescription =
   "Brown Biotech Inc. helps labs, founders, and collaborators turn complex biotech questions into clear next steps through focused service lanes, pilot workflows, and decision-ready reporting.";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brownbio.tech";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
