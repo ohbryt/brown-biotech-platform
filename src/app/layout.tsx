@@ -3,7 +3,7 @@ import "./globals.css";
 
 const siteName = "Brown Biotech Inc.";
 const siteDescription =
-  "Brown Biotech Inc. helps labs, founders, and collaborators turn complex biotech questions into clear next steps through focused service lanes, pilot workflows, and decision-ready reporting.";
+  "Brown Biotech Inc. — paid research briefs, custom peptide CDMO, and biostatistics for biotech teams. Decision-ready, human-reviewed.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://brownbio.tech";
 
 export const metadata: Metadata = {
@@ -13,11 +13,12 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: [
+description: [
     "drug discovery",
     "AI",
     "biotech",
     "peptide design",
+    "peptide CDMO",
     "small molecule",
     "ADMET",
     "computational chemistry",
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
     "research workflows",
     "pilot studies",
     "target analysis",
+    "biostatistics",
+    "paid research brief",
+    "Korea biotech",
   ],
   alternates: {
     canonical: "/",
