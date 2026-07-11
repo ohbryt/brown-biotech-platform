@@ -18,20 +18,56 @@
   --font-heading: "Exo", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: "Exo", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  /* ─────────────────────────────────────────────────────────────────
+     Motion tokens — Emil Kowalski's design engineering philosophy
+     Source: github.com/emilkowalski/skills
+     ─────────────────────────────────────────────────────────────────
+     Strong custom curves (built-in easings are too weak for UI):
+     --ease-out     → UI entrances, exits, button presses
+     --ease-in-out  → on-screen movement / morphs
+     --ease-drawer  → iOS-style drawer / sheet curve (from Ionic)
+     --ease-hover   → soft hover / color changes
+     ───────────────────────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-hover: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Duration budgets (Emil: UI stays <300ms) */
+  --dur-press: 160ms;   /* button press feedback */
+  --dur-pop: 200ms;     /* tooltips, popovers */
+  --dur-enter: 250ms;   /* dropdowns, selects */
+  --dur-modal: 300ms;   /* modals, drawers */
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   Reduced motion — keep feedback, drop movement
+   (Emil: gentler, NOT zero. Keep opacity/color; drop transforms.)
+   ───────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    /* Keep transitions short so opacity/color feedback remains.
+       Only the *transform-based* ones are killed below. */
+  }
+  *,
+  *::before,
+  *::after {
+    /* Cancel transforms entirely; allow opacity/color to settle. */
+    transform: none !important;
     transition-duration: 0.01ms !important;
+    transition-property: opacity, color, background-color, border-color !important;
   }
 }
 
@@ -43,6 +79,104 @@ body {
     linear-gradient(180deg, #fffdf8 0%, #fafaf9 40%, #f5f5f4 100%);
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   .btn — Emil-style responsive button
+   Apply to every interactive button / Link with button classes.
+   Guarantees: instant press feedback + custom easing + GPU properties.
+   ───────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  /* GPU-only properties. NEVER `transition: all`. */
+  transition:
+    transform var(--dur-press) var(--ease-out),
+    background-color var(--dur-pop) var(--ease-hover),
+    box-shadow var(--dur-pop) var(--ease-hover),
+    border-color var(--dur-pop) var(--ease-hover),
+    color var(--dur-pop) var(--ease-hover);
+  /* Hint to compositor — promote ahead of transform. */
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-cta);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   .card-hover — premium card lift, GPU-only
+   Replaces ubiquitous `transition-all duration-300 hover:-translate-y-1`
+   ───────────────────────────────────────────────────────────────── */
+.card-hover {
+  transition:
+    transform var(--dur-modal) var(--ease-out),
+    box-shadow var(--dur-modal) var(--ease-out),
+    border-color var(--dur-modal) var(--ease-out);
+  will-change: transform;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(146, 64, 14, 0.12);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   .stagger — group entrance with 50ms cascade
+   Emil: 30–80ms between items. Decorative, never blocks interaction.
+   Use on children with style="--i: N" or :nth-child(N).
+   ───────────────────────────────────────────────────────────────── */
+.stagger > * {
+  animation: enter-up var(--dur-modal) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 50ms);
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   @starting-style — entry without JS
+   Modern CSS way to animate element entry. Browser support broad enough
+   for premium product; legacy fallback below.
+   ───────────────────────────────────────────────────────────────── */
+.enter-fade {
+  opacity: 1;
+  transform: scale(0.97);
+  transition:
+    opacity var(--dur-modal) var(--ease-out),
+    transform var(--dur-modal) var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+/* Legacy fallback (data-mounted pattern) */
+.enter-fade[data-mounted="false"] {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Existing premium styles — kept & upgraded to use motion tokens
+   ───────────────────────────────────────────────────────────────── */
+
 /* Molecular background pattern for hero */
 .molecular-bg {
   background-image:
@@ -51,28 +185,19 @@ body {
     radial-gradient(circle at 60% 80%, rgba(180, 83, 9, 0.05) 0%, transparent 45%);
 }
 
-/* Animated gradient for hero accent */
+/* Animated gradient for hero accent — marketing page exception */
 .gradient-text {
   background: linear-gradient(135deg, #D97706 0%, #92400E 50%, #D97706 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 4s linear infinite;
 }
 
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% center; }
   50% { background-position: 100% center; }
-}
-
-/* Floating glow effect for cards */
-.card-glow {
-  transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.card-glow:hover {
-  box-shadow: 0 8px 40px rgba(146, 64, 14, 0.12), 0 0 0 1px rgba(146, 64, 14, 0.06);
 }
 
 /* Glassmorphism */
@@ -122,7 +247,7 @@ body {
   color: #92400E;
 }
 
-/* Accessibility — added 2026-07-07 from business-site-generator audit */
+/* Accessibility — skip-link + focus-visible */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -147,7 +272,7 @@ body {
   border-radius: 2px;
 }
 
-/* Container helper — matches generator's max-width 1040px */
+/* Container helper */
 .wrap {
   max-width: 1040px;
   margin-left: auto;

@@ -207,10 +207,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services" },
 };
 
-function LaneCard({ lane, large = false }: { lane: { name: string; href: string; icon: React.ComponentType<{ className?: string }>; summary: string; forWhom: string; deliverables: string[]; cta: string; accent: string; badge?: string }; large?: boolean }) {
+function LaneCard({ lane, large = false, index = 0 }: { lane: { name: string; href: string; icon: React.ComponentType<{ className?: string }>; summary: string; forWhom: string; deliverables: string[]; cta: string; accent: string; badge?: string }; large?: boolean; index?: number }) {
   const Icon = lane.icon;
   return (
-    <article className={`premium-panel group flex h-full flex-col rounded-[1.75rem] p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${large ? "lg:p-10" : ""}`}>
+    <article
+      style={{ "--i": index } as React.CSSProperties}
+      className={`premium-panel card-hover group flex h-full flex-col rounded-[1.75rem] p-8 ${large ? "lg:p-10" : ""}`}
+    >
       <div className="flex items-start justify-between gap-3">
         <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${lane.accent} shadow-lg shadow-primary/10`}>
           <Icon className="h-6 w-6 text-white" />
@@ -244,7 +247,10 @@ function LaneCard({ lane, large = false }: { lane: { name: string; href: string;
           ))}
         </ul>
       </div>
-      <Link href={lane.href} className="mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light">
+      <Link
+        href={lane.href}
+        className="btn mt-auto rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 text-white hover:from-primary-light hover:to-cta-light"
+      >
         {lane.cta}
         <ArrowRight className="h-4 w-4" />
       </Link>
@@ -299,10 +305,16 @@ export default function ServicesPage() {
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="#offer-ladder" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
+              <Link
+                href="#offer-ladder"
+                className="btn rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 text-white shadow-xl shadow-black/20 hover:from-primary-light hover:to-cta-light"
+              >
                 View offer ladder <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
+              <Link
+                href="#contact"
+                className="btn rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-gray-200 backdrop-blur hover:bg-white/10"
+              >
                 Contact us
               </Link>
             </div>
@@ -321,9 +333,9 @@ export default function ServicesPage() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {primaryLanes.map((lane) => (
-            <LaneCard key={lane.name} lane={lane} />
+        <div className="stagger grid gap-6 lg:grid-cols-3">
+          {primaryLanes.map((lane, i) => (
+            <LaneCard key={lane.name} lane={lane} index={i} />
           ))}
         </div>
       </section>
@@ -340,11 +352,11 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {specialtyLanes.map((lane) => (
-              <LaneCard key={lane.name} lane={lane} />
-            ))}
-          </div>
+<div className="stagger grid gap-6 lg:grid-cols-3">
+          {specialtyLanes.map((lane, i) => (
+            <LaneCard key={lane.name} lane={lane} index={i} />
+          ))}
+        </div>
         </div>
       </section>
 
@@ -367,9 +379,13 @@ export default function ServicesPage() {
           </Link>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {offerLadder.map((item) => (
-            <article key={item.name} className="premium-panel rounded-[1.5rem] p-6">
+        <div className="stagger grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {offerLadder.map((item, i) => (
+            <article
+              key={item.name}
+              style={{ "--i": i } as React.CSSProperties}
+              className="premium-panel card-hover rounded-[1.5rem] p-6"
+            >
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">{item.name}</p>
               <p className="mt-3 text-2xl font-semibold text-text">{item.price}</p>
               <p className="mt-2 text-sm text-text-muted">{item.note}</p>
