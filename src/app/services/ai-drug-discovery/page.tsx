@@ -118,14 +118,18 @@ export default function AIDrugDiscoveryPage() {
             The same infrastructure that powers Brown Biotech&apos;s peptide synthesis services — extended for computational drug discovery.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="stagger grid gap-6 md:grid-cols-2">
           {[
             ["ARP v24", "Compute + storage layer for fingerprint DB and high-throughput model inference."],
             ["PRISM", "Optimization feedback loop — synthetic feasibility feeds back into candidate scoring."],
             ["FPembed", "Molecular encoding: raw SMILES → 2048-dim fingerprint → embedding space."],
             ["Peptide Synthesis", "Wet-lab validation of computational hits; CRO cross-sell for non-peptide scaffolds."],
-          ].map(([title, desc]) => (
-            <article key={title} className="premium-panel rounded-[1.5rem] p-6">
+          ].map(([title, desc], i) => (
+            <article
+              key={title}
+              style={{ "--i": i } as React.CSSProperties}
+              className="premium-panel card-hover rounded-[1.5rem] p-6"
+            >
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/5 text-primary">
                 <CheckCircle2 className="h-5 w-5" />
               </div>
@@ -133,6 +137,15 @@ export default function AIDrugDiscoveryPage() {
               <p className="mt-2 text-sm text-text-muted">{desc}</p>
             </article>
           ))}
+        </div>
+        <div className="mt-8 max-w-3xl rounded-2xl border border-amber-200/40 bg-amber-50/60 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900">Reference</p>
+          <p className="mt-2 text-sm italic leading-7 text-amber-900">
+            Wong MYH, Ong JCL, Shah N, Klonoff DC, Sheng B. Neuro-symbolic artificial intelligence in medicine. Nature Biomedical Engineering (2026). doi.org/10.1038/s41551-026-01728-1
+          </p>
+          <p className="mt-3 text-sm leading-7 text-amber-900">
+            <span className="font-semibold">Why it matters:</span> The paper identifies drug discovery as a natural NeSy application — &ldquo;integrate neural predictions with logical constraints over molecular structures, biological pathways or knowledge graphs.&rdquo; FPembed + ADMET constraint scoring is exactly that pattern. <span className="font-semibold">Caveat:</span> symbolic scoring is decision-support, not biological validation — every ranked candidate still routes to wet-lab confirmation.
+          </p>
         </div>
       </section>
 

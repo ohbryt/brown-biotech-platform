@@ -177,21 +177,34 @@ export default function StrictOmicsPage() {
         </div>
       </section>
 
-      <section id="methodology" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Operating steps</span>
           <p className="mt-2 max-w-3xl text-sm leading-7 text-text-muted">
             The workbench above covers steps 1, 2, and 5. Steps 3 and 4 (alignment and containerised production QC) run on
             the backend.
           </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+          <div className="stagger mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {steps.map((step, index) => (
-              <div key={step.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+              <div
+                key={step.title}
+                style={{ "--i": index } as React.CSSProperties}
+                className="card-hover rounded-2xl border border-border bg-white p-5 shadow-sm"
+              >
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">0{index + 1}</p>
                 <p className="mt-3 text-base font-semibold text-text">{step.title}</p>
                 <p className="mt-2 text-sm leading-7 text-text-muted">{step.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 rounded-2xl border border-amber-200/40 bg-amber-50/60 p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900">Reference</p>
+            <p className="mt-2 text-sm italic leading-7 text-amber-900">
+              Wong MYH et al. Neuro-symbolic artificial intelligence in medicine. Nature Biomedical Engineering (2026). doi.org/10.1038/s41551-026-01728-1
+            </p>
+            <p className="mt-3 text-sm leading-7 text-amber-900">
+              <span className="font-semibold">Why strict-omics is the canonical composite NeSy example:</span> the browser workbench is the neural layer (LLM proposes candidate datasets and metadata); the Pydantic-validated ingestion gate is the symbolic layer (fail-closed on conflicting evidence). Same architecture the paper&apos;s Fig. 1 names &ldquo;composite NeSy.&rdquo;
+            </p>
           </div>
         </div>
       </section>

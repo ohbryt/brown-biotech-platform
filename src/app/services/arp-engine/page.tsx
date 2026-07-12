@@ -90,6 +90,26 @@ const stackItems = [
   },
 ];
 
+const architectureItems = [
+  {
+    title: "Neural perception",
+    desc: "Claude, GPT, Gemini and local models read papers, drafts and field-specific text. The model is a variable, not the constant — swappable per task.",
+  },
+  {
+    title: "Symbolic guardrails",
+    desc: "Pydantic schemas, PRISMA-RAISE compliance, ADMET constraint engines, owner approval gates. Auditable reasoning pathways, not opaque black-box outputs.",
+  },
+  {
+    title: "Owner-routed decisions",
+    desc: "High-stakes outputs route through human approval. The owner is the constant; the model and the rules are auditable layers beneath every decision.",
+  },
+];
+
+const paperCitation = {
+  citation: "Wong MYH, Ong JCL, Shah N, Klonoff DC, Sheng B. Neuro-symbolic artificial intelligence in medicine. Nature Biomedical Engineering (2026). doi.org/10.1038/s41551-026-01728-1",
+  takeaway: "Identifies neuro-symbolic (NeSy) AI as the most credible path toward clinical AI that is powerful, auditable and governable — and frames the architecture around three deficits of pure neural systems: justifiable recommendations, explicit safety constraints, and robust behavior under clinical context shift.",
+};
+
 export default function ArpEnginePage() {
   return (
     <main className="min-h-screen bg-surface">
@@ -145,6 +165,39 @@ export default function ArpEnginePage() {
               <p className="mt-3 text-sm leading-7 text-text-muted">{item.desc}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-3xl">
+          <span className="kicker">Architecture</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+            Composite neuro-symbolic design.
+          </h2>
+          <p className="mt-4 text-lg text-text-muted">
+            ARP applies the neuro-symbolic architecture now considered the most credible path toward accountable clinical AI. Every brief pairs data-driven inference with explicit symbolic constraints — auditable reasoning pathways, not opaque black-box outputs.
+          </p>
+        </div>
+        <div className="stagger grid gap-6 md:grid-cols-3">
+          {architectureItems.map((item, i) => (
+            <article
+              key={item.title}
+              style={{ "--i": i } as React.CSSProperties}
+              className="premium-panel card-hover rounded-[1.5rem] p-6"
+            >
+              <h3 className="text-lg font-semibold text-text">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-text-muted">{item.desc}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 max-w-3xl rounded-2xl border border-amber-200/40 bg-amber-50/60 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900">Reference</p>
+          <p className="mt-2 text-sm italic leading-7 text-amber-900">
+            {paperCitation.citation}
+          </p>
+          <p className="mt-3 text-sm leading-7 text-amber-900">
+            <span className="font-semibold">Why it matters:</span> {paperCitation.takeaway}
+          </p>
         </div>
       </section>
 
