@@ -126,10 +126,14 @@ export default function PricingPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
-          {tiers.map((tier) => {
+          {tiers.map((tier, i) => {
             const Icon = tier.icon;
             return (
-              <article key={tier.name} className="premium-panel flex flex-col rounded-[1.75rem] overflow-hidden">
+              <article
+                key={tier.name}
+                style={{ "--i": i } as React.CSSProperties}
+                className="premium-panel card-hover flex flex-col rounded-[1.75rem] overflow-hidden"
+              >
                 <div className={`inline-flex h-14 w-14 items-center justify-center bg-gradient-to-br ${tier.accent} p-4`}>
                   <Icon className="h-7 w-7 text-white" />
                 </div>
@@ -150,7 +154,7 @@ export default function PricingPage() {
                 <div className="mt-auto p-8 pt-0">
                   <Link
                     href={tier.ctaHref}
-                    className={`inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r ${tier.accent} px-5 py-3 font-semibold text-white shadow-lg transition hover:opacity-90`}
+                    className={`btn w-full rounded-xl bg-gradient-to-r ${tier.accent} px-5 py-3 text-white shadow-lg hover:opacity-90`}
                   >
                     {tier.cta} <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -167,25 +171,21 @@ export default function PricingPage() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
             A clearer path from first inquiry to ongoing partnership.
           </h2>
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-2xl border border-border bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Start with the sample brief</p>
-              <p className="mt-3 text-sm leading-relaxed text-text-muted">
-                A lightweight first step to check fit, define scope, and see the routing logic before committing to a larger engagement.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Expand when the lane is clear</p>
-              <p className="mt-3 text-sm leading-relaxed text-text-muted">
-                Once the brief, the owner, and the next action are defined — a paid brief or project engagement scales naturally from the same workflow.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Retainer for ongoing work</p>
-              <p className="mt-3 text-sm leading-relaxed text-text-muted">
-                Monthly research and ops support for teams that want a consistent owner and a reliable brief delivery process without renegotiating each time.
-              </p>
-            </div>
+          <div className="stagger mt-8 grid gap-6 lg:grid-cols-3">
+            {[
+              { kicker: "Start with the sample brief", body: "A lightweight first step to check fit, define scope, and see the routing logic before committing to a larger engagement." },
+              { kicker: "Expand when the lane is clear", body: "Once the brief, the owner, and the next action are defined — a paid brief or project engagement scales naturally from the same workflow." },
+              { kicker: "Retainer for ongoing work", body: "Monthly research and ops support for teams that want a consistent owner and a reliable brief delivery process without renegotiating each time." },
+            ].map((card, i) => (
+              <div
+                key={card.kicker}
+                style={{ "--i": i } as React.CSSProperties}
+                className="card-hover rounded-2xl border border-border bg-white p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{card.kicker}</p>
+                <p className="mt-3 text-sm leading-relaxed text-text-muted">{card.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

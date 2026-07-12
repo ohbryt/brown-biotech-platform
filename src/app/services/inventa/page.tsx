@@ -123,7 +123,7 @@ export default function InventaPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-amber-300 hover:to-orange-400 disabled:cursor-not-allowed disabled:opacity-70"
+                className="btn rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-3.5 text-white shadow-xl shadow-black/20 hover:from-amber-300 hover:to-orange-400 disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {loading ? (
                   <>
@@ -142,7 +142,7 @@ export default function InventaPage() {
           )}
 
           <div className="mt-10">
-            <Link href="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-text-muted hover:text-text transition">
+            <Link href="/services" className="btn text-sm font-semibold text-text-muted hover:text-text">
               ← Back to service hub
             </Link>
           </div>
