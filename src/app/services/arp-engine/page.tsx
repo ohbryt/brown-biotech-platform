@@ -110,13 +110,13 @@ export default function ArpEnginePage() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 href="#brief"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
+                className="btn rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 text-white shadow-xl shadow-black/20 hover:from-primary-light hover:to-cta-light"
               >
                 See the engine <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10"
+                className="btn rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-gray-200 backdrop-blur hover:bg-white/10"
               >
                 Back to service hub
               </Link>
@@ -135,9 +135,9 @@ export default function ArpEnginePage() {
             Brown Biotech&apos;s positioning is direct: we don&apos;t sell database access. We sell the routing layer on top of it.
           </p>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {capabilities.map((item) => (
-            <article key={item.title} className="premium-panel rounded-[1.5rem] p-6">
+        <div className="stagger grid gap-6 md:grid-cols-3">
+          {capabilities.map((item, i) => (
+            <article key={item.title} style={{ "--i": i } as React.CSSProperties} className="premium-panel card-hover rounded-[1.5rem] p-6">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 text-primary">
                 <item.icon className="h-5 w-5" />
               </div>
@@ -160,7 +160,7 @@ export default function ArpEnginePage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-            {workflow.map((item) => (
+            {workflow.map((item, i) => (
               <article key={item.step} className="premium-panel rounded-[1.5rem] p-6">
                 <div className="text-5xl font-semibold text-primary/20">{item.step}</div>
                 <h3 className="mt-4 text-base font-semibold text-text">{item.title}</h3>
@@ -182,8 +182,8 @@ export default function ArpEnginePage() {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
-          {stackItems.map((item) => (
-            <article key={item.title} className="premium-panel rounded-[1.5rem] p-6">
+          {stackItems.map((item, i) => (
+            <article key={item.title} style={{ "--i": i } as React.CSSProperties} className="premium-panel card-hover rounded-[1.5rem] p-6">
               <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/5 text-primary">
                 <item.icon className="h-5 w-5" />
               </div>
@@ -201,7 +201,7 @@ export default function ArpEnginePage() {
             What the engine is not.
           </h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="stagger grid gap-6 md:grid-cols-3">
           {boundaries.map((text) => (
             <article key={text} className="premium-panel flex items-start gap-3 rounded-[1.5rem] p-6">
               <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -228,7 +228,7 @@ export default function ArpEnginePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 font-semibold text-white transition hover:from-primary-light hover:to-cta-light"
+                className="btn rounded-xl bg-gradient-to-r from-primary to-cta px-5 py-3 text-white hover:from-primary-light hover:to-cta-light"
               >
                 See all lanes <ArrowRight className="h-4 w-4" />
               </Link>

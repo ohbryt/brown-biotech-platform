@@ -186,10 +186,10 @@ export default function OndiningPage() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="#brief" className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light">
+              <Link href="#brief" className="btn rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 text-white shadow-xl shadow-black/20 hover:from-primary-light hover:to-cta-light">
                 Join the Gwangju pilot <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#how" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10">
+              <Link href="#how" className="btn rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-gray-200 backdrop-blur hover:bg-white/10">
                 How a table runs
               </Link>
             </div>
@@ -199,9 +199,9 @@ export default function OndiningPage() {
 
       {/* 3-CARD SECTION: Who / What / What you get */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {cards.map((item) => (
-            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
+        <div className="stagger grid gap-6 lg:grid-cols-3">
+          {cards.map((item, i) => (
+            <article key={item.title} style={{ "--i": i } as React.CSSProperties} className="premium-panel card-hover rounded-[1.75rem] p-8">
               <CheckCircle2 className="h-6 w-6 text-cta" />
               <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>
@@ -241,8 +241,8 @@ export default function OndiningPage() {
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Boundaries</span>
           <div className="mt-4 grid gap-4 lg:grid-cols-3">
-            {boundaries.map((item) => (
-              <div key={item} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+            {boundaries.map((item, i) => (
+              <div key={item} style={{ "--i": i } as React.CSSProperties} className="card-hover rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <ShieldCheck className="h-5 w-5 text-cta" />
                 <p className="mt-3 text-sm leading-7 text-text-muted">{item}</p>
               </div>
@@ -258,11 +258,15 @@ export default function OndiningPage() {
           <p className="mt-4 max-w-2xl text-base text-text-muted">
             Every table picks a thread for the night. Hosts rotate the theme; guests can request a switch after the first dinner.
           </p>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {themes.map((theme) => {
+          <div className="stagger mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {themes.map((theme, i) => {
               const Icon = theme.icon;
               return (
-                <div key={theme.title} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+                <div
+                  key={theme.title}
+                  style={{ "--i": i } as React.CSSProperties}
+                  className="card-hover rounded-2xl border border-border bg-white p-5 shadow-sm"
+                >
                   <Icon className="h-5 w-5 text-cta" />
                   <p className="mt-3 text-base font-semibold text-text">{theme.title}</p>
                   <p className="mt-2 text-sm leading-7 text-text-muted">{theme.desc}</p>
@@ -281,7 +285,7 @@ export default function OndiningPage() {
             Hosts are trained, named, and held to a code. The medical advisor designs the social-prescribing framework behind the program.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {hosts.map((host) => (
+            {hosts.map((host, i) => (
               <div key={host.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <UserRound className="h-5 w-5 text-cta" />
                 <p className="mt-3 text-base font-semibold text-text">{host.name}</p>
@@ -301,7 +305,7 @@ export default function OndiningPage() {
             Placeholder quotes from the pilot cohort. Real testimonials ship after the first 8 weeks.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {testimonials.map((t) => (
+            {testimonials.map((t, i) => (
               <blockquote key={t.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <Quote className="h-5 w-5 text-cta" />
                 <p className="mt-3 text-sm leading-7 text-text-muted">&ldquo;{t.quote}&rdquo;</p>
@@ -323,7 +327,7 @@ export default function OndiningPage() {
             Final pricing is set at launch. Pilot guests are invited at no charge; partner programs are scoped per cohort.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {plans.map((plan) => (
+            {plans.map((plan, i) => (
               <article
                 key={plan.name}
                 className={`relative rounded-2xl border bg-white p-6 shadow-sm ${plan.accent} ${plan.featured ? "ring-2 ring-cta/30" : ""}`}

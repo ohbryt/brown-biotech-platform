@@ -180,13 +180,13 @@ export default function SiteForgePage() {
                 href="/site-forge/index.html"
                 target="_blank"
                 rel="noopener"
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
+                className="btn rounded-xl bg-gradient-to-r from-primary to-cta px-6 py-3.5 text-white shadow-xl shadow-black/20 hover:from-primary-light hover:to-cta-light"
               >
                 Open the generator <ExternalLink className="h-4 w-4" />
               </a>
               <Link
                 href="#samples"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-gray-200 backdrop-blur transition hover:bg-white/10"
+                className="btn rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-gray-200 backdrop-blur hover:bg-white/10"
               >
                 View samples <ArrowRight className="h-4 w-4" />
               </Link>
@@ -198,8 +198,8 @@ export default function SiteForgePage() {
       {/* Features */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2">
-          {features.map((item) => (
-            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
+          {features.map((item, i) => (
+            <article key={item.title} style={{ "--i": i } as React.CSSProperties} className="premium-panel card-hover rounded-[1.75rem] p-8">
               <CheckCircle2 className="h-6 w-6 text-cta" />
               <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>

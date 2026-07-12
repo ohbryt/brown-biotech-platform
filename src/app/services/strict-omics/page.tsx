@@ -166,9 +166,9 @@ export default function StrictOmicsPage() {
 
       {/* Why / How / What */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 lg:grid-cols-3">
-          {cards.map((item) => (
-            <article key={item.title} className="premium-panel rounded-[1.75rem] p-8">
+        <div className="stagger grid gap-6 lg:grid-cols-3">
+          {cards.map((item, i) => (
+            <article key={item.title} style={{ "--i": i } as React.CSSProperties} className="premium-panel card-hover rounded-[1.75rem] p-8">
               <CheckCircle2 className="h-6 w-6 text-cta" />
               <p className="mt-4 text-lg font-semibold text-text">{item.title}</p>
               <p className="mt-3 text-sm leading-7 text-text-muted">{item.body}</p>
@@ -210,7 +210,7 @@ export default function StrictOmicsPage() {
             </p>
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {stack.map((item) => (
+            {stack.map((item, i) => (
               <div key={item.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <GitBranch className="h-5 w-5 text-cta" />
                 <p className="mt-3 text-base font-semibold text-text">{item.name}</p>
@@ -228,7 +228,7 @@ export default function StrictOmicsPage() {
             Repository-native metadata, minimum-information standards, and a bilingual controlled vocabulary. We use these as hard gates, not as guidelines.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {standards.map((item) => (
+            {standards.map((item, i) => (
               <div key={item.name} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <p className="text-sm font-semibold uppercase tracking-wider text-primary">{item.name}</p>
                 <p className="mt-3 text-sm leading-7 text-text-muted">{item.note}</p>
@@ -242,8 +242,8 @@ export default function StrictOmicsPage() {
         <div className="premium-panel rounded-[2rem] p-8 lg:p-10">
           <span className="kicker">Boundaries</span>
           <div className="mt-4 grid gap-4 lg:grid-cols-3">
-            {boundaries.map((item) => (
-              <div key={item} className="rounded-2xl border border-border bg-white p-5 shadow-sm">
+            {boundaries.map((item, i) => (
+              <div key={item} style={{ "--i": i } as React.CSSProperties} className="card-hover rounded-2xl border border-border bg-white p-5 shadow-sm">
                 <ShieldCheck className="h-5 w-5 text-cta" />
                 <p className="mt-3 text-sm leading-7 text-text-muted">{item}</p>
               </div>
