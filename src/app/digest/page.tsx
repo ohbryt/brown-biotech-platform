@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
     {
+      id: 48,
+      date: "2026-07-20",
+      title: "DeepSAS maps IPF senotypes with graph learning and spatial validation (GSE331432, score 6, n=2, Homo sapiens, Xenium spatial transcriptomics, pdat 2026/05/29); Barcoded scATAC-seq links CAR-T engineering choices to efficacy-associated chromatin states (GSE331391, score 6, n=13, Homo sapiens + Mus musculus, pdat 2026/07/15); TGF-beta-induced SMAD2/3 and YAP/TAZ chromatin occupancy in human fibroblasts (GSE338387, score 6, n=32, Homo sapiens, ChIP-seq, pdat 2026/07/16)",
+      category: "longevity",
+      summary: "The 2026-07-20 06:00 KST research-watcher scan completed successfully with 105 hits across 27 queries. Three actionable signals survived the peptide / AI-infrastructure / longevity / cost screen, and all three are NOVEL versus yesterday's id:47 digest and absent from the retained id:43-id:47 window. (1) Longevity + AI drug discovery: GSE331432 introduces DeepSAS, a heterogeneous-graph, attention-based contrastive-learning framework for resolving rare, cell-type-specific senescent cells and senescence-associated genes. The GEO summary reports 1,678 senescent cells among 24,125 cells and 263 senescence-associated genes across 26 cell types in IPF data, with Xenium and human precision-cut lung-slice validation nominating NFE2L2 in CTHRC1+ fibroblasts; the deposited accession itself contains only two hPCLS Xenium samples, so this is a high-value but small-n validation set. (2) Refractory cancer + screening infrastructure: GSE331391 uses genetically encoded barcodes and pooled scATAC-seq to connect targeted CAR architecture and culture-state manipulations to single-cell chromatin outcomes in vitro and after transfer into leukemia-bearing mice. The linked Research Square preprint is PMID 42427866, DOI 10.21203/rs.3.rs-9859689/v1. (3) Fibrosis target validation: GSE338387 provides 32 human vocal-fold-fibroblast ChIP-seq samples comparing TGF-beta1-treated and untreated cells to map SMAD2/3 and YAP/TAZ occupancy. It is a tractable public chromatin dataset for testing convergence between canonical TGF-beta signaling and mechanotransduction, but the GEO record has no linked PMID or DOI and does not by itself establish therapeutic efficacy. Why this matters for Brown Biotech: together these datasets define a reusable pipeline from AI-based senotype discovery, through perturbation-linked single-cell regulatory readouts, to low-cost transcription-factor occupancy validation for IPF/fibrosis and refractory-cancer programs.",
+      tags: ["DeepSAS", "deep graph representation learning", "heterogeneous graph", "contrastive learning", "senotype", "cellular senescence", "senescence-associated genes", "longevity", "IPF", "idiopathic pulmonary fibrosis", "CTHRC1+ fibroblast", "NFE2L2", "human precision-cut lung slice", "hPCLS", "Xenium", "spatial transcriptomics", "GSE331432", "CAR-T", "CAR architecture", "genetic barcoding", "pooled screening", "scATAC-seq", "chromatin state", "IL-2", "leukemia", "refractory cancer", "GSE331391", "PMID 42427866", "TGF-beta", "SMAD2/3", "YAP/TAZ", "fibroblast", "ChIP-seq", "mechanotransduction", "fibrosis", "GSE338387", "AI drug discovery", "bioinformatics", "open science", "preprint"],
+      highlights: [
+        "Longevity + AI drug discovery — GSE331432 (score 6, n=2 deposited Xenium samples; pdat 2026/05/29) reports DeepSAS, which integrates intracellular transcriptional state and intercellular communication in a heterogeneous graph with attention-based contrastive learning. The study-level GEO summary reports 1,678 senescent cells out of 24,125 IPF cells, 263 senescence-associated genes across 26 cell types, and spatial/ex vivo support for NFE2L2 enrichment in CTHRC1+ fibroblasts. Why it matters for BB: this is a concrete senotype-to-target-nomination workflow for the longevity and IPF lanes, but the n=2 deposited validation set requires cross-cohort replication before prioritizing NFE2L2. Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331432. No linked PMID or DOI is listed in GEO.",
+        "Refractory cancer + biotech infrastructure — GSE331391 (score 6, n=13; pdat 2026/07/15) combines genetically encoded CAR barcodes with pooled human and murine scATAC-seq. The linked preprint reports stable and transient transcription-factor activities programmed by cytokine concentration during expansion and altered in-vivo effector differentiation after changes to the CAR antigen-binding domain. Why it matters for BB: it is a reusable screening pattern for ranking CAR or binder designs by downstream regulatory state rather than abundance alone, directly supporting refractory-cancer and perturbation-analysis services. Sources: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331391; PMID 42427866; DOI https://doi.org/10.21203/rs.3.rs-9859689/v1.",
+        "Fibrosis + target validation — GSE338387 (score 6, n=32; pdat 2026/07/16) maps SMAD2/3 and YAP/TAZ chromatin occupancy in TGF-beta1-treated versus untreated HOVX human vocal-fold fibroblasts using ChIP-seq. Why it matters for BB: the public BW and narrowPeak outputs make this a comparatively low-cost way to test whether canonical TGF-beta and mechanotransduction programs converge at shared regulatory elements, then compare those elements against IPF fibroblast states. Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338387. GEO lists no PMID or DOI, so conclusions should remain at the occupancy/target-validation level.",
+        "Four-axis decision gate — DeepSAS/IPF: peptide 0/3, AI infrastructure 3/3, longevity 3/3, low-cost/ease 3/3, translational fit 3/3 = 12/15; barcoded CAR-T scATAC: 1/3, 3/3, 0/3, 2/3, 3/3 = 9/15; TGF-beta–SMAD/YAP ChIP-seq: 0/3, 1/3, 2/3, 3/3, 2/3 = 8/15. All three are first-time primary features today. Next action: reproduce DeepSAS senotype calls across external IPF cohorts, benchmark barcode-to-state attribution for CAR variants, and intersect SMAD/YAP peaks with CTHRC1+ fibroblast regulons before any chemistry or therapeutic claim.",
+      ],
+      actions: [
+        { label: "View DeepSAS / IPF senotype dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331432" },
+        { label: "Read barcoded CAR-T scATAC preprint", href: "https://doi.org/10.21203/rs.3.rs-9859689/v1" },
+        { label: "View TGF-beta–SMAD/YAP ChIP-seq dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338387" },
+        { label: "Request integrated senescence / CAR-T / fibrosis brief", href: "/multiomics#brief" },
+      ],
+    },
+
 {
       id: 47,
       date: "2026-07-19",
@@ -44,9 +64,8 @@ const sampleDigests = [
         { label: "View biostatx service", href: "/services/biostatx" },
       ],
     },
-    },
 
-    {
+{
       id: 46,
       date: "2026-07-18",
       title: "Type I interferon–activated myeloid states gate less-fibrotic IPF stages (GSE292589, score 9, n=4, Homo sapiens, single-cell + spatial, pdat 2026/07/10 = 8 days ago, the FRESHEST score-9 IPF + myeloid + IFN-I hit in the 2026-07-18 scan and the cleanest anti-fibrotic-myeloid atlas surfaced this cycle); Visium HD single-cell spatial atlas of murine normal pancreas → pancreatitis → PDAC FFPE progression (GSE329811, score 7, n=10, Mus musculus, single-cell + spatial, pdat 2026/07/02 = 16 days ago, the freshest score-7 pancreatitis-to-PDAC spatial atlas in the scan); PRMT1-mediated arginine methylation redirects SMAD4 toward a metastasis-promoting transcriptional output in pancreatic cancer (GSE338354, score 6, n=6, Homo sapiens, bulk RNA-seq, pdat 2026/07/16 = 2 days ago, the freshest PRMT1-SMAD4 pancreatic-metastasis target-nomination hit in the scan)",
@@ -67,7 +86,7 @@ const sampleDigests = [
       ],
     },
 
-        {
+{
       id: 45,
       date: "2026-07-17",
       title: "T-cell Multiomic Analysis Identifies Subsets and Mechanisms of Interaction with Epithelial Cells in Idiopathic Pulmonary Fibrosis (GSE326573, score 6, n=59, Homo sapiens, T-cell multiomic + protein-design, pdat 2026/07/14 = 3 days ago, the freshest large-cohort T-cell multiomic + IPF hit in the 2026-07-17 scan and the largest n-of-any IPF dataset surfaced this cycle); IGFBP5 Derived From Endothelial Cells Drive Vascular Invasion and Liver Metastasis of Colorectal Cancer by Activating the ITGB3/PI3K/AKT Axis (GSE333995, score 6, n=9, Homo sapiens, single-cell, pdat 2026/07/15 = 2 days ago, the freshest score-6 endothelial-derived IGFBP5 + colorectal-cancer liver-metastasis hit in the scan); Spatial transcriptomics and scRNA-sequencing on gastrocnemius muscle form B6-mdx and D2-mdx mice (GSE297388, score 7, n=8, Mus musculus, single-cell + spatial, pdat 2026/07/01 = 16 days ago, the freshest score-7 DMD-mouse-model + muscle single-cell + spatial hit in the scan)",
@@ -88,7 +107,7 @@ const sampleDigests = [
       ],
     },
 
-        {
+{
       id: 44,
       date: "2026-07-16",
       title: "Fibroblast-associated microenvironment in early mycosis fungoides progression (GSE337336, score 9, n=16, Homo sapiens, single-cell + spatial, pdat 2026/07/07 = 9 days ago, the FRESHEST score-9 CTCL + mycosis-fungoides + fibroblast-microenvironment hit in the scan); Single-cell CD45+ immune atlas across primary TNBC + sentinel tumor-draining LN + axillary LN in treatment-naive triple-negative breast cancer (GSE328275, score 9, n=28, Homo sapiens, scRNA-seq, pdat 2026/06/27 = 19 days ago); Spatio-temporal mapping of immune cell dynamics during human sequential lymph-node metastasis (GSE328422, score 9, n=6, Homo sapiens, single-cell + spatial, pdat 2026/06/27 = 19 days ago)",
@@ -107,28 +126,7 @@ const sampleDigests = [
         { label: "Request bioinformatics / sequential LN-metastasis spatio-temporal brief", href: "/multiomics#brief" },
         { label: "View multiomics service", href: "/multiomics" },
       ],
-    },
-
-        {
-      id: 43,
-      date: "2026-07-15",
-      title: "PGK1–SLC7A11 interface yields a competing peptide ferroptosis strategy (GSE317428, score 6, n=6, pdat 2026/07/12); SLC40A1+ macrophages link ferroptosis resistance to PD-1 nonresponse (GSE302068, score 6, n=9); Endothelial PIEZO1–CAPN2–STAT3–IL-33 signaling drives pulmonary fibrosis (GSE314943, score 4, n=18)",
-      category: "ai-drug-discovery",
-      summary: "The 2026-07-15 06:00 KST watcher scan returned 106 hits. Three actionable signals were selected after a four-axis screen (peptide fit, AI-drug-discovery value, longevity/fibrosis relevance, and analysis cost). All three are novel versus yesterday's id:42 digest and absent from the retained id:39-id:42 window. Together they connect Brown Biotech's peptide and refractory-cancer lanes to a low-cost fibrosis target-validation path: disrupt a protein interface to trigger ferroptosis, stratify immunotherapy resistance by macrophage state, and test a mechanosensitive endothelial axis in pulmonary fibrosis.",
-      tags: ["ferroptosis", "PGK1", "SLC7A11", "FP-01", "competing peptide", "GSE317428", "SLC40A1", "tumor-associated macrophage", "PD-1", "immunotherapy resistance", "GSE302068", "PIEZO1", "CAPN2", "STAT3", "IL-33", "pulmonary fibrosis", "IPF", "GSE314943", "refractory cancer", "anti-fibrotic", "AI drug discovery", "open science"],
-      highlights: [
-        "Peptide / AI drug discovery — GSE317428 reports PGK1 as a non-catalytic ferroptosis gatekeeper: it stabilizes SLC7A11, preserves glutathione/redox balance, and supports tumor growth independently of glycolytic kinase activity. A designed competing peptide, SLC7A11₄₇₁–₅₀₁ (FP-01), disrupts the PGK1–SLC7A11 interface, depletes SLC7A11/GSH, and suppresses tumor progression in vivo. Dataset: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE317428.",
-        "Refractory-cancer / immunotherapy — GSE302068 profiles SLC40A1/ferroportin perturbation in THP-1-derived macrophages and supports a model in which metabolically reprogrammed SLC40A1+ tumor-associated macrophages are ferroptosis-resistant, immunosuppressive, and enriched in patients who fail PD-1 blockade. Dataset: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE302068.",
-        "Fibrosis / target nomination — GSE314943 identifies an endothelial PIEZO1–CAPN2–STAT3–IL-33 axis in pulmonary fibrosis; endothelial-specific Piezo1 loss attenuated bleomycin fibrosis in the reported model. The 18-sample multi-omics design is a tractable low-cost re-analysis candidate for Brown Biotech's anti-fibrotic/IPF lane, but the mouse model requires human validation before therapeutic claims. Dataset: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314943.",
-        "Cost and next action — all three are public GEO datasets with raw or semi-raw files available; GSE317428 is the freshest (pdat 2026/07/12) and most directly peptide-actionable, while GSE302068 and GSE314943 are smaller perturbation datasets suitable for QC-first triage. Run QC, reproduce the ferroptosis/immune-state contrasts, then prioritize FP-01 interface optimization and PIEZO1-axis cross-cohort validation; no DOI or PMID is listed for these GEO records."
-      ],
-      actions: [
-        { label: "Request peptide / PGK1–SLC7A11 FP-01 brief", href: "/services/peptide#brief" },
-        { label: "Request refractory-cancer / macrophage ferroptosis brief", href: "/multiomics#brief" },
-        { label: "Request fibrosis / PIEZO1–IL-33 target brief", href: "/multiomics#brief" },
-        { label: "Request AI drug discovery / interface-optimization brief", href: "/services/ai-drug-discovery#brief" },
-      ],
-    },
+    }
 ];
 
 export default function DigestPage() {
