@@ -127,8 +127,7 @@ const sampleDigests = [
         { label: "View biostatx service", href: "/services/biostatx" },
       ],
     },
-
-
+];
 
 export default function DigestPage() {
   return (
