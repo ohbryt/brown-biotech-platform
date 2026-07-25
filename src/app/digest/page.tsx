@@ -24,6 +24,26 @@ const digestCategories = [
 
 const sampleDigests = [
     {
+      id: 53,
+      date: "2026-07-26",
+      title: "Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer (GSE328275, score 9, n=not stated, Homo sapiens, pdat 2026/06/27); Systematic benchmarking of imaging spatial transcriptomics platforms in FFPE tissues - Xenium Data (GSE308148, score 9, n=not stated, Homo sapiens, pdat 2025/10/03); Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets (GSE277080, score 9, n=not stated, Homo sapiens, pdat 2025/07/28)",
+      category: "bioinformatics",
+      summary: "Fresh 2026-07-26 watcher scan produced 105 hits across 27 queries. This entry promotes three previously unmentioned accessions after accession-level novelty screening against yesterday and the other retained digests. GSE328275: Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer; GSE308148: Systematic benchmarking of imaging spatial transcriptomics platforms in FFPE tissues - Xenium Data; GSE277080: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets. Why it matters for Brown Biotech: the combined set expands reusable evidence for multi-omics briefs, translational target prioritization, and client-ready research synthesis; each signal should be validated at source before downstream claims or model training.",
+      tags: ["research-watcher", "novel signal", "open science", "multi-omics", "Brown Biotech", "GSE328275", "Single-cell", "RNA", "sequencing", "CD45+", "immune", "cells", "GSE308148", "Systematic", "benchmarking", "imaging", "spatial", "transcriptomics", "platforms", "GSE277080", "Standardized", "metrics", "for", "assessment", "and", "reproducibility"],
+      highlights: [
+        "1. GSE328275 — Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer; watcher score 9, sample count not stated, pdat 2026/06/27. Novel versus all five retained digest entries and suitable for BB evidence triage.",
+        "2. GSE308148 — Systematic benchmarking of imaging spatial transcriptomics platforms in FFPE tissues - Xenium Data; watcher score 9, sample count not stated, pdat 2025/10/03. Novel versus all five retained digest entries and suitable for BB evidence triage.",
+        "3. GSE277080 — Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets; watcher score 9, sample count not stated, pdat 2025/07/28. Novel versus all five retained digest entries and suitable for BB evidence triage."
+      ],
+      actions: [
+        { label: "Open GSE328275 in GEO", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328275" },
+        { label: "Open GSE308148 in GEO", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308148" },
+        { label: "Open GSE277080 in GEO", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277080" },
+        { label: "Request a multi-omics brief", href: "/multiomics#brief" }
+      ],
+    },
+
+{
       id: 52,
       date: "2026-07-25",
       title: "Nr4a1 knockout reshapes colonic stem and immune-cell homeostasis (GSE306798, score 7, n=8, Mus musculus, single-cell RNA-seq, pdat 2026/07/07); Single-cell atlas of progeric vascular aging reveals ER-stress and mutation trajectories (GSE317471, score 4, n=30, Mus musculus, Smart-seq2, pdat 2026/06/30); Complement-C3 stromal remodeling is targetable in murine myelofibrosis (GSE336713, score 4, n=5, Mus musculus, single-cell/spatial context, pdat 2026/07/01)",
@@ -105,27 +125,6 @@ const sampleDigests = [
         { label: "View Claudin-1 mAb + CCA dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262166" },
         { label: "View DMD cardiomyopathy + steroid multiomics dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE312779" },
         { label: "Request integrated refractory-cancer + anti-aging brief", href: "/multiomics#brief" },
-      ],
-    },
-
-{
-      id: 48,
-      date: "2026-07-20",
-      title: "DeepSAS maps IPF senotypes with graph learning and spatial validation (GSE331432, score 6, n=2, Homo sapiens, Xenium spatial transcriptomics, pdat 2026/05/29); Barcoded scATAC-seq links CAR-T engineering choices to efficacy-associated chromatin states (GSE331391, score 6, n=13, Homo sapiens + Mus musculus, pdat 2026/07/15); TGF-beta-induced SMAD2/3 and YAP/TAZ chromatin occupancy in human fibroblasts (GSE338387, score 6, n=32, Homo sapiens, ChIP-seq, pdat 2026/07/16)",
-      category: "longevity",
-      summary: "The 2026-07-20 06:00 KST research-watcher scan completed successfully with 105 hits across 27 queries. Three actionable signals survived the peptide / AI-infrastructure / longevity / cost screen, and all three are NOVEL versus yesterday's id:47 digest and absent from the retained id:43-id:47 window. (1) Longevity + AI drug discovery: GSE331432 introduces DeepSAS, a heterogeneous-graph, attention-based contrastive-learning framework for resolving rare, cell-type-specific senescent cells and senescence-associated genes. The GEO summary reports 1,678 senescent cells among 24,125 cells and 263 senescence-associated genes across 26 cell types in IPF data, with Xenium and human precision-cut lung-slice validation nominating NFE2L2 in CTHRC1+ fibroblasts; the deposited accession itself contains only two hPCLS Xenium samples, so this is a high-value but small-n validation set. (2) Refractory cancer + screening infrastructure: GSE331391 uses genetically encoded barcodes and pooled scATAC-seq to connect targeted CAR architecture and culture-state manipulations to single-cell chromatin outcomes in vitro and after transfer into leukemia-bearing mice. The linked Research Square preprint is PMID 42427866, DOI 10.21203/rs.3.rs-9859689/v1. (3) Fibrosis target validation: GSE338387 provides 32 human vocal-fold-fibroblast ChIP-seq samples comparing TGF-beta1-treated and untreated cells to map SMAD2/3 and YAP/TAZ occupancy. It is a tractable public chromatin dataset for testing convergence between canonical TGF-beta signaling and mechanotransduction, but the GEO record has no linked PMID or DOI and does not by itself establish therapeutic efficacy. Why this matters for Brown Biotech: together these datasets define a reusable pipeline from AI-based senotype discovery, through perturbation-linked single-cell regulatory readouts, to low-cost transcription-factor occupancy validation for IPF/fibrosis and refractory-cancer programs.",
-      tags: ["DeepSAS", "deep graph representation learning", "heterogeneous graph", "contrastive learning", "senotype", "cellular senescence", "senescence-associated genes", "longevity", "IPF", "idiopathic pulmonary fibrosis", "CTHRC1+ fibroblast", "NFE2L2", "human precision-cut lung slice", "hPCLS", "Xenium", "spatial transcriptomics", "GSE331432", "CAR-T", "CAR architecture", "genetic barcoding", "pooled screening", "scATAC-seq", "chromatin state", "IL-2", "leukemia", "refractory cancer", "GSE331391", "PMID 42427866", "TGF-beta", "SMAD2/3", "YAP/TAZ", "fibroblast", "ChIP-seq", "mechanotransduction", "fibrosis", "GSE338387", "AI drug discovery", "bioinformatics", "open science", "preprint"],
-      highlights: [
-        "Longevity + AI drug discovery — GSE331432 (score 6, n=2 deposited Xenium samples; pdat 2026/05/29) reports DeepSAS, which integrates intracellular transcriptional state and intercellular communication in a heterogeneous graph with attention-based contrastive learning. The study-level GEO summary reports 1,678 senescent cells out of 24,125 IPF cells, 263 senescence-associated genes across 26 cell types, and spatial/ex vivo support for NFE2L2 enrichment in CTHRC1+ fibroblasts. Why it matters for BB: this is a concrete senotype-to-target-nomination workflow for the longevity and IPF lanes, but the n=2 deposited validation set requires cross-cohort replication before prioritizing NFE2L2. Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331432. No linked PMID or DOI is listed in GEO.",
-        "Refractory cancer + biotech infrastructure — GSE331391 (score 6, n=13; pdat 2026/07/15) combines genetically encoded CAR barcodes with pooled human and murine scATAC-seq. The linked preprint reports stable and transient transcription-factor activities programmed by cytokine concentration during expansion and altered in-vivo effector differentiation after changes to the CAR antigen-binding domain. Why it matters for BB: it is a reusable screening pattern for ranking CAR or binder designs by downstream regulatory state rather than abundance alone, directly supporting refractory-cancer and perturbation-analysis services. Sources: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331391; PMID 42427866; DOI https://doi.org/10.21203/rs.3.rs-9859689/v1.",
-        "Fibrosis + target validation — GSE338387 (score 6, n=32; pdat 2026/07/16) maps SMAD2/3 and YAP/TAZ chromatin occupancy in TGF-beta1-treated versus untreated HOVX human vocal-fold fibroblasts using ChIP-seq. Why it matters for BB: the public BW and narrowPeak outputs make this a comparatively low-cost way to test whether canonical TGF-beta and mechanotransduction programs converge at shared regulatory elements, then compare those elements against IPF fibroblast states. Source: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338387. GEO lists no PMID or DOI, so conclusions should remain at the occupancy/target-validation level.",
-        "Four-axis decision gate — DeepSAS/IPF: peptide 0/3, AI infrastructure 3/3, longevity 3/3, low-cost/ease 3/3, translational fit 3/3 = 12/15; barcoded CAR-T scATAC: 1/3, 3/3, 0/3, 2/3, 3/3 = 9/15; TGF-beta–SMAD/YAP ChIP-seq: 0/3, 1/3, 2/3, 3/3, 2/3 = 8/15. All three are first-time primary features today. Next action: reproduce DeepSAS senotype calls across external IPF cohorts, benchmark barcode-to-state attribution for CAR variants, and intersect SMAD/YAP peaks with CTHRC1+ fibroblast regulons before any chemistry or therapeutic claim.",
-      ],
-      actions: [
-        { label: "View DeepSAS / IPF senotype dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331432" },
-        { label: "Read barcoded CAR-T scATAC preprint", href: "https://doi.org/10.21203/rs.3.rs-9859689/v1" },
-        { label: "View TGF-beta–SMAD/YAP ChIP-seq dataset", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338387" },
-        { label: "Request integrated senescence / CAR-T / fibrosis brief", href: "/multiomics#brief" },
       ],
     }];
 
