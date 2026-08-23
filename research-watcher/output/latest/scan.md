@@ -1,10 +1,22 @@
 # Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-07-18T21:02:31.920347+00:00
+**Generated:** 2026-08-23T21:04:16.887726+00:00
 
 ## Top hits
-### 1. Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets
+### 1. RNA-seq of control and ALDH3A2-knockdown A549 cells
+- Source: GEO
+- License: NCBI public repository
+- Modality: transcriptomics
+- Score: 9/10
+- Raw file availability: yes
+- Key metadata: {"accession": "GSE344057", "taxon": "Homo sapiens", "gds_type": "Expression profiling by high throughput sequencing", "sample_count": 6, "suppfile": "TXT", "pdat": "2026/08/22"}
+- Why it matters: Strong fit for immediate Brown Biotech intake: RNA-seq of control and ALDH3A2-knockdown A549 cells is a transcriptomics hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).
+- Next action: Ingest immediately and prepare a handoff brief.
+- Query: OpenFold weights
+- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE344057
+
+### 2. Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -16,7 +28,7 @@
 - Query: enzyme design benchmark
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277080
 
-### 2. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
+### 3. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -27,18 +39,6 @@
 - Next action: Ingest immediately and prepare a handoff brief.
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328275
-
-### 3. Spatio-temporal mapping of immune cell dynamics during human sequential lymph node metastasis
-- Source: GEO
-- License: NCBI public repository
-- Modality: single-cell + spatial
-- Score: 9/10
-- Raw file availability: yes
-- Key metadata: {"accession": "GSE328422", "taxon": "Homo sapiens", "gds_type": "Other", "sample_count": 6, "suppfile": "H5, PARQUET, RDS, TIFF", "pdat": "2026/06/27"}
-- Why it matters: Strong fit for immediate Brown Biotech intake: Spatio-temporal mapping of immune cell dynamics during human sequential lymph node metastasis is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
-- Next action: Ingest immediately and prepare a handoff brief.
-- Query: multiplex imaging spatial
-- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328422
 
 ## Query families
 
