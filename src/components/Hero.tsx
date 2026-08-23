@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState, useEffect, type MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, ChevronDown, FlaskConical, BarChart3, Sparkles, ShieldCheck } from "lucide-react";
 
@@ -21,14 +22,40 @@ const secondaryLanes = [
 ];
 
 export default function Hero() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 50, y: 50 });
+
+  // Spotlight follows cursor — Magic UI pattern
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setPos({ x, y });
+  };
+
   return (
     <section
       id="hero"
       className="relative overflow-hidden bg-dark text-white"
     >
-      {/* Background layers */}
+      {/* Background layers — animated grid (Magic UI pattern) */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(217,119,6,0.18),transparent_28%),radial-gradient(circle_at_80%_30%,rgba(180,83,9,0.14),transparent_30%),radial-gradient(circle_at_50%_85%,rgba(146,64,14,0.10),transparent_32%)]" />
       <div className="absolute inset-0 dot-pattern opacity-20" />
+      {/* Subtle grid overlay */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%)",
+        }}
+      />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:px-8 lg:py-24">
@@ -77,7 +104,7 @@ export default function Hero() {
             against Phylo&apos;s DrugDiscoveryBench — see{" "}
             <a
               href="#wave-difference"
-              className="text-amber-100 underline-offset-4 hover:underline"
+              className="text-amber-100 underline-offset-4 transition-colors duration-200 hover:underline"
             >
               why teams pick us
             </a>
@@ -109,30 +136,43 @@ export default function Hero() {
           >
             <a
               href="/services/business-pipeline#brief"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-7 py-3.5 font-semibold text-white shadow-xl shadow-black/20 transition hover:from-primary-light hover:to-cta-light"
+              className="btn inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-cta px-7 py-3.5 font-semibold text-white shadow-xl shadow-black/20 hover:from-primary-light hover:to-cta-light"
             >
               Request a Paid Brief
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur transition hover:bg-white/10"
+              className="btn inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-gray-100 backdrop-blur hover:bg-white/10"
             >
               View Services
             </a>
           </motion.div>
         </div>
 
-        {/* RIGHT — text-first service snapshot */}
+        {/* RIGHT — Spotlight card (Magic UI pattern) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-white/[0.06] p-6 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-8">
+          <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            className="group relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-white/[0.06] p-6 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-8"
+          >
+            {/* Spotlight overlay — follows cursor */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background: `radial-gradient(420px circle at ${pos.x}% ${pos.y}%, rgba(217,119,6,0.18), transparent 55%)`,
+              }}
+            />
+
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="relative flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-cta" />
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-100/90">
@@ -144,15 +184,15 @@ export default function Hero() {
               </span>
             </div>
 
-            <h2 className="mt-5 text-2xl font-semibold text-white sm:text-3xl">
+            <h2 className="relative mt-5 text-2xl font-semibold text-white sm:text-3xl">
               One paid brief. Three lanes.
             </h2>
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="relative mt-2 text-sm text-gray-400">
               Every request enters the same harness and exits with a route, an owner, and a handoff.
             </p>
 
             {/* Primary lane */}
-            <div className="mt-6 rounded-2xl border border-cta/30 bg-gradient-to-br from-cta/15 via-primary/10 to-transparent p-4">
+            <div className="relative mt-6 rounded-2xl border border-cta/30 bg-gradient-to-br from-cta/15 via-primary/10 to-transparent p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-cta shadow-lg shadow-primary/30">
@@ -177,13 +217,13 @@ export default function Hero() {
             </div>
 
             {/* Secondary lanes */}
-            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="relative mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {secondaryLanes.map((lane) => {
                 const Icon = lane.icon;
                 return (
                   <div
                     key={lane.name}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition-colors duration-200 hover:border-white/20 hover:bg-white/[0.06]"
                   >
                     <div className="flex items-center gap-3">
                       <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10">
@@ -204,7 +244,7 @@ export default function Hero() {
             </div>
 
             {/* Proof row */}
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-5 text-xs text-gray-400">
+            <div className="relative mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-5 text-xs text-gray-400">
               <span className="inline-flex items-center gap-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 PubMed
@@ -224,7 +264,7 @@ export default function Hero() {
             </div>
 
             {/* Human-review disclaimer */}
-            <div className="mt-4 flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5 text-[11px] leading-relaxed text-gray-400">
+            <div className="relative mt-4 flex items-start gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5 text-[11px] leading-relaxed text-gray-400">
               <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cta" />
               <span>
                 High-stakes decisions route through human review. The harness can change; the owner does not.
@@ -239,7 +279,7 @@ export default function Hero() {
         transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#services" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition hover:bg-white/10">
+        <a href="#services" aria-label="Scroll down" className="inline-flex rounded-full border border-white/10 bg-white/5 p-3 text-gray-300 backdrop-blur transition-colors duration-200 hover:bg-white/10">
           <ChevronDown className="h-5 w-5" />
         </a>
       </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FlaskConical, BarChart3, Sparkles, Sigma, GitBranch, BrainCircuit, TrendingUp, Network, ArrowRight } from "lucide-react";
+import { FlaskConical, BarChart3, Sparkles, Sigma, GitBranch, BrainCircuit, TrendingUp, Network, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 const primaryLanes = [
@@ -70,10 +70,43 @@ const strategicLanes = [
 ];
 
 const offerLadder = [
-  { name: "Sample Brief", note: "Preview / scope check", price: "₩0.3M ~ ₩1M" },
-  { name: "Paid Brief", note: "Decision-ready research doc", price: "₩2M ~ ₩8M" },
-  { name: "Project", note: "Scoped analysis + execution", price: "₩8M ~ ₩30M+" },
-  { name: "Retainer", note: "Monthly research / ops support", price: "₩3M ~ ₩15M+/mo" },
+  {
+    name: "Sample Brief",
+    note: "Preview / scope check",
+    price: "₩0.3M ~ ₩1M",
+    bullets: ["1-page scope preview", "Lane recommendation", "Owner introduction"],
+    accent: "from-stone-100 to-stone-50",
+    featured: false,
+  },
+  {
+    name: "Paid Brief",
+    note: "Decision-ready research doc",
+    price: "₩2M ~ ₩8M",
+    bullets: [
+      "PubMed + ClinicalTrials + ChEMBL + GEO scan",
+      "Decision-scored candidate set",
+      "Human review gate before sign-off",
+      "Notion handoff with route + owner",
+    ],
+    accent: "from-cta/15 via-primary/10 to-cta/5",
+    featured: true,
+  },
+  {
+    name: "Project",
+    note: "Scoped analysis + execution",
+    price: "₩8M ~ ₩30M+",
+    bullets: ["Audit-grade pipeline", "Milestone-gated execution", "Co-authored deliverable"],
+    accent: "from-primary/10 to-stone-50",
+    featured: false,
+  },
+  {
+    name: "Retainer",
+    note: "Monthly research / ops support",
+    price: "₩3M ~ ₩15M+/mo",
+    bullets: ["Standing owner assignment", "Weekly cadence", "Priority intake routing"],
+    accent: "from-stone-100 to-stone-50",
+    featured: false,
+  },
 ];
 
 export default function Services() {
@@ -109,12 +142,22 @@ export default function Services() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
-                className={`group relative flex h-full flex-col rounded-2xl p-8 transition-all duration-300 ${
+                className={`card-hover group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 ${
                   isPrimary
                     ? "border-2 border-cta/30 bg-gradient-to-br from-cta/5 via-white to-primary/5 shadow-lg shadow-cta/10"
                     : "border border-gray-100 bg-surface"
                 }`}
               >
+                {isPrimary && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                      background:
+                        "radial-gradient(280px circle at var(--mx,50%) var(--my,50%), rgba(217,119,6,0.12), transparent 60%)",
+                    }}
+                  />
+                )}
                 <div className="flex items-start justify-between">
                   <div className={`inline-flex h-14 w-14 items-center justify-center rounded-xl shadow-lg ${
                     isPrimary
@@ -161,7 +204,7 @@ export default function Services() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
-                className="group relative flex h-full flex-col rounded-2xl border border-gray-100 bg-surface p-8 transition-all duration-300"
+                className="group relative flex h-full flex-col rounded-2xl border border-gray-100 bg-surface p-8 transition-[transform,box-shadow,border-color] duration-300"
               >
                 <div className="flex items-start justify-between">
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-cta/10 shadow-lg">
@@ -198,7 +241,7 @@ export default function Services() {
               <Link
                 key={lane.name}
                 href={lane.href}
-                className={`group flex items-center gap-4 rounded-2xl p-5 transition-all ${
+                className={`group flex items-center gap-4 rounded-2xl p-5 transition-colors ${
                   isFlagship
                     ? "border-2 border-cta/30 bg-gradient-to-br from-cta/5 via-white to-primary/5 shadow-lg shadow-cta/10 hover:shadow-xl"
                     : "border border-gray-100 bg-white hover:border-primary/20 hover:shadow-md"
@@ -254,14 +297,37 @@ export default function Services() {
           </Link>
         </motion.div>
 
-        {/* Offer ladder grid */}
-        <div className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-          {offerLadder.map((item) => (
-            <div key={item.name} className="rounded-2xl border border-border bg-white p-4 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{item.name}</p>
-              <p className="mt-2 text-lg font-bold text-text">{item.price}</p>
-              <p className="mt-2 text-sm text-text-muted">{item.note}</p>
-            </div>
+        {/* Offer ladder grid — upgraded comparison (Magic UI bento) */}
+        <div className="stagger mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {offerLadder.map((item, i) => (
+            <article
+              key={item.name}
+              style={{ "--i": i } as React.CSSProperties}
+              className={`card-hover relative flex flex-col rounded-2xl border bg-gradient-to-br p-5 shadow-sm ${
+                item.featured
+                  ? "border-cta/40 shadow-lg shadow-cta/10"
+                  : "border-border bg-white"
+              } ${item.featured ? item.accent : "from-white to-white"}`}
+            >
+              {item.featured && (
+                <span className="absolute -top-2.5 left-5 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-primary to-cta px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white shadow-md">
+                  ★ Most popular
+                </span>
+              )}
+              <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${
+                item.featured ? "text-cta" : "text-primary"
+              }`}>{item.name}</p>
+              <p className="mt-2 text-xl font-bold text-text">{item.price}</p>
+              <p className="mt-1 text-sm text-text-muted">{item.note}</p>
+              <ul className="mt-4 space-y-1.5 text-sm text-text-muted">
+                {item.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cta" />
+                    <span className="leading-snug">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

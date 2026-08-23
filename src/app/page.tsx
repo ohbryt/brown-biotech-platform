@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import StatsStrip from "@/components/StatsStrip";
 import About from "@/components/About";
 import Platform from "@/components/Platform";
 import WaveDifference from "@/components/WaveDifference";
@@ -15,6 +16,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <StatsStrip />
       <About />
       <Platform />
       <WaveDifference />

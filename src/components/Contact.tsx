@@ -292,7 +292,7 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-text"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors duration-200 text-text"
                     placeholder="Your name"
                   />
                 </div>
@@ -305,7 +305,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-text"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors duration-200 text-text"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -317,7 +317,7 @@ export default function Contact() {
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-text"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors duration-200 text-text"
                     placeholder="Your organization"
                   />
                 </div>
@@ -378,7 +378,7 @@ export default function Contact() {
                   <select
                     id="service_lane"
                     name="service_lane"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 text-text"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors duration-200 text-text"
                   >
                     <option value="peptide-service">peptide-service</option>
                     <option value="biostatx">biostatx</option>
@@ -395,7 +395,7 @@ export default function Contact() {
                     name="message"
                     rows={5}
                     required
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200 resize-none text-text"
+                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-colors duration-200 resize-none text-text"
                     placeholder="Tell us about your project..."
                   />
                 </div>
@@ -407,7 +407,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light disabled:cursor-not-allowed disabled:opacity-70 text-white font-semibold py-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 cursor-pointer"
+                  className="w-full bg-gradient-to-r from-primary to-cta hover:from-primary-light hover:to-cta-light disabled:cursor-not-allowed disabled:opacity-70 text-white font-semibold py-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2 shadow-lg shadow-primary/20 cursor-pointer"
                 >
                   {isSubmitting ? "Sending..." : "Request a Paid Brief"}
                   <Send className="h-4 w-4" />

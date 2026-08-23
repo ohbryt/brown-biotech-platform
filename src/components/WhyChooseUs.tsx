@@ -66,7 +66,7 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.4, delay: i * 0.07, ease: "easeOut" }}
-                className="rounded-2xl border border-gray-100 bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg"
+                className="rounded-2xl border border-gray-100 bg-surface p-7 card-hover hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg"
               >
                 <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-cta/10 text-primary">
                   <Icon className="h-5 w-5" />
