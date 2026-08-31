@@ -63,7 +63,7 @@ const sampleDigests = [
       { label: "View multiomics service", href: "/services/multiomics" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
   {
     id: 84,
@@ -86,7 +86,7 @@ const sampleDigests = [
       { label: "View multiomics service", href: "/services/multiomics" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
   {
     id: 83,
@@ -109,7 +109,7 @@ const sampleDigests = [
       { label: "View multiomics service", href: "/services/multiomics" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
   {
     id: 82,
@@ -132,7 +132,8 @@ const sampleDigests = [
       { label: "Open GSE343269 in GEO (DMD-ECM spatial atlas, n=9)", href: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE343269" },
       { label: "Request myelofibrosis-EMH + DNMT3L-naive-PSC + DMD-ECM-uncoupling brief", href: "/services/ai-drug-discovery#brief" }
     ],
-  }];
+  },
+];
 
 export default function DigestPage() {
   return (
