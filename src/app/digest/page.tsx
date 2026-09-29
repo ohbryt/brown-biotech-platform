@@ -577,5 +577,6 @@ const sampleDigests = [
     ]
   },
 
+];
 
 
