@@ -1031,3 +1031,14 @@ const sampleDigests = [
   },
 
 ];
+
+// Note: this file is the source of truth for digest data (sampleDigests,
+// digestCategories). The actual user-facing render lives at
+// /blog/daily-digest/page.tsx, which reads the long-form markdown from
+// public/content/daily-digest/. This /digest route redirects there so
+// the canonical URL still resolves for crawlers while the data file
+// also satisfies Next.js's required Page type.
+import { redirect } from "next/navigation";
+export default function DigestPage(): never {
+  redirect("/blog/daily-digest");
+}
