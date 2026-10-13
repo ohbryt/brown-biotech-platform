@@ -156,6 +156,15 @@ const sampleDigests = [
       "3-NOVEL-FDA-translational-context",
       "Loop-001-ACHIEVED",
     ],
+    actions: [
+      { label: "Request PRMT5-ESCC + type-II-PRMT-inhibitor + clinical-translational + refractory-cancer brief", href: "/services/ai-drug-discovery#brief" },
+      { label: "Request MASH-spatial-transcriptomics + human-liver-biopsy + fibrosis-staging + Rezdiffra-post-approval brief", href: "/services/fibrosis#brief" },
+      { label: "Request Nerandomilast + PDE4B-inhibitor + IPF-anti-fibrotic + bleomycin-scRNA-seq brief", href: "/services/fibrosis#brief" },
+      { label: "View AI-DD service", href: "/services/ai-drug-discovery" },
+      { label: "View fibrosis service", href: "/services/fibrosis" },
+      { label: "View refractory-cancer service", href: "/services/ai-drug-discovery" },
+      { label: "View multiomics service", href: "/services/multiomics" },
+    ],
   },
 
   {
