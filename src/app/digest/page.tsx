@@ -26,6 +26,7 @@ const sampleDigests = [
       { label: "View multiomics service", href: "/services/multiomics" },
     ],
   }
+,
 
 {
     id: 137,
@@ -53,6 +54,7 @@ const sampleDigests = [
       { label: "View AI drug discovery service", href: "/services/ai-drug-discovery" }
     ],
   }
+,
 
 {
     id: 136,
@@ -160,6 +162,7 @@ const sampleDigests = [
       { label: "View senolytics / longevity service page", href: "/services/longevity#senolytics" },
     ],
   }
+,
 
 {
     id: 135,
@@ -288,6 +291,7 @@ const sampleDigests = [
       { label: "View comparative-biology dossier", href: "/services/multiomics#comparative-biology" },
     ],
   }
+,
 
 {
     id: 134,
