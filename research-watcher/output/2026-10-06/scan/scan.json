@@ -1,0 +1,170 @@
+{
+  "mode": "scan",
+  "axis": "aging–fibrosis–metabolism–single-cell/spatial–clinical translation",
+  "generated_at": "2026-10-05T21:04:25.914353+00:00",
+  "hit_count": 6,
+  "hits": [
+    {
+      "title": "Comparative Analysis of Primary and Liver Fibroblasts Reveals MET as a Potent Target in Pancreatic Cancer Metastasis [RNA-Seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348745",
+      "license": "NCBI public repository",
+      "modality": "transcriptomics",
+      "key_metadata": {
+        "accession": "GSE348745",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 9,
+        "suppfile": "CSV",
+        "pdat": "2026/10/03"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Comparative Analysis of Primary and Liver Fibroblasts Reveals MET as a Potent Target in Pancreatic Cancer Metastasis [RNA-Seq] shows transcriptomics signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "tumor metabolism single-cell",
+      "collected_at": "2026-10-05T21:04:25.913940+00:00",
+      "provenance": {
+        "source_id": "GSE348745",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Single-cell transcriptional landscape of gastric submucosal tumors (GISTs and GLMs) reveals antagonistic fibroblast–macrophage niches",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314487",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE314487",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 5,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/09/19"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Single-cell transcriptional landscape of gastric submucosal tumors (GISTs and GLMs) reveals antagonistic fibroblast–macrophage niches shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "fibroblast atlas",
+      "collected_at": "2026-10-05T21:04:22.563931+00:00",
+      "provenance": {
+        "source_id": "GSE314487",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Comparative Analysis of Primary and Liver Fibroblasts Reveals MET as a Potent Target in Pancreatic Cancer Metastasis [scRNA-Seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348746",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE348746",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 5,
+        "suppfile": "RDATA",
+        "pdat": "2026/10/03"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Comparative Analysis of Primary and Liver Fibroblasts Reveals MET as a Potent Target in Pancreatic Cancer Metastasis [scRNA-Seq] shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "tumor metabolism single-cell",
+      "collected_at": "2026-10-05T21:04:25.913090+00:00",
+      "provenance": {
+        "source_id": "GSE348746",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "AP-1 specifies developmental versus fibrotic extracellular matrix transcriptional programs in the lung [Mutiome]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346604",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE346604",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+        "sample_count": 40,
+        "suppfile": "H5, RDS, TBI, TSV",
+        "pdat": "2026/09/14"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: AP-1 specifies developmental versus fibrotic extracellular matrix transcriptional programs in the lung [Mutiome] shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "fibroblast atlas",
+      "collected_at": "2026-10-05T21:04:22.564834+00:00",
+      "provenance": {
+        "source_id": "GSE346604",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Mesothelial plasticity regulates lung mechanical homeostasis in regeneration and fibrosis",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310617",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE310617",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 4,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/09/25"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Mesothelial plasticity regulates lung mechanical homeostasis in regeneration and fibrosis shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-10-05T21:04:18.651470+00:00",
+      "provenance": {
+        "source_id": "GSE310617",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "CD84 Determines Differential Fates of Pro-fibrotic Macrophages [scRNA-seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE344929",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE344929",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 8,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/09/25"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: CD84 Determines Differential Fates of Pro-fibrotic Macrophages [scRNA-seq] shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-10-05T21:04:18.650706+00:00",
+      "provenance": {
+        "source_id": "GSE344929",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    }
+  ],
+  "queries": [
+    "lung fibrosis single-cell",
+    "fibroblast atlas",
+    "tumor metabolism single-cell"
+  ],
+  "source_errors": []
+}

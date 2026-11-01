@@ -1,22 +1,10 @@
 # Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-09-05T21:03:08.049389+00:00
+**Generated:** 2026-11-01T21:06:45.173356+00:00
 
 ## Top hits
-### 1. Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets
-- Source: GEO
-- License: NCBI public repository
-- Modality: single-cell + spatial
-- Score: 9/10
-- Raw file availability: yes
-- Key metadata: {"accession": "GSE277080", "taxon": "Homo sapiens", "gds_type": "Other", "sample_count": 38, "suppfile": "CSV, TAR", "pdat": "2025/07/28"}
-- Why it matters: Strong fit for immediate Brown Biotech intake: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
-- Next action: Ingest immediately and prepare a handoff brief.
-- Query: enzyme design benchmark
-- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277080
-
-### 2. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
+### 1. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -28,7 +16,7 @@
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328275
 
-### 3. Spatio-temporal mapping of immune cell dynamics during human sequential lymph node metastasis
+### 2. Spatio-temporal mapping of immune cell dynamics during human sequential lymph node metastasis
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
@@ -39,6 +27,18 @@
 - Next action: Ingest immediately and prepare a handoff brief.
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328422
+
+### 3. Spatial transcriptomics reveals distinct cell type dynamics following opioid dependence in female mice with the common human mu-opioid receptor variant, Oprm1 A118G
+- Source: GEO
+- License: NCBI public repository
+- Modality: single-cell + spatial
+- Score: 9/10
+- Raw file availability: yes
+- Key metadata: {"accession": "GSE326553", "taxon": "Mus musculus", "gds_type": "Other", "sample_count": 4, "suppfile": "CSV, RDS, TAR, TXT", "pdat": "2026/09/02"}
+- Why it matters: Strong fit for immediate Brown Biotech intake: Spatial transcriptomics reveals distinct cell type dynamics following opioid dependence in female mice with the common human mu-opioid receptor variant, Oprm1 A118G is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
+- Next action: Ingest immediately and prepare a handoff brief.
+- Query: CosMx dataset
+- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326553
 
 ## Query families
 

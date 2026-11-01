@@ -1,35 +1,9 @@
 {
-  "mode": "report",
+  "mode": "scan",
   "axis": "aging–fibrosis–metabolism–single-cell/spatial–clinical translation",
-  "generated_at": "2026-09-03T21:05:37.173195+00:00",
-  "hit_count": 105,
+  "generated_at": "2026-11-01T21:03:38.032708+00:00",
+  "hit_count": 116,
   "hits": [
-    {
-      "title": "Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277080",
-      "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
-      "key_metadata": {
-        "accession": "GSE277080",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 38,
-        "suppfile": "CSV, TAR",
-        "pdat": "2025/07/28"
-      },
-      "raw_file_availability": "yes",
-      "score": 9,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Standardized metrics for assessment and reproducibility of imaging-based spatial transcriptomics datasets is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
-      "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "enzyme design benchmark",
-      "collected_at": "2026-09-03T21:04:38.431148+00:00",
-      "provenance": {
-        "source_id": "GSE277080",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
     {
       "title": "Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer",
       "source": "GEO",
@@ -49,7 +23,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "multiplex imaging spatial",
-      "collected_at": "2026-09-03T21:04:15.059627+00:00",
+      "collected_at": "2026-11-01T21:02:37.305993+00:00",
       "provenance": {
         "source_id": "GSE328275",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -75,35 +49,9 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Spatio-temporal mapping of immune cell dynamics during human sequential lymph node metastasis is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "multiplex imaging spatial",
-      "collected_at": "2026-09-03T21:04:15.059019+00:00",
+      "collected_at": "2026-11-01T21:02:37.305386+00:00",
       "provenance": {
         "source_id": "GSE328422",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Genomic and spatial transcriptomics identify fibroblast-associated microenvironment in early mycosis fungoides progression",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337336",
-      "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
-      "key_metadata": {
-        "accession": "GSE337336",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 16,
-        "suppfile": "CSV",
-        "pdat": "2026/07/07"
-      },
-      "raw_file_availability": "yes",
-      "score": 9,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Genomic and spatial transcriptomics identify fibroblast-associated microenvironment in early mycosis fungoides progression is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
-      "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "CosMx dataset",
-      "collected_at": "2026-09-03T21:03:56.847280+00:00",
-      "provenance": {
-        "source_id": "GSE337336",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -127,9 +75,87 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Spatial transcriptomics reveals distinct cell type dynamics following opioid dependence in female mice with the common human mu-opioid receptor variant, Oprm1 A118G is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "CosMx dataset",
-      "collected_at": "2026-09-03T21:03:56.845152+00:00",
+      "collected_at": "2026-11-01T21:02:25.534682+00:00",
       "provenance": {
         "source_id": "GSE326553",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Spatially resolved single-cell transcriptomic profiling of human lung adenocarcinoma and normal lung tissue using NanoString CosMx SMI",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346380",
+      "license": "NCBI public repository",
+      "modality": "single-cell + spatial",
+      "key_metadata": {
+        "accession": "GSE346380",
+        "taxon": "Homo sapiens",
+        "gds_type": "Other",
+        "sample_count": 6,
+        "suppfile": "CSV",
+        "pdat": "2026/09/10"
+      },
+      "raw_file_availability": "yes",
+      "score": 9,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Spatially resolved single-cell transcriptomic profiling of human lung adenocarcinoma and normal lung tissue using NanoString CosMx SMI is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "CosMx dataset",
+      "collected_at": "2026-11-01T21:02:25.534034+00:00",
+      "provenance": {
+        "source_id": "GSE346380",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Spatially resolved single-cell transcriptomic profiling of human colorectal cancer using NanoString CosMx SMI",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348495",
+      "license": "NCBI public repository",
+      "modality": "single-cell + spatial",
+      "key_metadata": {
+        "accession": "GSE348495",
+        "taxon": "Homo sapiens",
+        "gds_type": "Other",
+        "sample_count": 17,
+        "suppfile": "CSV",
+        "pdat": "2026/09/30"
+      },
+      "raw_file_availability": "yes",
+      "score": 9,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Spatially resolved single-cell transcriptomic profiling of human colorectal cancer using NanoString CosMx SMI is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "CosMx dataset",
+      "collected_at": "2026-11-01T21:02:25.533535+00:00",
+      "provenance": {
+        "source_id": "GSE348495",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Spatial transcriptomic atlas of patient bone marrow biopsies after anti-BCMA CAR T cell therapy [Xenium]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE288340",
+      "license": "NCBI public repository",
+      "modality": "single-cell + spatial",
+      "key_metadata": {
+        "accession": "GSE288340",
+        "taxon": "Homo sapiens",
+        "gds_type": "Other",
+        "sample_count": 19,
+        "suppfile": "CSV, H5, TIFF, ZIP",
+        "pdat": "2026/10/03"
+      },
+      "raw_file_availability": "yes",
+      "score": 9,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Spatial transcriptomic atlas of patient bone marrow biopsies after anti-BCMA CAR T cell therapy [Xenium] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "Xenium atlas",
+      "collected_at": "2026-11-01T21:02:23.773506+00:00",
+      "provenance": {
+        "source_id": "GSE288340",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -153,7 +179,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Transcriptional states define dependencies and therapeutic vulnerabilities in head and neck cancer is a metabolism hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "OXPHOS dependency CRISPR",
-      "collected_at": "2026-09-03T21:03:34.836118+00:00",
+      "collected_at": "2026-11-01T21:02:15.385291+00:00",
       "provenance": {
         "source_id": "GSE311507",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -179,7 +205,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure [ATAC-seq] is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "fibrosis perturb-seq",
-      "collected_at": "2026-09-03T21:03:28.495468+00:00",
+      "collected_at": "2026-11-01T21:02:11.595600+00:00",
       "provenance": {
         "source_id": "GSE281462",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -205,7 +231,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure [Hi-C] is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "fibrosis perturb-seq",
-      "collected_at": "2026-09-03T21:03:28.494860+00:00",
+      "collected_at": "2026-11-01T21:02:11.594983+00:00",
       "provenance": {
         "source_id": "GSE281463",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -231,7 +257,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure [Perturb-seq] is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "fibrosis perturb-seq",
-      "collected_at": "2026-09-03T21:03:28.494236+00:00",
+      "collected_at": "2026-11-01T21:02:11.594376+00:00",
       "provenance": {
         "source_id": "GSE281464",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -257,7 +283,7 @@
       "why_it_matters": "Strong fit for immediate Brown Biotech intake: Dissecting Non-Coding GWAS Loci with High-Resolution 3D Chromatin Interactions Reveals Causal Genes with Relevance to Heart Failure [RNA-seq] is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
       "query": "fibrosis perturb-seq",
-      "collected_at": "2026-09-03T21:03:28.493505+00:00",
+      "collected_at": "2026-11-01T21:02:11.593701+00:00",
       "provenance": {
         "source_id": "GSE281465",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -265,157 +291,183 @@
       "risk_signals": []
     },
     {
-      "title": "Transcriptional and spatial profiling of fibroblasts from human lungs highlights CTHRC1+ cells as fibrogenic signaling hubs in fibrosis [scRNA-seq culture]",
+      "title": "Single-cell-scale spatial transcriptome of the developing and adult mouse ovary",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334010",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE307688",
       "license": "NCBI public repository",
       "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE334010",
-        "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 16,
-        "suppfile": "MTX, TSV",
-        "pdat": "2026/08/19"
+        "accession": "GSE307688",
+        "taxon": "Mus musculus",
+        "gds_type": "Other",
+        "sample_count": 8,
+        "suppfile": "CLOUPE, CSV, H5, JSON, PARQUET, TIFF, ZIP",
+        "pdat": "2026/10/14"
       },
       "raw_file_availability": "yes",
-      "score": 9,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Transcriptional and spatial profiling of fibroblasts from human lungs highlights CTHRC1+ cells as fibrogenic signaling hubs in fibrosis [scRNA-seq culture] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "score": 7,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Single-cell-scale spatial transcriptome of the developing and adult mouse ovary is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "lung fibrosis single-cell",
-      "collected_at": "2026-09-03T21:03:24.888253+00:00",
+      "query": "Visium HD",
+      "collected_at": "2026-11-01T21:02:35.563075+00:00",
       "provenance": {
-        "source_id": "GSE334010",
+        "source_id": "GSE307688",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "RNA-Seq analysis of PNA-mediated knockdown of the colibactin regulator ClbR in uropathogenic Escherichia coli CCR20",
+      "title": "Effects of knockdown of Ybx3 on gene expression during brown adipogenic differentiation of C3H10T1/2 preadipocytes",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345846",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277858",
       "license": "NCBI public repository",
       "modality": "protein-design",
       "key_metadata": {
-        "accession": "GSE345846",
-        "taxon": "Escherichia coli",
+        "accession": "GSE277858",
+        "taxon": "Mus musculus",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 21,
+        "sample_count": 8,
         "suppfile": "TXT",
-        "pdat": "2026/09/02"
+        "pdat": "2026/09/30"
       },
       "raw_file_availability": "yes",
       "score": 7,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: RNA-Seq analysis of PNA-mediated knockdown of the colibactin regulator ClbR in uropathogenic Escherichia coli CCR20 is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Effects of knockdown of Ybx3 on gene expression during brown adipogenic differentiation of C3H10T1/2 preadipocytes is a protein-design hit with license clean (+2), raw or semi-raw files available (+2), perturbation signal (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "OpenFold weights",
-      "collected_at": "2026-09-03T21:05:37.166473+00:00",
+      "query": "metabolic flux transcriptome",
+      "collected_at": "2026-11-01T21:02:20.259746+00:00",
       "provenance": {
-        "source_id": "GSE345846",
+        "source_id": "GSE277858",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "PTPN1/2 inhibits alveolar macrophage-mediated control of lung metastasis",
+      "title": "TREM2⁺ macrophages from distinct origins mediate compartment-specific protection in diabetic kidney disease [Spatial Transcriptomics]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337931",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE324612",
       "license": "NCBI public repository",
       "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE337931",
+        "accession": "GSE324612",
         "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 6,
-        "suppfile": "CSV, H5AD, MTX, TSV",
-        "pdat": "2026/09/02"
+        "gds_type": "Other",
+        "sample_count": 4,
+        "suppfile": "CSV, H5, JPG, JSON, PNG",
+        "pdat": "2026/10/09"
       },
       "raw_file_availability": "yes",
       "score": 7,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: PTPN1/2 inhibits alveolar macrophage-mediated control of lung metastasis is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: TREM2⁺ macrophages from distinct origins mediate compartment-specific protection in diabetic kidney disease [Spatial Transcriptomics] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "tumor metabolism single-cell",
-      "collected_at": "2026-09-03T21:03:42.093004+00:00",
+      "query": "muscle fibrosis spatial transcriptomics",
+      "collected_at": "2026-11-01T21:01:58.912319+00:00",
       "provenance": {
-        "source_id": "GSE337931",
+        "source_id": "GSE324612",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Time-resolved single-cell RNA sequencing of mouse lungs during acute Pseudomonas aeruginosa pneumonia",
+      "title": "The nail mesenchyme creates a regeneration-specific ligand environment that orchestrates mammalian regeneration versus fibrotic wound healing [scRNA-seq]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345596",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326786",
       "license": "NCBI public repository",
       "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE345596",
+        "accession": "GSE326786",
         "taxon": "Mus musculus",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 5,
+        "sample_count": 4,
         "suppfile": "MTX, TSV",
-        "pdat": "2026/09/01"
+        "pdat": "2026/10/26"
       },
       "raw_file_availability": "yes",
       "score": 7,
-      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Time-resolved single-cell RNA sequencing of mouse lungs during acute Pseudomonas aeruginosa pneumonia is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: The nail mesenchyme creates a regeneration-specific ligand environment that orchestrates mammalian regeneration versus fibrotic wound healing [scRNA-seq] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
       "next_action": "Ingest immediately and prepare a handoff brief.",
-      "query": "fibroblast atlas",
-      "collected_at": "2026-09-03T21:03:13.990036+00:00",
+      "query": "muscle fibrosis spatial transcriptomics",
+      "collected_at": "2026-11-01T21:01:58.911178+00:00",
       "provenance": {
-        "source_id": "GSE345596",
+        "source_id": "GSE326786",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Azole Persistence and Its Associated Transcriptional and Translational Signatures in the human fungal pathogen Aspergillus fumigatus",
+      "title": "Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [5hmC]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345617",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314195",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE345617",
-        "taxon": "Aspergillus fumigatus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 18,
-        "suppfile": "CSV",
-        "pdat": "2026/09/02"
+        "accession": "GSE314195",
+        "taxon": "Mus musculus",
+        "gds_type": "Other; Methylation profiling by high throughput sequencing",
+        "sample_count": 479,
+        "suppfile": "H5",
+        "pdat": "2026/10/29"
       },
       "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Azole Persistence and Its Associated Transcriptional and Translational Signatures in the human fungal pathogen Aspergillus fumigatus shows protein-design signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "OpenFold weights",
-      "collected_at": "2026-09-03T21:05:37.168624+00:00",
+      "score": 7,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [5hmC] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-11-01T21:01:55.527855+00:00",
       "provenance": {
-        "source_id": "GSE345617",
+        "source_id": "GSE314195",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Multiomics approaches disclose very-early molecular and cellular switches during insect-venom allergen-specific immunotherapy: an observational study",
+      "title": "Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [5mC]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE240503",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314211",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE240503",
-        "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 187,
-        "suppfile": "XLSX",
-        "pdat": "2024/10/30"
+        "accession": "GSE314211",
+        "taxon": "Mus musculus",
+        "gds_type": "Other; Methylation profiling by high throughput sequencing",
+        "sample_count": 479,
+        "suppfile": "H5",
+        "pdat": "2026/10/29"
       },
       "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Multiomics approaches disclose very-early molecular and cellular switches during insect-venom allergen-specific immunotherapy: an observational study shows protein-design signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "enzyme design benchmark",
-      "collected_at": "2026-09-03T21:04:38.431609+00:00",
+      "score": 7,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [5mC] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-11-01T21:01:55.527366+00:00",
       "provenance": {
-        "source_id": "GSE240503",
+        "source_id": "GSE314211",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [scRNA-seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314217",
+      "license": "NCBI public repository",
+      "modality": "single-cell + spatial",
+      "key_metadata": {
+        "accession": "GSE314217",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 491,
+        "suppfile": "RDS",
+        "pdat": "2026/10/29"
+      },
+      "raw_file_availability": "yes",
+      "score": 7,
+      "why_it_matters": "Strong fit for immediate Brown Biotech intake: Single-cell Characterization of DNA Hydroxymethylation of the Mouse Brain [scRNA-seq] is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).",
+      "next_action": "Ingest immediately and prepare a handoff brief.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-11-01T21:01:55.526778+00:00",
+      "provenance": {
+        "source_id": "GSE314217",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -439,9 +491,61 @@
       "why_it_matters": "Promising but needs QC: Perfluorooctane sulfonate (PFOS) in follicular fluid and human granulosa cell dysfunction: a physiologically based toxicokinetic model translation of low-level, long-term in vitro exposure data shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "enzyme design benchmark",
-      "collected_at": "2026-09-03T21:04:38.428891+00:00",
+      "collected_at": "2026-11-01T21:02:52.541912+00:00",
       "provenance": {
         "source_id": "GSE315651",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Systematic mapping of enhancers, silencers, and topological elements with prime editing deletion screens [Swap-seq PPIF screen]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE347270",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE347270",
+        "taxon": "Homo sapiens",
+        "gds_type": "Other",
+        "sample_count": 924,
+        "suppfile": "CSV",
+        "pdat": "2026/10/10"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Systematic mapping of enhancers, silencers, and topological elements with prime editing deletion screens [Swap-seq PPIF screen] shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "enzyme design benchmark",
+      "collected_at": "2026-11-01T21:02:52.539912+00:00",
+      "provenance": {
+        "source_id": "GSE347270",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Li-BrU-seq: A Low-Input and Simplified Metabolic Labeling Method for Nascent RNA Sequencing",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE313015",
+      "license": "NCBI public repository",
+      "modality": "metabolism",
+      "key_metadata": {
+        "accession": "GSE313015",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 10,
+        "suppfile": "BW",
+        "pdat": "2026/10/21"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Li-BrU-seq: A Low-Input and Simplified Metabolic Labeling Method for Nascent RNA Sequencing shows metabolism signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "enzyme design benchmark",
+      "collected_at": "2026-11-01T21:02:52.539068+00:00",
+      "provenance": {
+        "source_id": "GSE313015",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -465,7 +569,7 @@
       "why_it_matters": "Promising but needs QC: Rescue of blood coagulation Factor VIII exon-16 mis-splicing by antisense oligonucleotides shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "protein cofold",
-      "collected_at": "2026-09-03T21:04:34.614469+00:00",
+      "collected_at": "2026-11-01T21:02:50.546881+00:00",
       "provenance": {
         "source_id": "GSE230495",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -473,135 +577,27 @@
       "risk_signals": []
     },
     {
-      "title": "Spatial transcriptomics reveals microenvironmental heterogeneity in osteoarthritic subchondral bone",
+      "title": "Single-Cell RNA Sequencing Unveils Macrophage Involvement in Aortic Valve Stenosis Progression [spatial transcriptome]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342703",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE338072",
       "license": "NCBI public repository",
-      "modality": "spatial",
+      "modality": "single-cell + spatial",
       "key_metadata": {
-        "accession": "GSE342703",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 4,
-        "suppfile": "CSV, H5, JPG, JSON, PARQUET, PNG, TIFF",
-        "pdat": "2026/08/09"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Spatial transcriptomics reveals microenvironmental heterogeneity in osteoarthritic subchondral bone shows spatial signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "Visium HD",
-      "collected_at": "2026-09-03T21:04:11.259589+00:00",
-      "provenance": {
-        "source_id": "GSE342703",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Molecular and cellular consequences of tumor-autonomous IL-6 signaling in intrahepatic cholangiocarcinoma",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE320081",
-      "license": "NCBI public repository",
-      "modality": "spatial",
-      "key_metadata": {
-        "accession": "GSE320081",
-        "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 36,
-        "suppfile": "TXT",
-        "pdat": "2026/08/20"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Molecular and cellular consequences of tumor-autonomous IL-6 signaling in intrahepatic cholangiocarcinoma shows spatial signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "Visium HD",
-      "collected_at": "2026-09-03T21:04:11.258159+00:00",
-      "provenance": {
-        "source_id": "GSE320081",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Spatial transcriptomics of early-grade Huntington’s disease and control Caudate",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337131",
-      "license": "NCBI public repository",
-      "modality": "spatial",
-      "key_metadata": {
-        "accession": "GSE337131",
+        "accession": "GSE338072",
         "taxon": "Homo sapiens",
         "gds_type": "Other",
         "sample_count": 2,
-        "suppfile": "CLOUPE, H5AD, JSON, RDS, TIFF",
-        "pdat": "2026/09/01"
+        "suppfile": "MTX, TIFF, TSV",
+        "pdat": "2026/10/01"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Spatial transcriptomics of early-grade Huntington’s disease and control Caudate shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Single-Cell RNA Sequencing Unveils Macrophage Involvement in Aortic Valve Stenosis Progression [spatial transcriptome] shows single-cell + spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "Visium HD",
-      "collected_at": "2026-09-03T21:04:11.256292+00:00",
+      "collected_at": "2026-11-01T21:02:35.564529+00:00",
       "provenance": {
-        "source_id": "GSE337131",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "Single-cell spatial transcriptomics of formalin-fixed, paraffin-embedded biopsies reveals colitis-associated cell networks [Merscope]",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE282124",
-      "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
-      "key_metadata": {
-        "accession": "GSE282124",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 1,
-        "suppfile": "CSV",
-        "pdat": "2026/05/21"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Single-cell spatial transcriptomics of formalin-fixed, paraffin-embedded biopsies reveals colitis-associated cell networks [Merscope] shows single-cell + spatial signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "CosMx dataset",
-      "collected_at": "2026-09-03T21:03:56.847962+00:00",
-      "provenance": {
-        "source_id": "GSE282124",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "Single-cell resolution spatial transcriptomics of a mucinous tubular and spindle cell carcinoma using CosMX",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328460",
-      "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
-      "key_metadata": {
-        "accession": "GSE328460",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 1,
-        "suppfile": "CSV, RDS",
-        "pdat": "2026/07/20"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Single-cell resolution spatial transcriptomics of a mucinous tubular and spindle cell carcinoma using CosMX shows single-cell + spatial signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "CosMx dataset",
-      "collected_at": "2026-09-03T21:03:56.846876+00:00",
-      "provenance": {
-        "source_id": "GSE328460",
+        "source_id": "GSE338072",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -627,7 +623,7 @@
       "why_it_matters": "Promising but needs QC: Interrogating the Synergistic Potential of Gemcitabine and Focused Ultrasound–Induced Thermal Ablation in Breast Cancer: Insights from the BR54 Trial via Spatial Transcriptomics shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "CosMx dataset",
-      "collected_at": "2026-09-03T21:03:56.846345+00:00",
+      "collected_at": "2026-11-01T21:02:25.535713+00:00",
       "provenance": {
         "source_id": "GSE296517",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -635,53 +631,79 @@
       "risk_signals": []
     },
     {
-      "title": "Multiscale spatial transcriptomics resolves the cellular and molecular architecture of the human amygdala [Visium]",
+      "title": "Single-Nucleus Transcriptomic Atlas Reveals Disease-Associated Cellular States in Human Glomerular Diseases",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342709",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE286186",
       "license": "NCBI public repository",
-      "modality": "spatial",
+      "modality": "mixed",
       "key_metadata": {
-        "accession": "GSE342709",
+        "accession": "GSE286186",
         "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 51,
-        "suppfile": "CSV, JPG, JSON, MTX, PNG, TIFF, TSV",
-        "pdat": "2026/08/24"
+        "gds_type": "Other; Expression profiling by high throughput sequencing",
+        "sample_count": 59,
+        "suppfile": "CSV, MTX, PARQUET, TSV",
+        "pdat": "2026/09/08"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Multiscale spatial transcriptomics resolves the cellular and molecular architecture of the human amygdala [Visium] shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Single-Nucleus Transcriptomic Atlas Reveals Disease-Associated Cellular States in Human Glomerular Diseases shows mixed signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "Xenium atlas",
-      "collected_at": "2026-09-03T21:03:53.209442+00:00",
+      "collected_at": "2026-11-01T21:02:23.774657+00:00",
       "provenance": {
-        "source_id": "GSE342709",
+        "source_id": "GSE286186",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Multiscale spatial transcriptomics resolves the cellular and molecular architecture of the human amygdala [Visium HD]",
+      "title": "A single cell and spatial atlas of preinvasive breast cancer",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342738",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348584",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE342738",
+        "accession": "GSE348584",
         "taxon": "Homo sapiens",
         "gds_type": "Other",
-        "sample_count": 5,
-        "suppfile": "JPG, JSON, MTX, PARQUET, PNG, TIFF, TSV",
-        "pdat": "2026/08/24"
+        "sample_count": 15,
+        "suppfile": "H5, PARQUET, TIFF",
+        "pdat": "2026/09/25"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Multiscale spatial transcriptomics resolves the cellular and molecular architecture of the human amygdala [Visium HD] shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: A single cell and spatial atlas of preinvasive breast cancer shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "Xenium atlas",
-      "collected_at": "2026-09-03T21:03:53.208740+00:00",
+      "collected_at": "2026-11-01T21:02:23.774448+00:00",
       "provenance": {
-        "source_id": "GSE342738",
+        "source_id": "GSE348584",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "A single cell and spatial atlas of preinvasive breast cancer [Visium ST]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348919",
+      "license": "NCBI public repository",
+      "modality": "spatial",
+      "key_metadata": {
+        "accession": "GSE348919",
+        "taxon": "Homo sapiens",
+        "gds_type": "Other",
+        "sample_count": 14,
+        "suppfile": "CSV, JPG, JSON, MTX, PNG, TSV",
+        "pdat": "2026/09/29"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: A single cell and spatial atlas of preinvasive breast cancer [Visium ST] shows spatial signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "Xenium atlas",
+      "collected_at": "2026-11-01T21:02:23.774034+00:00",
+      "provenance": {
+        "source_id": "GSE348919",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -705,7 +727,7 @@
       "why_it_matters": "Promising but needs QC: Inhibition of EZH2 restores normal expression of genes associated with cysteine metabolism and ferroptosis in hepatocellular carcinoma [RNA-seq] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "ferroptosis atlas",
-      "collected_at": "2026-09-03T21:03:49.113005+00:00",
+      "collected_at": "2026-11-01T21:02:22.050824+00:00",
       "provenance": {
         "source_id": "GSE237951",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -731,7 +753,7 @@
       "why_it_matters": "Promising but needs QC: Inhibition of EZH2 restores normal expression of genes associated with cysteine metabolism and ferroptosis in hepatocellular carcinoma [CUT&Tag] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "ferroptosis atlas",
-      "collected_at": "2026-09-03T21:03:49.112154+00:00",
+      "collected_at": "2026-11-01T21:02:22.049827+00:00",
       "provenance": {
         "source_id": "GSE268195",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -757,7 +779,7 @@
       "why_it_matters": "Promising but needs QC: Single-Cell Atlas of Pan-Cancer Immunotherapy Reveals the Role of Ferroptosis in Exhausted Macrophages and Immune Therapy Resistance shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "ferroptosis atlas",
-      "collected_at": "2026-09-03T21:03:49.111258+00:00",
+      "collected_at": "2026-11-01T21:02:22.048960+00:00",
       "provenance": {
         "source_id": "GSE302068",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -783,35 +805,9 @@
       "why_it_matters": "Promising but needs QC: A Transcriptome-wise Atlas of Human Prostate as a Function of Postmortem Interval Time shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "ferroptosis atlas",
-      "collected_at": "2026-09-03T21:03:49.110643+00:00",
+      "collected_at": "2026-11-01T21:02:22.048424+00:00",
       "provenance": {
         "source_id": "GSE291070",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Novel therapy for metabolic liver disease by transplantation of human iPS cell-derived 3D-organoids",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263559",
-      "license": "NCBI public repository",
-      "modality": "protein-design",
-      "key_metadata": {
-        "accession": "GSE263559",
-        "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by array",
-        "sample_count": 7,
-        "suppfile": "TXT",
-        "pdat": "2026/04/01"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Novel therapy for metabolic liver disease by transplantation of human iPS cell-derived 3D-organoids shows protein-design signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "metabolic flux transcriptome",
-      "collected_at": "2026-09-03T21:03:45.299355+00:00",
-      "provenance": {
-        "source_id": "GSE263559",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -835,7 +831,7 @@
       "why_it_matters": "Promising but needs QC: PD-L1 drives metabolic reprogramming and mitochondrial remodeling in NSCLC cells shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "metabolic flux transcriptome",
-      "collected_at": "2026-09-03T21:03:45.297511+00:00",
+      "collected_at": "2026-11-01T21:02:20.261515+00:00",
       "provenance": {
         "source_id": "GSE330687",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -843,27 +839,79 @@
       "risk_signals": []
     },
     {
-      "title": "Targeted RNA N6-Methyladenosine Demethylation inhibits cell migration in colorectal cancer cells [MeRIP-seq]",
+      "title": "Single-cell atlas reveals shared early microenvironmental remodeling in colorectal polypogenesis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE319983",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE327909",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE319983",
+        "accession": "GSE327909",
         "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing",
-        "sample_count": 18,
-        "suppfile": "XLSX",
-        "pdat": "2026/09/02"
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 6,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/10/31"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Targeted RNA N6-Methyladenosine Demethylation inhibits cell migration in colorectal cancer cells [MeRIP-seq] shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Single-cell atlas reveals shared early microenvironmental remodeling in colorectal polypogenesis shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "tumor metabolism single-cell",
-      "collected_at": "2026-09-03T21:03:42.094921+00:00",
+      "collected_at": "2026-11-01T21:02:18.514504+00:00",
       "provenance": {
-        "source_id": "GSE319983",
+        "source_id": "GSE327909",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "KLF16 and SIN3A facilitate endometrial cancer cell proliferation in association with CTD-2377D24.6",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE349296",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE349296",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 6,
+        "suppfile": "XLSX",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: KLF16 and SIN3A facilitate endometrial cancer cell proliferation in association with CTD-2377D24.6 shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "tumor metabolism single-cell",
+      "collected_at": "2026-11-01T21:02:18.513020+00:00",
+      "provenance": {
+        "source_id": "GSE349296",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Integrated transcriptomic and tissue profiling reveals imprinted-gene dysregulation and PEG10 upregulation in liposarcoma",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352573",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE352573",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 42,
+        "suppfile": "CSV",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Integrated transcriptomic and tissue profiling reveals imprinted-gene dysregulation and PEG10 upregulation in liposarcoma shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "tumor metabolism single-cell",
+      "collected_at": "2026-11-01T21:02:18.512117+00:00",
+      "provenance": {
+        "source_id": "GSE352573",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -887,7 +935,7 @@
       "why_it_matters": "Promising but needs QC: [HG-U133A] Affymetrix Human Genome U133A Array shows mixed signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "mitochondrial vulnerability atlas",
-      "collected_at": "2026-09-03T21:03:37.934519+00:00",
+      "collected_at": "2026-11-01T21:02:16.929754+00:00",
       "provenance": {
         "source_id": "GPL96",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -895,131 +943,131 @@
       "risk_signals": []
     },
     {
-      "title": "Multiomics Analyses of Steroid Drug Efficacy in Duchenne Muscular Dystrophy Cardiomyocytes",
+      "title": "MIC13-linked cristae disruption causes metabolic failure and early fibrotic remodelling in mitochondrial liver disease",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE312779",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE313628",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE313628",
+        "taxon": "Homo sapiens",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 16,
+        "suppfile": "CSV",
+        "pdat": "2026/09/14"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: MIC13-linked cristae disruption causes metabolic failure and early fibrotic remodelling in mitochondrial liver disease shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "extracellular matrix multiomics",
+      "collected_at": "2026-11-01T21:02:13.461893+00:00",
+      "provenance": {
+        "source_id": "GSE313628",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Targeting the KAT7/H3K14ac/RAC2 Axis Mediates OXPHOS to Promote Stemness Maintenance and Malignancy in Glioblastoma [RNA-Seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328130",
       "license": "NCBI public repository",
       "modality": "metabolism",
       "key_metadata": {
-        "accession": "GSE312779",
+        "accession": "GSE328130",
         "taxon": "Homo sapiens",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 48,
-        "suppfile": "CSV",
-        "pdat": "2026/05/05"
+        "sample_count": 6,
+        "suppfile": "XLSX",
+        "pdat": "2026/09/16"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Multiomics Analyses of Steroid Drug Efficacy in Duchenne Muscular Dystrophy Cardiomyocytes shows metabolism signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Targeting the KAT7/H3K14ac/RAC2 Axis Mediates OXPHOS to Promote Stemness Maintenance and Malignancy in Glioblastoma [RNA-Seq] shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "extracellular matrix multiomics",
-      "collected_at": "2026-09-03T21:03:31.717595+00:00",
+      "collected_at": "2026-11-01T21:02:13.460236+00:00",
       "provenance": {
-        "source_id": "GSE312779",
+        "source_id": "GSE328130",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "The Oral–Gut–Joint Axis in Osteoarthritis: A Multiomics Case‒Control Study",
+      "title": "Targeting the KAT7/H3K14ac/RAC2 Axis Mediates OXPHOS to Promote Stemness Maintenance and Malignancy in Glioblastoma [ChIP-Seq]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331536",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328308",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "metabolism",
       "key_metadata": {
-        "accession": "GSE331536",
+        "accession": "GSE328308",
         "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing",
+        "gds_type": "Genome binding/occupancy profiling by high throughput sequencing",
         "sample_count": 8,
-        "suppfile": "CSV",
-        "pdat": "2026/05/27"
+        "suppfile": "BIGWIG",
+        "pdat": "2026/09/16"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: The Oral–Gut–Joint Axis in Osteoarthritis: A Multiomics Case‒Control Study shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Targeting the KAT7/H3K14ac/RAC2 Axis Mediates OXPHOS to Promote Stemness Maintenance and Malignancy in Glioblastoma [ChIP-Seq] shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "extracellular matrix multiomics",
-      "collected_at": "2026-09-03T21:03:31.716630+00:00",
+      "collected_at": "2026-11-01T21:02:13.459213+00:00",
       "provenance": {
-        "source_id": "GSE331536",
+        "source_id": "GSE328308",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Treatment of cholangiocarcinoma using humanized monoclonal antibodies targeting Claudin-1",
+      "title": "Molecular mapping of developing synovial fibroblasts in the TMJ reveals the crucial role of mechanical force in cavitation",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262166",
-      "license": "NCBI public repository",
-      "modality": "mixed",
-      "key_metadata": {
-        "accession": "GSE262166",
-        "taxon": "Homo sapiens",
-        "gds_type": "Other; Expression profiling by high throughput sequencing",
-        "sample_count": 77,
-        "suppfile": "CSV, TAR",
-        "pdat": "2026/06/08"
-      },
-      "raw_file_availability": "yes",
-      "score": 6,
-      "why_it_matters": "Promising but needs QC: Treatment of cholangiocarcinoma using humanized monoclonal antibodies targeting Claudin-1 shows mixed signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "extracellular matrix multiomics",
-      "collected_at": "2026-09-03T21:03:31.714793+00:00",
-      "provenance": {
-        "source_id": "GSE262166",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Decoding Lymphangioleiomyomatosis (LAM) Niche Environment via Integrative Analysis of Single Cell Multiomics and Spatial Transcriptomics",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE302356",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE351686",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE302356",
+        "accession": "GSE351686",
         "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
-        "sample_count": 12,
-        "suppfile": "TAR",
-        "pdat": "2026/07/30"
+        "gds_type": "Other",
+        "sample_count": 3,
+        "suppfile": "CSV, RDS",
+        "pdat": "2026/10/26"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Decoding Lymphangioleiomyomatosis (LAM) Niche Environment via Integrative Analysis of Single Cell Multiomics and Spatial Transcriptomics shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Molecular mapping of developing synovial fibroblasts in the TMJ reveals the crucial role of mechanical force in cavitation shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "extracellular matrix multiomics",
-      "collected_at": "2026-09-03T21:03:31.714321+00:00",
+      "collected_at": "2026-11-01T21:02:13.458066+00:00",
       "provenance": {
-        "source_id": "GSE302356",
+        "source_id": "GSE351686",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Multi-omic profiling of DNA damage-induced senescence in healthy and IPF primary human lung fibroblasts [ATAC-seq]",
+      "title": "Spatial transcriptomics landscape for liver from patients with metabolic dysfunction-associated steatohepatitis (MASH)",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328393",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE255312",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE328393",
+        "accession": "GSE255312",
         "taxon": "Homo sapiens",
-        "gds_type": "Genome binding/occupancy profiling by high throughput sequencing",
-        "sample_count": 24,
-        "suppfile": "CSV, H5AD",
-        "pdat": "2026/08/19"
+        "gds_type": "Expression profiling by high throughput sequencing; Other",
+        "sample_count": 72,
+        "suppfile": "CSV, DCC, PKC",
+        "pdat": "2026/10/06"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Multi-omic profiling of DNA damage-induced senescence in healthy and IPF primary human lung fibroblasts [ATAC-seq] shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Spatial transcriptomics landscape for liver from patients with metabolic dysfunction-associated steatohepatitis (MASH) shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "lung fibrosis single-cell",
-      "collected_at": "2026-09-03T21:03:24.889859+00:00",
+      "query": "MASH liver atlas",
+      "collected_at": "2026-11-01T21:02:08.332374+00:00",
       "provenance": {
-        "source_id": "GSE328393",
+        "source_id": "GSE255312",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1043,7 +1091,7 @@
       "why_it_matters": "Promising but needs QC: Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy [Human_CITEseq] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "FAP spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:17.942735+00:00",
+      "collected_at": "2026-11-01T21:02:06.409229+00:00",
       "provenance": {
         "source_id": "GSE314596",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1069,7 +1117,7 @@
       "why_it_matters": "Promising but needs QC: Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy [Visium] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "FAP spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:17.940536+00:00",
+      "collected_at": "2026-11-01T21:02:06.407337+00:00",
       "provenance": {
         "source_id": "GSE314851",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1095,7 +1143,7 @@
       "why_it_matters": "Promising but needs QC: Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy [Xenium in situ] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "FAP spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:17.939747+00:00",
+      "collected_at": "2026-11-01T21:02:06.406590+00:00",
       "provenance": {
         "source_id": "GSE315246",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1103,53 +1151,53 @@
       "risk_signals": []
     },
     {
-      "title": "A single-cell atlas identifies oncogenic transcriptional programs and immune escape mechanisms in hematogolical malignancies",
+      "title": "Characterization of Carcinogenesis Resistance in Anatolian Blind Mole-rat (Nannospalax) Mesenchymal Stem Cells and Assessment of Transcriptomic Signatures",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309805",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE322965",
       "license": "NCBI public repository",
-      "modality": "single-cell",
+      "modality": "metabolism",
       "key_metadata": {
-        "accession": "GSE309805",
-        "taxon": "Homo sapiens",
-        "gds_type": "Genome binding/occupancy profiling by high throughput sequencing",
-        "sample_count": 3,
-        "suppfile": "BW",
-        "pdat": "2026/08/20"
+        "accession": "GSE322965",
+        "taxon": "Homo sapiens; Mus musculus; Rattus norvegicus; Nannospalax nehringi",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 24,
+        "suppfile": "TXT",
+        "pdat": "2026/10/14"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: A single-cell atlas identifies oncogenic transcriptional programs and immune escape mechanisms in hematogolical malignancies shows single-cell signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Characterization of Carcinogenesis Resistance in Anatolian Blind Mole-rat (Nannospalax) Mesenchymal Stem Cells and Assessment of Transcriptomic Signatures shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "fibroblast atlas",
-      "collected_at": "2026-09-03T21:03:13.993440+00:00",
+      "collected_at": "2026-11-01T21:02:04.254592+00:00",
       "provenance": {
-        "source_id": "GSE309805",
+        "source_id": "GSE322965",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Integrated spatial and single cell analysis identifies CCL21+ lymphatic endothelial cells as a driver of a favorable immune environment in acral melanoma",
+      "title": "Transcriptional response of primary human pancreatic cancer-associated fibroblasts to IFN-γ and lipopolysaccharide stimulation",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE344166",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348821",
       "license": "NCBI public repository",
-      "modality": "spatial",
+      "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE344166",
+        "accession": "GSE348821",
         "taxon": "Homo sapiens",
-        "gds_type": "Other",
-        "sample_count": 116,
-        "suppfile": "CSV, DCC, PKC",
-        "pdat": "2026/08/24"
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 9,
+        "suppfile": "TXT",
+        "pdat": "2026/10/29"
       },
       "raw_file_availability": "yes",
       "score": 6,
-      "why_it_matters": "Promising but needs QC: Integrated spatial and single cell analysis identifies CCL21+ lymphatic endothelial cells as a driver of a favorable immune environment in acral melanoma shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Transcriptional response of primary human pancreatic cancer-associated fibroblasts to IFN-γ and lipopolysaccharide stimulation shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "fibroblast atlas",
-      "collected_at": "2026-09-03T21:03:13.992511+00:00",
+      "collected_at": "2026-11-01T21:02:04.252616+00:00",
       "provenance": {
-        "source_id": "GSE344166",
+        "source_id": "GSE348821",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1173,7 +1221,7 @@
       "why_it_matters": "Promising but needs QC: DNA methylation analysis of human peripheral blood cells collected in the AIRWAVE study shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "human aging cohort metabolomics",
-      "collected_at": "2026-09-03T21:03:10.281050+00:00",
+      "collected_at": "2026-11-01T21:02:02.517980+00:00",
       "provenance": {
         "source_id": "GSE147740",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1181,79 +1229,209 @@
       "risk_signals": []
     },
     {
-      "title": "On collective behaviours in development (PhD thesis) [normal-vs-delay_expression]",
+      "title": "Multiomic Profiling of Canine Immune and Metabolic Aging in a Cohort of Young and Senior Beagles",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345510",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342551",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE345510",
-        "taxon": "Gallus gallus",
+        "accession": "GSE342551",
+        "taxon": "Canis lupus familiaris",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 6,
+        "sample_count": 39,
         "suppfile": "CSV",
-        "pdat": "2026/09/02"
+        "pdat": "2026/09/30"
       },
       "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: On collective behaviours in development (PhD thesis) [normal-vs-delay_expression] shows protein-design signals and should be checked before ingestion.",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Multiomic Profiling of Canine Immune and Metabolic Aging in a Cohort of Young and Senior Beagles shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "OpenFold weights",
-      "collected_at": "2026-09-03T21:05:37.172556+00:00",
+      "query": "human aging cohort metabolomics",
+      "collected_at": "2026-11-01T21:02:02.517309+00:00",
       "provenance": {
-        "source_id": "GSE345510",
+        "source_id": "GSE342551",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "On collective behaviours in development (PhD thesis) [control-vs-puro_expression]",
+      "title": "Multiomic Profiling of Canine Immune and Metabolic Aging in a Cohort of Young and Senior Beagles II",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345511",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342969",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE345511",
-        "taxon": "Gallus gallus",
+        "accession": "GSE342969",
+        "taxon": "Canis lupus familiaris",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 6,
-        "suppfile": "CSV",
-        "pdat": "2026/09/02"
+        "sample_count": 5,
+        "suppfile": "CSV, MTX",
+        "pdat": "2026/09/30"
       },
       "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: On collective behaviours in development (PhD thesis) [control-vs-puro_expression] shows protein-design signals and should be checked before ingestion.",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Multiomic Profiling of Canine Immune and Metabolic Aging in a Cohort of Young and Senior Beagles II shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "OpenFold weights",
-      "collected_at": "2026-09-03T21:05:37.170983+00:00",
+      "query": "human aging cohort metabolomics",
+      "collected_at": "2026-11-01T21:02:02.515907+00:00",
       "provenance": {
-        "source_id": "GSE345511",
+        "source_id": "GSE342969",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Pyridoxine supplementation ameliorates SGPL1 R222Q variant sphingosine phosphate lyase insufficiency syndrome in mice",
+      "title": "Integrative Multi-omics Analysis Reveals Molecular Signatures of Age-Related Decline in Vervet Skeletal Muscles",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345689",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE349369",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "mixed",
       "key_metadata": {
-        "accession": "GSE345689",
+        "accession": "GSE349369",
+        "taxon": "Homo sapiens; Chlorocebus sabaeus",
+        "gds_type": "Methylation profiling by genome tiling array",
+        "sample_count": 29,
+        "suppfile": "IDAT, XLSX",
+        "pdat": "2026/10/02"
+      },
+      "raw_file_availability": "yes",
+      "score": 6,
+      "why_it_matters": "Promising but needs QC: Integrative Multi-omics Analysis Reveals Molecular Signatures of Age-Related Decline in Vervet Skeletal Muscles shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "frailty multi-omics",
+      "collected_at": "2026-11-01T21:01:57.096719+00:00",
+      "provenance": {
+        "source_id": "GSE349369",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Local chromatin, 3D genome folding and transposon cargo shape Sleeping Beauty transposition [tagmap]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352288",
+      "license": "NCBI public repository",
+      "modality": "metabolism",
+      "key_metadata": {
+        "accession": "GSE352288",
+        "taxon": "Mus musculus",
+        "gds_type": "Other",
+        "sample_count": 481,
+        "suppfile": "TXT",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Local chromatin, 3D genome folding and transposon cargo shape Sleeping Beauty transposition [tagmap] shows metabolism signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "OpenFold weights",
+      "collected_at": "2026-11-01T21:03:38.032124+00:00",
+      "provenance": {
+        "source_id": "GSE352288",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Gut microbial equol production associates with cognitive trajectories and suppresses NLRP3 inflammasome activation",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352509",
+      "license": "NCBI public repository",
+      "modality": "metabolism",
+      "key_metadata": {
+        "accession": "GSE352509",
         "taxon": "Mus musculus",
         "gds_type": "Expression profiling by high throughput sequencing",
         "sample_count": 12,
-        "suppfile": "TXT, XLSX",
-        "pdat": "2026/09/02"
+        "suppfile": "XLSX",
+        "pdat": "2026/10/31"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Pyridoxine supplementation ameliorates SGPL1 R222Q variant sphingosine phosphate lyase insufficiency syndrome in mice shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Gut microbial equol production associates with cognitive trajectories and suppresses NLRP3 inflammasome activation shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "OpenFold weights",
-      "collected_at": "2026-09-03T21:05:37.167489+00:00",
+      "collected_at": "2026-11-01T21:03:38.031458+00:00",
       "provenance": {
-        "source_id": "GSE345689",
+        "source_id": "GSE352509",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Cooperative interaction of Foxp3 and STAT5 confers regulatory T cell fitness by tuning IL-2-induced gene expression [Myc_RNA]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352602",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE352602",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 6,
+        "suppfile": "TXT",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Cooperative interaction of Foxp3 and STAT5 confers regulatory T cell fitness by tuning IL-2-induced gene expression [Myc_RNA] shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "OpenFold weights",
+      "collected_at": "2026-11-01T21:03:38.030678+00:00",
+      "provenance": {
+        "source_id": "GSE352602",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Cooperative interaction of Foxp3 and STAT5 confers regulatory T cell fitness by tuning IL-2-induced gene expression [ATAC-Seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352613",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE352613",
+        "taxon": "Mus musculus",
+        "gds_type": "Genome binding/occupancy profiling by high throughput sequencing",
+        "sample_count": 32,
+        "suppfile": "TSV",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Cooperative interaction of Foxp3 and STAT5 confers regulatory T cell fitness by tuning IL-2-induced gene expression [ATAC-Seq] shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "OpenFold weights",
+      "collected_at": "2026-11-01T21:03:38.030156+00:00",
+      "provenance": {
+        "source_id": "GSE352613",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Local chromatin, 3D genome folding and transposon cargo shape Sleeping Beauty transposition",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE352692",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE352692",
+        "taxon": "Mus musculus",
+        "gds_type": "Other",
+        "sample_count": 489,
+        "suppfile": "",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "maybe",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Local chromatin, 3D genome folding and transposon cargo shape Sleeping Beauty transposition shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "OpenFold weights",
+      "collected_at": "2026-11-01T21:03:38.029585+00:00",
+      "provenance": {
+        "source_id": "GSE352692",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1277,7 +1455,7 @@
       "why_it_matters": "Promising but needs QC: Decoding and Rewiring Promoter Architecture Using Large Language Models and Diffusion Frameworks shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "enzyme design benchmark",
-      "collected_at": "2026-09-03T21:04:38.430281+00:00",
+      "collected_at": "2026-11-01T21:02:52.543207+00:00",
       "provenance": {
         "source_id": "GSE316915",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1303,7 +1481,7 @@
       "why_it_matters": "Promising but needs QC: Integrated single-nucleus RNA-seq dataset of mouse brain from a multi-factorial benchmarking study shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "enzyme design benchmark",
-      "collected_at": "2026-09-03T21:04:38.429635+00:00",
+      "collected_at": "2026-11-01T21:02:52.542516+00:00",
       "provenance": {
         "source_id": "GSE327236",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1329,7 +1507,7 @@
       "why_it_matters": "Promising but needs QC: Bias in ligation-based small RNA sequencing library construction is determined by adaptor and RNA structure shows mixed signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "protein cofold",
-      "collected_at": "2026-09-03T21:04:34.615733+00:00",
+      "collected_at": "2026-11-01T21:02:50.547845+00:00",
       "provenance": {
         "source_id": "GSE67053",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1355,7 +1533,7 @@
       "why_it_matters": "Promising but needs QC: AADAT-Driven Metabolic Control of Malate and CoQ₁₀ Shapes Immune Evasion in Triple-Negative Breast Cancer shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "spatial metabolomics",
-      "collected_at": "2026-09-03T21:04:18.789004+00:00",
+      "collected_at": "2026-11-01T21:02:39.263628+00:00",
       "provenance": {
         "source_id": "GSE317623",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1381,7 +1559,7 @@
       "why_it_matters": "Promising but needs QC: Quinolinic acid metabolism may mitigate AKI to CKD transition shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "spatial metabolomics",
-      "collected_at": "2026-09-03T21:04:18.787115+00:00",
+      "collected_at": "2026-11-01T21:02:39.261792+00:00",
       "provenance": {
         "source_id": "GSE332889",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1407,9 +1585,35 @@
       "why_it_matters": "Promising but needs QC: Multi-Omics profiling reveals immunometabolic adaptations underlying disease resilience in indigenous Lueyang Silky Fowl compared to White Leghorns shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "spatial metabolomics",
-      "collected_at": "2026-09-03T21:04:18.786099+00:00",
+      "collected_at": "2026-11-01T21:02:39.260910+00:00",
       "provenance": {
         "source_id": "GSE316751",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Inhibiting Wnt/β-catenin-mTOR Signaling Enhances Porphyrin Clearance in Murine Porphyrias with Hepatic Involvement",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE325138",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE325138",
+        "taxon": "Mus musculus",
+        "gds_type": "Other",
+        "sample_count": 20,
+        "suppfile": "CSV, TIFF, TXT, XLSX",
+        "pdat": "2026/09/11"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Inhibiting Wnt/β-catenin-mTOR Signaling Enhances Porphyrin Clearance in Murine Porphyrias with Hepatic Involvement shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "spatial metabolomics",
+      "collected_at": "2026-11-01T21:02:39.259756+00:00",
+      "provenance": {
+        "source_id": "GSE325138",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1433,7 +1637,7 @@
       "why_it_matters": "Promising but needs QC: Peripheral glia constitute a pro-reparative niche triggering skin wound healing shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "multiplex imaging spatial",
-      "collected_at": "2026-09-03T21:04:15.060884+00:00",
+      "collected_at": "2026-11-01T21:02:37.307415+00:00",
       "provenance": {
         "source_id": "GSE308799",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1459,7 +1663,7 @@
       "why_it_matters": "Promising but needs QC: Peripheral glia constitute a pro-reparative niche triggering skin wound healing [Spatial Transcriptomics] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "multiplex imaging spatial",
-      "collected_at": "2026-09-03T21:04:15.060281+00:00",
+      "collected_at": "2026-11-01T21:02:37.306773+00:00",
       "provenance": {
         "source_id": "GSE308952",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1487,7 +1691,7 @@
       "why_it_matters": "Promising but needs QC: Increased mRNA translation delays tumor initiation and exposes a therapeutic vulnerability in lung cancer shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "multiplex imaging spatial",
-      "collected_at": "2026-09-03T21:04:15.058264+00:00",
+      "collected_at": "2026-11-01T21:02:37.304595+00:00",
       "provenance": {
         "source_id": "GSE327213",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1495,27 +1699,53 @@
       "risk_signals": []
     },
     {
-      "title": "A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states",
+      "title": "A corticopapillary Gdf15 response links maladaptive collecting duct remodeling to polyuria during lithium exposure",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345359",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE350835",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE345359",
-        "taxon": "Mesocricetus auratus",
+        "accession": "GSE350835",
+        "taxon": "Mus musculus",
         "gds_type": "Other",
         "sample_count": 4,
-        "suppfile": "H5, JSON, PARQUET, PNG, TAR, TIFF, XLSX",
-        "pdat": "2026/09/02"
+        "suppfile": "CDF, CSV, H5, HTML, JSON, PARQUET, PNG, TIFF",
+        "pdat": "2026/10/19"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: A corticopapillary Gdf15 response links maladaptive collecting duct remodeling to polyuria during lithium exposure shows spatial signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "Visium HD",
+      "collected_at": "2026-11-01T21:02:35.561244+00:00",
+      "provenance": {
+        "source_id": "GSE350835",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states II",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346081",
+      "license": "NCBI public repository",
+      "modality": "spatial",
+      "key_metadata": {
+        "accession": "GSE346081",
+        "taxon": "Mesocricetus auratus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 5,
+        "suppfile": "MTX, TSV, XLSX",
+        "pdat": "2026/09/04"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states II shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "Xenium atlas",
-      "collected_at": "2026-09-03T21:03:53.207134+00:00",
+      "collected_at": "2026-11-01T21:02:23.775030+00:00",
       "provenance": {
-        "source_id": "GSE345359",
+        "source_id": "GSE346081",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1539,61 +1769,9 @@
       "why_it_matters": "Promising but needs QC: A high-resolution, sex-stratified atlas of transcriptional and alternative splicing dynamics in the fasting mouse liver. shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "ferroptosis atlas",
-      "collected_at": "2026-09-03T21:03:49.109112+00:00",
+      "collected_at": "2026-11-01T21:02:22.047313+00:00",
       "provenance": {
         "source_id": "GSE328655",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Integrated metabolome and transcriptome profiling demonstrates dynamic regulatory roles of hormones in direct-seeding rice",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE322568",
-      "license": "NCBI public repository",
-      "modality": "metabolism",
-      "key_metadata": {
-        "accession": "GSE322568",
-        "taxon": "Oryza sativa Japonica Group",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 5,
-        "suppfile": "XLSX",
-        "pdat": "2026/03/06"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Integrated metabolome and transcriptome profiling demonstrates dynamic regulatory roles of hormones in direct-seeding rice shows metabolism signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "metabolic flux transcriptome",
-      "collected_at": "2026-09-03T21:03:45.300642+00:00",
-      "provenance": {
-        "source_id": "GSE322568",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Time-course transcriptome data of Actinoplanes sp. SE50/110 during the whole process of acarbose fermentation",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE312767",
-      "license": "NCBI public repository",
-      "modality": "metabolism",
-      "key_metadata": {
-        "accession": "GSE312767",
-        "taxon": "Actinoplanes",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 33,
-        "suppfile": "TXT",
-        "pdat": "2026/04/01"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Time-course transcriptome data of Actinoplanes sp. SE50/110 during the whole process of acarbose fermentation shows metabolism signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "metabolic flux transcriptome",
-      "collected_at": "2026-09-03T21:03:45.298644+00:00",
-      "provenance": {
-        "source_id": "GSE312767",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1617,7 +1795,7 @@
       "why_it_matters": "Promising but needs QC: Integrated Multi-omics Analysis Reveals that Hybrid Rice Reprograms Carbon Metabolism to Confer Drought Resistance shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "metabolic flux transcriptome",
-      "collected_at": "2026-09-03T21:03:45.296687+00:00",
+      "collected_at": "2026-11-01T21:02:20.260889+00:00",
       "provenance": {
         "source_id": "GSE315654",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1625,84 +1803,108 @@
       "risk_signals": []
     },
     {
-      "title": "Psychological stress promotes hepatocellular carcinoma progression via β2-adrenergic signaling in macrophages and glucocorticoid-driven neutrophil immunosuppression",
+      "title": "The Mechanism of Hepatic Lipid Metabolic Disorder Induced by Intermittent Hypoxia Based on Multi-omics Analysis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE315836",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE350539",
       "license": "NCBI public repository",
-      "modality": "single-cell",
+      "modality": "metabolism",
       "key_metadata": {
-        "accession": "GSE315836",
-        "taxon": "Mus musculus",
+        "accession": "GSE350539",
+        "taxon": "Rattus norvegicus",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 12,
-        "suppfile": "CSV",
-        "pdat": "2026/09/02"
+        "sample_count": 6,
+        "suppfile": "TXT",
+        "pdat": "2026/10/14"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Psychological stress promotes hepatocellular carcinoma progression via β2-adrenergic signaling in macrophages and glucocorticoid-driven neutrophil immunosuppression shows single-cell signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: The Mechanism of Hepatic Lipid Metabolic Disorder Induced by Intermittent Hypoxia Based on Multi-omics Analysis shows metabolism signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "tumor metabolism single-cell",
-      "collected_at": "2026-09-03T21:03:42.095980+00:00",
+      "query": "metabolic flux transcriptome",
+      "collected_at": "2026-11-01T21:02:20.258821+00:00",
       "provenance": {
-        "source_id": "GSE315836",
+        "source_id": "GSE350539",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Neurodevelopmental miR-135a-1-3p and miR-135b-3p promote long-distance axon regeneration after injury in the central visual pathway",
+      "title": "RNA‑seq analysis of leaf transcriptomes in wild‑type and slzf3 mutant tomato under normal and cold temperatures.",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337069",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE342135",
       "license": "NCBI public repository",
       "modality": "protein-design",
       "key_metadata": {
-        "accession": "GSE337069",
-        "taxon": "Mus musculus",
+        "accession": "GSE342135",
+        "taxon": "Solanum lycopersicum",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 4,
+        "sample_count": 12,
         "suppfile": "TXT",
-        "pdat": "2026/09/02"
+        "pdat": "2026/10/31"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Neurodevelopmental miR-135a-1-3p and miR-135b-3p promote long-distance axon regeneration after injury in the central visual pathway shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: RNA‑seq analysis of leaf transcriptomes in wild‑type and slzf3 mutant tomato under normal and cold temperatures. shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "tumor metabolism single-cell",
-      "collected_at": "2026-09-03T21:03:42.093942+00:00",
+      "query": "metabolic flux transcriptome",
+      "collected_at": "2026-11-01T21:02:20.258296+00:00",
       "provenance": {
-        "source_id": "GSE337069",
+        "source_id": "GSE342135",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "PTPN1/2 inhibits alveolar macrophage-mediated control of lung metastasis [CosMx SMI]",
+      "title": "A CD4-lineage erythro-myeloid progenitor within the adult bone marrow defines an alternative pathway for macrophage generation [RNA-Seq]",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337933",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345263",
       "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
+      "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE337933",
+        "accession": "GSE345263",
         "taxon": "Mus musculus",
-        "gds_type": "Other",
-        "sample_count": 1,
-        "suppfile": "CSV, RDS",
-        "pdat": "2026/09/02"
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 10,
+        "suppfile": "TSV",
+        "pdat": "2026/10/30"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: PTPN1/2 inhibits alveolar macrophage-mediated control of lung metastasis [CosMx SMI] shows single-cell + spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: A CD4-lineage erythro-myeloid progenitor within the adult bone marrow defines an alternative pathway for macrophage generation [RNA-Seq] shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "tumor metabolism single-cell",
-      "collected_at": "2026-09-03T21:03:42.091711+00:00",
+      "collected_at": "2026-11-01T21:02:18.515271+00:00",
       "provenance": {
-        "source_id": "GSE337933",
+        "source_id": "GSE345263",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
+      "risk_signals": []
+    },
+    {
+      "title": "Targeting ERO1α Triggers Tumor Immunosurveillance in Triple-Negative Breast Cancer [scRNA-seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE336881",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE336881",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 12,
+        "suppfile": "H5",
+        "pdat": "2026/10/31"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Targeting ERO1α Triggers Tumor Immunosurveillance in Triple-Negative Breast Cancer [scRNA-seq] shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "tumor metabolism single-cell",
+      "collected_at": "2026-11-01T21:02:18.513825+00:00",
+      "provenance": {
+        "source_id": "GSE336881",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
     },
     {
       "title": "A molecular atlas of cellular vulnerability and resilience in the parkinsonian striatum. [snRNA_seq]",
@@ -1723,9 +1925,165 @@
       "why_it_matters": "Promising but needs QC: A molecular atlas of cellular vulnerability and resilience in the parkinsonian striatum. [snRNA_seq] shows mixed signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "mitochondrial vulnerability atlas",
-      "collected_at": "2026-09-03T21:03:37.933663+00:00",
+      "collected_at": "2026-11-01T21:02:16.929075+00:00",
       "provenance": {
         "source_id": "GSE298848",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Sex-biased single-cell genetic landscape in mice hippocampus with sub-chronic variable stress",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE303470",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE303470",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 4,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/09/16"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Sex-biased single-cell genetic landscape in mice hippocampus with sub-chronic variable stress shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "mitochondrial vulnerability atlas",
+      "collected_at": "2026-11-01T21:02:16.928195+00:00",
+      "provenance": {
+        "source_id": "GSE303470",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "AP-1 specifies developmental versus fibrotic extracellular matrix transcriptional programs in the lung [Mutiome]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346604",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE346604",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+        "sample_count": 40,
+        "suppfile": "H5, RDS, TBI, TSV",
+        "pdat": "2026/09/14"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: AP-1 specifies developmental versus fibrotic extracellular matrix transcriptional programs in the lung [Mutiome] shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "extracellular matrix multiomics",
+      "collected_at": "2026-11-01T21:02:13.461006+00:00",
+      "provenance": {
+        "source_id": "GSE346604",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "CD84 Determines Differential Fates of Pro-fibrotic Macrophages [scRNA-seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE344929",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE344929",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 8,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/09/25"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: CD84 Determines Differential Fates of Pro-fibrotic Macrophages [scRNA-seq] shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-11-01T21:02:10.060076+00:00",
+      "provenance": {
+        "source_id": "GSE344929",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Evaluation of Therapeutic potential of Nerandomilast in BLM-induced mouse model by scRNA-Seq",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE306008",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE306008",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 11,
+        "suppfile": "H5",
+        "pdat": "2026/10/07"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Evaluation of Therapeutic potential of Nerandomilast in BLM-induced mouse model by scRNA-Seq shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-11-01T21:02:10.059468+00:00",
+      "provenance": {
+        "source_id": "GSE306008",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Single-cell RNA sequencing of bronchoalveolar lavage cells from mice with or without bleomycin-induced lung fibrosis",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE347919",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE347919",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 3,
+        "suppfile": "MTX, TSV",
+        "pdat": "2026/10/07"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Single-cell RNA sequencing of bronchoalveolar lavage cells from mice with or without bleomycin-induced lung fibrosis shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-11-01T21:02:10.058941+00:00",
+      "provenance": {
+        "source_id": "GSE347919",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Senescence-directed nanotherapy ameliorates fibrosis and overcomes immune exclusion in cancer [lung]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE319260",
+      "license": "NCBI public repository",
+      "modality": "metabolism",
+      "key_metadata": {
+        "accession": "GSE319260",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 4,
+        "suppfile": "H5",
+        "pdat": "2026/10/14"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Senescence-directed nanotherapy ameliorates fibrosis and overcomes immune exclusion in cancer [lung] shows metabolism signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "lung fibrosis single-cell",
+      "collected_at": "2026-11-01T21:02:10.057725+00:00",
+      "provenance": {
+        "source_id": "GSE319260",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1749,7 +2107,7 @@
       "why_it_matters": "Promising but needs QC: CITEseq of hepatic CD4+ T cells from healthy mice and mice with steatohepatitis shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "MASH liver atlas",
-      "collected_at": "2026-09-03T21:03:20.926550+00:00",
+      "collected_at": "2026-11-01T21:02:08.333582+00:00",
       "provenance": {
         "source_id": "GSE301733",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1775,9 +2133,61 @@
       "why_it_matters": "Promising but needs QC: Liver Single-Cell Atlas of MASH and Fibrosis Models in Mice shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "MASH liver atlas",
-      "collected_at": "2026-09-03T21:03:20.925790+00:00",
+      "collected_at": "2026-11-01T21:02:08.332975+00:00",
       "provenance": {
         "source_id": "GSE300744",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Hyperinflammatory Reprogramming Marks the Transition from MASH to HCC",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308029",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE308029",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 71,
+        "suppfile": "TXT",
+        "pdat": "2026/10/20"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Hyperinflammatory Reprogramming Marks the Transition from MASH to HCC shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "MASH liver atlas",
+      "collected_at": "2026-11-01T21:02:08.332046+00:00",
+      "provenance": {
+        "source_id": "GSE308029",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Hyperinflammatory Reprogramming Marks the Transition from MASH to HCC [scRNA-seq]",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308046",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE308046",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 4,
+        "suppfile": "MTX, RDS, TSV, TXT",
+        "pdat": "2026/10/20"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Hyperinflammatory Reprogramming Marks the Transition from MASH to HCC [scRNA-seq] shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "MASH liver atlas",
+      "collected_at": "2026-11-01T21:02:08.331225+00:00",
+      "provenance": {
+        "source_id": "GSE308046",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1801,7 +2211,7 @@
       "why_it_matters": "Promising but needs QC: Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy [Mouse_Aorta_BiTE] shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "FAP spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:17.942086+00:00",
+      "collected_at": "2026-11-01T21:02:06.408642+00:00",
       "provenance": {
         "source_id": "GSE314598",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1809,27 +2219,79 @@
       "risk_signals": []
     },
     {
-      "title": "Single-cell RNA sequencing reveals cellular heterogeneity and microenvironments in kidney disease progression",
+      "title": "A single-cell multiomics high-resolution atlas of the mouse spleen (CTL - UTMB)",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE300886",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334598",
       "license": "NCBI public repository",
       "modality": "protein-design",
       "key_metadata": {
-        "accession": "GSE300886",
+        "accession": "GSE334598",
         "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 4,
-        "suppfile": "TAR",
-        "pdat": "2026/09/01"
+        "gds_type": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+        "sample_count": 14,
+        "suppfile": "H5, TBI, TSV",
+        "pdat": "2026/10/06"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Single-cell RNA sequencing reveals cellular heterogeneity and microenvironments in kidney disease progression shows protein-design signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: A single-cell multiomics high-resolution atlas of the mouse spleen (CTL - UTMB) shows protein-design signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "fibroblast atlas",
-      "collected_at": "2026-09-03T21:03:13.991606+00:00",
+      "collected_at": "2026-11-01T21:02:04.255703+00:00",
       "provenance": {
-        "source_id": "GSE300886",
+        "source_id": "GSE334598",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "A single-cell multiomics high-resolution atlas of the mouse spleen (CTL - ISMMS)",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334868",
+      "license": "NCBI public repository",
+      "modality": "protein-design",
+      "key_metadata": {
+        "accession": "GSE334868",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+        "sample_count": 10,
+        "suppfile": "H5, TBI, TSV",
+        "pdat": "2026/10/06"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: A single-cell multiomics high-resolution atlas of the mouse spleen (CTL - ISMMS) shows protein-design signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "fibroblast atlas",
+      "collected_at": "2026-11-01T21:02:04.255216+00:00",
+      "provenance": {
+        "source_id": "GSE334868",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "A Single-Cell Atlas of the Mouse Dural Meninges Reveals Pervasive Sex Differences Across Cellular Compartments",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346598",
+      "license": "NCBI public repository",
+      "modality": "single-cell",
+      "key_metadata": {
+        "accession": "GSE346598",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 4,
+        "suppfile": "H5",
+        "pdat": "2026/10/19"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: A Single-Cell Atlas of the Mouse Dural Meninges Reveals Pervasive Sex Differences Across Cellular Compartments shows single-cell signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "fibroblast atlas",
+      "collected_at": "2026-11-01T21:02:04.253301+00:00",
+      "provenance": {
+        "source_id": "GSE346598",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -1853,7 +2315,7 @@
       "why_it_matters": "Promising but needs QC: Muscle injury induces a transient senescence-like state that is required for myofiber growth during muscle regeneration [Spatial Transcriptomics] shows single-cell + spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "skeletal muscle aging Visium",
-      "collected_at": "2026-09-03T21:03:05.943024+00:00",
+      "collected_at": "2026-11-01T21:02:00.476504+00:00",
       "provenance": {
         "source_id": "GSE215305",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1881,7 +2343,7 @@
       "why_it_matters": "Promising but needs QC: A skeletal muscle atlas shows neuromuscular junction adaptations to growth and atrophy shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "skeletal muscle aging Visium",
-      "collected_at": "2026-09-03T21:03:05.942026+00:00",
+      "collected_at": "2026-11-01T21:02:00.475640+00:00",
       "provenance": {
         "source_id": "GSE294765",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -1889,211 +2351,131 @@
       "risk_signals": []
     },
     {
-      "title": "Distinct extracellular matrix states uncouple collagen accumulation from pathological fibrosis in Duchenne muscular dystrophy",
+      "title": "Xenium spatial transcriptomic analysis of MafB-dependent cellular niches in bleomycin-induced pulmonary fibrosis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE343269",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE347790",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE343269",
-        "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing; Other",
-        "sample_count": 9,
-        "suppfile": "H5, JPG, JSON, PNG, TIFF",
-        "pdat": "2026/08/21"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Distinct extracellular matrix states uncouple collagen accumulation from pathological fibrosis in Duchenne muscular dystrophy shows spatial signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "muscle fibrosis spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:02.188001+00:00",
-      "provenance": {
-        "source_id": "GSE343269",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Restrictive Cardiomyopathy in a Mouse Model of Progeria Can be Significantly Improved by In Vivo Gene Editing",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE343640",
-      "license": "NCBI public repository",
-      "modality": "transcriptomics",
-      "key_metadata": {
-        "accession": "GSE343640",
-        "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 48,
-        "suppfile": "CSV, TXT",
-        "pdat": "2026/08/26"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Restrictive Cardiomyopathy in a Mouse Model of Progeria Can be Significantly Improved by In Vivo Gene Editing shows transcriptomics signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "muscle fibrosis spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:02.186547+00:00",
-      "provenance": {
-        "source_id": "GSE343640",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Smooth muscle-derived resident vascular adventitial progenitor cell contribution to cardiac fibrosis and inflammation is dependent on KLF4 [Spatial Transcriptomics]",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262569",
-      "license": "NCBI public repository",
-      "modality": "single-cell + spatial",
-      "key_metadata": {
-        "accession": "GSE262569",
+        "accession": "GSE347790",
         "taxon": "Mus musculus",
         "gds_type": "Other",
-        "sample_count": 2,
-        "suppfile": "CSV, JPG, JSON, PNG",
-        "pdat": "2026/08/31"
+        "sample_count": 12,
+        "suppfile": "H5, JSON, PARQUET, RDS, TIFF",
+        "pdat": "2026/10/07"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Smooth muscle-derived resident vascular adventitial progenitor cell contribution to cardiac fibrosis and inflammation is dependent on KLF4 [Spatial Transcriptomics] shows single-cell + spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Xenium spatial transcriptomic analysis of MafB-dependent cellular niches in bleomycin-induced pulmonary fibrosis shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "muscle fibrosis spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:02.184418+00:00",
+      "collected_at": "2026-11-01T21:01:58.912605+00:00",
       "provenance": {
-        "source_id": "GSE262569",
+        "source_id": "GSE347790",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
+      "risk_signals": []
     },
     {
-      "title": "Spatial Transcriptomics reveals cellular heterogeneity and microenvironments in kidney disease progression",
+      "title": "The nail mesenchyme creates a regeneration-specific ligand environment that orchestrates mammalian regeneration versus fibrotic wound healing",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE301168",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326776",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE301168",
+        "accession": "GSE326776",
         "taxon": "Mus musculus",
         "gds_type": "Other",
-        "sample_count": 4,
-        "suppfile": "CSV, JPG, JSON, MTX, PNG, TSV",
-        "pdat": "2026/09/01"
+        "sample_count": 98,
+        "suppfile": "CSV, H5, PARQUET, TIFF, XLSX",
+        "pdat": "2026/10/26"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Spatial Transcriptomics reveals cellular heterogeneity and microenvironments in kidney disease progression shows spatial signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: The nail mesenchyme creates a regeneration-specific ligand environment that orchestrates mammalian regeneration versus fibrotic wound healing shows spatial signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "muscle fibrosis spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:02.183457+00:00",
+      "collected_at": "2026-11-01T21:01:58.911665+00:00",
       "provenance": {
-        "source_id": "GSE301168",
+        "source_id": "GSE326776",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
     },
     {
-      "title": "Single-Cell Transcriptomics Reveals Ovarian Aging and Senescent Cell Accumulation underlying the Estropausal Transition in Mice",
+      "title": "Integrative Multi-omics Analysis Reveals Molecular Signatures of Age-Related Decline in Vervet Leg Skeletal Muscle",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE267729",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE348810",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE348810",
+        "taxon": "Chlorocebus sabaeus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 29,
+        "suppfile": "XLSX",
+        "pdat": "2026/10/05"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: Integrative Multi-omics Analysis Reveals Molecular Signatures of Age-Related Decline in Vervet Leg Skeletal Muscle shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "frailty multi-omics",
+      "collected_at": "2026-11-01T21:01:57.096141+00:00",
+      "provenance": {
+        "source_id": "GSE348810",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "An integrative transcriptomic atlas of ALS and aging skeletal muscle defines shared and distinct molecular programs of degeneration",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328462",
+      "license": "NCBI public repository",
+      "modality": "mixed",
+      "key_metadata": {
+        "accession": "GSE328462",
+        "taxon": "Mus musculus",
+        "gds_type": "Expression profiling by high throughput sequencing",
+        "sample_count": 10,
+        "suppfile": "RDS",
+        "pdat": "2026/10/15"
+      },
+      "raw_file_availability": "yes",
+      "score": 4,
+      "why_it_matters": "Promising but needs QC: An integrative transcriptomic atlas of ALS and aging skeletal muscle defines shared and distinct molecular programs of degeneration shows mixed signals and should be checked before ingestion.",
+      "next_action": "Run QC notebook, then decide whether to ingest.",
+      "query": "aging muscle atlas",
+      "collected_at": "2026-11-01T21:01:55.528803+00:00",
+      "provenance": {
+        "source_id": "GSE328462",
+        "api": "ncbi.nlm.nih.gov/entrez/eutils"
+      },
+      "risk_signals": []
+    },
+    {
+      "title": "Single-cell atlas of basal and learning-induced transcriptional dynamics underlying hippocampal aging and memory decline",
+      "source": "GEO",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE322795",
       "license": "NCBI public repository",
       "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE267729",
+        "accession": "GSE322795",
         "taxon": "Mus musculus",
         "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 18,
-        "suppfile": "MTX, TSV",
-        "pdat": "2026/07/01"
+        "sample_count": 135,
+        "suppfile": "RDS",
+        "pdat": "2026/10/20"
       },
       "raw_file_availability": "yes",
       "score": 4,
-      "why_it_matters": "Promising but needs QC: Single-Cell Transcriptomics Reveals Ovarian Aging and Senescent Cell Accumulation underlying the Estropausal Transition in Mice shows single-cell signals and should be checked before ingestion.",
+      "why_it_matters": "Promising but needs QC: Single-cell atlas of basal and learning-induced transcriptional dynamics underlying hippocampal aging and memory decline shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:55.471222+00:00",
+      "collected_at": "2026-11-01T21:01:55.528337+00:00",
       "provenance": {
-        "source_id": "GSE267729",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Comprehensive transcriptomic profiling reveals impaired polyamine metabolism as a contributor to age-related muscle decline.",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308816",
-      "license": "NCBI public repository",
-      "modality": "protein-design",
-      "key_metadata": {
-        "accession": "GSE308816",
-        "taxon": "Mus musculus",
-        "gds_type": "Other",
-        "sample_count": 4,
-        "suppfile": "H5, JSON, TIFF",
-        "pdat": "2026/07/13"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Comprehensive transcriptomic profiling reveals impaired polyamine metabolism as a contributor to age-related muscle decline. shows protein-design signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:55.470467+00:00",
-      "provenance": {
-        "source_id": "GSE308816",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "Spatiotemporal transcriptomic niches of complement pathway and serine protease inhibitor activation in aging and infection",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE283283",
-      "license": "NCBI public repository",
-      "modality": "protein-design",
-      "key_metadata": {
-        "accession": "GSE283283",
-        "taxon": "Mus musculus",
-        "gds_type": "Other",
-        "sample_count": 168,
-        "suppfile": "CSV, GEF, H5, JPG, JSON, PNG, TIFF, TXT",
-        "pdat": "2026/08/13"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: Spatiotemporal transcriptomic niches of complement pathway and serine protease inhibitor activation in aging and infection shows protein-design signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:55.468492+00:00",
-      "provenance": {
-        "source_id": "GSE283283",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": []
-    },
-    {
-      "title": "In situ fate mapping identifies the neonatal origin of platelet-biased hematopoietic stem cells",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE307390",
-      "license": "NCBI public repository",
-      "modality": "single-cell",
-      "key_metadata": {
-        "accession": "GSE307390",
-        "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 24,
-        "suppfile": "CSV, MTX, RDS, TSV, TXT",
-        "pdat": "2026/09/01"
-      },
-      "raw_file_availability": "yes",
-      "score": 4,
-      "why_it_matters": "Promising but needs QC: In situ fate mapping identifies the neonatal origin of platelet-biased hematopoietic stem cells shows single-cell signals and should be checked before ingestion.",
-      "next_action": "Run QC notebook, then decide whether to ingest.",
-      "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:55.467480+00:00",
-      "provenance": {
-        "source_id": "GSE307390",
+        "source_id": "GSE322795",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": []
@@ -2106,7 +2488,7 @@
       "modality": "single-cell",
       "key_metadata": {
         "id": "longevity-db/human-muscle-aging-atlas-snRNAseq",
-        "downloads": 255,
+        "downloads": 123,
         "likes": 0,
         "tags": [
           "annotations_creators:found",
@@ -2142,14 +2524,14 @@
         ],
         "file_count": 0,
         "raw_files": [],
-        "description": "Human Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset 1. Data Overview This dataset provides single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the human skeletal muscle across different age groups. It serves as a rich resource for investigating cell-type specific gene expression changes and cellular composition shifts that occur during the aging process in a critical human tissue. The original data was sourced from the Human… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/human-muscle-aging-atlas-snRNAseq."
+        "description": "Human Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset 1. Data Overview This dataset provides single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the human skeletal muscle across different age groups. It serves as a rich resource for investigating cell-type specific gene expression changes and cellular composition shifts that occur during the aging process in a critical human tissue. The original data was sourced from the… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/human-muscle-aging-atlas-snRNAseq."
       },
       "raw_file_availability": "no",
       "score": 4,
       "why_it_matters": "Promising but needs QC: longevity-db/human-muscle-aging-atlas-snRNAseq shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:43.648710+00:00",
+      "collected_at": "2026-11-01T21:01:45.300393+00:00",
       "provenance": {
         "source_id": "longevity-db/human-muscle-aging-atlas-snRNAseq",
         "api": "huggingface.co/api/datasets"
@@ -2177,7 +2559,7 @@
       "why_it_matters": "Promising but needs QC: Aged muscle stem cells epigenetically drive the expansion of mesenchymal progenitors [single cell RNA-Seq] shows transcriptomics signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "sarcopenia single-cell",
-      "collected_at": "2026-09-03T21:02:32.304551+00:00",
+      "collected_at": "2026-11-01T21:01:36.268846+00:00",
       "provenance": {
         "source_id": "GSE282315",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2203,7 +2585,7 @@
       "why_it_matters": "Promising but needs QC: IGF2 deficiency induces sarcopenia and muscle functional decline shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "sarcopenia single-cell",
-      "collected_at": "2026-09-03T21:02:32.303778+00:00",
+      "collected_at": "2026-11-01T21:01:36.268100+00:00",
       "provenance": {
         "source_id": "GSE281658",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2229,7 +2611,7 @@
       "why_it_matters": "Promising but needs QC: Estrogen signaling in PDGFRα+ cells positively regulates cortical bone metabolism via IGFBP5 in female mice. shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "sarcopenia single-cell",
-      "collected_at": "2026-09-03T21:02:32.302644+00:00",
+      "collected_at": "2026-11-01T21:01:36.266968+00:00",
       "provenance": {
         "source_id": "GSE279051",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2255,7 +2637,7 @@
       "why_it_matters": "Promising but needs QC: Association between elevated expression of GDF15/GFRAL and sarcopenia risk shows single-cell signals and should be checked before ingestion.",
       "next_action": "Run QC notebook, then decide whether to ingest.",
       "query": "sarcopenia single-cell",
-      "collected_at": "2026-09-03T21:02:32.301475+00:00",
+      "collected_at": "2026-11-01T21:01:36.265793+00:00",
       "provenance": {
         "source_id": "GSE316316",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2281,7 +2663,7 @@
       "why_it_matters": "Archive-only signal for now: Spatially-guided metabolomics profiling of heterogeneous human tumor tissues does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "spatial metabolomics",
-      "collected_at": "2026-09-03T21:04:18.787940+00:00",
+      "collected_at": "2026-11-01T21:02:39.262595+00:00",
       "provenance": {
         "source_id": "GSE312327",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2291,27 +2673,27 @@
       ]
     },
     {
-      "title": "Treatment of cholangiocarcinoma using humanized monoclonal antibodies targeting Claudin-1 (CCA patient tissues)",
+      "title": "Visium HD spatial transcriptomics of human liver in alcohol-associated hepatitis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE262162",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE346245",
       "license": "NCBI public repository",
-      "modality": "protein-design",
+      "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE262162",
+        "accession": "GSE346245",
         "taxon": "Homo sapiens",
         "gds_type": "Other",
-        "sample_count": 2,
-        "suppfile": "CSV, RDS, TAR",
-        "pdat": "2026/06/08"
+        "sample_count": 1,
+        "suppfile": "CLOUPE, CSV, H5, HTML, JPG, JSON, PARQUET, PNG, TIFF",
+        "pdat": "2026/10/22"
       },
       "raw_file_availability": "yes",
       "score": 3,
-      "why_it_matters": "Archive-only signal for now: Treatment of cholangiocarcinoma using humanized monoclonal antibodies targeting Claudin-1 (CCA patient tissues) does not clear the immediate intake threshold.",
+      "why_it_matters": "Archive-only signal for now: Visium HD spatial transcriptomics of human liver in alcohol-associated hepatitis does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "extracellular matrix multiomics",
-      "collected_at": "2026-09-03T21:03:31.715598+00:00",
+      "query": "Visium HD",
+      "collected_at": "2026-11-01T21:02:35.560350+00:00",
       "provenance": {
-        "source_id": "GSE262162",
+        "source_id": "GSE346245",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -2319,27 +2701,27 @@
       ]
     },
     {
-      "title": "Gene expression profile at single cell level of three different donors of fibroblasts from patient with idiopathic pulmonary fibrosis (Lonza) treated with FGF2 and sFGFR3-Fc",
+      "title": "An attention-based framework for interpretation of cell-cell interactions from spatial transcriptomics",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE312651",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE351148",
       "license": "NCBI public repository",
-      "modality": "single-cell",
+      "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE312651",
+        "accession": "GSE351148",
         "taxon": "Homo sapiens",
-        "gds_type": "Expression profiling by high throughput sequencing",
+        "gds_type": "Other",
         "sample_count": 1,
-        "suppfile": "TAR, XLSX",
-        "pdat": "2026/09/02"
+        "suppfile": "CSV, MTX, TSV",
+        "pdat": "2026/10/16"
       },
       "raw_file_availability": "yes",
       "score": 3,
-      "why_it_matters": "Archive-only signal for now: Gene expression profile at single cell level of three different donors of fibroblasts from patient with idiopathic pulmonary fibrosis (Lonza) treated with FGF2 and sFGFR3-Fc does not clear the immediate intake threshold.",
+      "why_it_matters": "Archive-only signal for now: An attention-based framework for interpretation of cell-cell interactions from spatial transcriptomics does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "lung fibrosis single-cell",
-      "collected_at": "2026-09-03T21:03:24.886745+00:00",
+      "query": "CosMx dataset",
+      "collected_at": "2026-11-01T21:02:25.532571+00:00",
       "provenance": {
-        "source_id": "GSE312651",
+        "source_id": "GSE351148",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -2365,7 +2747,7 @@
       "why_it_matters": "Archive-only signal for now: Targeting Modulated Vascular Smooth Muscle Cells in Atherosclerosis via FAP-Directed Immunotherapy [SMC_Foam_Cell does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "FAP spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:17.941385+00:00",
+      "collected_at": "2026-11-01T21:02:06.408012+00:00",
       "provenance": {
         "source_id": "GSE314600",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2382,7 +2764,7 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "tyang816/ProteinGym_v1",
-        "downloads": 45,
+        "downloads": 65,
         "likes": 0,
         "tags": [
           "license:apache-2.0",
@@ -2390,14 +2772,14 @@
         ],
         "file_count": 0,
         "raw_files": [],
-        "description": "📑 Github https://github.com/tyang816/ProtSSN 🙌 Citation Please cite our work if you have used our code or data for dry experiment testing/wet experiment directed evolution. We are pleased to see improvements in the subsequent work. @article{tan2023protssn, title={Semantical and Topological Protein Encoding Toward Enhanced Bioactivity and Thermostability}, author={Tan, Yang and Zhou, Bingxin and Zheng, Lirong and Fan, Guisheng and Hong, Liang}, journal={bioRxiv}… See the full description on the dataset page: https://huggingface.co/datasets/tyang816/ProteinGym_v1."
+        "description": "📑 Github https://github.com/tyang816/ProtSSN 🙌 Citation Please cite our work if you have used our code or data for dry experiment testing/wet experiment directed evolution. We are pleased to see improvements in the subsequent work. @article{tan2023protssn, title={Semantical and Topological Protein Encoding Toward Enhanced Bioactivity and Thermostability}, author={Tan, Yang and Zhou, Bingxin and Zheng, Lirong and Fan, Guisheng and Hong, Liang}… See the full description on the dataset page: https://huggingface.co/datasets/tyang816/ProteinGym_v1."
       },
       "raw_file_availability": "no",
       "score": 2,
       "why_it_matters": "Archive-only signal for now: tyang816/ProteinGym_v1 does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "ProteinGym",
-      "collected_at": "2026-09-03T21:05:20.965875+00:00",
+      "collected_at": "2026-11-01T21:03:26.494090+00:00",
       "provenance": {
         "source_id": "tyang816/ProteinGym_v1",
         "api": "huggingface.co/api/datasets"
@@ -2414,8 +2796,8 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "OATML-Markslab/ProteinGym_v1",
-        "downloads": 1397,
-        "likes": 8,
+        "downloads": 6757,
+        "likes": 9,
         "tags": [
           "size_categories:1M<n<10M",
           "region:us",
@@ -2432,7 +2814,7 @@
       "why_it_matters": "Archive-only signal for now: OATML-Markslab/ProteinGym_v1 does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "ProteinGym",
-      "collected_at": "2026-09-03T21:05:10.744981+00:00",
+      "collected_at": "2026-11-01T21:03:18.017833+00:00",
       "provenance": {
         "source_id": "OATML-Markslab/ProteinGym_v1",
         "api": "huggingface.co/api/datasets"
@@ -2449,7 +2831,7 @@
       "modality": "single-cell",
       "key_metadata": {
         "id": "longevity-db/mouse-muscle-aging-atlas-snRNAseq",
-        "downloads": 98,
+        "downloads": 158,
         "likes": 0,
         "tags": [
           "annotations_creators:found",
@@ -2484,14 +2866,14 @@
         ],
         "file_count": 0,
         "raw_files": [],
-        "description": "Mouse Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset Dataset Overview This dataset comprises single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the mouse skeletal muscle across different age groups. It serves as a valuable resource for investigating cell-type-specific gene expression changes and cellular composition shifts that occur during the aging process in a crucial mammalian model system. The data was sourced from the… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/mouse-muscle-aging-atlas-snRNAseq."
+        "description": "Mouse Skeletal Muscle Aging Atlas (sn/scRNA-seq) Dataset Dataset Overview This dataset comprises single-nucleus and single-cell RNA sequencing (sn/scRNA-seq) data specifically focusing on the mouse skeletal muscle across different age groups. It serves as a valuable resource for investigating cell-type-specific gene expression changes and cellular composition shifts that occur during the aging process in a crucial mammalian model system. The data was sourced from… See the full description on the dataset page: https://huggingface.co/datasets/longevity-db/mouse-muscle-aging-atlas-snRNAseq."
       },
       "raw_file_availability": "no",
       "score": 2,
       "why_it_matters": "Archive-only signal for now: longevity-db/mouse-muscle-aging-atlas-snRNAseq does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:53.648863+00:00",
+      "collected_at": "2026-11-01T21:01:53.887365+00:00",
       "provenance": {
         "source_id": "longevity-db/mouse-muscle-aging-atlas-snRNAseq",
         "api": "huggingface.co/api/datasets"
@@ -2501,55 +2883,27 @@
       ]
     },
     {
-      "title": "Spatial transcriptomics for CD36/FABP5/PPARδ signaling axis defines spontaneously proliferating cardiomyocytes in neonatal stages",
+      "title": "RAI1 loss produces cell type-specific transcriptomic, circuit, and behavioural consequences across mPFC GABAergic interneuron subtypes",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE290093",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE350715",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE290093",
-        "taxon": "Mus musculus",
-        "gds_type": "Other",
-        "sample_count": 1,
-        "suppfile": "CSV",
-        "pdat": "2026/02/20"
-      },
-      "raw_file_availability": "yes",
-      "score": 1,
-      "why_it_matters": "Archive-only signal for now: Spatial transcriptomics for CD36/FABP5/PPARδ signaling axis defines spontaneously proliferating cardiomyocytes in neonatal stages does not clear the immediate intake threshold.",
-      "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "spatial metabolomics",
-      "collected_at": "2026-09-03T21:04:18.789504+00:00",
-      "provenance": {
-        "source_id": "GSE290093",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "A transient epithelial plasticity state defines the developmental window for uterine gland specification [Spatial]",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331354",
-      "license": "NCBI public repository",
-      "modality": "spatial",
-      "key_metadata": {
-        "accession": "GSE331354",
+        "accession": "GSE350715",
         "taxon": "Mus musculus",
         "gds_type": "Other",
         "sample_count": 2,
-        "suppfile": "H5, JSON, TIFF",
-        "pdat": "2026/08/10"
+        "suppfile": "TAR",
+        "pdat": "2026/10/18"
       },
       "raw_file_availability": "yes",
       "score": 1,
-      "why_it_matters": "Archive-only signal for now: A transient epithelial plasticity state defines the developmental window for uterine gland specification [Spatial] does not clear the immediate intake threshold.",
+      "why_it_matters": "Archive-only signal for now: RAI1 loss produces cell type-specific transcriptomic, circuit, and behavioural consequences across mPFC GABAergic interneuron subtypes does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "Visium HD",
-      "collected_at": "2026-09-03T21:04:11.258906+00:00",
+      "collected_at": "2026-11-01T21:02:35.562414+00:00",
       "provenance": {
-        "source_id": "GSE331354",
+        "source_id": "GSE350715",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -2557,55 +2911,27 @@
       ]
     },
     {
-      "title": "A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states [snRNA-seq]",
+      "title": "Single-cell RNA sequencing of bronchoalveolar lavage cells from wild-type MafB fl/fl and Cx3cr1-CreER; MafB fl/fl mice with or without bleomycin-induced lung fibrosis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE345405",
-      "license": "NCBI public repository",
-      "modality": "spatial",
-      "key_metadata": {
-        "accession": "GSE345405",
-        "taxon": "Mesocricetus auratus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 2,
-        "suppfile": "CSV, MTX, TSV, XLSX",
-        "pdat": "2026/09/02"
-      },
-      "raw_file_availability": "yes",
-      "score": 1,
-      "why_it_matters": "Archive-only signal for now: A single-nucleus and spatial transcriptomic atlas of the Syrian hamster preoptic area across hibernation states [snRNA-seq] does not clear the immediate intake threshold.",
-      "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "Xenium atlas",
-      "collected_at": "2026-09-03T21:03:53.206321+00:00",
-      "provenance": {
-        "source_id": "GSE345405",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "Loss of Foxf1 in lung pericytes increases the severity of pulmonary fibrosis",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE331327",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE349289",
       "license": "NCBI public repository",
       "modality": "single-cell",
       "key_metadata": {
-        "accession": "GSE331327",
+        "accession": "GSE349289",
         "taxon": "Mus musculus",
         "gds_type": "Expression profiling by high throughput sequencing",
         "sample_count": 2,
         "suppfile": "MTX, TSV",
-        "pdat": "2026/08/19"
+        "pdat": "2026/10/07"
       },
       "raw_file_availability": "yes",
       "score": 1,
-      "why_it_matters": "Archive-only signal for now: Loss of Foxf1 in lung pericytes increases the severity of pulmonary fibrosis does not clear the immediate intake threshold.",
+      "why_it_matters": "Archive-only signal for now: Single-cell RNA sequencing of bronchoalveolar lavage cells from wild-type MafB fl/fl and Cx3cr1-CreER; MafB fl/fl mice with or without bleomycin-induced lung fibrosis does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "lung fibrosis single-cell",
-      "collected_at": "2026-09-03T21:03:24.888771+00:00",
+      "collected_at": "2026-11-01T21:02:10.058406+00:00",
       "provenance": {
-        "source_id": "GSE331327",
+        "source_id": "GSE349289",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -2613,83 +2939,27 @@
       ]
     },
     {
-      "title": "Zinc Restrains Multicellular Remodeling in Fibrotic Lung Disease",
+      "title": "Spatial transcriptomics reveals suppression of fibroblast-to-myofibroblast transition by Bazedoxifene in murine cutaneous fibrosis",
       "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE335923",
-      "license": "NCBI public repository",
-      "modality": "mixed",
-      "key_metadata": {
-        "accession": "GSE335923",
-        "taxon": "Mus musculus",
-        "gds_type": "Expression profiling by high throughput sequencing",
-        "sample_count": 1,
-        "suppfile": "MTX, RDS, TSV",
-        "pdat": "2026/08/27"
-      },
-      "raw_file_availability": "yes",
-      "score": 1,
-      "why_it_matters": "Archive-only signal for now: Zinc Restrains Multicellular Remodeling in Fibrotic Lung Disease does not clear the immediate intake threshold.",
-      "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "lung fibrosis single-cell",
-      "collected_at": "2026-09-03T21:03:24.887627+00:00",
-      "provenance": {
-        "source_id": "GSE335923",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "Persistent Lung Inflammation and Fibrosis After Mouse-Adapted Omicron BA.1 Infection",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE337537",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326315",
       "license": "NCBI public repository",
       "modality": "spatial",
       "key_metadata": {
-        "accession": "GSE337537",
+        "accession": "GSE326315",
         "taxon": "Mus musculus",
         "gds_type": "Other",
         "sample_count": 2,
-        "suppfile": "CSV, JPG, JSON, MTX, PNG, TSV",
-        "pdat": "2026/09/01"
+        "suppfile": "TAR",
+        "pdat": "2026/10/07"
       },
       "raw_file_availability": "yes",
       "score": 1,
-      "why_it_matters": "Archive-only signal for now: Persistent Lung Inflammation and Fibrosis After Mouse-Adapted Omicron BA.1 Infection does not clear the immediate intake threshold.",
+      "why_it_matters": "Archive-only signal for now: Spatial transcriptomics reveals suppression of fibroblast-to-myofibroblast transition by Bazedoxifene in murine cutaneous fibrosis does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "muscle fibrosis spatial transcriptomics",
-      "collected_at": "2026-09-03T21:03:02.182669+00:00",
+      "collected_at": "2026-11-01T21:01:58.912924+00:00",
       "provenance": {
-        "source_id": "GSE337537",
-        "api": "ncbi.nlm.nih.gov/entrez/eutils"
-      },
-      "risk_signals": [
-        "donor count < 3 or sample count very small"
-      ]
-    },
-    {
-      "title": "Spatial Transcriptomic Atlas Reveals that FOXO3-Mediated Mitochondrial Dynamics Imbalance Drives Premature Ovarian Insufficiency in Mice",
-      "source": "GEO",
-      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334364",
-      "license": "NCBI public repository",
-      "modality": "spatial",
-      "key_metadata": {
-        "accession": "GSE334364",
-        "taxon": "Mus musculus",
-        "gds_type": "Other",
-        "sample_count": 1,
-        "suppfile": "H5, PARQUET, TIFF",
-        "pdat": "2026/07/15"
-      },
-      "raw_file_availability": "yes",
-      "score": 1,
-      "why_it_matters": "Archive-only signal for now: Spatial Transcriptomic Atlas Reveals that FOXO3-Mediated Mitochondrial Dynamics Imbalance Drives Premature Ovarian Insufficiency in Mice does not clear the immediate intake threshold.",
-      "next_action": "Archive the hit and keep provenance for future search.",
-      "query": "aging muscle atlas",
-      "collected_at": "2026-09-03T21:02:55.469668+00:00",
-      "provenance": {
-        "source_id": "GSE334364",
+        "source_id": "GSE326315",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
       },
       "risk_signals": [
@@ -2715,7 +2985,7 @@
       "why_it_matters": "Archive-only signal for now: A Mechanistic basis of fast myofiber vulnerability in neuromuscular diseases [snRNA-seq] does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "sarcopenia single-cell",
-      "collected_at": "2026-09-03T21:02:32.305464+00:00",
+      "collected_at": "2026-11-01T21:01:36.269922+00:00",
       "provenance": {
         "source_id": "GSE298187",
         "api": "ncbi.nlm.nih.gov/entrez/eutils"
@@ -2732,7 +3002,7 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "genbio-ai/ProteinGYM-DMS",
-        "downloads": 739,
+        "downloads": 1659,
         "likes": 1,
         "tags": [
           "region:us"
@@ -2746,7 +3016,7 @@
       "why_it_matters": "Archive-only signal for now: genbio-ai/ProteinGYM-DMS does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "ProteinGym",
-      "collected_at": "2026-09-03T21:05:31.301020+00:00",
+      "collected_at": "2026-11-01T21:03:34.989878+00:00",
       "provenance": {
         "source_id": "genbio-ai/ProteinGYM-DMS",
         "api": "huggingface.co/api/datasets"
@@ -2763,7 +3033,7 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "ICML2022/ProteinGym",
-        "downloads": 874,
+        "downloads": 595,
         "likes": 12,
         "tags": [
           "arxiv:2205.13760",
@@ -2771,14 +3041,14 @@
         ],
         "file_count": 0,
         "raw_files": [],
-        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark corresponds to… See the full description on the dataset page: https://huggingface.co/datasets/ICML2022/ProteinGym."
+        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark… See the full description on the dataset page: https://huggingface.co/datasets/ICML2022/ProteinGym."
       },
       "raw_file_availability": "no",
       "score": 0,
       "why_it_matters": "Archive-only signal for now: ICML2022/ProteinGym does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "ProteinGym",
-      "collected_at": "2026-09-03T21:05:00.261643+00:00",
+      "collected_at": "2026-11-01T21:03:09.606767+00:00",
       "provenance": {
         "source_id": "ICML2022/ProteinGym",
         "api": "huggingface.co/api/datasets"
@@ -2795,7 +3065,7 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "OATML-Markslab/ProteinGym_v0.1",
-        "downloads": 1290,
+        "downloads": 2981,
         "likes": 15,
         "tags": [
           "arxiv:2205.13760",
@@ -2803,14 +3073,14 @@
         ],
         "file_count": 0,
         "raw_files": [],
-        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark corresponds to… See the full description on the dataset page: https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v0.1."
+        "description": "ProteinGym benchmarks overview ProteinGym is an extensive set of Deep Mutational Scanning (DMS) assays curated to enable thorough comparisons of various mutation effect predictors indifferent regimes. It is comprised of two benchmarks: 1) a substitution benchmark which consists of the experimental characterisation of ∼1.5M missense variants across 87 DMS assays 2) an indel benchmark that includes ∼300k mutants across 7 DMS assays. Each processed file in each benchmark… See the full description on the dataset page: https://huggingface.co/datasets/OATML-Markslab/ProteinGym_v0.1."
       },
       "raw_file_availability": "no",
       "score": 0,
       "why_it_matters": "Archive-only signal for now: OATML-Markslab/ProteinGym_v0.1 does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "ProteinGym",
-      "collected_at": "2026-09-03T21:04:49.826866+00:00",
+      "collected_at": "2026-11-01T21:03:01.427141+00:00",
       "provenance": {
         "source_id": "OATML-Markslab/ProteinGym_v0.1",
         "api": "huggingface.co/api/datasets"
@@ -2827,7 +3097,7 @@
       "modality": "protein-design",
       "key_metadata": {
         "id": "Jianwen/protein_ligand_cofolding_posebusters",
-        "downloads": 180,
+        "downloads": 724,
         "likes": 0,
         "tags": [
           "task_categories:reinforcement-learning",
@@ -2844,7 +3114,7 @@
       "why_it_matters": "Archive-only signal for now: Jianwen/protein_ligand_cofolding_posebusters does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "protein cofold",
-      "collected_at": "2026-09-03T21:04:32.299133+00:00",
+      "collected_at": "2026-11-01T21:02:49.651509+00:00",
       "provenance": {
         "source_id": "Jianwen/protein_ligand_cofolding_posebusters",
         "api": "huggingface.co/api/datasets"
@@ -2861,7 +3131,7 @@
       "modality": "spatial",
       "key_metadata": {
         "id": "SharkieJones/celldega_Visium-HD_hCRC",
-        "downloads": 7,
+        "downloads": 18,
         "likes": 0,
         "tags": [
           "region:us"
@@ -2875,7 +3145,7 @@
       "why_it_matters": "Archive-only signal for now: SharkieJones/celldega_Visium-HD_hCRC does not clear the immediate intake threshold.",
       "next_action": "Archive the hit and keep provenance for future search.",
       "query": "Visium HD",
-      "collected_at": "2026-09-03T21:04:08.396029+00:00",
+      "collected_at": "2026-11-01T21:02:34.459517+00:00",
       "provenance": {
         "source_id": "SharkieJones/celldega_Visium-HD_hCRC",
         "api": "huggingface.co/api/datasets"
