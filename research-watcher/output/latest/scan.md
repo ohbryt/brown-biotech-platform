@@ -1,7 +1,7 @@
 # Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-11-01T21:06:45.173356+00:00
+**Generated:** 2026-11-02T21:03:27.955106+00:00
 
 ## Top hits
 ### 1. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
