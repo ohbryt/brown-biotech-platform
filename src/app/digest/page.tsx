@@ -67,8 +67,8 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
-{
+  },
+  {
     id: 156,
     date: "2026-11-14",
     title: "[Anti-Fibrotic and Renal-Stress Lane + Chronic Allograft Dysfunction as an Immune-Fibrotic Niche Problem + Conserved Immune and Stromal Populations Across Mouse and Human Allograft with Fibrosis-Driving Pathways and Chronic-Rejection Metabolic Signatures] GSE300341 'Spatial multi-omics atlas reveals immune-fibrotic niches driving chronic renal allograft dysfunction in mouse and human' (Homo sapiens; Mus musculus, score 9, n=14, pdat 2026/11/12 = FRESHEST NOVEL accession band of the day, raw TAR, linked PMID 42990767) + [Refractory-Cancer Lane + SUMO Inhibition Plus CD40 Agonism as a Non-Redundant Immunotherapy Combination in Aggressive Orthotopic PDAC + Interferon-Mediated Macrophage Activation and Enhanced Cancer-Specific MHC-I Expression as the Mechanism + Survival Benefit Mediated by Macrophages] GSE312466 'SUMO Inhibition Plus CD40 Agonism Increases Anti-Tumor Immunogenicity Through Interferon Mediated Macrophage Activation [scRNA-seq]' (Mus musculus, score 4, n=8, pdat 2026/11/12, linked PMID 41638871) + [Clinical and Translational Lane + IL-10 as a Context-Dependent Immunomodulator Rather Than a Suppressor + Half-Life-Extended IL-10-Fc Restoring CD8 Effector Fitness and Reprogramming the Myeloid Compartment + Deeper and More Durable Remission With Ibrutinib Combination Than With Either Monotherapy] GSE353953 'IL-10 Limits T-Cell Exhaustion and Reprograms Monocytes to Enhance Immune Control and Ibrutinib Efficacy in CLL' (Mus musculus, score 4, n=16, pdat 2026/11/12) are three NOVEL signals whose shared thesis is THAT THE THERAPEUTIC UNIT IS A COMBINATION WITH AN ATTACHED MECHANISM, NOT A SINGLE AGENT - a niche-level fibrosis map in transplant tissue, a two-drug immunotherapy pairing whose benefit is macrophage-borne, and a cytokine reprogramming the innate compartment while the adaptive compartment is still treated with a BTK inhibitor",
@@ -101,8 +101,8 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
-{
+  },
+  {
     id: 155,
     date: "2026-11-13",
     title: "[AI-Drug-Discovery and Target-Nomination Lane + MYC/EOMES/CRX/PAX6 Four-Way Perturbation Series in Group 3 Medulloblastoma as a Combinatorial Transcription-Factor Dissociation Design + 80-Sample In Vivo Transplant Arm That Separates Cell-Line State from Xenograft State] GSE346992 'Effect of MYC, EOMES, CRX and PAX6 perturbation on gene expression in Group 3 medulloblastoma cell lines [RNA-seq]' (Homo sapiens, score 9, n=80, pdat 2026/11/11 = FRESHEST NOVEL accession band of the day, raw TXT) + [Epitranscriptomics and Multi-Omics Lane + YB-1 as a Proposed Reader of mRNA 5-Methylcytosine + YBX1/YBX3 Double Knockout with Exogenous Rescue Arm as a Causal Map of m5C Sites in poly(A)+ RNA] GSE353388 'Bisulfite sequencing of poly(A)+ RNA from wild-type, YBX1/YBX3 double-knockout and rescued HEK293T cells' (Homo sapiens, score 9, n=6, pdat 2026/11/11, raw TSV) + [Anti-Fibrotic Lane + Longitudinal Single-Cell RNA-seq of Spontaneously Resolving Mouse Lung Fibrosis + Resolution as an Active Program of Aberrant-Cell Clearance, Collagen Removal and Alveolar Regeneration Rather Than a Passive Absence of Scar] GSE328925 'Longitudinal Single-Cell RNA-seq Profiling of Lung Cell Phenotypes, Signaling, and Cross-talk During Fibrosis Resolution' (Mus musculus, score 6, n=4, pdat 2026/11/11, raw MTX + TSV) are three NOVEL signals whose shared thesis is THAT THE USEFUL AXIS IS THE UNMEASURED ONE - each dataset is built to observe a transition that the field currently treats as a black box (which transcription-factor combination sustains Group 3 medulloblastoma, whether an mRNA methylation reader is real, and what cellular cross-talk actually drives fibrosis RESOLUTION rather than fibrosis onset), and in each case the commercially actionable output is a named mechanism with an in-hand perturbation rather than a descriptive atlas",
@@ -133,8 +133,8 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
-{
+  },
+  {
     id: 154,
     date: "2026-11-12",
     title: "[Refractory-Cancer Lane + TIGIT/PD-L1 Co-Blockade Requires Fc-Gamma-Receptor-Loaded cDC1 to Produce Non-Exhausted CD8+ T Cells + CD28 Prerequisite for CD226 Upregulation + cDC-Derived PVR as the Ligand That Licenses CD226-Mediated Non-Exhaustion] GSE327452 'TIGIT and PD-L1 co-blockade promotes dendritic cell-dependent production of non-exhausted CD8+ T cells' (Mus musculus, score 4, n=12, pdat 2026/11/10, raw CSV) + [Anti-Fibrotic and Renal-Stress Lane + OXSR1 as the Oxidative-Stress Kinase That Sets the Hypoxic Proximal-Tubule Transcriptional State + Wild-Type versus OXSR1-Knockdown HK-2 RNA-seq as a Six-Sample Causal Anchor for Hypoxia-Induced Kidney Injury] GSE353479 'Role of OXSR1 in Hypoxic HK-2 Cells: Transcriptomic Analysis and Validation in Wild-Type and OXSR1-Knockdown Groups' (Homo sapiens, score 9, n=6, pdat 2026/11/10, raw XLSX) + [Longevity and Photo-Aging Lane + Cyclocarya paliurus Leaf-Extract Cream as a Multi-Layer Anti-Photo-Aging Intervention + Joint Readout Across Mouse Skin, UVB-Exposed Human Keratinocytes, LPS-Stimulated Macrophages, Skin Transcriptomics and Macrophage Lipidomics] GSE353510 'Cyclocarya paliurus leaf extract cream attenuates UV-associated skin changes in mice: an integrative pharmacological study' (Mus musculus, score 4, n=15, pdat 2026/11/10, raw XLSX) are three NOVEL signals whose shared thesis is THAT THE USEFUL UNIT IS THE MECHANISM, NOT THE PRODUCT - a checkpoint-specific myeloid state that licenses a non-exhausted CD8+ pool, one oxidative-stress kinase that sets a hypoxic tubular transcriptional state, and one botanical extract profile that simultaneously moves transcriptomic and lipidomic layers of photo-aging",
