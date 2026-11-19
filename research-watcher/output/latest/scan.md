@@ -1,7 +1,7 @@
 # Brown Biotech research watcher — Monday scan
 
 **Axis:** aging–fibrosis–metabolism–single-cell/spatial–clinical translation
-**Generated:** 2026-11-02T21:03:27.955106+00:00
+**Generated:** 2026-11-19T21:05:58.578780+00:00
 
 ## Top hits
 ### 1. Single-cell RNA sequencing of CD45+ immune cells across primary tumor, sentinel tumor-draining lymph node, and axillary lymph node in treatment-naive triple-negative breast cancer
@@ -28,17 +28,17 @@
 - Query: multiplex imaging spatial
 - URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE328422
 
-### 3. Spatial transcriptomics reveals distinct cell type dynamics following opioid dependence in female mice with the common human mu-opioid receptor variant, Oprm1 A118G
+### 3. The Role and Therapeutic Targeting of Diazepam Binding Inhibitor in Epilepsy and Glioma
 - Source: GEO
 - License: NCBI public repository
 - Modality: single-cell + spatial
 - Score: 9/10
 - Raw file availability: yes
-- Key metadata: {"accession": "GSE326553", "taxon": "Mus musculus", "gds_type": "Other", "sample_count": 4, "suppfile": "CSV, RDS, TAR, TXT", "pdat": "2026/09/02"}
-- Why it matters: Strong fit for immediate Brown Biotech intake: Spatial transcriptomics reveals distinct cell type dynamics following opioid dependence in female mice with the common human mu-opioid receptor variant, Oprm1 A118G is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
+- Key metadata: {"accession": "GSE305509", "taxon": "Homo sapiens", "gds_type": "Expression profiling by high throughput sequencing", "sample_count": 15, "suppfile": "MTX, TSV", "pdat": "2026/11/08"}
+- Why it matters: Strong fit for immediate Brown Biotech intake: The Role and Therapeutic Targeting of Diazepam Binding Inhibitor in Epilepsy and Glioma is a single-cell + spatial hit with license clean (+2), raw or semi-raw files available (+2), single-cell + spatial pairing (+3).
 - Next action: Ingest immediately and prepare a handoff brief.
-- Query: CosMx dataset
-- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326553
+- Query: Visium HD
+- URL: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE305509
 
 ## Query families
 
