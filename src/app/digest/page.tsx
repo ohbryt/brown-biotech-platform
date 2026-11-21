@@ -30,7 +30,7 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
 {
     id: 163,
@@ -67,7 +67,7 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ]
-  }
+  },
 
 {
     id: 162,
@@ -103,7 +103,7 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
 {
     id: 161,
@@ -136,7 +136,7 @@ const sampleDigests = [
       { label: "View research intelligence service", href: "/services/research-intelligence" },
       { label: "View biostatx service", href: "/services/biostatx" }
     ],
-  }
+  },
 
 {
     id: 160,
